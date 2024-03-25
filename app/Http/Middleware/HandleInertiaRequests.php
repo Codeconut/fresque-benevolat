@@ -36,6 +36,8 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'isLogged' => fn () => !!$request->user(),
+            'isAdmin' => fn () => $request->user()?->hasRole('admin'),
         ];
     }
 }
