@@ -1,7 +1,8 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
+import PassezActionAvecFresquesBenevolat from '@/Components/Sections/PassezActionAvecFresquesBenevolat.vue'
 </script>
 
 <template>
-  <AppLayout title="Accueil"> <div class="container">HOMEPAGE</div> </AppLayout>
+  <AppLayout title="Accueil"> <PassezActionAvecFresquesBenevolat /> </AppLayout>
 </template>

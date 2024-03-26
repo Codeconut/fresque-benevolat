@@ -31,9 +31,21 @@ export default {
     },
     extend: {
       colors: {
-        'jva-blue': {
-          500: '#000091',
+        'blue-france-sun-113': {
+          DEFAULT: '#000091',
+          hover: '#1212ff',
+          active: '#2323ff',
         },
+        'beige-gris-galet-975': {
+          DEFAULT: '#f9f6f2',
+          hover: '#eadecd',
+          active: '#e1ceb1',
+        },
+        // 'grey-1000': {
+        //   DEFAULT: '#ffffff',
+        //   hover: '#f6f6f6',
+        //   active: '#ededed',
+        // },
       },
       fontFamily: {
         sans: [

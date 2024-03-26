@@ -15,14 +15,14 @@ defineProps({
 </script>
 
 <template>
-  <div>
+  <div class="min-h-screen">
     <Head :title="title" />
 
     <Banner />
 
     <Header />
 
-    <div class="min-h-screen bg-[#F9F6F2]">
+    <div class="bg-beige-gris-galet-975">
       <main>
         <slot />
       </main>
