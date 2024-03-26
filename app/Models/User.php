@@ -13,6 +13,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -32,6 +33,8 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name'
     ];
 
     /**
@@ -53,6 +56,7 @@ class User extends Authenticatable implements FilamentUser
      */
     protected $appends = [
         'profile_photo_url',
+        'full_name'
     ];
 
     /**
@@ -71,5 +75,17 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->hasRole('admin');
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->profile_photo_url;
+    }
+
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+        );
     }
 }
