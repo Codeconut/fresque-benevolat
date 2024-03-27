@@ -38,8 +38,60 @@ class FresqueResource extends Resource
                     ->getOptionLabelFromRecordUsing(fn (Address $address) => "{$address->name} - {$address->full_address}")
                     ->createOptionForm([
                         Forms\Components\TextInput::make('name')
-                            ->required(),
+                            ->maxLength(255)->columnSpanFull(),
+                        Forms\Components\Select::make('geocoding')
+                            ->suffixIcon('heroicon-o-map-pin')
+                            ->columnSpanFull()
+                            ->label('Rechercher un lieu')
+                            ->searchable()
+                            ->searchPrompt('Rechercher une adresse avec api-adresse.data.gouv.fr')
+                            ->reactive()
+                            ->dehydrated(false)
+                            ->getSearchResultsUsing(function ($query) {
+                                $features = AdresseDataGouvFr::search(['q' => $query, 'limit' => 6]);
+                                return $features
+                                    ->mapWithKeys(fn ($feature) => [
+                                        $feature['properties']['label'] => $feature['properties']['label']
+                                    ])
+                                    ->toArray();
+                            })
+                            ->afterStateUpdated(function ($state, $set) {
+                                $feature = AdresseDataGouvFr::search(['q' => $state, 'limit' => 1])->first();
+                                $set('full_address', $feature['properties']['label']);
+                                $set('street', $feature['properties']['name']);
+                                $set('zip', $feature['properties']['postcode']);
+                                $set('city', $feature['properties']['city']);
+                                $set('longitude', $feature['geometry']['coordinates'][0]);
+                                $set('latitude', $feature['geometry']['coordinates'][1]);
+                            }),
+                        Forms\Components\TextInput::make('full_address')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('zip')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('city')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('street')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('latitude')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('longitude')
+                            ->required()
+                            ->maxLength(255),
                     ]),
+                Forms\Components\FileUpload::make('cover')->directory('fresques')
+                    ->image()
+                    ->maxSize(1024)
+                    ->imageEditor()
+                    ->imageEditorViewportWidth('1920')
+                    ->imageEditorViewportHeight('1080')
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                    ])
             ]);
     }
 
@@ -47,6 +99,8 @@ class FresqueResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('cover')
+                    ->square(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nom'),
                 Tables\Columns\TextColumn::make('address.name')

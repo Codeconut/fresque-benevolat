@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('fresques', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('cover')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('address_id')->nullable()->constrained();
             $table->integer('places');

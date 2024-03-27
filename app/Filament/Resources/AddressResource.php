@@ -24,7 +24,7 @@ class AddressResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('Nom du lieu')
+                Forms\Components\TextInput::make('name')
                     ->maxLength(255)->columnSpanFull(),
                 Forms\Components\Select::make('geocoding')
                     ->suffixIcon('heroicon-o-map-pin')
@@ -82,28 +82,6 @@ class AddressResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('fresques_count')
                     ->label('# Freques')->counts('fresques')
-                // Tables\Columns\TextColumn::make('zip')
-                //     ->searchable(),
-                // Tables\Columns\TextColumn::make('city')
-                //     ->searchable(),
-                // Tables\Columns\TextColumn::make('street')
-                //     ->searchable(),
-                // Tables\Columns\TextColumn::make('latitude')
-                //     ->searchable(),
-                // Tables\Columns\TextColumn::make('longitude')
-                //     ->searchable(),
-                // Tables\Columns\TextColumn::make('created_at')
-                //     ->dateTime()
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
-                // Tables\Columns\TextColumn::make('updated_at')
-                //     ->dateTime()
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
-                // Tables\Columns\TextColumn::make('deleted_at')
-                //     ->dateTime()
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

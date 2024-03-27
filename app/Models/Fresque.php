@@ -15,6 +15,7 @@ class Fresque extends Model
 
     protected $fillable = [
         'name',
+        'cover',
         'user_id',
         'places',
         'places_left',
