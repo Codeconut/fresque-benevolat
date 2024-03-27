@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('fresques', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('cover')->nullable();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('address_id')->nullable()->constrained();
+            $table->foreignId('address_id')->constrained();
             $table->integer('places');
-            $table->integer('places_left');
-            $table->string('state');
-            $table->date('date')->nullable();
-            $table->time('start_at')->nullable();
-            $table->time('end_at')->nullable();
+            $table->integer('places_left')->nullable();
+            $table->date('date');
+            $table->time('start_at');
+            $table->time('end_at');
             $table->boolean('is_online')->default(false);
             $table->text('description')->nullable();
             $table->timestamps();

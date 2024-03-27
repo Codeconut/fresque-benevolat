@@ -8,18 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Fresque extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasSlug;
 
     protected $fillable = [
         'name',
         'cover',
         'user_id',
+        'address_id',
         'places',
-        'places_left',
-        'state',
         'date',
         'start_at',
         'end_at',
@@ -29,8 +30,10 @@ class Fresque extends Model
 
     protected $attributes = [
         'places' => 10,
-        'places_left' => 0,
-        'state' => 'draft',
+    ];
+
+    protected $casts = [
+        'is_online' => 'boolean',
     ];
 
     protected static function booted()
@@ -38,6 +41,13 @@ class Fresque extends Model
         static::creating(function ($fresque) {
             $fresque->user_id = Auth::id();
         });
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom(['date', 'address.name', 'address.city', 'address.zip'])
+            ->saveSlugsTo('slug');
     }
 
     public function user()
@@ -48,6 +58,11 @@ class Fresque extends Model
     public function address()
     {
         return $this->belongsTo(Address::class);
+    }
+
+    public function animators()
+    {
+        return $this->belongsToMany(Animator::class, 'fresques_animators');
     }
 
     protected function schedules(): Attribute

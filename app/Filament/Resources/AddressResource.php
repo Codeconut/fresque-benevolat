@@ -20,6 +20,8 @@ class AddressResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
+    protected static ?string $navigationGroup = 'Autres';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -81,7 +83,7 @@ class AddressResource extends Resource
                     ->description(fn (Address $address) => $address->full_address)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('fresques_count')
-                    ->label('# Freques')->counts('fresques')
+                    ->label('# Fresques')->counts('fresques')
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
