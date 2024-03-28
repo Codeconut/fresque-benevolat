@@ -33,6 +33,10 @@ class FresqueController extends Controller
     public function candidate(Request $request, Fresque $fresque, CreateFresqueApplication $createFresqueApplication)
     {
 
+        if (!$fresque->can_candidate) {
+            return redirect()->back()->with('error', 'Les candidatures pour cette fresque sont fermées');
+        }
+
         $inputs = [
             'fresque_id' => $fresque->id,
             'email' => $request->email,
@@ -42,8 +46,7 @@ class FresqueController extends Controller
 
         $createFresqueApplication->apply($inputs);
 
-        return redirect()->back()->with([
-            'success' => 1,
-        ]);
+        // return success message;
+        return redirect()->back()->with('success', 'Votre candidature a bien été enregistrée');
     }
 }

@@ -24,13 +24,13 @@ const closeModal = () => {
 const fresque = usePage().props.fresque
 
 const onSubmit = () => {
-  console.log('onSubmit', form)
   form.submit(
     'post',
     route('fresques.candidate', {
       fresque: fresque.slug,
     }),
     {
+      //preserveScroll: false,
       onStart: () => {
         form.processing = true
       },
@@ -39,8 +39,7 @@ const onSubmit = () => {
       },
       onSuccess: () => {
         console.log('onSuccess', form)
-        confirmingUserDeletion.value = false
-        form.reset()
+        closeModal()
       },
       onFinish: () => {
         form.processing = false

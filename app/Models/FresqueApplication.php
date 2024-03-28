@@ -29,6 +29,10 @@ class FresqueApplication extends Model
         static::creating(function ($application) {
             $application->token = bin2hex(random_bytes(16));
         });
+
+        static::saved(function ($application) {
+            $application->fresque->recomputePlacesLeft();
+        });
     }
 
     public function fresque()

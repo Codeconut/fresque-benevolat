@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('token');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

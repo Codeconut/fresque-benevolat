@@ -1,12 +1,12 @@
 <script setup lang="jsx">
-import { defineComponent, defineProps, ref, withModifiers } from 'vue'
+import { defineComponent, defineProps, ref, computed } from 'vue'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
 import CandidateButton from '@/Components/CandidateButton.vue'
 import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import MarkdownIt from 'markdown-it'
 
-defineProps({
+const props = defineProps({
   fresque: {
     type: Object,
     required: true,
@@ -42,9 +42,15 @@ const markdown = new MarkdownIt()
           <div class="" v-if="fresque.animators.length">
             Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
           </div>
-          <div class="">{{ fresque.places_left }} places restantes</div>
 
-          <CandidateButton> Je m'inscris</CandidateButton>
+          <template v-if="fresque.can_candidate">
+            <div class="">{{ fresque.places_left }} places restantes</div>
+
+            <CandidateButton> Je m'inscris</CandidateButton>
+          </template>
+          <template v-else>
+            <div class="">Les inscriptions sont closes</div>
+          </template>
         </div>
       </div>
     </div>

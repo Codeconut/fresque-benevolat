@@ -38,6 +38,12 @@ class Fresque extends Model
         'is_online' => 'boolean',
         'is_registration_open' => 'boolean',
         'content' => 'array',
+
+    ];
+
+    protected $appends = [
+        'schedules',
+        'can_candidate',
     ];
 
     protected static function booted()
@@ -47,7 +53,7 @@ class Fresque extends Model
         });
 
         static::saving(function ($fresque) {
-            $fresque->places_left = $fresque->places - 0;
+            $fresque->recomputePlacesLeft();
         });
     }
 
@@ -75,13 +81,27 @@ class Fresque extends Model
 
     public function applications()
     {
-        return $this->hasMany(FresqueApplication::class, 'fresques_applications');
+        return $this->hasMany(FresqueApplication::class);
+    }
+
+    public function recomputePlacesLeft()
+    {
+        $placesLeft = $this->places - $this->applications->count();
+        $this->places_left = $placesLeft >= 0 ? $placesLeft : 0;
+        $this->saveQuietly();
     }
 
     protected function schedules(): Attribute
     {
         return Attribute::make(
             get: fn (): string  => Carbon::parse($this->start_at)->format('H:i') . ' - ' . Carbon::parse($this->end_at)->format('H:i'),
+        );
+    }
+
+    protected function canCandidate(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): bool  => $this->is_registration_open && $this->places_left > 0 && Carbon::createFromFormat('Y-m-d', $this->date)->isFuture(),
         );
     }
 
