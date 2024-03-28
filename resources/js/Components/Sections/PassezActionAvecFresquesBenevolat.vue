@@ -22,7 +22,7 @@ import Button from '@/Components/Dsfr/Button.vue'
             Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous
             toutes ses formes
           </p>
-          <Link :href="route('fresques-benevolat')">
+          <Link :href="route('fresques.index')">
             <Button variant="secondary" size="lg">Trouver une fresque près de chez moi</Button>
           </Link>
         </div>

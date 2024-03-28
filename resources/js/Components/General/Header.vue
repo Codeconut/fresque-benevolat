@@ -36,7 +36,7 @@ const logout = () => {
             </template> -->
           </div>
 
-          <Link :href="route('fresques-benevolat')">
+          <Link :href="route('fresques.index')">
             <Button>Trouver une fresque</Button>
           </Link>
         </div>

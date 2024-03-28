@@ -10,6 +10,7 @@
         "@tailwindcss/forms": "^0.5.7",
         "@tailwindcss/typography": "^0.5.10",
         "@vitejs/plugin-vue": "^5.0.0",
+        "@vitejs/plugin-vue-jsx": "^3.1.0",
         "@vue/server-renderer": "^3.3.13",
         "autoprefixer": "^10.4.16",
         "axios": "^1.6.4",
@@ -20,6 +21,7 @@
         "vue": "^3.3.13"
     },
     "dependencies": {
-        "@gouvfr/dsfr": "^1.11.2"
+        "@gouvfr/dsfr": "^1.11.2",
+        "@remixicon/vue": "^4.2.0"
     }
 }

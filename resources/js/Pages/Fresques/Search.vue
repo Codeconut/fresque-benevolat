@@ -1,22 +1,19 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
-import PassezActionAvecFresquesBenevolat from '@/Components/Sections/PassezActionAvecFresquesBenevolat.vue'
 import { defineProps } from 'vue'
 import FresqueCard from '@/Components/FresqueCard.vue'
 import { Link } from '@inertiajs/vue3'
 
-const props = defineProps({
+defineProps({
   fresques: {
     type: Object,
-    default: () => null,
+    required: true,
   },
 })
 </script>
 
 <template>
-  <AppLayout title="Accueil">
-    <PassezActionAvecFresquesBenevolat />
-
+  <AppLayout title="Fresques Benevolat">
     <div v-if="fresques" class="container py-24">
       <div class="grid grid-cols-1 gap-8">
         <Link

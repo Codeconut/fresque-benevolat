@@ -61,12 +61,12 @@ class AnimatorResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label('Animateur')
                     ->description(fn (Animator $animator) => $animator->full_name)
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('incoming_fresques_count')
-                    ->suffix(' à venir')
+                    ->searchable(['email', 'first_name', 'last_name']),
+                Tables\Columns\TextColumn::make('fresques_count')
+                    ->suffix(' fresque(s)')
                     ->label('# Fresques')
-                    ->counts('incomingFresques')
-                    ->description(fn (Animator $animator) => 'sur ' . $animator->fresques->count() . ' fresque(s)'),
+                    ->counts('fresques')
+                    ->description(fn (Animator $animator) => 'dont ' . $animator->incomingFresques()->count() . ' à venir'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

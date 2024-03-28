@@ -45,6 +45,10 @@ class Fresque extends Model
         static::creating(function ($fresque) {
             $fresque->user_id = Auth::id();
         });
+
+        static::saving(function ($fresque) {
+            $fresque->places_left = $fresque->places - 0;
+        });
     }
 
     public function getSlugOptions(): SlugOptions
@@ -74,5 +78,15 @@ class Fresque extends Model
         return Attribute::make(
             get: fn (): string  => Carbon::parse($this->start_at)->format('H:i') . ' - ' . Carbon::parse($this->end_at)->format('H:i'),
         );
+    }
+
+    public function scopeOnline($query)
+    {
+        return $query->where('is_online', true);
+    }
+
+    public function scopeIncoming($query)
+    {
+        return $query->where('date', '>=', Carbon::now());
     }
 }

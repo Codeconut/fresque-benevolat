@@ -21,6 +21,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Filters\TernaryFilter;
 
 class FresqueResource extends Resource
 {
@@ -121,7 +122,7 @@ class FresqueResource extends Resource
                                                 ->columns(2),
                                             FormBuilder\Block::make('paragraph')
                                                 ->schema([
-                                                    Textarea::make('content')
+                                                    Forms\Components\MarkdownEditor::make('content')
                                                         ->label('Paragraph')
                                                         ->required(),
                                                 ]),
@@ -129,6 +130,7 @@ class FresqueResource extends Resource
                                                 ->schema([
                                                     FileUpload::make('url')
                                                         ->label('Image')
+                                                        ->directory('fresques')
                                                         ->image()
                                                         ->maxSize(1024)
                                                         ->imageEditor()
@@ -150,6 +152,7 @@ class FresqueResource extends Resource
                                 Forms\Components\Section::make('Dates et horaires')
                                     ->schema([
                                         Forms\Components\Toggle::make('is_online')->label('En ligne'),
+                                        Forms\Components\Toggle::make('is_registration_open')->label('Inscriptions'),
                                         Forms\Components\DatePicker::make('date')->default(Carbon::now()),
                                         Forms\Components\TimePicker::make('start_at')->default('18:00')->seconds(false)->minutesStep(5),
                                         Forms\Components\TimePicker::make('end_at')->default('20:15')->seconds(false)->minutesStep(5),
@@ -183,30 +186,46 @@ class FresqueResource extends Resource
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')
                     ->square()
-                    ->extraAttributes(['class' => 'w-10']),
+                    ->extraAttributes(['class' => 'w-12']),
                 Tables\Columns\TextColumn::make('address.name')
-                    ->label('Lieu')
+                    ->label('Place')
+                    ->searchable(['addresses.name', 'addresses.full_address'])
                     ->description(fn (Fresque $fresque) => $fresque?->address?->full_address),
                 Tables\Columns\TextColumn::make('date')
                     ->label('Date')
                     ->date('d M Y')
                     ->description(fn (Fresque $fresque) => $fresque->schedules),
                 Tables\Columns\TextColumn::make('places_left')
-                    ->suffix(' places restantes')
-                    ->label('Places')
-                    ->description(fn (Fresque $fresque) => 'sur ' . $fresque->places),
-                Tables\Columns\IconColumn::make('is_online')
-                    ->label('En ligne')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-check-badge')
-                    ->falseIcon('heroicon-o-x-mark'),
+                    ->suffix(' slots left')
+                    ->label('Slots')
+                    ->description(fn (Fresque $fresque) => 'from ' . $fresque->places),
+                Tables\Columns\TextColumn::make('is_online')
+                    ->label('Visibility')
+                    ->badge()
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'Online' : 'Offline')
+                    ->color(fn (string $state): string => match ($state) {
+                        '' => 'gray',
+                        '0' => 'gray',
+                        '1' => 'success',
+                    }),
+                Tables\Columns\TextColumn::make('is_registration_open')
+                    ->label('Inscriptions')
+                    ->badge()
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'Open' : 'Closed')
+                    ->color(fn (string $state): string => match ($state) {
+                        '' => 'gray',
+                        '0' => 'gray',
+                        '1' => 'success',
+                    }),
                 Tables\Columns\ImageColumn::make('animators.photo')
                     ->label('Animateurs')
+                    ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
                     ->circular()
                     ->stacked(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                TernaryFilter::make('is_online')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -21,7 +21,8 @@ class Animator extends Model
     ];
 
     protected $appends = [
-        'full_name'
+        'full_name',
+        'public_name'
     ];
 
     public function fresques()
@@ -31,7 +32,7 @@ class Animator extends Model
 
     public function incomingFresques()
     {
-        return $this->belongsToMany(Fresque::class, 'fresques_animators')->where('date', '>=', now());
+        return $this->belongsToMany(Fresque::class, 'fresques_animators')->incoming();
     }
 
     protected function photo(): Attribute
@@ -45,6 +46,13 @@ class Animator extends Model
     {
         return Attribute::make(
             get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+        );
+    }
+
+    protected function publicName(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
         );
     }
 
