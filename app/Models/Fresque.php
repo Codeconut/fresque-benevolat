@@ -25,7 +25,9 @@ class Fresque extends Model
         'start_at',
         'end_at',
         'is_online',
-        'description',
+        'is_registration_open',
+        'content',
+        'summary',
     ];
 
     protected $attributes = [
@@ -34,6 +36,8 @@ class Fresque extends Model
 
     protected $casts = [
         'is_online' => 'boolean',
+        'is_registration_open' => 'boolean',
+        'content' => 'array',
     ];
 
     protected static function booted()

@@ -21,7 +21,7 @@ class AnimatorResource extends Resource
 
     protected static ?string $navigationLabel = 'Animateurs';
 
-    protected static ?string $navigationGroup = 'Autres';
+    protected static ?string $navigationGroup = 'Settings';
 
     public static function form(Form $form): Form
     {
