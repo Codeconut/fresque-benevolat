@@ -1,8 +1,10 @@
 <script setup lang="jsx">
 import { defineComponent, defineProps, ref, withModifiers } from 'vue'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
+import CandidateButton from '@/Components/CandidateButton.vue'
 import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
+import MarkdownIt from 'markdown-it'
 
 defineProps({
   fresque: {
@@ -10,29 +12,58 @@ defineProps({
     required: true,
   },
 })
+
+const markdown = new MarkdownIt()
 </script>
 
 <template>
   <AppLayout title="Titre de la fresque">
-    <div class="border flex">
-      <div class="">
-        <img
-          :src="fresque.cover ? `/storage/${fresque.cover}` : '/images/default-placeholder.png'"
-          alt="fresque"
-          class="w-[300px] h-[200px] object-cover"
-        />
+    <div class="">
+      <img
+        :src="fresque.cover ? `/storage/${fresque.cover}` : '/images/default-placeholder.png'"
+        alt="fresque"
+        class="w-full h-[300px] object-cover"
+      />
+    </div>
+    <div class="container py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="col-span-1 lg:col-span-2">
+          <div v-if="fresque.summary" class="">
+            <div class="markdown" v-html="markdown.render(fresque.summary)" />
+          </div>
+        </div>
+        <div class="col-span-1">
+          <div class="mb-4 flex space-x-4">
+            <DsfrTag :icon="RiCalendarEventLine">{{ fresque.date }}</DsfrTag>
+            <DsfrTag :icon="RiTimeLine">{{ fresque.start_at }} {{ fresque.end_at }}</DsfrTag>
+          </div>
+          <h2 class="text-xl font-bold mb-4">{{ fresque.address.city }}</h2>
+          <div class="">{{ fresque.address.full_address }}</div>
+          <div class="" v-if="fresque.animators.length">
+            Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
+          </div>
+          <div class="">{{ fresque.places_left }} places restantes</div>
+
+          <CandidateButton> Je m'inscris</CandidateButton>
+        </div>
       </div>
-      <div class="p-4">
-        <div class="mb-4 flex space-x-4">
-          <DsfrTag :icon="RiCalendarEventLine">{{ fresque.date }}</DsfrTag>
-          <DsfrTag :icon="RiTimeLine">{{ fresque.start_at }} {{ fresque.end_at }}</DsfrTag>
+    </div>
+
+    <div class="container py-12">
+      <h2 class="text-2xl font-bold">A propos du lieu</h2>
+      <div>
+        <div>{{ fresque.address.name }}</div>
+        <div>{{ fresque.address.full_address }}</div>
+        <div
+          v-if="fresque.address.summary"
+          class="markdown"
+          v-html="markdown.render(fresque.address.summary)"
+        />
+        <div class="flex gap-2">
+          <div v-for="(photo, i) in fresque.address.photos" :key="i" class="w-[300px] h-[300px]">
+            <img :src="`/storage/${photo}`" alt="" class="h-[300px] object-cover" />
+          </div>
         </div>
-        <h2 class="text-xl font-bold mb-4">{{ fresque.address.city }}</h2>
-        <div class="text-sm">{{ fresque.address.full_address }}</div>
-        <div class="text-sm" v-if="fresque.animators.length">
-          Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
-        </div>
-        <div class="text-sm">{{ fresque.places_left }} places restantes</div>
       </div>
     </div>
   </AppLayout>

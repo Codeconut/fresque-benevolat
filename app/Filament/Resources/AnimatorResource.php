@@ -27,17 +27,17 @@ class AnimatorResource extends Resource
     {
         return $form
             ->schema([
-                // Forms\Components\FileUpload::make('photo')->directory('animators')
-                //     ->image()
-                //     ->maxSize(2048)
-                //     ->imageEditor()
-                //     ->imageEditorViewportWidth('600')
-                //     ->imageEditorViewportHeight('600')
-                //     ->imageResizeTargetWidth('200')
-                //     ->imageResizeTargetHeight('200')
-                //     ->imageEditorAspectRatios([
-                //         '1:1',
-                //     ]),
+                Forms\Components\FileUpload::make('photo')->directory('animators')
+                    ->image()
+                    ->maxSize(2048)
+                    ->imageEditor()
+                    ->imageEditorViewportWidth('600')
+                    ->imageEditorViewportHeight('600')
+                    ->imageResizeTargetWidth('200')
+                    ->imageResizeTargetHeight('200')
+                    ->imageEditorAspectRatios([
+                        '1:1',
+                    ]),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
                 Forms\Components\TextInput::make('first_name')
@@ -66,7 +66,7 @@ class AnimatorResource extends Resource
                     ->suffix(' fresque(s)')
                     ->label('# Fresques')
                     ->counts('fresques')
-                    ->description(fn (Animator $animator) => 'dont ' . $animator->incomingFresques()->count() . ' à venir'),
+                    ->description(fn (Animator $animator) => 'dont ' . $animator->fresques()->incoming()->count() . ' à venir'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

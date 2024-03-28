@@ -9,6 +9,7 @@ use Inertia\Inertia;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/fresques-benevolat', [FresqueController::class, 'index'])->name('fresques.index');
 Route::get('/fresques-benevolat/{fresque:slug}', [FresqueController::class, 'show'])->name('fresques.show');
+Route::post('/fresques-benevolat/{fresque:slug}/candidate', [FresqueController::class, 'candidate'])->name('fresques.candidate');
 
 // Route::middleware([
 //     'auth:sanctum',

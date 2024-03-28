@@ -21,7 +21,8 @@ class Address extends Model
         'latitude',
         'longitude',
         'cover',
-        'photos'
+        'photos',
+        'summary'
     ];
 
     protected $casts = [

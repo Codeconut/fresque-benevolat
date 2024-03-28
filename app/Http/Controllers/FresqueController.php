@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
 use App\Models\Fresque;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class FresqueController extends Controller
@@ -25,6 +27,23 @@ class FresqueController extends Controller
 
         return Inertia::render('Fresques/Show', [
             'fresque' => $fresque,
+        ]);
+    }
+
+    public function candidate(Request $request, Fresque $fresque, CreateFresqueApplication $createFresqueApplication)
+    {
+
+        $inputs = [
+            'fresque_id' => $fresque->id,
+            'email' => $request->email,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+        ];
+
+        $createFresqueApplication->apply($inputs);
+
+        return redirect()->back()->with([
+            'success' => 1,
         ]);
     }
 }

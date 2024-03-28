@@ -73,6 +73,20 @@ class AddressResource extends Resource
                 Forms\Components\TextInput::make('longitude')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\MarkdownEditor::make('summary'),
+                Forms\Components\FileUpload::make('photos')->directory('places')
+                    ->image()
+                    ->multiple()
+                    ->reorderable()
+                    ->maxSize(2048)
+                    ->imageEditor()
+                    ->imageEditorViewportWidth('600')
+                    ->imageEditorViewportHeight('600')
+                    ->imageResizeTargetWidth('600')
+                    ->imageResizeTargetHeight('600')
+                    ->imageEditorAspectRatios([
+                        '1:1',
+                    ]),
             ]);
     }
 
@@ -85,7 +99,10 @@ class AddressResource extends Resource
                     ->description(fn (Address $address) => $address->full_address)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('fresques_count')
-                    ->label('# Fresques')->counts('fresques')
+                    ->suffix(' fresque(s)')
+                    ->label('# Fresques')
+                    ->counts('fresques')
+                    ->description(fn (Address $address) => 'dont ' . $address->fresques()->incoming()->count() . ' à venir'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

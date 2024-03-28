@@ -7,3 +7,12 @@
 [x-cloak] {
   display: none;
 }
+
+.markdown {
+  h2 {
+    @apply text-2xl font-semibold mt-6 mb-4;
+  }
+  a {
+    @apply text-blue-500 underline;
+  }
+}

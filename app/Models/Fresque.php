@@ -73,6 +73,11 @@ class Fresque extends Model
         return $this->belongsToMany(Animator::class, 'fresques_animators');
     }
 
+    public function applications()
+    {
+        return $this->hasMany(FresqueApplication::class, 'fresques_applications');
+    }
+
     protected function schedules(): Attribute
     {
         return Attribute::make(

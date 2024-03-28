@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('cover')->nullable();
             $table->json('photos')->nullable();
+            $table->longText('summary')->nullable();
+            $table->json('content')->nullable();
             $table->string('full_address')->nullable();
             $table->string('zip')->nullable();
             $table->string('city')->nullable();

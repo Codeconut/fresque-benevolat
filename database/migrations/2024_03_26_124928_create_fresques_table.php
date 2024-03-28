@@ -25,7 +25,7 @@ return new class extends Migration
             $table->time('end_at');
             $table->boolean('is_online')->default(false);
             $table->boolean('is_registration_open')->default(true);
-            $table->text('summary')->nullable();
+            $table->longText('summary')->nullable();
             $table->json('content')->nullable();
             $table->timestamps();
             $table->softDeletes();
