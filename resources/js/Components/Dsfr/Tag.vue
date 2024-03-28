@@ -36,9 +36,9 @@ defineProps({
       v-if="icon"
       :is="icon"
       :class="[
-        'flex-none fill-current',
-        { 'w-3 h-3': size === 'sm' },
-        { 'w-4 h-4': size === 'md' },
+        'relative flex-none fill-current top-[1px]',
+        { 'w-3 h-3 mr-0.5': size === 'sm' },
+        { 'w-4 h-4 mr-1': size === 'md' },
       ]"
     />
     <slot />

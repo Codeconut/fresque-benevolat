@@ -23,6 +23,7 @@
     "dependencies": {
         "@gouvfr/dsfr": "^1.11.2",
         "@remixicon/vue": "^4.2.0",
+        "dayjs": "^1.11.10",
         "markdown-it": "^14.1.0"
     }
 }

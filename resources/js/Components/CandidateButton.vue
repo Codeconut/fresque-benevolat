@@ -14,9 +14,9 @@ const form = useForm({
   last_name: '',
 })
 
-const confirmingUserDeletion = ref(false)
+const showModal = ref(false)
 const closeModal = () => {
-  confirmingUserDeletion.value = false
+  showModal.value = false
 
   form.reset()
 }
@@ -51,8 +51,8 @@ const onSubmit = () => {
 
 <template>
   <div>
-    <DsfrButton @click="confirmingUserDeletion = true"><slot /></DsfrButton>
-    <DialogModal :show="confirmingUserDeletion" @close="closeModal">
+    <DsfrButton @click="showModal = true"><slot /></DsfrButton>
+    <DialogModal :show="showModal" @close="closeModal">
       <template #title> Inscription </template>
       <template #content>
         <div class="mb-4 flex space-x-4">

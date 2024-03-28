@@ -22,8 +22,10 @@ defineProps({
     </div>
     <div class="p-4">
       <div class="mb-4 flex space-x-4">
-        <DsfrTag :icon="RiCalendarEventLine">{{ fresque.date }}</DsfrTag>
-        <DsfrTag :icon="RiTimeLine">{{ fresque.start_at }} {{ fresque.end_at }}</DsfrTag>
+        <DsfrTag :icon="RiCalendarEventLine">{{
+          $dayjs(fresque.date).format('DD MMMM YYYY')
+        }}</DsfrTag>
+        <DsfrTag :icon="RiTimeLine">{{ fresque.schedules }}</DsfrTag>
       </div>
       <h2 class="text-xl font-bold mb-4">{{ fresque.address.city }}</h2>
       <div class="text-sm">{{ fresque.address.full_address }}</div>
