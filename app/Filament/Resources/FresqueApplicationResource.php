@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\FresqueApplicationResource\Pages;
 use App\Filament\Resources\FresqueApplicationResource\RelationManagers;
 use App\Models\FresqueApplication;
+use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -46,7 +47,12 @@ class FresqueApplicationResource extends Resource
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('mobile')
                     ->maxLength(255),
-            ]);
+                Forms\Components\ToggleButtons::make('has_confirmed_presence')
+                    ->label('Has confirmed presence ?')
+                    ->boolean()
+                    ->grouped(),
+                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
@@ -55,17 +61,25 @@ class FresqueApplicationResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('photo')
                     ->label('')
-                    ->defaultImageUrl(url('/images/default-animator.png'))
-                    ->circular()
-                    ->extraAttributes(['class' => 'w-10']),
+                    ->defaultImageUrl(url('/images/default-placeholder.png'))
+                    ->circular(),
                 Tables\Columns\TextColumn::make('email')
                     ->label('Animator')
                     ->description(fn (FresqueApplication $application) => $application->full_name)
                     ->searchable(['email', 'first_name', 'last_name']),
-                Tables\Columns\TextColumn::make('fresque.place.city')
+                Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
                     ->searchable(['fresque.place.name', 'fresque.place.full_address'])
-                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city . ' - ' . $application->fresque?->schedules),
+                    ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
+                Tables\Columns\TextColumn::make('has_confirmed_presence')
+                    ->label('Presence')
+                    ->badge()
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'Confirmed' : 'Not confirmed')
+                    ->color(fn (string $state): string => match ($state) {
+                        '' => 'gray',
+                        '0' => 'gray',
+                        '1' => 'success',
+                    }),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -88,7 +102,7 @@ class FresqueApplicationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageFresqueApplications::route('/'),
+            'index' => Pages\ListFresqueApplications::route('/'),
         ];
     }
 

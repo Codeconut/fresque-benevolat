@@ -21,6 +21,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Filters\TernaryFilter;
 
 class FresqueResource extends Resource
@@ -41,8 +42,11 @@ class FresqueResource extends Resource
                             ->schema([
                                 Forms\Components\Section::make('Informations')
                                     ->schema([
+                                        Forms\Components\DatePicker::make('date')->default(Carbon::now())->required(),
+                                        Forms\Components\TimePicker::make('start_at')->default('18:00')->seconds(false)->minutesStep(5)->required(),
+                                        Forms\Components\TimePicker::make('end_at')->default('20:15')->seconds(false)->minutesStep(5)->required(),
                                         Forms\Components\Select::make('place_id')
-
+                                            ->columnSpanFull()
                                             ->required()
                                             ->label('Lieu')
                                             ->relationship(name: 'place', titleAttribute: 'name')
@@ -96,13 +100,14 @@ class FresqueResource extends Resource
                                                     ->maxLength(255),
                                             ]),
                                         Forms\Components\Select::make('animators')
+                                            ->columnSpanFull()
                                             ->label('Animators')
                                             ->multiple()
                                             ->relationship('animators', 'email'),
-                                        Forms\Components\MarkdownEditor::make('summary'),
-                                    ]),
+                                        Forms\Components\MarkdownEditor::make('summary')->columnSpanFull(),
+                                    ])->columns(3),
                                 Forms\Components\Section::make('Page builder')
-                                    ->description('Créez votre page en ajoutant des blocs de contenu')
+                                    ->description('Create your page by adding blocks.')
                                     ->schema([
                                         FormBuilder::make('content')->hiddenLabel()->blocks([
                                             FormBuilder\Block::make('heading')
@@ -151,18 +156,24 @@ class FresqueResource extends Resource
                             ])->columnSpan(2),
                         Forms\Components\Grid::make()
                             ->schema([
-                                Forms\Components\Section::make('Dates et horaires')
+                                Forms\Components\Section::make('Settings')
                                     ->schema([
-                                        Forms\Components\Toggle::make('is_online')->label('En ligne'),
-                                        Forms\Components\Toggle::make('is_registration_open')->label('Inscriptions'),
-                                        Forms\Components\DatePicker::make('date')->default(Carbon::now())->required(),
-                                        Forms\Components\TimePicker::make('start_at')->default('18:00')->seconds(false)->minutesStep(5)->required(),
-                                        Forms\Components\TimePicker::make('end_at')->default('20:15')->seconds(false)->minutesStep(5)->required(),
+                                        // Forms\Components\Toggle::make('is_online')->label('En ligne'),
+                                        // Forms\Components\Toggle::make('is_registration_open')->label('Registration'),
+                                        Forms\Components\ToggleButtons::make('is_online')
+                                            ->label('Online')
+                                            ->boolean()
+                                            ->grouped(),
+                                        Forms\Components\ToggleButtons::make('is_registration_open')
+                                            ->label('Registration open')
+                                            ->boolean()
+                                            ->grouped(),
+
                                     ]),
                                 Forms\Components\Section::make('Images')
                                     ->schema([
                                         Forms\Components\FileUpload::make('cover')
-                                            ->label('Image de couverture')
+                                            ->label('Cover')
                                             ->directory('fresques')
                                             ->image()
                                             ->maxSize(1024)
@@ -180,6 +191,8 @@ class FresqueResource extends Resource
             ]);
     }
 
+
+
     public static function table(Table $table): Table
     {
         return $table
@@ -188,10 +201,9 @@ class FresqueResource extends Resource
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')
                     ->square()
-                    ->extraAttributes(['class' => 'w-12']),
+                    ->grow(false),
                 Tables\Columns\TextColumn::make('place.name')
                     ->label('Place')
-
                     ->searchable(['places.name', 'places.full_address'])
                     ->description(fn (Fresque $fresque) => $fresque?->place?->full_address),
                 Tables\Columns\TextColumn::make('date')
@@ -231,6 +243,7 @@ class FresqueResource extends Resource
                 TernaryFilter::make('is_online')
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -245,7 +258,7 @@ class FresqueResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ApplicationsRelationManager::class,
         ];
     }
 
@@ -254,7 +267,7 @@ class FresqueResource extends Resource
         return [
             'index' => Pages\ListFresques::route('/'),
             'create' => Pages\CreateFresque::route('/create'),
-            // 'view' => Pages\ViewFresque::route('/{record}'),
+            'view' => Pages\ViewFresque::route('/{record}'),
             'edit' => Pages\EditFresque::route('/{record}/edit'),
         ];
     }

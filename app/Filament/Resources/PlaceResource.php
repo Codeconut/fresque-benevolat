@@ -96,6 +96,12 @@ class PlaceResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('photos')
+                    ->label('')
+                    ->defaultImageUrl(url('/images/default-placeholder.png'))
+                    ->square()
+                    ->limit(1)
+                    ->limitedRemainingText(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nom du lieu')
                     ->description(fn (Place $place) => $place->full_address)

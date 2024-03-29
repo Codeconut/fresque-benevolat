@@ -57,7 +57,7 @@ const onSubmit = () => {
       <template #content>
         <div class="mb-4 flex space-x-4">
           <DsfrTag :icon="RiCalendarEventLine">{{ fresque.date }}</DsfrTag>
-          <DsfrTag :icon="RiTimeLine">{{ fresque.start_at }} {{ fresque.end_at }}</DsfrTag>
+          <DsfrTag :icon="RiTimeLine">{{ fresque.schedules }}</DsfrTag>
         </div>
         <div class="">{{ fresque.place.city }}</div>
         <div class="">{{ fresque.place.full_address }}</div>

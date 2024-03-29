@@ -53,11 +53,11 @@ class AnimatorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('photo')
+
+                Tables\Columns\ImageColumn::make('photos')
                     ->label('')
                     ->defaultImageUrl(url('/images/default-animator.png'))
-                    ->circular()
-                    ->extraAttributes(['class' => 'w-10']),
+                    ->circular(),
                 Tables\Columns\TextColumn::make('email')
                     ->label('Animator')
                     ->description(fn (Animator $animator) => $animator->full_name)
@@ -67,6 +67,8 @@ class AnimatorResource extends Resource
                     ->label('# Fresques')
                     ->counts('fresques')
                     ->description(fn (Animator $animator) => 'dont ' . $animator->fresques()->incoming()->count() . ' à venir'),
+
+
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Carbon\Carbon;
 
 class FresqueApplication extends Model
 {
@@ -19,7 +20,9 @@ class FresqueApplication extends Model
         'email',
         'first_name',
         'last_name',
-        'token'
+        'token',
+        'has_confirmed_presence',
+        'notes'
     ];
 
     protected $hidden = [
@@ -60,6 +63,24 @@ class FresqueApplication extends Model
     {
         return Attribute::make(
             get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
+        );
+    }
+
+    public function scopeFresqueIncoming($query)
+    {
+        return $query->whereHas(
+            'fresque',
+            fn ($query) =>
+            $query->incoming()
+        );
+    }
+
+    public function scopeFresquePassed($query)
+    {
+        return $query->whereHas(
+            'fresque',
+            fn ($query) =>
+            $query->passed()
         );
     }
 }

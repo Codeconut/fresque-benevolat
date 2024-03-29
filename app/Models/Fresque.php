@@ -97,6 +97,13 @@ class Fresque extends Model
         );
     }
 
+    protected function fullDate(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string  => Carbon::parse($this->date)->format('d M Y') . ' - ' . $this->schedules,
+        );
+    }
+
     protected function canCandidate(): Attribute
     {
         return Attribute::make(
@@ -111,6 +118,11 @@ class Fresque extends Model
 
     public function scopeIncoming($query)
     {
-        return $query->where('date', '>=', Carbon::now());
+        return $query->where('date', '>=', Carbon::now()->format('Y-m-d'));
+    }
+
+    public function scopePassed($query)
+    {
+        return $query->where('date', '<', Carbon::now()->format('Y-m-d'));
     }
 }

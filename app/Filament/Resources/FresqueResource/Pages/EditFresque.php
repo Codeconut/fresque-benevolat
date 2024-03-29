@@ -14,9 +14,16 @@ class EditFresque extends EditRecord
     {
         return [
             // Action\SaveAction::make(),
-            Actions\DeleteAction::make(),
-            Actions\ForceDeleteAction::make(),
-            Actions\RestoreAction::make(),
+            // Actions\DeleteAction::make(),
+            // Actions\ForceDeleteAction::make(),
+            // Actions\RestoreAction::make(),
+        ];
+    }
+
+    public function getRelationManagers(): array
+    {
+        return [
+            // RelationManagers\ApplicationsRelationManager::class,
         ];
     }
 }
