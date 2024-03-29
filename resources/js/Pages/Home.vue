@@ -1,7 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
 import PassezActionAvecFresquesBenevolat from '@/Components/Sections/PassezActionAvecFresquesBenevolat.vue'
-import { defineProps } from 'vue'
 import FresqueCard from '@/Components/FresqueCard.vue'
 import { Link } from '@inertiajs/vue3'
 

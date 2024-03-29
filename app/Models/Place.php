@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Address extends Model
+class Place extends Model
 {
     use HasFactory, SoftDeletes, HasSlug;
 

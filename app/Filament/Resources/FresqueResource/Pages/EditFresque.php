@@ -13,6 +13,7 @@ class EditFresque extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            // Action\SaveAction::make(),
             Actions\DeleteAction::make(),
             Actions\ForceDeleteAction::make(),
             Actions\RestoreAction::make(),

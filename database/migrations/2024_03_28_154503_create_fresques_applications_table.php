@@ -17,7 +17,10 @@ return new class extends Migration
             $table->foreignId('fresque_id')->constrained();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->boolean('has_confirmed_presence')->default(false);
+            $table->string('state')->nullable();
             $table->string('token');
+            $table->text('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

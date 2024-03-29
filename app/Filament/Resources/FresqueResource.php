@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FresqueResource\Pages;
 use App\Filament\Resources\FresqueResource\RelationManagers;
-use App\Models\Address;
+use App\Models\Place;
 use App\Models\Fresque;
 use App\Services\AdresseDataGouvFr;
 use Carbon\Carbon;
@@ -41,17 +41,19 @@ class FresqueResource extends Resource
                             ->schema([
                                 Forms\Components\Section::make('Informations')
                                     ->schema([
-                                        Forms\Components\Select::make('address_id')
+                                        Forms\Components\Select::make('place_id')
+
+                                            ->required()
                                             ->label('Lieu')
-                                            ->relationship(name: 'address', titleAttribute: 'name')
+                                            ->relationship(name: 'place', titleAttribute: 'name')
                                             ->searchable(['name', 'full_address'])
-                                            ->getOptionLabelFromRecordUsing(fn (Address $address) => "{$address->name} - {$address->full_address}")
+                                            ->getOptionLabelFromRecordUsing(fn (Place $place) => "{$place->name} - {$place->full_address}")
                                             ->createOptionForm([
                                                 Forms\Components\TextInput::make('name')
-                                                    ->maxLength(255)->columnSpanFull(),
+                                                    ->required()
+                                                    ->maxLength(255),
                                                 Forms\Components\Select::make('geocoding')
                                                     ->suffixIcon('heroicon-o-map-pin')
-                                                    ->columnSpanFull()
                                                     ->label('Rechercher un lieu')
                                                     ->searchable()
                                                     ->searchPrompt('Rechercher une adresse avec api-adresse.data.gouv.fr')
@@ -94,7 +96,7 @@ class FresqueResource extends Resource
                                                     ->maxLength(255),
                                             ]),
                                         Forms\Components\Select::make('animators')
-                                            ->label('Animateurs')
+                                            ->label('Animators')
                                             ->multiple()
                                             ->relationship('animators', 'email'),
                                         Forms\Components\MarkdownEditor::make('summary'),
@@ -153,9 +155,9 @@ class FresqueResource extends Resource
                                     ->schema([
                                         Forms\Components\Toggle::make('is_online')->label('En ligne'),
                                         Forms\Components\Toggle::make('is_registration_open')->label('Inscriptions'),
-                                        Forms\Components\DatePicker::make('date')->default(Carbon::now()),
-                                        Forms\Components\TimePicker::make('start_at')->default('18:00')->seconds(false)->minutesStep(5),
-                                        Forms\Components\TimePicker::make('end_at')->default('20:15')->seconds(false)->minutesStep(5),
+                                        Forms\Components\DatePicker::make('date')->default(Carbon::now())->required(),
+                                        Forms\Components\TimePicker::make('start_at')->default('18:00')->seconds(false)->minutesStep(5)->required(),
+                                        Forms\Components\TimePicker::make('end_at')->default('20:15')->seconds(false)->minutesStep(5)->required(),
                                     ]),
                                 Forms\Components\Section::make('Images')
                                     ->schema([
@@ -187,10 +189,11 @@ class FresqueResource extends Resource
                     ->label('')
                     ->square()
                     ->extraAttributes(['class' => 'w-12']),
-                Tables\Columns\TextColumn::make('address.name')
+                Tables\Columns\TextColumn::make('place.name')
                     ->label('Place')
-                    ->searchable(['addresses.name', 'addresses.full_address'])
-                    ->description(fn (Fresque $fresque) => $fresque?->address?->full_address),
+
+                    ->searchable(['places.name', 'places.full_address'])
+                    ->description(fn (Fresque $fresque) => $fresque?->place?->full_address),
                 Tables\Columns\TextColumn::make('date')
                     ->label('Date')
                     ->date('d M Y')
@@ -218,7 +221,7 @@ class FresqueResource extends Resource
                         '1' => 'success',
                     }),
                 Tables\Columns\ImageColumn::make('animators.photo')
-                    ->label('Animateurs')
+                    ->label('Animators')
                     ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
                     ->circular()
                     ->stacked(),

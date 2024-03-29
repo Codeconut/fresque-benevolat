@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AddressResource\Pages;
-use App\Filament\Resources\AddressResource\RelationManagers;
-use App\Models\Address;
+use App\Filament\Resources\PlaceResource\Pages;
+use App\Filament\Resources\PlaceResource\RelationManagers;
+use App\Models\Place;
 use App\Services\AdresseDataGouvFr;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -14,13 +14,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AddressResource extends Resource
+class PlaceResource extends Resource
 {
-    protected static ?string $model = Address::class;
+    protected static ?string $model = Place::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
-    protected static ?string $navigationLabel = 'Lieux';
+    protected static ?string $navigationLabel = 'Places';
 
     protected static ?string $navigationGroup = 'Settings';
 
@@ -29,7 +29,7 @@ class AddressResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->maxLength(255)->columnSpanFull(),
+                    ->maxLength(255)->columnSpanFull()->required(),
                 Forms\Components\Select::make('geocoding')
                     ->suffixIcon('heroicon-o-map-pin')
                     ->columnSpanFull()
@@ -73,8 +73,10 @@ class AddressResource extends Resource
                 Forms\Components\TextInput::make('longitude')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('summary'),
-                Forms\Components\FileUpload::make('photos')->directory('places')
+                Forms\Components\MarkdownEditor::make('summary')->columnSpanFull(),
+                Forms\Components\FileUpload::make('photos')
+                    ->columnSpanFull()
+                    ->directory('places')
                     ->image()
                     ->multiple()
                     ->reorderable()
@@ -96,13 +98,13 @@ class AddressResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nom du lieu')
-                    ->description(fn (Address $address) => $address->full_address)
-                    ->searchable(),
+                    ->description(fn (Place $place) => $place->full_address)
+                    ->searchable(['name', 'full_address']),
                 Tables\Columns\TextColumn::make('fresques_count')
                     ->suffix(' fresque(s)')
                     ->label('# Fresques')
                     ->counts('fresques')
-                    ->description(fn (Address $address) => 'dont ' . $address->fresques()->incoming()->count() . ' à venir'),
+                    ->description(fn (Place $place) => 'dont ' . $place->fresques()->incoming()->count() . ' à venir'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -125,7 +127,7 @@ class AddressResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAddresses::route('/'),
+            'index' => Pages\ManagePlaces::route('/'),
         ];
     }
 

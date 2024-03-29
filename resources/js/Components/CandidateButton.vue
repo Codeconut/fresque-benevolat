@@ -59,8 +59,8 @@ const onSubmit = () => {
           <DsfrTag :icon="RiCalendarEventLine">{{ fresque.date }}</DsfrTag>
           <DsfrTag :icon="RiTimeLine">{{ fresque.start_at }} {{ fresque.end_at }}</DsfrTag>
         </div>
-        <div class="">{{ fresque.address.city }}</div>
-        <div class="">{{ fresque.address.full_address }}</div>
+        <div class="">{{ fresque.place.city }}</div>
+        <div class="">{{ fresque.place.full_address }}</div>
         <form @submit.prevent="onSubmit" class="mt-8">
           <div>
             <TextInput id="first_name" v-model="form.email" placeholder="E-mail" />

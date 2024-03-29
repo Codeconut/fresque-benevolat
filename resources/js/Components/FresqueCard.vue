@@ -1,5 +1,5 @@
 <script setup lang="jsx">
-import { defineComponent, defineProps, ref, withModifiers } from 'vue'
+import { defineComponent } from 'vue'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
 import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
 
@@ -27,8 +27,8 @@ defineProps({
         }}</DsfrTag>
         <DsfrTag :icon="RiTimeLine">{{ fresque.schedules }}</DsfrTag>
       </div>
-      <h2 class="text-xl font-bold mb-4">{{ fresque.address.city }}</h2>
-      <div class="text-sm">{{ fresque.address.full_address }}</div>
+      <h2 class="text-xl font-bold mb-4">{{ fresque.place.city }}</h2>
+      <div class="text-sm">{{ fresque.place.full_address }}</div>
       <div class="text-sm" v-if="fresque.animators.length">
         Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
       </div>

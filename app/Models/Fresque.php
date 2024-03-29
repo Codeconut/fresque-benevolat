@@ -19,7 +19,7 @@ class Fresque extends Model
         'name',
         'cover',
         'user_id',
-        'address_id',
+        'place_id',
         'places',
         'date',
         'start_at',
@@ -53,14 +53,14 @@ class Fresque extends Model
         });
 
         static::saving(function ($fresque) {
-            $fresque->recomputePlacesLeft();
+            $fresque->places_left = $fresque->recomputePlacesLeft();
         });
     }
 
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom(['date', 'address.name', 'address.city', 'address.zip'])
+            ->generateSlugsFrom(['date', 'place.name', 'place.city', 'place.zip'])
             ->saveSlugsTo('slug');
     }
 
@@ -69,9 +69,9 @@ class Fresque extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function address()
+    public function place()
     {
-        return $this->belongsTo(Address::class);
+        return $this->belongsTo(Place::class);
     }
 
     public function animators()
@@ -87,8 +87,7 @@ class Fresque extends Model
     public function recomputePlacesLeft()
     {
         $placesLeft = $this->places - $this->applications->count();
-        $this->places_left = $placesLeft >= 0 ? $placesLeft : 0;
-        $this->saveQuietly();
+        return $placesLeft >= 0 ? $placesLeft : 0;
     }
 
     protected function schedules(): Attribute

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->string('cover')->nullable();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('address_id')->constrained();
+            $table->foreignId('place_id')->constrained();
             $table->integer('places');
             $table->integer('places_left')->nullable();
             $table->date('date');

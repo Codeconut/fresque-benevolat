@@ -38,7 +38,7 @@ class Animator extends Model
     protected function photo(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $value ?? $this->getGravatar($this->email),
+            get: fn ($value) => $value ?? Gravatar::get($this->email),
         );
     }
 
@@ -54,10 +54,5 @@ class Animator extends Model
         return Attribute::make(
             get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
         );
-    }
-
-    private function getGravatar()
-    {
-        return Gravatar::get($this->email);
     }
 }

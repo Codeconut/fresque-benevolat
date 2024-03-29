@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\AddressResource\Pages;
+namespace App\Filament\Resources\PlaceResource\Pages;
 
-use App\Filament\Resources\AddressResource;
+use App\Filament\Resources\PlaceResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
 
-class ManageAddresses extends ManageRecords
+class ManagePlaces extends ManageRecords
 {
-    protected static string $resource = AddressResource::class;
+    protected static string $resource = PlaceResource::class;
 
     protected function getHeaderActions(): array
     {

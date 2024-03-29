@@ -1,5 +1,5 @@
 <script setup lang="jsx">
-import { defineComponent, defineProps, ref, computed } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
 import CandidateButton from '@/Components/CandidateButton.vue'
 import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
@@ -39,8 +39,8 @@ const markdown = new MarkdownIt()
             }}</DsfrTag>
             <DsfrTag :icon="RiTimeLine">{{ fresque.schedules }}</DsfrTag>
           </div>
-          <h2 class="text-xl font-bold mb-4">{{ fresque.address.city }}</h2>
-          <div class="">{{ fresque.address.full_address }}</div>
+          <h2 class="text-xl font-bold mb-4">{{ fresque.place.city }}</h2>
+          <div class="">{{ fresque.place.full_address }}</div>
           <div class="" v-if="fresque.animators.length">
             Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
           </div>
@@ -60,15 +60,16 @@ const markdown = new MarkdownIt()
     <div class="container py-12">
       <h2 class="text-2xl font-bold">A propos du lieu</h2>
       <div>
-        <div>{{ fresque.address.name }}</div>
-        <div>{{ fresque.address.full_address }}</div>
+        <div>{{ fresque.place.name }}</div>
+        <div>{{ fresque.place.full_address }}</div>
+        <div>CARTE ?</div>
         <div
-          v-if="fresque.address.summary"
+          v-if="fresque.place.summary"
           class="markdown"
-          v-html="markdown.render(fresque.address.summary)"
+          v-html="markdown.render(fresque.place.summary)"
         />
         <div class="flex gap-2">
-          <div v-for="(photo, i) in fresque.address.photos" :key="i" class="w-[300px] h-[300px]">
+          <div v-for="(photo, i) in fresque.place.photos" :key="i" class="w-[300px] h-[300px]">
             <img :src="`/storage/${photo}`" alt="" class="h-[300px] object-cover" />
           </div>
         </div>

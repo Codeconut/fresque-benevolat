@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\AnimatorResource\Pages;
-use App\Filament\Resources\AnimatorResource\RelationManagers;
-use App\Models\Animator;
+use App\Filament\Resources\FresqueApplicationResource\Pages;
+use App\Filament\Resources\FresqueApplicationResource\RelationManagers;
+use App\Models\FresqueApplication;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,31 +13,31 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AnimatorResource extends Resource
+class FresqueApplicationResource extends Resource
 {
-    protected static ?string $model = Animator::class;
+    protected static ?string $model = FresqueApplication::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static ?string $navigationLabel = 'Animators';
+    protected static ?string $navigationLabel = 'Applications';
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Contents';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('photo')->directory('animators')
-                    ->image()
-                    ->maxSize(2048)
-                    ->imageEditor()
-                    ->imageEditorViewportWidth('600')
-                    ->imageEditorViewportHeight('600')
-                    ->imageResizeTargetWidth('200')
-                    ->imageResizeTargetHeight('200')
-                    ->imageEditorAspectRatios([
-                        '1:1',
-                    ]),
+                // Forms\Components\FileUpload::make('photo')->directory('animators')
+                //     ->image()
+                //     ->maxSize(2048)
+                //     ->imageEditor()
+                //     ->imageEditorViewportWidth('600')
+                //     ->imageEditorViewportHeight('600')
+                //     ->imageResizeTargetWidth('200')
+                //     ->imageResizeTargetHeight('200')
+                //     ->imageEditorAspectRatios([
+                //         '1:1',
+                //     ]),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
                 Forms\Components\TextInput::make('first_name')
@@ -60,13 +60,12 @@ class AnimatorResource extends Resource
                     ->extraAttributes(['class' => 'w-10']),
                 Tables\Columns\TextColumn::make('email')
                     ->label('Animator')
-                    ->description(fn (Animator $animator) => $animator->full_name)
+                    ->description(fn (FresqueApplication $application) => $application->full_name)
                     ->searchable(['email', 'first_name', 'last_name']),
-                Tables\Columns\TextColumn::make('fresques_count')
-                    ->suffix(' fresque(s)')
-                    ->label('# Fresques')
-                    ->counts('fresques')
-                    ->description(fn (Animator $animator) => 'dont ' . $animator->fresques()->incoming()->count() . ' à venir'),
+                Tables\Columns\TextColumn::make('fresque.place.city')
+                    ->label('Fresque')
+                    ->searchable(['fresque.place.name', 'fresque.place.full_address'])
+                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city . ' - ' . $application->fresque?->schedules),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -89,7 +88,7 @@ class AnimatorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageAnimators::route('/'),
+            'index' => Pages\ManageFresqueApplications::route('/'),
         ];
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Awcodes\FilamentGravatar\Gravatar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class FresqueApplication extends Model
 {
@@ -31,12 +33,33 @@ class FresqueApplication extends Model
         });
 
         static::saved(function ($application) {
-            $application->fresque->recomputePlacesLeft();
+            $application->fresque->save();
         });
     }
 
     public function fresque()
     {
         return $this->belongsTo(Fresque::class);
+    }
+
+    protected function photo(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ?? Gravatar::get($this->email),
+        );
+    }
+
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+        );
+    }
+
+    protected function publicName(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
+        );
     }
 }

@@ -11,7 +11,7 @@ class PageController extends Controller
     public function home()
     {
 
-        $fresques = Fresque::with(['animators', 'address'])->incoming()->online()->paginate(2);
+        $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->paginate(2);
 
         return Inertia::render('Home', [
             'fresques' => $fresques,
