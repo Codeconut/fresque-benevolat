@@ -20,14 +20,14 @@ class ListFresques extends ListRecords
         ];
     }
 
-    public function getTabs(): array
-    {
-        return [
-            'all' => Tab::make('All'),
-            'incoming' => Tab::make('Incoming')
-                ->modifyQueryUsing(fn (Builder $query) => $query->incoming()),
-            'passed' => Tab::make('Passed')
-                ->modifyQueryUsing(fn (Builder $query) => $query->passed()),
-        ];
-    }
+    // public function getTabs(): array
+    // {
+    //     return [
+    //         'all' => Tab::make('All'),
+    //         'incoming' => Tab::make('Incoming')
+    //             ->modifyQueryUsing(fn (Builder $query) => $query->incoming()),
+    //         'passed' => Tab::make('Passed')
+    //             ->modifyQueryUsing(fn (Builder $query) => $query->passed()),
+    //     ];
+    // }
 }

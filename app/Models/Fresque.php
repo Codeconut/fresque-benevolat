@@ -25,6 +25,7 @@ class Fresque extends Model
         'start_at',
         'end_at',
         'is_online',
+        'is_private',
         'is_registration_open',
         'content',
         'summary',
@@ -35,6 +36,7 @@ class Fresque extends Model
     ];
 
     protected $casts = [
+        'is_private' => 'boolean',
         'is_online' => 'boolean',
         'is_registration_open' => 'boolean',
         'content' => 'array',
@@ -109,6 +111,16 @@ class Fresque extends Model
         return Attribute::make(
             get: fn (): bool  => $this->is_registration_open && $this->places_left > 0 && Carbon::createFromFormat('Y-m-d', $this->date)->isFuture(),
         );
+    }
+
+    public function scopePublic($query)
+    {
+        return $query->where('is_private', false);
+    }
+
+    public function scopePrivate($query)
+    {
+        return $query->where('is_private', true);
     }
 
     public function scopeOnline($query)

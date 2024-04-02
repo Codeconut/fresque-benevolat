@@ -47,10 +47,27 @@ class FresqueApplicationResource extends Resource
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('mobile')
                     ->maxLength(255),
-                Forms\Components\ToggleButtons::make('has_confirmed_presence')
-                    ->label('Has confirmed presence ?')
-                    ->boolean()
-                    ->grouped(),
+                Tables\Columns\SelectColumn::make('info_benevolat')
+                    ->options([
+                        'yes_many' => 'Oui, plusieurs fois',
+                        'yes_once' => 'Oui, une fois',
+                        'none' => 'Non, jamais',
+                    ]),
+                Tables\Columns\SelectColumn::make('info_fresque')
+                    ->options([
+                        'yes' => 'Oui, j\'ai déjà participé à ce type d\'atelier',
+                        'no_but_i_know' => 'Non, mais je connais',
+                        'no_and_i_dont_know' => 'Non et je ne connaissais pas',
+                    ]),
+                Forms\Components\Select::make('state')
+                    ->options([
+                        '0_inscrit' => '0 - Registered',
+                        '1_confirmed_presence' => '1 - Confirmed presence',
+                        '2_validated' => '2 - Validated',
+                        '3_canceled' => '3 - Canceled',
+                        '4_missing' => '4 - Missing',
+                    ])
+                    ->native(false),
                 Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
             ])->columns(3);
     }
@@ -64,7 +81,7 @@ class FresqueApplicationResource extends Resource
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
                 Tables\Columns\TextColumn::make('email')
-                    ->label('Animator')
+                    ->label('Participant')
                     ->description(fn (FresqueApplication $application) => $application->full_name)
                     ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresque.full_date')
@@ -80,6 +97,14 @@ class FresqueApplicationResource extends Resource
                         '0' => 'gray',
                         '1' => 'success',
                     }),
+                Tables\Columns\SelectColumn::make('state')
+                    ->options([
+                        '0_registered' => '0 - Registered',
+                        '1_confirmed_presence' => '1 - Confirmed presence',
+                        '2_validated' => '2 - Validated',
+                        '3_canceled' => '3 - Canceled',
+                        '4_missing' => '4 - Missing',
+                    ])->rules(['required'])->selectablePlaceholder(false)
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

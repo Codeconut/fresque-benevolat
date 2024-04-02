@@ -18,6 +18,12 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('mobile')->nullable();
             $table->string('photo')->nullable();
+            $table->string('level')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('city')->nullable();
+            $table->string('professional_status')->nullable();
+            $table->string('availability')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

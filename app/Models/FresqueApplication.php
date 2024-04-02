@@ -20,13 +20,21 @@ class FresqueApplication extends Model
         'email',
         'first_name',
         'last_name',
+        'mobile',
+        'zip',
         'token',
-        'has_confirmed_presence',
-        'notes'
+        'state',
+        'notes',
+        'info_benevolat',
+        'info_fresque'
     ];
 
     protected $hidden = [
         'token'
+    ];
+
+    protected $attributes = [
+        'state' => '0_registered',
     ];
 
     protected static function booted()

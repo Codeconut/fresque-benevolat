@@ -20,14 +20,14 @@ class ListFresqueApplications extends ListRecords
         ];
     }
 
-    public function getTabs(): array
-    {
-        return [
-            'all' => Tab::make('All'),
-            'incoming' => Tab::make('Incoming')
-                ->modifyQueryUsing(fn (Builder $query) => $query->fresqueIncoming()),
-            'passed' => Tab::make('Passed')
-                ->modifyQueryUsing(fn (Builder $query) => $query->fresquePassed()),
-        ];
-    }
+    // public function getTabs(): array
+    // {
+    //     return [
+    //         'all' => Tab::make('All'),
+    //         'incoming' => Tab::make('Incoming')
+    //             ->modifyQueryUsing(fn (Builder $query) => $query->fresqueIncoming()),
+    //         'passed' => Tab::make('Passed')
+    //             ->modifyQueryUsing(fn (Builder $query) => $query->fresquePassed()),
+    //     ];
+    // }
 }

@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FresqueResource\Pages;
 use App\Filament\Resources\FresqueResource\RelationManagers;
+use App\Models\Animator;
 use App\Models\Place;
 use App\Models\Fresque;
 use App\Services\AdresseDataGouvFr;
@@ -103,7 +104,23 @@ class FresqueResource extends Resource
                                             ->columnSpanFull()
                                             ->label('Animators')
                                             ->multiple()
-                                            ->relationship('animators', 'email'),
+                                            ->searchable(['first_name', 'last_name', 'zip', 'city', 'email'])
+                                            ->relationship('animators', 'email')
+                                            ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name} {$animator->zip} {$animator->city}")
+                                            ->createOptionForm([
+                                                Forms\Components\TextInput::make('email')
+                                                    ->maxLength(255)->required()->email(),
+                                                Forms\Components\TextInput::make('first_name')
+                                                    ->maxLength(255)->required(),
+                                                Forms\Components\TextInput::make('last_name')
+                                                    ->maxLength(255)->required(),
+                                                Forms\Components\TextInput::make('mobile')
+                                                    ->maxLength(255),
+                                                Forms\Components\TextInput::make('zip')
+                                                    ->maxLength(255),
+                                                Forms\Components\TextInput::make('city')
+                                                    ->maxLength(255),
+                                            ]),
                                         Forms\Components\MarkdownEditor::make('summary')->columnSpanFull(),
                                     ])->columns(3),
                                 Forms\Components\Section::make('Page builder')
@@ -160,6 +177,13 @@ class FresqueResource extends Resource
                                     ->schema([
                                         // Forms\Components\Toggle::make('is_online')->label('En ligne'),
                                         // Forms\Components\Toggle::make('is_registration_open')->label('Registration'),
+                                        Forms\Components\TextInput::make('places')
+                                            ->required()
+                                            ->integer(),
+                                        Forms\Components\ToggleButtons::make('is_private')
+                                            ->label('Private')
+                                            ->boolean()
+                                            ->grouped(),
                                         Forms\Components\ToggleButtons::make('is_online')
                                             ->label('Online')
                                             ->boolean()

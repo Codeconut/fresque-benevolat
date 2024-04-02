@@ -18,6 +18,12 @@ class Animator extends Model
         'email',
         'mobile',
         'photo',
+        'level',
+        'zip',
+        'city',
+        'professional_status',
+        'availability',
+        'notes'
     ];
 
     protected $appends = [

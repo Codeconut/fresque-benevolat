@@ -13,7 +13,7 @@ class FresqueController extends Controller
 
     public function index(Fresque $fresque)
     {
-        $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->paginate(2);
+        $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->public()->paginate(6);
 
         return Inertia::render('Fresques/Search', [
             'fresques' => $fresques,

@@ -46,6 +46,36 @@ class AnimatorResource extends Resource
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('mobile')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('zip')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('city')
+                    ->maxLength(255),
+                Forms\Components\Select::make('professional_status')
+                    ->options([
+                        'student' => 'Étudiant',
+                        'actif' => 'Actif',
+                        'independent' => 'Indépendant',
+                        'retirement' => 'Retraité',
+                        'other' => 'Autre',
+                    ])
+                    ->native(false),
+                Forms\Components\Select::make('availability')
+                    ->options([
+                        'rookie' => 'Débutant',
+                        'amateur' => 'Amateur',
+                        'confirmed' => 'Confirmé',
+                        'professional' => 'Professionnel',
+                    ])
+                    ->native(false),
+                Forms\Components\Select::make('level')
+                    ->options([
+                        'rookie' => 'Débutant',
+                        'amateur' => 'Amateur',
+                        'confirmed' => 'Confirmé',
+                        'professional' => 'Professionnel',
+                    ])
+                    ->native(false),
+                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
             ]);
     }
 
@@ -53,10 +83,9 @@ class AnimatorResource extends Resource
     {
         return $table
             ->columns([
-
-                Tables\Columns\ImageColumn::make('photos')
+                Tables\Columns\ImageColumn::make('photo')
                     ->label('')
-                    ->defaultImageUrl(url('/images/default-animator.png'))
+                    ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
                 Tables\Columns\TextColumn::make('email')
                     ->label('Animator')

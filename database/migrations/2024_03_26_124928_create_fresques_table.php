@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('start_at');
             $table->time('end_at');
+            $table->boolean('is_private')->default(false);
             $table->boolean('is_online')->default(false);
             $table->boolean('is_registration_open')->default(true);
             $table->longText('summary')->nullable();
