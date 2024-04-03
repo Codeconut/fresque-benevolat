@@ -24,6 +24,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Filters\TernaryFilter;
+use Filament\Tables\Columns\IconColumn;
 
 class FresqueResource extends Resource
 {
@@ -198,7 +199,7 @@ class FresqueResource extends Resource
                                 Forms\Components\Section::make('Images')
                                     ->schema([
                                         Forms\Components\FileUpload::make('cover')
-                                            ->label('Cover')
+                                            ->label('Image de couverture')
                                             ->directory('fresques')
                                             ->image()
                                             ->maxSize(1024)
@@ -222,27 +223,32 @@ class FresqueResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\IconColumn::make('is_private')->label('')
+                    ->icon(fn (string $state): string => match ($state) {
+                        '' => 'heroicon-o-lock-open',
+                        '0' => 'heroicon-o-lock-open',
+                        '1' => 'heroicon-o-lock-closed',
+                    })->color('gray')->size(IconColumn\IconColumnSize::Medium),
                 Tables\Columns\ImageColumn::make('cover')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')
                     ->square()
                     ->grow(false),
                 Tables\Columns\TextColumn::make('place.name')
-                    ->label('Place')
+                    ->label('Lieu')
                     ->searchable(['places.name', 'places.full_address'])
                     ->description(fn (Fresque $fresque) => $fresque?->place?->full_address),
                 Tables\Columns\TextColumn::make('date')
-                    ->label('Date')
                     ->date('d M Y')
                     ->description(fn (Fresque $fresque) => $fresque->schedules),
-                Tables\Columns\TextColumn::make('places_left')
-                    ->suffix(' slots left')
-                    ->label('Slots')
-                    ->description(fn (Fresque $fresque) => 'from ' . $fresque->places),
+                Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
+                    ->suffix(' places ')
+                    ->description(fn (Fresque $fresque) => 'sur ' . $fresque->places . ' au total'),
+
                 Tables\Columns\TextColumn::make('is_online')
-                    ->label('Visibility')
+                    ->label('En ligne')
                     ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'Online' : 'Offline')
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'En ligne' : 'Hors ligne')
                     ->color(fn (string $state): string => match ($state) {
                         '' => 'gray',
                         '0' => 'gray',
@@ -251,14 +257,14 @@ class FresqueResource extends Resource
                 Tables\Columns\TextColumn::make('is_registration_open')
                     ->label('Inscriptions')
                     ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'Open' : 'Closed')
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'Ouvertes' : 'Fermées')
                     ->color(fn (string $state): string => match ($state) {
                         '' => 'gray',
                         '0' => 'gray',
                         '1' => 'success',
                     }),
                 Tables\Columns\ImageColumn::make('animators.photo')
-                    ->label('Animators')
+                    ->label('Animateurs')
                     ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
                     ->circular()
                     ->stacked(),

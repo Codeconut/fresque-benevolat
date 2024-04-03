@@ -34,7 +34,7 @@ class FresqueApplication extends Model
     ];
 
     protected $attributes = [
-        'state' => '0_registered',
+        'state' => 'registered',
     ];
 
     protected static function booted()

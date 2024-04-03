@@ -47,27 +47,18 @@ class FresqueApplicationResource extends Resource
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('mobile')
                     ->maxLength(255),
-                Tables\Columns\SelectColumn::make('info_benevolat')->label('Déjà bénévole ?')
+                Forms\Components\Select::make('info_benevolat')->label('Déjà bénévole ?')
                     ->options([
                         'yes_many' => 'Oui, plusieurs fois',
                         'yes_once' => 'Oui, une fois',
                         'none' => 'Non, jamais',
                     ]),
-                Tables\Columns\SelectColumn::make('info_fresque')->label('Déjà participé à une fresque ?')
+                Forms\Components\Select::make('info_fresque')->label('Déjà participé à une fresque ?')
                     ->options([
                         'yes' => 'Oui, j\'ai déjà participé à ce type d\'atelier',
                         'no_but_i_know' => 'Non, mais je connais',
                         'no_and_i_dont_know' => 'Non et je ne connaissais pas',
                     ]),
-                Forms\Components\Select::make('state')->label('Statut')
-                    ->options([
-                        'registered' => '0 - Inscrit',
-                        'confirmed_presence' => '1 - Présence confirmé',
-                        'validated' => '2 - Réalisé',
-                        'canceled' => '3 - Annulé',
-                        'missing' => '4 - Absent',
-                    ])
-                    ->native(false),
                 Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
             ])->columns(3);
     }
