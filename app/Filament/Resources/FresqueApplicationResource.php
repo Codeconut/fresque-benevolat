@@ -20,9 +20,9 @@ class FresqueApplicationResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static ?string $navigationLabel = 'Applications';
+    protected static ?string $navigationLabel = 'Participations';
 
-    protected static ?string $navigationGroup = 'Contents';
+    protected static ?string $navigationGroup = 'Contenus';
 
     public static function form(Form $form): Form
     {
@@ -41,31 +41,31 @@ class FresqueApplicationResource extends Resource
                 //     ]),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
-                Forms\Components\TextInput::make('first_name')
+                Forms\Components\TextInput::make('first_name')->label('Prénom')
                     ->maxLength(255)->required(),
-                Forms\Components\TextInput::make('last_name')
+                Forms\Components\TextInput::make('last_name')->label('Nom')
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('mobile')
                     ->maxLength(255),
-                Tables\Columns\SelectColumn::make('info_benevolat')
+                Tables\Columns\SelectColumn::make('info_benevolat')->label('Déjà bénévole ?')
                     ->options([
                         'yes_many' => 'Oui, plusieurs fois',
                         'yes_once' => 'Oui, une fois',
                         'none' => 'Non, jamais',
                     ]),
-                Tables\Columns\SelectColumn::make('info_fresque')
+                Tables\Columns\SelectColumn::make('info_fresque')->label('Déjà participé à une fresque ?')
                     ->options([
                         'yes' => 'Oui, j\'ai déjà participé à ce type d\'atelier',
                         'no_but_i_know' => 'Non, mais je connais',
                         'no_and_i_dont_know' => 'Non et je ne connaissais pas',
                     ]),
-                Forms\Components\Select::make('state')
+                Forms\Components\Select::make('state')->label('Statut')
                     ->options([
-                        '0_inscrit' => '0 - Registered',
-                        '1_confirmed_presence' => '1 - Confirmed presence',
-                        '2_validated' => '2 - Validated',
-                        '3_canceled' => '3 - Canceled',
-                        '4_missing' => '4 - Missing',
+                        'registered' => '0 - Inscrit',
+                        'confirmed_presence' => '1 - Présence confirmé',
+                        'validated' => '2 - Réalisé',
+                        'canceled' => '3 - Annulé',
+                        'missing' => '4 - Absent',
                     ])
                     ->native(false),
                 Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
@@ -88,22 +88,13 @@ class FresqueApplicationResource extends Resource
                     ->label('Fresque')
                     ->searchable(['fresque.place.name', 'fresque.place.full_address'])
                     ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
-                Tables\Columns\TextColumn::make('has_confirmed_presence')
-                    ->label('Presence')
-                    ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'Confirmed' : 'Not confirmed')
-                    ->color(fn (string $state): string => match ($state) {
-                        '' => 'gray',
-                        '0' => 'gray',
-                        '1' => 'success',
-                    }),
-                Tables\Columns\SelectColumn::make('state')
+                Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options([
-                        '0_registered' => '0 - Registered',
-                        '1_confirmed_presence' => '1 - Confirmed presence',
-                        '2_validated' => '2 - Validated',
-                        '3_canceled' => '3 - Canceled',
-                        '4_missing' => '4 - Missing',
+                        'registered' => '0 - Inscrit',
+                        'confirmed_presence' => '1 - Présence confirmé',
+                        'validated' => '2 - Réalisé',
+                        'canceled' => '3 - Annulé',
+                        'missing' => '4 - Absent',
                     ])->rules(['required'])->selectablePlaceholder(false)
             ])
             ->filters([

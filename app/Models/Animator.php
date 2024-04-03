@@ -55,6 +55,13 @@ class Animator extends Model
         );
     }
 
+    protected function fullAddress(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string  => $this->zip . ' ' . $this->city,
+        );
+    }
+
     protected function publicName(): Attribute
     {
         return Attribute::make(

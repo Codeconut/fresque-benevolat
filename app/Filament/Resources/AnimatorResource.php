@@ -19,9 +19,9 @@ class AnimatorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static ?string $navigationLabel = 'Animators';
+    protected static ?string $navigationLabel = 'Animateurs';
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Paramètres';
 
     public static function form(Form $form): Form
     {
@@ -40,17 +40,17 @@ class AnimatorResource extends Resource
                     ]),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
-                Forms\Components\TextInput::make('first_name')
+                Forms\Components\TextInput::make('first_name')->label('Prénom')
                     ->maxLength(255)->required(),
-                Forms\Components\TextInput::make('last_name')
+                Forms\Components\TextInput::make('last_name')->label('Nom')
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('mobile')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('zip')
+                Forms\Components\TextInput::make('zip')->label('Code postal')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('city')
+                Forms\Components\TextInput::make('city')->label('Ville')
                     ->maxLength(255),
-                Forms\Components\Select::make('professional_status')
+                Forms\Components\Select::make('professional_status')->label('Statut professionnel')
                     ->options([
                         'student' => 'Étudiant',
                         'actif' => 'Actif',
@@ -59,15 +59,14 @@ class AnimatorResource extends Resource
                         'other' => 'Autre',
                     ])
                     ->native(false),
-                Forms\Components\Select::make('availability')
+                Forms\Components\Select::make('availability')->label('Disponibilités')
                     ->options([
-                        'rookie' => 'Débutant',
-                        'amateur' => 'Amateur',
-                        'confirmed' => 'Confirmé',
-                        'professional' => 'Professionnel',
+                        'week' => 'Semaine',
+                        'week-end' => 'Week-ends',
+                        'evening' => 'Soirées',
                     ])
                     ->native(false),
-                Forms\Components\Select::make('level')
+                Forms\Components\Select::make('level')->label('Niveau d’animation')
                     ->options([
                         'rookie' => 'Débutant',
                         'amateur' => 'Amateur',
@@ -87,9 +86,13 @@ class AnimatorResource extends Resource
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
-                Tables\Columns\TextColumn::make('email')
-                    ->label('Animator')
-                    ->description(fn (Animator $animator) => $animator->full_name)
+                Tables\Columns\TextColumn::make('full_name')
+                    ->label('Animateur')
+                    ->description(fn (Animator $animator) => $animator->email)
+                    ->searchable(['email', 'first_name', 'last_name']),
+                Tables\Columns\TextColumn::make('full_address')
+                    ->label('Coordonnées')
+                    ->description(fn (Animator $animator) => $animator->mobile)
                     ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresques_count')
                     ->suffix(' fresque(s)')

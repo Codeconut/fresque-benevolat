@@ -20,15 +20,16 @@ class PlaceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-map-pin';
 
-    protected static ?string $navigationLabel = 'Places';
+    protected static ?string $navigationLabel = 'Lieux';
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'Paramètres';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nom du lieu')
                     ->maxLength(255)->columnSpanFull()->required(),
                 Forms\Components\Select::make('geocoding')
                     ->suffixIcon('heroicon-o-map-pin')
@@ -56,15 +57,19 @@ class PlaceResource extends Resource
                         $set('latitude', $feature['geometry']['coordinates'][1]);
                     }),
                 Forms\Components\TextInput::make('full_address')
+                    ->label('Adresse complète')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('zip')
+                    ->label('Code postal')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('city')
+                    ->label('Ville')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('street')
+                    ->label('N° Rue')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('latitude')
@@ -73,7 +78,8 @@ class PlaceResource extends Resource
                 Forms\Components\TextInput::make('longitude')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('summary')->columnSpanFull(),
+                Forms\Components\MarkdownEditor::make('summary')->label('Résumé')
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('photos')
                     ->columnSpanFull()
                     ->directory('places')

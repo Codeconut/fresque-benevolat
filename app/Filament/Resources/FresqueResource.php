@@ -31,7 +31,7 @@ class FresqueResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
-    protected static ?string $navigationGroup = 'Contents';
+    protected static ?string $navigationGroup = 'Contenus';
 
     public static function form(Form $form): Form
     {
@@ -44,8 +44,8 @@ class FresqueResource extends Resource
                                 Forms\Components\Section::make('Informations')
                                     ->schema([
                                         Forms\Components\DatePicker::make('date')->default(Carbon::now())->required(),
-                                        Forms\Components\TimePicker::make('start_at')->default('18:00')->seconds(false)->minutesStep(5)->required(),
-                                        Forms\Components\TimePicker::make('end_at')->default('20:15')->seconds(false)->minutesStep(5)->required(),
+                                        Forms\Components\TimePicker::make('start_at')->label('Début')->default('18:00')->seconds(false)->minutesStep(5)->required(),
+                                        Forms\Components\TimePicker::make('end_at')->label('Fin')->default('20:15')->seconds(false)->minutesStep(5)->required(),
                                         Forms\Components\Select::make('place_id')
                                             ->columnSpanFull()
                                             ->required()
@@ -81,16 +81,16 @@ class FresqueResource extends Resource
                                                         $set('longitude', $feature['geometry']['coordinates'][0]);
                                                         $set('latitude', $feature['geometry']['coordinates'][1]);
                                                     }),
-                                                Forms\Components\TextInput::make('full_address')
+                                                Forms\Components\TextInput::make('full_address')->label('Adresse complète')
                                                     ->required()
                                                     ->maxLength(255),
-                                                Forms\Components\TextInput::make('zip')
+                                                Forms\Components\TextInput::make('zip')->label('Code postal')
                                                     ->required()
                                                     ->maxLength(255),
-                                                Forms\Components\TextInput::make('city')
+                                                Forms\Components\TextInput::make('city')->label('Ville')
                                                     ->required()
                                                     ->maxLength(255),
-                                                Forms\Components\TextInput::make('street')
+                                                Forms\Components\TextInput::make('street')->label('Rue')
                                                     ->required()
                                                     ->maxLength(255),
                                                 Forms\Components\TextInput::make('latitude')
@@ -102,7 +102,7 @@ class FresqueResource extends Resource
                                             ]),
                                         Forms\Components\Select::make('animators')
                                             ->columnSpanFull()
-                                            ->label('Animators')
+                                            ->label('Animateurs')
                                             ->multiple()
                                             ->searchable(['first_name', 'last_name', 'zip', 'city', 'email'])
                                             ->relationship('animators', 'email')
@@ -110,18 +110,18 @@ class FresqueResource extends Resource
                                             ->createOptionForm([
                                                 Forms\Components\TextInput::make('email')
                                                     ->maxLength(255)->required()->email(),
-                                                Forms\Components\TextInput::make('first_name')
+                                                Forms\Components\TextInput::make('first_name')->label('Prénom')
                                                     ->maxLength(255)->required(),
-                                                Forms\Components\TextInput::make('last_name')
+                                                Forms\Components\TextInput::make('last_name')->label('Nom')
                                                     ->maxLength(255)->required(),
                                                 Forms\Components\TextInput::make('mobile')
                                                     ->maxLength(255),
-                                                Forms\Components\TextInput::make('zip')
+                                                Forms\Components\TextInput::make('zip')->label('Code postal')
                                                     ->maxLength(255),
-                                                Forms\Components\TextInput::make('city')
+                                                Forms\Components\TextInput::make('city')->label('Ville')
                                                     ->maxLength(255),
                                             ]),
-                                        Forms\Components\MarkdownEditor::make('summary')->columnSpanFull(),
+                                        Forms\Components\MarkdownEditor::make('summary')->label('Résumé')->columnSpanFull(),
                                     ])->columns(3),
                                 Forms\Components\Section::make('Page builder')
                                     ->description('Create your page by adding blocks.')
@@ -173,7 +173,7 @@ class FresqueResource extends Resource
                             ])->columnSpan(2),
                         Forms\Components\Grid::make()
                             ->schema([
-                                Forms\Components\Section::make('Settings')
+                                Forms\Components\Section::make('Paramètres')
                                     ->schema([
                                         // Forms\Components\Toggle::make('is_online')->label('En ligne'),
                                         // Forms\Components\Toggle::make('is_registration_open')->label('Registration'),
@@ -181,15 +181,16 @@ class FresqueResource extends Resource
                                             ->required()
                                             ->integer(),
                                         Forms\Components\ToggleButtons::make('is_private')
-                                            ->label('Private')
+                                            ->label('Fresque privée')
+                                            ->default(false)
                                             ->boolean()
                                             ->grouped(),
                                         Forms\Components\ToggleButtons::make('is_online')
-                                            ->label('Online')
+                                            ->label('En ligne')
                                             ->boolean()
                                             ->grouped(),
                                         Forms\Components\ToggleButtons::make('is_registration_open')
-                                            ->label('Registration open')
+                                            ->label('Inscriptions ouvertes')
                                             ->boolean()
                                             ->grouped(),
 
