@@ -51,28 +51,13 @@ class AnimatorResource extends Resource
                 Forms\Components\TextInput::make('city')->label('Ville')
                     ->maxLength(255),
                 Forms\Components\Select::make('professional_status')->label('Statut professionnel')
-                    ->options([
-                        'student' => 'Étudiant',
-                        'actif' => 'Actif',
-                        'independent' => 'Indépendant',
-                        'retirement' => 'Retraité',
-                        'other' => 'Autre',
-                    ])
+                    ->options(config('taxonomies.animators.professional_status'))
                     ->native(false),
                 Forms\Components\Select::make('availability')->label('Disponibilités')
-                    ->options([
-                        'week' => 'Semaine',
-                        'week-end' => 'Week-ends',
-                        'evening' => 'Soirées',
-                    ])
+                    ->options(config('taxonomies.animators.availability'))
                     ->native(false),
                 Forms\Components\Select::make('level')->label('Niveau d’animation')
-                    ->options([
-                        'rookie' => 'Débutant',
-                        'amateur' => 'Amateur',
-                        'confirmed' => 'Confirmé',
-                        'professional' => 'Professionnel',
-                    ])
+                    ->options(config('taxonomies.animators.level'))
                     ->native(false),
                 Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
             ]);
