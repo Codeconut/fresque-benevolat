@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use Awcodes\FilamentGravatar\GravatarPlugin;
 use Awcodes\FilamentGravatar\GravatarProvider;
+use Carbon\Carbon;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -22,11 +23,16 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    public function boot(): void
+    {
+        // Carbon::setLocale(config('app.locale'));
+    }
+
     public function panel(Panel $panel): Panel
     {
         return $panel
             ->default()
-            ->brandName('Filament Demo')
+            ->brandName('Fresque du bénévolat')
             ->id('admin')
             ->path('admin')
             ->login()

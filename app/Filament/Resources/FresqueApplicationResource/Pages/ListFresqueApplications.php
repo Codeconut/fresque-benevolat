@@ -13,6 +13,8 @@ class ListFresqueApplications extends ListRecords
 {
     protected static string $resource = FresqueApplicationResource::class;
 
+    protected static ?string $title = 'Participations';
+
     protected function getHeaderActions(): array
     {
         return [

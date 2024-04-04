@@ -16,15 +16,49 @@ class ApplicationsRelationManager extends RelationManager
 {
     protected static string $relationship = 'applications';
 
-    // public function form(Form $form): Form
-    // {
-    //     return $form
-    //         ->schema([
-    //             Forms\Components\TextInput::make('email')
-    //                 ->required()
-    //                 ->maxLength(255),
-    //         ]);
-    // }
+    public function isReadOnly(): bool
+    {
+        return false;
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                // Forms\Components\FileUpload::make('photo')->directory('animators')
+                //     ->image()
+                //     ->maxSize(2048)
+                //     ->imageEditor()
+                //     ->imageEditorViewportWidth('600')
+                //     ->imageEditorViewportHeight('600')
+                //     ->imageResizeTargetWidth('200')
+                //     ->imageResizeTargetHeight('200')
+                //     ->imageEditorAspectRatios([
+                //         '1:1',
+                //     ]),
+                Forms\Components\TextInput::make('email')
+                    ->maxLength(255)->required()->email(),
+                Forms\Components\TextInput::make('first_name')->label('Prénom')
+                    ->maxLength(255)->required(),
+                Forms\Components\TextInput::make('last_name')->label('Nom')
+                    ->maxLength(255)->required(),
+                Forms\Components\TextInput::make('mobile')
+                    ->maxLength(255),
+                Forms\Components\Select::make('info_benevolat')->label('Déjà bénévole ?')
+                    ->options([
+                        'yes_many' => 'Oui, plusieurs fois',
+                        'yes_once' => 'Oui, une fois',
+                        'none' => 'Non, jamais',
+                    ]),
+                Forms\Components\Select::make('info_fresque')->label('Déjà participé à une fresque ?')
+                    ->options([
+                        'yes' => 'Oui, j\'ai déjà participé à ce type d\'atelier',
+                        'no_but_i_know' => 'Non, mais je connais',
+                        'no_and_i_dont_know' => 'Non et je ne connaissais pas',
+                    ]),
+                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
+            ])->columns(3);
+    }
 
     public function table(Table $table): Table
     {
@@ -65,12 +99,13 @@ class ApplicationsRelationManager extends RelationManager
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            ->paginated(false)
-            ->defaultGroup('state')
-            ->groups([
-                Group::make('state')->label('Statut')
-                    ->getTitleFromRecordUsing(fn (FresqueApplication $record): string => ucfirst($record->state)),
-            ])
-            ->groupingSettingsHidden();
+            // ->paginated(false)
+            // ->defaultGroup('state')
+            // ->groups([
+            //     Group::make('state')->label('Statut')
+            //         ->getTitleFromRecordUsing(fn (FresqueApplication $record): string => ucfirst($record->state)),
+            // ])
+            // ->groupingSettingsHidden()
+        ;
     }
 }
