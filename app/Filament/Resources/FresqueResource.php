@@ -25,6 +25,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Columns\IconColumn;
+use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 
 class FresqueResource extends Resource
 {
@@ -223,12 +224,7 @@ class FresqueResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\IconColumn::make('is_private')->label('')
-                    ->icon(fn (string $state): string => match ($state) {
-                        '' => 'heroicon-o-lock-open',
-                        '0' => 'heroicon-o-lock-open',
-                        '1' => 'heroicon-o-lock-closed',
-                    })->color('gray')->size(IconColumn\IconColumnSize::Medium),
+
                 Tables\Columns\ImageColumn::make('cover')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')
@@ -244,25 +240,11 @@ class FresqueResource extends Resource
                 Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
                     ->suffix(' places ')
                     ->description(fn (Fresque $fresque) => 'sur ' . $fresque->places . ' au total'),
-
-                Tables\Columns\TextColumn::make('is_online')
-                    ->label('En ligne')
-                    ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'En ligne' : 'Hors ligne')
-                    ->color(fn (string $state): string => match ($state) {
-                        '' => 'gray',
-                        '0' => 'gray',
-                        '1' => 'success',
-                    }),
-                Tables\Columns\TextColumn::make('is_registration_open')
-                    ->label('Inscriptions')
-                    ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'Ouvertes' : 'Fermées')
-                    ->color(fn (string $state): string => match ($state) {
-                        '' => 'gray',
-                        '0' => 'gray',
-                        '1' => 'success',
-                    }),
+                ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
+                ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
+                ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
+                    ->onIcon('heroicon-s-lock-closed')
+                    ->offIcon('heroicon-o-lock-open'),
                 Tables\Columns\ImageColumn::make('animators.photo')
                     ->label('Animateurs')
                     ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
@@ -274,15 +256,18 @@ class FresqueResource extends Resource
                 TernaryFilter::make('is_online')
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueResource::getUrl('activities', ['record' => $record]))
+                ])
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                //     Tables\Actions\ForceDeleteBulkAction::make(),
+                //     Tables\Actions\RestoreBulkAction::make(),
+                // ]),
             ]);
     }
 
@@ -300,6 +285,7 @@ class FresqueResource extends Resource
             'create' => Pages\CreateFresque::route('/create'),
             'view' => Pages\ViewFresque::route('/{record}'),
             'edit' => Pages\EditFresque::route('/{record}/edit'),
+            'activities' => Pages\ListFresqueActivities::route('/{record}/activities'),
         ];
     }
 

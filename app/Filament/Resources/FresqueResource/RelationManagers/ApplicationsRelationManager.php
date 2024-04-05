@@ -66,21 +66,22 @@ class ApplicationsRelationManager extends RelationManager
                 Tables\Actions\CreateAction::make(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
-            // ->paginated(false)
-            // ->defaultGroup('state')
-            // ->groups([
-            //     Group::make('state')->label('Statut')
-            //         ->getTitleFromRecordUsing(fn (FresqueApplication $record): string => ucfirst($record->state)),
-            // ])
-            // ->groupingSettingsHidden()
-        ;
+            ->paginated(false)
+            ->defaultGroup('state')
+            ->groups([
+                Group::make('state')->label('')
+                    ->getTitleFromRecordUsing(fn (FresqueApplication $record): string => config('taxonomies.applications.states')[$record->state]),
+            ])
+            ->groupingSettingsHidden();
     }
 }

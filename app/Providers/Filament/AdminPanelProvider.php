@@ -32,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->brandName('Fresque du bénévolat')
+            ->brandName('Fresque Manager')
             ->id('admin')
             ->path('admin')
             ->login()

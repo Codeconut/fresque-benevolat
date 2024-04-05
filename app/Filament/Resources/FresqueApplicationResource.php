@@ -58,7 +58,6 @@ class FresqueApplicationResource extends Resource
                     ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
-                    ->searchable(['fresque.place.name', 'fresque.place.full_address'])
                     ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false)
@@ -67,17 +66,18 @@ class FresqueApplicationResource extends Resource
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ForceDeleteAction::make(),
-                Tables\Actions\RestoreAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueApplicationResource::getUrl('activities', ['record' => $record])),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                //     Tables\Actions\ForceDeleteBulkAction::make(),
+                //     Tables\Actions\RestoreBulkAction::make(),
+                // ]),
             ]);
     }
 
@@ -85,6 +85,7 @@ class FresqueApplicationResource extends Resource
     {
         return [
             'index' => Pages\ListFresqueApplications::route('/'),
+            'activities' => Pages\ListFresqueApplicationActivities::route('/{record}/activities'),
         ];
     }
 
