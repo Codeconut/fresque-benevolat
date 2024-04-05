@@ -67,12 +67,12 @@ const onSubmit = () => {
             <InputError :message="form.errors.email" class="mt-2" />
           </div>
           <div>
-            <TextInput id="last_name" v-model="form.last_name" placeholder="Nom" />
-            <InputError :message="form.errors.last_name" class="mt-2" />
-          </div>
-          <div>
             <TextInput id="first_name" v-model="form.first_name" placeholder="Prénom" />
             <InputError :message="form.errors.first_name" class="mt-2" />
+          </div>
+          <div>
+            <TextInput id="last_name" v-model="form.last_name" placeholder="Nom" />
+            <InputError :message="form.errors.last_name" class="mt-2" />
           </div>
         </form>
       </template>

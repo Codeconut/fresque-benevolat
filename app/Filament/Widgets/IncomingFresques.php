@@ -8,6 +8,7 @@ use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables\Columns\IconColumn;
 use App\Filament\Resources\FresqueResource\Pages;
+use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 
 class IncomingFresques extends BaseWidget
 {
@@ -24,12 +25,6 @@ class IncomingFresques extends BaseWidget
                     ->incoming()
             )
             ->columns([
-                Tables\Columns\IconColumn::make('is_private')->label('')
-                    ->icon(fn (string $state): string => match ($state) {
-                        '' => 'heroicon-o-lock-open',
-                        '0' => 'heroicon-o-lock-open',
-                        '1' => 'heroicon-o-lock-closed',
-                    })->color('gray')->size(IconColumn\IconColumnSize::Medium),
                 Tables\Columns\ImageColumn::make('cover')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')
@@ -45,25 +40,11 @@ class IncomingFresques extends BaseWidget
                 Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
                     ->suffix(' places ')
                     ->description(fn (Fresque $fresque) => 'sur ' . $fresque->places . ' au total'),
-
-                Tables\Columns\TextColumn::make('is_online')
-                    ->label('En ligne')
-                    ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'En ligne' : 'Hors ligne')
-                    ->color(fn (string $state): string => match ($state) {
-                        '' => 'gray',
-                        '0' => 'gray',
-                        '1' => 'success',
-                    }),
-                Tables\Columns\TextColumn::make('is_registration_open')
-                    ->label('Inscriptions')
-                    ->badge()
-                    ->formatStateUsing(fn (bool $state): string => $state ? 'Ouvertes' : 'Fermées')
-                    ->color(fn (string $state): string => match ($state) {
-                        '' => 'gray',
-                        '0' => 'gray',
-                        '1' => 'success',
-                    }),
+                ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
+                ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
+                ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
+                    ->onIcon('heroicon-s-lock-closed')
+                    ->offIcon('heroicon-o-lock-open'),
                 Tables\Columns\ImageColumn::make('animators.photo')
                     ->label('Animateurs')
                     ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
