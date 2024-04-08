@@ -4,12 +4,13 @@ namespace App\Notifications;
 
 use App\Models\Fresque;
 use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FresqueApplicationCreated extends Notification implements ShouldQueue
+class FresqueApplicationConfirmPresence extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -38,14 +39,16 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $fresqueDate = Carbon::parse($this->fresque->date)->translatedFormat('d F Y');
+
+        $diffInDays = floor(abs(Carbon::parse($this->fresque->date)->diffInDays()));
 
         return (new MailMessage)
-            ->subject('Votre inscription à la fresque du bénévolat du ' . $fresqueDate . ' est validée 🥳')
-            ->markdown('mail.fresque-application.created', [
-                'url' =>  route('fresques.show', ['fresque' => $this->fresque]),
+            ->subject('La fresque du bénévolat, c’est dans ' . $diffInDays . ' jours !')
+            ->markdown('mail.fresque-application.confirm-presence', [
+                'url' =>  route('fresques.applications.confirm', ['fresqueApplication' => $notifiable]),
                 'fresque' => $this->fresque,
-                'notifiable' => $notifiable
+                'notifiable' => $notifiable,
+                'diffInDays' => $diffInDays,
             ])
             ->tag($this->tag);
     }

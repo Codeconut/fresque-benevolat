@@ -1,10 +1,12 @@
 <script setup lang="jsx">
 import { defineComponent, ref, computed } from 'vue'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
+import DsfrButton from '@/Components/Dsfr/Button.vue'
 import CandidateButton from '@/Components/CandidateButton.vue'
 import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import MarkdownIt from 'markdown-it'
+import { Head, Link, router } from '@inertiajs/vue3'
 
 const props = defineProps({
   fresque: {
@@ -48,7 +50,9 @@ const markdown = new MarkdownIt()
           <template v-if="fresque.can_candidate">
             <div class="">{{ fresque.places_left }} places restantes</div>
 
-            <CandidateButton> Je m'inscris</CandidateButton>
+            <Link :href="route('fresques.candidate', { fresque })">
+              <DsfrButton> Je m'inscris</DsfrButton>
+            </Link>
           </template>
           <template v-else>
             <div class="">Les inscriptions sont closes</div>

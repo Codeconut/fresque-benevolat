@@ -14,6 +14,10 @@ defineProps({
     default: 'md',
     validator: (s) => ['xs', 'sm', 'md', 'lg'].includes(s),
   },
+  full: {
+    type: Boolean,
+    default: false,
+  },
   disabled: {
     type: Boolean,
     default: false,
@@ -39,6 +43,7 @@ defineProps({
       { 'px-4 py-2 text-base min-h-[42px]': size === 'md' },
       { 'px-6 py-2 text-lg min-h-[3rem]': size === 'lg' },
       { 'px-8 py-3 text-xl min-h-[3.5rem]': size === 'xl' },
+      { 'w-full': full },
 
       disabled ? 'cursor-not-allowed' : 'cursor-pointer',
     ]"

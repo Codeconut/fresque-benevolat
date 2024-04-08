@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
 use App\Models\Fresque;
+use App\Models\FresqueApplication;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -23,6 +24,10 @@ class FresqueController extends Controller
     public function show(Fresque $fresque)
     {
 
+        // $application = FresqueApplication::latest()->first();
+        // $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
+        // $application->notify(new \App\Notifications\FresqueApplicationConfirmPresence($fresque));
+
         $fresque->load(['animators', 'place']);
 
         return Inertia::render('Fresques/Show', [
@@ -30,7 +35,16 @@ class FresqueController extends Controller
         ]);
     }
 
-    public function candidate(Request $request, Fresque $fresque, CreateFresqueApplication $createFresqueApplication)
+    public function candidate(Fresque $fresque)
+    {
+        $fresque->load(['place']);
+
+        return Inertia::render('Fresques/Candidate', [
+            'fresque' => $fresque,
+        ]);
+    }
+
+    public function apply(Request $request, Fresque $fresque, CreateFresqueApplication $createFresqueApplication)
     {
 
         if (!$fresque->can_candidate) {

@@ -106,7 +106,7 @@ class Fresque extends Model
     protected function schedules(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => Carbon::parse($this->start_at)->format('H:i') . ' - ' . Carbon::parse($this->end_at)->format('H:i'),
+            get: fn (): string  => Carbon::parse($this->start_at)->format('H:i') . ' à ' . Carbon::parse($this->end_at)->format('H:i'),
         );
     }
 
