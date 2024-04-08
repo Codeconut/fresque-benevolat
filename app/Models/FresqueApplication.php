@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Carbon\Carbon;
+use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class FresqueApplication extends Model
 {
-    use HasFactory, SoftDeletes, LogsActivity;
+    use Notifiable, HasFactory, SoftDeletes, LogsActivity;
 
     protected $table = 'fresques_applications';
 

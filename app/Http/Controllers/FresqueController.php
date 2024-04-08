@@ -44,9 +44,10 @@ class FresqueController extends Controller
             'last_name' => $request->last_name,
         ];
 
-        $createFresqueApplication->apply($inputs);
+        $application = $createFresqueApplication->apply($inputs);
 
-        // return success message;
+        $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
+
         return redirect()->back()->with('success', 'Votre candidature a bien été enregistrée');
     }
 }
