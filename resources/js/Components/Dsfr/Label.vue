@@ -31,6 +31,6 @@ defineProps({
   >
     <slot />
     <span v-if="required" class="text-[#E2011C]"> * </span>
-    <span v-if="suffix" class="text-jva-blue-400 ml-2">{{ suffix }}</span>
+    <span v-if="suffix" class="ml-2">{{ suffix }}</span>
   </label>
 </template>

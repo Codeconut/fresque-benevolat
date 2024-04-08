@@ -11,9 +11,21 @@ use Inertia\Inertia;
 
 class FresqueApplicationController extends Controller
 {
-    public function confirm(FresqueApplication $fresqueApplication)
+    public function confirmation(FresqueApplication $fresqueApplication)
     {
-        return Inertia::render('Applications/Confirm', [
+        $fresque = $fresqueApplication->fresque->load(['place']);
+
+        return Inertia::render('Applications/Confirmation', [
+            'fresque' =>  $fresque,
+        ]);
+    }
+
+    public function presence(FresqueApplication $fresqueApplication)
+    {
+        $fresque = $fresqueApplication->fresque->load(['place']);
+
+        return Inertia::render('Applications/Presence', [
+            'fresque' =>  $fresque,
             'application' => $fresqueApplication,
         ]);
     }

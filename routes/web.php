@@ -14,7 +14,8 @@ Route::get('/fresques-benevolat/{fresque:slug}', [FresqueController::class, 'sho
 Route::get('/fresques-benevolat/{fresque:slug}/candidate', [FresqueController::class, 'candidate'])->name('fresques.candidate');
 Route::post('/fresques-benevolat/{fresque:slug}/apply', [FresqueController::class, 'apply'])->name('fresques.apply');
 
-Route::get('/fresques-applications/{fresqueApplication:token}/confirm', [FresqueApplicationController::class, 'confirm'])->name('fresques.applications.confirm');
+Route::get('/fresques-applications/{fresqueApplication:token}/confirmation', [FresqueApplicationController::class, 'confirmation'])->name('fresques.applications.confirmation');
+Route::get('/fresques-applications/{fresqueApplication:token}/presence', [FresqueApplicationController::class, 'presence'])->name('fresques.applications.presence');
 
 // Route::middleware([
 //     'auth:sanctum',

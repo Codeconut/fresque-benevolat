@@ -3,7 +3,7 @@ defineProps({
   variant: {
     type: String,
     default: 'primary',
-    validator: (s) => ['primary', 'secondary', 'tertiary', 'tertiary-no-outline'].includes(s),
+    validator: (s) => ['primary', 'secondary', 'custom'].includes(s),
   },
   type: {
     type: String,
@@ -21,6 +21,10 @@ defineProps({
   disabled: {
     type: Boolean,
     default: false,
+  },
+  customClass: {
+    type: String,
+    default: '',
   },
 })
 </script>
@@ -41,9 +45,10 @@ defineProps({
       { 'px-2 py-1 text-xs min-h-[32px]': size === 'xs' },
       { 'px-3 py-1 text-sm min-h-[34px]': size === 'sm' },
       { 'px-4 py-2 text-base min-h-[42px]': size === 'md' },
-      { 'px-6 py-2 text-lg min-h-[3rem]': size === 'lg' },
-      { 'px-8 py-3 text-xl min-h-[3.5rem]': size === 'xl' },
+      { 'px-6 py-2 text-lg min-h-[48px]': size === 'lg' },
+      { 'px-8 py-3 text-xl min-h-[52px]': size === 'xl' },
       { 'w-full': full },
+      customClass,
 
       disabled ? 'cursor-not-allowed' : 'cursor-pointer',
     ]"

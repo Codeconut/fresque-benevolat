@@ -41,6 +41,11 @@ export default {
           hover: '#eadecd',
           active: '#e1ceb1',
         },
+        'yellow-moutarde-main-679': {
+          DEFAULT: '#C3992A',
+          hover: '#f5c137',
+          active: '#fcd17b',
+        },
         // 'grey-1000': {
         //   DEFAULT: '#ffffff',
         //   hover: '#f6f6f6',

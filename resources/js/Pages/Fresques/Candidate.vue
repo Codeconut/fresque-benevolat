@@ -34,7 +34,6 @@ const onSubmit = () => {
       },
       onSuccess: () => {
         console.log('onSuccess', form)
-        router.visit(route('fresques.show', { fresque: props.fresque }))
       },
       onFinish: () => {
         form.processing = false
@@ -99,7 +98,7 @@ const onSubmit = () => {
               />
             </div>
           </div>
-          <DsfrButton type="submit" full>Je valide mon inscription</DsfrButton>
+          <DsfrButton type="submit" size="lg" full>Je valide mon inscription</DsfrButton>
         </form>
       </div>
     </div>

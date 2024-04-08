@@ -62,6 +62,6 @@ class FresqueController extends Controller
 
         $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
 
-        return redirect()->back()->with('success', 'Votre candidature a bien été enregistrée');
+        return to_route('fresques.applications.confirmation', $application->token);
     }
 }
