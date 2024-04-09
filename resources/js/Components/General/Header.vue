@@ -9,17 +9,18 @@ const logout = () => {
 </script>
 
 <template>
-  <div class="container">
-    <div class="flex justify-between items-center h-16">
-      <div class="shrink-0 flex items-center">
-        <Link :href="route('home')">
-          <ApplicationMark class="block h-9 w-auto" />
-        </Link>
-      </div>
-      <div>
-        <div class="flex items-center space-x-8">
-          <div class="flex space-x-8">
-            <!-- <template v-if="!$page.props.isLogged">
+  <div class="bg-white">
+    <div class="container">
+      <div class="flex justify-between items-center h-16">
+        <div class="shrink-0 flex items-center">
+          <Link :href="route('home')">
+            <ApplicationMark class="block h-9 w-auto" />
+          </Link>
+        </div>
+        <div>
+          <div class="flex items-center space-x-8">
+            <div class="flex space-x-8">
+              <!-- <template v-if="!$page.props.isLogged">
               <Link :href="route('login')" class="text-sm text-gray-700 underline">Connexion</Link>
               <Link :href="route('register')" class="text-sm text-gray-700 underline"
                 >Inscription</Link
@@ -34,11 +35,12 @@ const logout = () => {
               >
               <Link href="#" @click="logout" class="text-sm text-gray-700 underline">Logout</Link>
             </template> -->
-          </div>
+            </div>
 
-          <Link :href="route('fresques.index')">
-            <Button>Trouver une fresque</Button>
-          </Link>
+            <Link :href="route('fresques.index')">
+              <Button>Trouver une fresque</Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

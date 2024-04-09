@@ -4,5 +4,8 @@ import Label from './Label.vue'
 import Button from './Button.vue'
 import Checkbox from './Checkbox.vue'
 import FormElement from './FormElement.vue'
+import Tabs from './Tabs.vue'
+import AccordionsGroup from './AccordionsGroup.vue'
+import Accordion from './Accordion.vue'
 
-export { Input, Select, Label, Button, Checkbox, FormElement }
+export { Input, Select, Label, Button, Checkbox, FormElement, Tabs, Accordion, AccordionsGroup }

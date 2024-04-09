@@ -25,6 +25,7 @@
         "@remixicon/vue": "^4.2.0",
         "dayjs": "^1.11.10",
         "markdown-it": "^14.1.0",
-        "query-string": "^9.0.0"
+        "query-string": "^9.0.0",
+        "uuid": "^9.0.1"
     }
 }

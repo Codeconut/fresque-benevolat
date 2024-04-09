@@ -3,6 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue'
 import PassezActionAvecFresquesBenevolat from '@/Components/Sections/PassezActionAvecFresquesBenevolat.vue'
 import PresentationFresqueQuestions from '@/Components/Sections/PresentationFresqueQuestions.vue'
 import FresqueCard from '@/Components/FresqueCard.vue'
+import Faq from '@/Components/Faq.vue'
 import { Link } from '@inertiajs/vue3'
 
 const props = defineProps({
@@ -29,5 +30,6 @@ const props = defineProps({
         </Link>
       </div>
     </div>
+    <Faq />
   </AppLayout>
 </template>

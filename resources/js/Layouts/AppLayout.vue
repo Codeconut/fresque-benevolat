@@ -22,7 +22,7 @@ defineProps({
 
     <Header />
 
-    <div class="bg-beige-gris-galet-975">
+    <div class="">
       <main>
         <slot />
       </main>
