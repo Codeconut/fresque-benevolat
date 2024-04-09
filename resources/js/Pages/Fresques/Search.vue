@@ -2,10 +2,9 @@
 import AppLayout from '@/Layouts/AppLayout.vue'
 import FresqueCard from '@/Components/FresqueCard.vue'
 import { Link, router } from '@inertiajs/vue3'
-import DsfrSelect from '@/Components/Dsfr/Select.vue'
-import DsfrLabel from '@/Components/Dsfr/Label.vue'
 import { ref } from 'vue'
 import queryString from 'query-string'
+import { Select, Label } from '@/Components/Dsfr'
 
 defineProps({
   fresques: {
@@ -33,11 +32,12 @@ const onCitiesChange = (event) => {
     <div class="container py-24">
       <div v-if="cities.length" class="mb-12">
         <div class="w-full max-w-[400px]">
-          <DsfrLabel for="city" class="font-bold uppercase" size="sm">Recherche par lieu</DsfrLabel>
-          <DsfrSelect
+          <Label for="city" class="font-bold uppercase" size="sm">Recherche par lieu</Label>
+          <Select
             id="city"
             name="city"
             v-model="selectedCity"
+            placeholder="Sélectionner une ville"
             :options="
               cities.map((option) => {
                 return { value: option.city, label: `${option.city} (${option.count})` }

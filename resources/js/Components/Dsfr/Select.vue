@@ -14,7 +14,7 @@ const props = defineProps({
   },
   placeholder: {
     type: String,
-    default: null,
+    default: 'Sélectionner une option',
   },
   options: {
     type: Array,
@@ -49,7 +49,7 @@ const props = defineProps({
       :placeholder="placeholder"
       :class="[
         'border-none rounded-t w-full h-full',
-        'bg-[#EEEEEE] shadow-[inset_0_-2px_0_0_#3A3A3A] focus:!shadow-[inset_0_-2px_0_0_#3A3A3A]',
+        'bg-[#EEEEEE] shadow-[inset_0_-2px_0_0_#3A3A3A] focus:!shadow-[inset_0_-2px_0_0_#3A3A3A] text-[#3a3a3a]',
 
         { '!shadow-[inset_0_-2px_0_0_#ce0500]': error },
         { '!shadow-[inset_0_-2px_0_0_#18753c]': success },
@@ -59,6 +59,7 @@ const props = defineProps({
       ]"
       @input="$emit('update:modelValue', $event.target.value)"
     >
+      <option value="" selected disabled hidden>{{ placeholder }}</option>
       <option v-for="option in options" :key="option.value" :value="option.value">
         {{ option.label }}
       </option>
