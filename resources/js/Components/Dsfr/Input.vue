@@ -51,12 +51,10 @@ const onKeypressSpace = (event) => {
       :placeholder="placeholder"
       :class="[
         'border-none rounded-t w-full h-full',
-        'bg-[#EEEEEE] shadow-[inset_0_-2px_0_0_#3A3A3A] focus:!shadow-[inset_0_-2px_0_0_#3A3A3A]',
-
-        { '!shadow-[inset_0_-2px_0_0_#ce0500]': error },
-        { '!shadow-[inset_0_-2px_0_0_#18753c]': success },
+        'bg-[#EEEEEE] focus:ring-2 focus:ring-offset-2 ring-[#0a76f6] ',
+        { '!ring-[#ce0500]': error },
+        { '!ring-[#18753c]': success },
         { 'py-3': size === 'lg' },
-
         customClass,
       ]"
       @keypress.space="onKeypressSpace"
@@ -66,7 +64,7 @@ const onKeypressSpace = (event) => {
 </template>
 
 <style lang="postcss" scoped>
-input {
+/* input {
   --tw-ring-shadow: 0 0 #000 !important;
-}
+} */
 </style>

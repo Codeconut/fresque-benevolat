@@ -1,9 +1,7 @@
 <script setup>
 import OverlayLayout from '@/Layouts/OverlayLayout.vue'
 import { router, useForm, usePage } from '@inertiajs/vue3'
-import DsfrButton from '@/Components/Dsfr/Button.vue'
-import DsfrLabel from '@/Components/Dsfr/Label.vue'
-import DsfrInput from '@/Components/Dsfr/Input.vue'
+import { Checkbox, Input, Label, Button } from '@/Components/Dsfr'
 
 const props = defineProps({
   fresque: {
@@ -61,8 +59,8 @@ const onSubmit = () => {
           <div class="mb-12"><span class="text-[#C8191F]">*</span> Champs obligatoires</div>
           <div class="grid grid-cols-2 gap-6 mb-12">
             <div>
-              <DsfrLabel for="first_name" class="" required>Prénom</DsfrLabel>
-              <DsfrInput
+              <Label for="first_name" class="" required>Prénom</Label>
+              <Input
                 id="first_name"
                 v-model="form.first_name"
                 placeholder="Jean"
@@ -70,8 +68,8 @@ const onSubmit = () => {
               />
             </div>
             <div>
-              <DsfrLabel for="last_name" class="" required>Nom</DsfrLabel>
-              <DsfrInput
+              <Label for="last_name" class="" required>Nom</Label>
+              <Input
                 id="last_name"
                 v-model="form.last_name"
                 placeholder="Dupont"
@@ -79,8 +77,8 @@ const onSubmit = () => {
               />
             </div>
             <div>
-              <DsfrLabel for="email" class="" required>Adresse email</DsfrLabel>
-              <DsfrInput
+              <Label for="email" class="" required>Adresse email</Label>
+              <Input
                 id="email"
                 v-model="form.email"
                 type="email"
@@ -89,8 +87,8 @@ const onSubmit = () => {
               />
             </div>
             <div>
-              <DsfrLabel for="mobile" class="" required>Numéro de téléphone</DsfrLabel>
-              <DsfrInput
+              <Label for="mobile" class="" required>Numéro de téléphone</Label>
+              <Input
                 id="mobile"
                 v-model="form.mobile"
                 placeholder="06 01 02 03 04"
@@ -98,7 +96,12 @@ const onSubmit = () => {
               />
             </div>
           </div>
-          <DsfrButton type="submit" size="lg" full>Je valide mon inscription</DsfrButton>
+          <div class="mb-8">
+            <Checkbox id="agree-emails" name="agree-emails" required
+              >J’accepte de recevoir des emails de rappel de l’événement</Checkbox
+            >
+          </div>
+          <Button type="submit" size="lg" full>Je valide mon inscription</Button>
         </form>
       </div>
     </div>

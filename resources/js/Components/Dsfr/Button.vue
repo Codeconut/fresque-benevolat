@@ -32,10 +32,10 @@ defineProps({
 <template>
   <button
     :type="type"
-    class="font-medium inline-flex items-center justify-center whitespace-pre-wrap flex-none border transition ease-in-out duration-150"
+    class="font-medium inline-flex items-center justify-center whitespace-pre-wrap flex-none border transition ease-in-out duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
     :class="[
       {
-        'text-white bg-blue-france-sun-113 hover:bg-blue-france-sun-113-hover active:bg-blue-france-sun-113-active border-transparent':
+        'text-white bg-blue-france-sun-113 hover:bg-blue-france-sun-113-hover active:bg-blue-france-sun-113-active border-transparent focus-visible:ring-[#0a76f6]':
           variant === 'primary',
       },
       {
