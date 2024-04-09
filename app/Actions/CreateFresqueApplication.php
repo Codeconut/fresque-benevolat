@@ -15,7 +15,6 @@ class CreateFresqueApplication
      */
     public function apply(array $inputs): FresqueApplication
     {
-        ray($inputs);
         Validator::make($inputs, [
             'fresque_id' => 'required|exists:fresques,id',
             'email' => [
