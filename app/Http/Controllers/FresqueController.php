@@ -73,9 +73,7 @@ class FresqueController extends Controller
 
         $inputs = [
             'fresque_id' => $fresque->id,
-            'email' => $request->email,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            ...$request->only('email', 'first_name', 'last_name', 'has_accepted_emails'),
         ];
 
         $application = $createFresqueApplication->apply($inputs);

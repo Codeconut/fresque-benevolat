@@ -1,8 +1,15 @@
 <script setup>
+import { computed } from 'vue'
+import { RiCloseCircleFill } from '@remixicon/vue'
+
 const props = defineProps({
   modelValue: {
     type: [String, Number],
     default: null,
+  },
+  name: {
+    type: String,
+    required: true,
   },
   size: {
     type: String,
@@ -15,15 +22,11 @@ const props = defineProps({
   },
   success: {
     type: Boolean,
-    default: null,
+    default: false,
   },
   type: {
     type: String,
     default: 'text',
-  },
-  id: {
-    type: String,
-    required: true,
   },
   placeholder: {
     type: String,
@@ -45,15 +48,16 @@ const onKeypressSpace = (event) => {
 <template>
   <div class="w-full relative">
     <input
-      :id="id"
+      :id="name"
+      :name="name"
       :value="modelValue"
       :type="type"
       :placeholder="placeholder"
       :class="[
-        'border-none rounded-t w-full h-full',
-        'bg-[#EEEEEE] focus:ring-2 focus:ring-offset-2 ring-[#0a76f6] ',
-        { '!ring-[#ce0500]': error },
-        { '!ring-[#18753c]': success },
+        ' border-t-0 border-l-0 border-r-0 rounded-t w-full h-full border-b-2 border-[#3A3A3A] focus-visible:border-[#3A3A3A]',
+        'bg-[#EEEEEE] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0a76f6]',
+        { '!border-[#ce0500]': error },
+        { '!border-[#18753c]': success },
         { 'py-3': size === 'lg' },
         customClass,
       ]"

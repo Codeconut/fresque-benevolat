@@ -1,7 +1,7 @@
 <script setup>
 import OverlayLayout from '@/Layouts/OverlayLayout.vue'
 import { router, useForm, usePage } from '@inertiajs/vue3'
-import { Checkbox, Input, Label, Button } from '@/Components/Dsfr'
+import { Checkbox, Input, Label, Button, FormElement } from '@/Components/Dsfr'
 
 const props = defineProps({
   fresque: {
@@ -14,9 +14,11 @@ const form = useForm({
   email: '',
   first_name: '',
   last_name: '',
+  has_accepted_emails: null,
 })
 
 const onSubmit = () => {
+  console.log('onSubmit', form)
   form.submit(
     'post',
     route('fresques.apply', {
@@ -58,46 +60,51 @@ const onSubmit = () => {
         <form @submit.prevent="onSubmit" class="p-12 bg-white shadow-lg">
           <div class="mb-12"><span class="text-[#C8191F]">*</span> Champs obligatoires</div>
           <div class="grid grid-cols-2 gap-6 mb-12">
-            <div>
-              <Label for="first_name" class="" required>Prénom</Label>
+            <FormElement name="first_name" label="Prénom" required :error="form.errors.first_name">
               <Input
-                id="first_name"
+                name="first_name"
                 v-model="form.first_name"
                 placeholder="Jean"
                 :error="!!form.errors.first_name"
               />
-            </div>
-            <div>
-              <Label for="last_name" class="" required>Nom</Label>
+            </FormElement>
+            <FormElement name="last_name" label="Nom" required :error="form.errors.last_name">
               <Input
-                id="last_name"
+                name="last_name"
                 v-model="form.last_name"
                 placeholder="Dupont"
-                :error="!!form.errors.first_name"
+                :error="!!form.errors.last_name"
               />
-            </div>
-            <div>
-              <Label for="email" class="" required>Adresse email</Label>
+            </FormElement>
+            <FormElement name="email" label="Adresse email" required :error="form.errors.email">
               <Input
-                id="email"
+                name="email"
                 v-model="form.email"
                 type="email"
                 placeholder="jean.dupont@mail.com"
-                :error="!!form.errors.first_name"
+                :error="!!form.errors.email"
               />
-            </div>
-            <div>
-              <Label for="mobile" class="" required>Numéro de téléphone</Label>
+            </FormElement>
+            <FormElement
+              name="mobile"
+              label="Numéro de téléphone"
+              :error="form.errors.mobile"
+              info="Pour vous contacter en cas de besoin :)"
+            >
               <Input
-                id="mobile"
+                name="mobile"
                 v-model="form.mobile"
                 placeholder="06 01 02 03 04"
                 :error="!!form.errors.mobile"
               />
-            </div>
+            </FormElement>
           </div>
           <div class="mb-8">
-            <Checkbox id="agree-emails" name="agree-emails" required
+            <Checkbox
+              v-model="form.has_accepted_emails"
+              name="has_accepted_emails"
+              :error="!!form.errors.has_accepted_emails"
+              required
               >J’accepte de recevoir des emails de rappel de l’événement</Checkbox
             >
           </div>

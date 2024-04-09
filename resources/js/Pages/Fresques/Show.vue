@@ -2,7 +2,6 @@
 import { defineComponent, ref, computed } from 'vue'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
 import DsfrButton from '@/Components/Dsfr/Button.vue'
-import CandidateButton from '@/Components/CandidateButton.vue'
 import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
 import AppLayout from '@/Layouts/AppLayout.vue'
 import MarkdownIt from 'markdown-it'
