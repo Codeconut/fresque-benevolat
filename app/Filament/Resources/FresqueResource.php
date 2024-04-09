@@ -181,6 +181,7 @@ class FresqueResource extends Resource
                                         // Forms\Components\Toggle::make('is_registration_open')->label('Registration'),
                                         Forms\Components\TextInput::make('places')
                                             ->required()
+                                            ->default(15)
                                             ->integer(),
                                         Forms\Components\ToggleButtons::make('is_private')
                                             ->label('Fresque privée')
@@ -189,10 +190,12 @@ class FresqueResource extends Resource
                                             ->grouped(),
                                         Forms\Components\ToggleButtons::make('is_online')
                                             ->label('En ligne')
+                                            ->default(true)
                                             ->boolean()
                                             ->grouped(),
                                         Forms\Components\ToggleButtons::make('is_registration_open')
                                             ->label('Inscriptions ouvertes')
+                                            ->default(true)
                                             ->boolean()
                                             ->grouped(),
 

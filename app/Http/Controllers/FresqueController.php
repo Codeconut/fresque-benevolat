@@ -6,18 +6,38 @@ use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
 use App\Models\Fresque;
 use App\Models\FresqueApplication;
+use App\Models\Place;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class FresqueController extends Controller
 {
 
-    public function index(Fresque $fresque)
+    public function index()
     {
-        $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->public()->paginate(6);
+        // $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->public()->orderBy('date', 'ASC')->paginate(6);
+
+        $fresques = QueryBuilder::for(Fresque::class)
+            ->with(['animators', 'place'])
+            ->incoming()
+            ->online()
+            ->public()
+            ->allowedFilters(['place.city'])
+            ->defaultSort('-date')
+            ->paginate();
+
+        $cities = Place::selectRaw('city, COUNT(*) as count')
+            ->whereHas('fresques', function ($query) {
+                $query->incoming()->online()->public();
+            })
+            ->groupBy('city')
+            ->get();
 
         return Inertia::render('Fresques/Search', [
             'fresques' => $fresques,
+            'cities' => $cities,
         ]);
     }
 

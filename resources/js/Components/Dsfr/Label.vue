@@ -24,9 +24,10 @@ defineProps({
     :for="htmlFor"
     class="block mb-2 relative text-[#161616]"
     :class="[
-      { 'text-xs normal-case': size === 'xs' },
-      { 'text-md normal-case': size === 'md' },
-      { 'text-xl normal-case': size === 'xl' },
+      { 'text-xs': size === 'xs' },
+      { 'text-sm': size === 'sm' },
+      { 'text-md': size === 'md' },
+      { 'text-xl': size === 'xl' },
     ]"
   >
     <slot />

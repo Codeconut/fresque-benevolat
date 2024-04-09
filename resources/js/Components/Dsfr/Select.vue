@@ -4,6 +4,22 @@ const props = defineProps({
     type: [String, Number],
     default: null,
   },
+  id: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  placeholder: {
+    type: String,
+    default: null,
+  },
+  options: {
+    type: Array,
+    required: true,
+  },
   size: {
     type: String,
     default: 'md',
@@ -17,37 +33,19 @@ const props = defineProps({
     type: Boolean,
     default: null,
   },
-  type: {
-    type: String,
-    default: 'text',
-  },
-  id: {
-    type: String,
-    required: true,
-  },
-  placeholder: {
-    type: String,
-    default: null,
-  },
   customClass: {
     type: String,
     default: '',
   },
 })
-
-const onKeypressSpace = (event) => {
-  if (props.type === 'email') {
-    event.preventDefault()
-  }
-}
 </script>
 
 <template>
   <div class="w-full relative">
-    <input
+    <select
       :id="id"
+      :name="name"
       :value="modelValue"
-      :type="type"
       :placeholder="placeholder"
       :class="[
         'border-none rounded-t w-full h-full',
@@ -59,14 +57,17 @@ const onKeypressSpace = (event) => {
 
         customClass,
       ]"
-      @keypress.space="onKeypressSpace"
       @input="$emit('update:modelValue', $event.target.value)"
-    />
+    >
+      <option v-for="option in options" :key="option.value" :value="option.value">
+        {{ option.label }}
+      </option>
+    </select>
   </div>
 </template>
 
 <style lang="postcss" scoped>
-input {
+select {
   --tw-ring-shadow: 0 0 #000 !important;
 }
 </style>

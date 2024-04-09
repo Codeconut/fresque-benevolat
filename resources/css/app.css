@@ -8,6 +8,10 @@
   display: none;
 }
 
+body {
+  @apply text-[#161616];
+}
+
 .markdown {
   h2 {
     @apply text-2xl font-semibold mt-6 mb-4;
