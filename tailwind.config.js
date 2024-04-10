@@ -31,26 +31,23 @@ export default {
     },
     extend: {
       colors: {
-        'blue-france-sun-113': {
-          DEFAULT: '#000091',
-          hover: '#1212ff',
-          active: '#2323ff',
+        dsfr: {
+          blue: {
+            DEFAULT: '#000091',
+            hover: '#1212ff',
+            active: '#2323ff',
+          },
+          beige: {
+            DEFAULT: '#f9f6f2',
+            hover: '#eadecd',
+            active: '#e1ceb1',
+          },
+          yellow: {
+            DEFAULT: '#C3992A',
+            hover: '#f5c137',
+            active: '#fcd17b',
+          },
         },
-        'beige-gris-galet-975': {
-          DEFAULT: '#f9f6f2',
-          hover: '#eadecd',
-          active: '#e1ceb1',
-        },
-        'yellow-moutarde-main-679': {
-          DEFAULT: '#C3992A',
-          hover: '#f5c137',
-          active: '#fcd17b',
-        },
-        // 'grey-1000': {
-        //   DEFAULT: '#ffffff',
-        //   hover: '#f6f6f6',
-        //   active: '#ededed',
-        // },
       },
       fontFamily: {
         sans: [

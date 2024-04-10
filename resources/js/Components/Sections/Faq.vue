@@ -5,7 +5,7 @@ import { Link, router } from '@inertiajs/vue3'
 </script>
 
 <template>
-  <div class="py-24">
+  <div class="py-20">
     <div class="container">
       <h2 class="text-5xl font-bold text-center">Vous avez des questions ?</h2>
       <Tabs
@@ -89,7 +89,8 @@ import { Link, router } from '@inertiajs/vue3'
         <Link :href="route('fresques.index')">
           <Button
             variant="custom"
-            custom-class="bg-transparent text-blue-france-sun-113 border-blue-france-sun-113 hover:bg-white"
+            size="lg"
+            custom-class="bg-transparent text-dsfr-blue border-blue hover:bg-white"
             >Trouver une fresque près de chez moi</Button
           >
         </Link>

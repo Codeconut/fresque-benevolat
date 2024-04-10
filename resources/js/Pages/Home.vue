@@ -6,6 +6,7 @@ import ProfessionnelsAideOrganiserFresque from '@/Components/Sections/Profession
 import FresqueCard from '@/Components/FresqueCard.vue'
 import Faq from '@/Components/Sections/Faq.vue'
 import Chiffres from '@/Components/Sections/Chiffres.vue'
+import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import { Link } from '@inertiajs/vue3'
 
 const props = defineProps({
@@ -21,7 +22,7 @@ const props = defineProps({
     <PassezActionAvecFresquesBenevolat />
     <PresentationFresqueQuestions />
 
-    <div v-if="fresques" class="container py-24">
+    <div v-if="fresques" class="container py-20">
       <div class="grid grid-cols-1 gap-8">
         <Link
           :href="route('fresques.show', { fresque: fresque.slug })"
@@ -35,5 +36,6 @@ const props = defineProps({
     <Faq />
     <Chiffres />
     <ProfessionnelsAideOrganiserFresque />
+    <JVAPretAPasserAction />
   </AppLayout>
 </template>

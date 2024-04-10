@@ -23,7 +23,7 @@
                     tab.key !== selectedKey,
                 },
                 {
-                  'bg-white text-blue-france-sun-113 border-t-blue-france-sun-113 border-b-white sm:hover:bg-[#F6F6F6] active:bg-[#EDEDED]':
+                  'bg-white text-dsfr-blue border-t-blue border-b-white sm:hover:bg-[#F6F6F6] active:bg-[#EDEDED]':
                     tab.key === selectedKey,
                 },
               ]"

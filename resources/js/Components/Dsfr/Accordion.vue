@@ -1,6 +1,6 @@
 <template>
   <section class="fr-accordion border-t border-b">
-    <h3 class="fr-accordion__title text-blue-france-sun-113">
+    <h3 class="fr-accordion__title text-dsfr-blue">
       <button
         :class="[
           'fr-accordion__btn',

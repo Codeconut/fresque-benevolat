@@ -18,7 +18,7 @@ const Pane = defineComponent(
 
     return () => (
       <div
-        class="bg-white p-8"
+        class=" p-8"
         onClick={handleClick}
         class={isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer'}
       >
@@ -39,13 +39,13 @@ const Pane = defineComponent(
 </script>
 
 <template>
-  <div class="py-24">
+  <div class="py-20">
     <div class="container">
       <div class="overflow-hidden">
         <div
-          class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-yellow-moutarde-main-679-active border-b-[0px] border-b-transparent"
+          class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-dsfr-yellow-active border-b-[0px] border-b-transparent"
         ></div>
-        <div class="p-16 bg-yellow-moutarde-main-679-active">
+        <div class="p-16 bg-dsfr-yellow-active">
           <div class="max-w-[600px] space-y-4">
             <Pane name="atelier" title="Un atelier ludique et participatif">
               Une expérience collective de 2h30 dans laquelle vous allez avoir une vision globale du
@@ -64,7 +64,7 @@ const Pane = defineComponent(
           </div>
           <div class="mt-10">
             <Link :href="route('fresques.index')">
-              <Button variant="custom" custom-class="border-[#161616] hover:bg-white"
+              <Button variant="custom" size="lg" custom-class="border-[#161616] hover:bg-white"
                 >Vous avez des questions</Button
               >
             </Link>

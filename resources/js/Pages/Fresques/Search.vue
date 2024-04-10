@@ -29,7 +29,7 @@ const onCitiesChange = (event) => {
 
 <template>
   <AppLayout title="Fresques Benevolat">
-    <div class="container py-24">
+    <div class="container py-20">
       <div v-if="cities.length" class="mb-12">
         <div class="w-full max-w-[400px]">
           <Label for="city" class="font-bold uppercase" size="sm">Recherche par lieu</Label>

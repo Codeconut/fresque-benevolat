@@ -3,7 +3,7 @@ import { Button } from '@/Components/Dsfr'
 </script>
 
 <template>
-  <div class="py-24">
+  <div class="py-20">
     <div class="container">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="relative text-5xl leading-[56px] font-bold mb-14">
@@ -25,7 +25,7 @@ import { Button } from '@/Components/Dsfr'
           <p class="mb-10 text-xl">
             Sensibilisez vos étudiants et employés au bénévolat grâce à la Fresque
           </p>
-          <Button class="mb-10">Nous contacter</Button>
+          <Button size="lg" class="mb-10">Nous contacter</Button>
           <div class="flex items-center space-x-4">
             <div class="flex flex-shrink-0">
               <img
@@ -53,7 +53,7 @@ import { Button } from '@/Components/Dsfr'
             Faites connaître votre cause et mettez en avant l’engagement grâce à la Fresque du
             Bénévolat
           </p>
-          <Button class="mb-10">Nous contacter</Button>
+          <Button size="lg" class="mb-10">Nous contacter</Button>
           <div class="flex items-center space-x-4">
             <div class="flex flex-shrink-0">
               <img

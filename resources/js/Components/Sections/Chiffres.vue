@@ -1,5 +1,5 @@
 <template>
-  <div class="py-24">
+  <div class="py-20">
     <div class="container">
       <div class="overflow-hidden">
         <div
