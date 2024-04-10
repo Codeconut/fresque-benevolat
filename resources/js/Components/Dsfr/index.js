@@ -7,5 +7,17 @@ import FormElement from './FormElement.vue'
 import Tabs from './Tabs.vue'
 import AccordionsGroup from './AccordionsGroup.vue'
 import Accordion from './Accordion.vue'
+import Link from './Link.vue'
 
-export { Input, Select, Label, Button, Checkbox, FormElement, Tabs, Accordion, AccordionsGroup }
+export {
+  Input,
+  Select,
+  Label,
+  Button,
+  Checkbox,
+  FormElement,
+  Tabs,
+  Accordion,
+  AccordionsGroup,
+  Link,
+}

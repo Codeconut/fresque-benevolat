@@ -2,7 +2,7 @@
 import { Link } from '@inertiajs/vue3'
 import Button from '@/Components/Dsfr/Button.vue'
 import { RiSubtractLine, RiAddLine } from '@remixicon/vue'
-import { ref, defineComponent, computed } from 'vue'
+import { ref, defineComponent, computed, Transition } from 'vue'
 
 const selectedPanel = ref('atelier')
 
@@ -18,19 +18,18 @@ const Pane = defineComponent(
 
     return () => (
       <div
-        class=" p-8"
+        class="group p-8 lg:hover:scale-105 transition-transform duration-300 ease-in-out"
         onClick={handleClick}
         class={isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer'}
       >
         <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-24">
           <h3 class="text-3xl font-bold">{props.title}</h3>
           <div class="mt-4 lg:mt-0">
-            {isSelected.value ? <RiSubtractLine class="h-8 w-8" /> : <RiAddLine class="h-8 w-8" />}
+            {isSelected.value ? <RiSubtractLine size="32" /> : <RiAddLine size="32" />}
           </div>
         </div>
-        <div class={['text-lg mt-6', isSelected.value ? 'block' : 'hidden']}>
-          {slots.default && slots.default()}
-        </div>
+
+        {isSelected.value && <div class={['text-lg mt-6']}>{slots.default && slots.default()}</div>}
       </div>
     )
   },

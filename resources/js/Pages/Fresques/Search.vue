@@ -5,6 +5,10 @@ import { Link, router } from '@inertiajs/vue3'
 import { ref } from 'vue'
 import queryString from 'query-string'
 import { Select, Label } from '@/Components/Dsfr'
+import Faq from '@/Components/Sections/Faq.vue'
+import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
+import BlocJVAPretAPasserAction from '@/Components/Blocs/JVAPretAPasserAction.vue'
+import EstCeQueCestFaitPourMoi from '@/Components/Blocs/EstCeQueCestFaitPourMoi.vue'
 
 defineProps({
   fresques: {
@@ -29,33 +33,55 @@ const onCitiesChange = (event) => {
 
 <template>
   <AppLayout title="Fresques Benevolat">
-    <div class="container py-20">
-      <div v-if="cities.length" class="mb-12">
-        <div class="w-full max-w-[400px]">
-          <Label for="city" class="font-bold uppercase" size="sm">Recherche par lieu</Label>
-          <Select
-            id="city"
-            name="city"
-            v-model="selectedCity"
-            placeholder="Sélectionner une ville"
-            :options="
-              cities.map((option) => {
-                return { value: option.city, label: `${option.city} (${option.count})` }
-              })
-            "
-            @update:modelValue="onCitiesChange"
-          />
+    <div class="container">
+      <div class="py-[64px]">
+        <div class="max-w-3xl pb-6">
+          <h1 class="font-bold text-5xl lg:text-[56px] lg:leading-[64px]">
+            (re)Découvrez le bénévolat en participant à la Fresque
+          </h1>
+          <p class="text-2xl my-8">Trouvez la prochaine fresque du bénévolat près de chez vous</p>
         </div>
-      </div>
-      <div v-if="fresques">
-        <div class="grid grid-cols-1 gap-8">
-          <Link
-            :href="route('fresques.show', { fresque: fresque.slug })"
-            v-for="fresque in fresques.data"
-            :key="fresque.id"
-          >
-            <FresqueCard class="" :fresque="fresque" />
-          </Link>
+        <div class="border-t py-14">
+          <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
+            <div class="col-span-2">
+              <div v-if="cities.length" class="mb-12">
+                <div class="w-full max-w-[400px]">
+                  <Label for="city" class="font-bold uppercase" size="sm">Recherche par lieu</Label>
+                  <Select
+                    id="city"
+                    name="city"
+                    v-model="selectedCity"
+                    placeholder="Sélectionner une ville"
+                    :options="
+                      cities.map((option) => {
+                        return { value: option.city, label: `${option.city} (${option.count})` }
+                      })
+                    "
+                    @update:modelValue="onCitiesChange"
+                  />
+                </div>
+              </div>
+              <div v-if="fresques">
+                <div class="grid grid-cols-1 gap-8">
+                  <Link
+                    :href="route('fresques.show', { fresque: fresque.slug })"
+                    v-for="fresque in fresques.data"
+                    :key="fresque.id"
+                  >
+                    <FresqueCard class="" :fresque="fresque" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-8 mt-24 lg:mt-0">
+              <EstCeQueCestFaitPourMoi />
+              <BlocJVAPretAPasserAction />
+            </div>
+          </div>
+        </div>
+        <div class="border-t py-14">
+          <Faq />
+          <!-- <JVAPretAPasserAction /> -->
         </div>
       </div>
     </div>
