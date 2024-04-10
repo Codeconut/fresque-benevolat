@@ -5,8 +5,8 @@ import Button from '@/Components/Dsfr/Button.vue'
 
 <template>
   <div class="relative">
-    <img class="absolute top-0 right-0" src="/images/dashed-line-pink.svg" alt="" />
-    <img class="absolute bottom-0 left-0" src="/images/dashed-line-blue-gray.svg" alt="" />
+    <!-- <img class="absolute top-0 right-0" src="/images/dashed-line-pink.svg" alt="" />
+    <img class="absolute bottom-0 left-0" src="/images/dashed-line-blue-gray.svg" alt="" /> -->
     <div class="container relative">
       <!-- <img
         class="absolute bottom-0 h-[698px] w-[698px] right-0"

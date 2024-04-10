@@ -4,7 +4,7 @@ import Button from '@/Components/Dsfr/Button.vue'
 </script>
 
 <template>
-  <div class="relative">
+  <div class="py-24">
     <div class="container relative">
       <div class="p-16 bg-yellow-moutarde-main-679-active mt-12">
         <div class="">

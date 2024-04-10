@@ -5,7 +5,7 @@ import { Link, router } from '@inertiajs/vue3'
 </script>
 
 <template>
-  <div class="py-12">
+  <div class="py-24">
     <div class="container">
       <h2 class="text-5xl font-bold text-center">Vous avez des questions ?</h2>
       <Tabs

@@ -31,7 +31,7 @@ const onButtonClick = () => {
       <div class="max-w-full w-[792px] mx-auto">
         <div class="p-12 bg-white shadow-lg text-center">
           <div class="mb-12">
-            <img class="h-[75px] w-[67px] mx-auto" src="/images/hearts.svg" alt="" />
+            <img class="h-[75px] w-[67px] mx-auto" src="/images/icons/hearts.svg" alt="" />
           </div>
           <div class="mb-12 space-y-8">
             <h2 class="text-[32px] font-bold">Félicitations pour avoir sauté le pas !</h2>
