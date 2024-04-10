@@ -53,7 +53,7 @@
           :key="tab.key"
           role="tabpanel"
           :aria-labelledby="`tabpanel-${uuid}-${tab.key}`"
-          :class="['bg-white border p-4 mt-[-5px]', tabpanelClass]"
+          :class="['bg-white border p-8 mt-[-5px]', tabpanelClass]"
         >
           <slot :name="`tab-${tab.key}`" />
         </div>

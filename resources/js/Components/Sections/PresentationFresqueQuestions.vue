@@ -1,21 +1,74 @@
-<script setup>
+<script setup lang="jsx">
 import { Link } from '@inertiajs/vue3'
 import Button from '@/Components/Dsfr/Button.vue'
+import { RiSubtractLine, RiAddLine } from '@remixicon/vue'
+import { ref, defineComponent, computed } from 'vue'
+
+const selectedPanel = ref('atelier')
+
+const Pane = defineComponent(
+  (props, { slots }) => {
+    const isSelected = computed(() => {
+      return selectedPanel.value === props.name
+    })
+
+    const handleClick = () => {
+      selectedPanel.value = props.name
+    }
+
+    return () => (
+      <div
+        class="bg-white p-8"
+        onClick={handleClick}
+        class={isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer'}
+      >
+        <div class="flex justify-between items-center gap-24">
+          <h3 class="text-3xl font-bold">{props.title}</h3>
+          {isSelected.value ? <RiSubtractLine class="h-8 w-8" /> : <RiAddLine class="h-8 w-8" />}
+        </div>
+        <div class={['text-lg mt-6', isSelected.value ? 'block' : 'hidden']}>
+          {slots.default && slots.default()}
+        </div>
+      </div>
+    )
+  },
+  {
+    props: ['name', 'title'],
+  }
+)
 </script>
 
 <template>
   <div class="py-24">
-    <div class="container relative">
-      <div class="p-16 bg-yellow-moutarde-main-679-active mt-12">
-        <div class="">
-          <div>Un atelier ludique et participatif</div>
-          <div>(Presque) partout autour de chez vous</div>
-          <div>Comprendre le bénévolat et passer à l’action</div>
-          <Link :href="route('fresques.index')">
-            <Button variant="custom" custom-class="border-[#161616] hover:bg-white"
-              >Vous avez des questions</Button
-            >
-          </Link>
+    <div class="container">
+      <div class="overflow-hidden">
+        <div
+          class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-yellow-moutarde-main-679-active border-b-[0px] border-b-transparent"
+        ></div>
+        <div class="p-16 bg-yellow-moutarde-main-679-active">
+          <div class="max-w-[600px] space-y-4">
+            <Pane name="atelier" title="Un atelier ludique et participatif">
+              Une expérience collective de 2h30 dans laquelle vous allez avoir une vision globale du
+              bénévolat et comment l’appréhender, tout ça grâce à des jeux et exercices interfactifs
+              !
+            </Pane>
+            <Pane name="autour" title="(Presque) partout autour de chez vous">
+              Grâce à notre communauté d’animateurs, nous menons des fresques presque partout en
+              France, de Lille à Marseille, de Brest à Strasbourg
+            </Pane>
+            <Pane name="comprendre" title="Comprendre le bénévolat et passer à l’action">
+              Vous repartirez avec des leviers et premiers pas concrets pour sauter le pas et vous
+              engager en tant que bénévole, dans une association et pour une cause qui vous tiennent
+              à coeur
+            </Pane>
+          </div>
+          <div class="mt-10">
+            <Link :href="route('fresques.index')">
+              <Button variant="custom" custom-class="border-[#161616] hover:bg-white"
+                >Vous avez des questions</Button
+              >
+            </Link>
+          </div>
         </div>
       </div>
     </div>

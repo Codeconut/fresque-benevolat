@@ -8,6 +8,7 @@ import DropdownLink from '@/Components/Jetstream/DropdownLink.vue'
 import NavLink from '@/Components/Jetstream/NavLink.vue'
 import ResponsiveNavLink from '@/Components/Jetstream/ResponsiveNavLink.vue'
 import Header from '@/Components/General/Header.vue'
+import Footer from '@/Components/General/Footer.vue'
 
 defineProps({
   title: String,
@@ -27,5 +28,6 @@ defineProps({
         <slot />
       </main>
     </div>
+    <Footer />
   </div>
 </template>
