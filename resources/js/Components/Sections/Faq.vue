@@ -7,7 +7,7 @@ import { Link, router } from '@inertiajs/vue3'
 <template>
   <div class="py-20">
     <div class="container">
-      <h2 class="text-5xl font-bold text-center">Vous avez des questions ?</h2>
+      <h2 class="text-4xl lg:text-5xl font-bold text-center">Vous avez des questions ?</h2>
       <Tabs
         name="Catégories de faq"
         :tabs="[
@@ -91,7 +91,7 @@ import { Link, router } from '@inertiajs/vue3'
             variant="custom"
             size="lg"
             custom-class="bg-transparent text-dsfr-blue border-blue hover:bg-white"
-            >Trouver une fresque près de chez moi</Button
+            >Trouver une fresque <span class="hidden lg:inline">près de chez moi</span></Button
           >
         </Link>
       </div>

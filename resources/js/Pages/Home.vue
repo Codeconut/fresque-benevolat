@@ -7,6 +7,7 @@ import FresqueCard from '@/Components/FresqueCard.vue'
 import Faq from '@/Components/Sections/Faq.vue'
 import Chiffres from '@/Components/Sections/Chiffres.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
+import Testimonials from '@/Components/Sections/Testimonials.vue'
 import { Link } from '@inertiajs/vue3'
 
 const props = defineProps({
@@ -33,8 +34,9 @@ const props = defineProps({
         </Link>
       </div>
     </div>
-    <Faq />
+    <Testimonials />
     <Chiffres />
+    <Faq />
     <ProfessionnelsAideOrganiserFresque />
     <JVAPretAPasserAction />
   </AppLayout>

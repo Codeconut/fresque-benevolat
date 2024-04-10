@@ -12,7 +12,7 @@ import Button from '@/Components/Dsfr/Button.vue'
         ></div>
         <div class="bg-dsfr-blue text-white">
           <div class="max-w-[780px] mx-auto">
-            <div class="py-20 text-center">
+            <div class="py-20 px-8 text-center">
               <img
                 src="/images/logos/jeveuxaider-logo-white.png"
                 alt=""
@@ -20,7 +20,7 @@ import Button from '@/Components/Dsfr/Button.vue'
                 height="48"
                 class="mx-auto mb-12"
               />
-              <h3 class="text-5xl mb-8 font-bold">Déjà prêt à passer à l’action ?</h3>
+              <h3 class="text-4xl lg:text-5xl mb-8 font-bold">Déjà prêt à passer à l’action ?</h3>
               <p class="text-2xl mb-8">
                 <strong>Plus de 17 000 missions de bénévolat</strong> n’attendent que vous sur
                 JeVeuxAider.gouv.fr
@@ -30,7 +30,7 @@ import Button from '@/Components/Dsfr/Button.vue'
                   variant="custom"
                   size="lg"
                   custom-class="text-white border-white hover:bg-dsfr-blue-hover"
-                  >Trouver une mission de bénévolat</Button
+                  >Trouver une mission <span class="hidden lg:inline">de bénévolat</span></Button
                 >
               </a>
             </div>

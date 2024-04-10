@@ -6,19 +6,19 @@ import { Button } from '@/Components/Dsfr'
   <div class="py-20">
     <div class="container">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="relative text-5xl leading-[56px] font-bold mb-14">
+        <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
           Professionnels, on vous aide à organiser des fresques
           <img
             src="/images/icons/gimmick.svg"
             alt=""
-            class="absolute top-0 left-0 -mt-[30px] -ml-[15px]"
+            class="absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-15px]"
           />
         </h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-white shadow-lg p-16">
-          <div class="flex items-center mb-10">
+        <div class="bg-white shadow-lg p-8 lg:p-16">
+          <div class="flex flex-col lg:flex-row lg:items-center mb-10">
             <img src="/images/icons/school.svg" alt="" class="h-[80px] w-[80px] flex-none mr-6" />
             <h3 class="text-3xl font-bold">Écoles <br class="hidden lg:block" />et entreprises</h3>
           </div>
@@ -40,8 +40,8 @@ import { Button } from '@/Components/Dsfr'
             </p>
           </div>
         </div>
-        <div class="bg-white shadow-lg p-16">
-          <div class="flex items-center mb-10">
+        <div class="bg-white shadow-lg p-8 lg:p-16">
+          <div class="flex flex-col lg:flex-row lg:items-center mb-10">
             <img
               src="/images/icons/human-cooperation.svg"
               alt=""

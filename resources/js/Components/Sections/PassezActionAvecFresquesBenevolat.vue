@@ -13,9 +13,9 @@ import Button from '@/Components/Dsfr/Button.vue'
         src="/images/mascotte.svg"
         alt=""
       /> -->
-      <div class="py-[120px]">
+      <div class="py-[60px] lg:py-[120px]">
         <div class="max-w-[629px]">
-          <h1 class="font-bold text-[80px] leading-[88px]">
+          <h1 class="font-bold text-5xl lg:text-[80px] lg:leading-[88px]">
             Passez à l’action avec la Fresque du Bénévolat
           </h1>
           <p class="text-2xl my-8">
@@ -23,7 +23,9 @@ import Button from '@/Components/Dsfr/Button.vue'
             toutes ses formes
           </p>
           <Link :href="route('fresques.index')">
-            <Button size="lg">Trouver une fresque près de chez moi</Button>
+            <Button size="lg"
+              >Trouver une fresque <span class="hidden lg:inline">près de chez moi</span></Button
+            >
           </Link>
         </div>
       </div>

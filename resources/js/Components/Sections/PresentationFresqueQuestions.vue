@@ -22,9 +22,11 @@ const Pane = defineComponent(
         onClick={handleClick}
         class={isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer'}
       >
-        <div class="flex justify-between items-center gap-24">
+        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-24">
           <h3 class="text-3xl font-bold">{props.title}</h3>
-          {isSelected.value ? <RiSubtractLine class="h-8 w-8" /> : <RiAddLine class="h-8 w-8" />}
+          <div class="mt-4 lg:mt-0">
+            {isSelected.value ? <RiSubtractLine class="h-8 w-8" /> : <RiAddLine class="h-8 w-8" />}
+          </div>
         </div>
         <div class={['text-lg mt-6', isSelected.value ? 'block' : 'hidden']}>
           {slots.default && slots.default()}
@@ -45,7 +47,7 @@ const Pane = defineComponent(
         <div
           class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-dsfr-yellow-active border-b-[0px] border-b-transparent"
         ></div>
-        <div class="p-16 bg-dsfr-yellow-active">
+        <div class="p-8 lg:p-16 bg-dsfr-yellow-active">
           <div class="max-w-[600px] space-y-4">
             <Pane name="atelier" title="Un atelier ludique et participatif">
               Une expérience collective de 2h30 dans laquelle vous allez avoir une vision globale du

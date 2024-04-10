@@ -11,7 +11,7 @@ const logout = () => {
 <template>
   <div class="bg-white">
     <div class="container">
-      <div class="flex justify-between items-center h-16">
+      <div class="flex justify-between items-center h-[96px]">
         <div class="shrink-0 flex items-center">
           <Link :href="route('home')">
             <ApplicationMark class="block h-9 w-auto" />
