@@ -2,6 +2,7 @@ import Input from './Input.vue'
 import Select from './Select.vue'
 import Label from './Label.vue'
 import Button from './Button.vue'
+import IconButton from './IconButton.vue'
 import Checkbox from './Checkbox.vue'
 import FormElement from './FormElement.vue'
 import Tabs from './Tabs.vue'
@@ -14,6 +15,7 @@ export {
   Select,
   Label,
   Button,
+  IconButton,
   Checkbox,
   FormElement,
   Tabs,

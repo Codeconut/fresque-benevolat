@@ -14,6 +14,10 @@ defineProps({
     default: 'md',
     validator: (s) => ['xs', 'sm', 'md', 'lg'].includes(s),
   },
+  iconSize: {
+    type: String,
+    default: '24',
+  },
   full: {
     type: Boolean,
     default: false,
@@ -46,26 +50,17 @@ defineProps({
         'text-dsfr-blue border-blue bg-white hover:bg-[#F6F6F6] active:bg-[#EDEDED]':
           variant === 'secondary',
       },
-      { 'px-2 py-1 text-xs min-h-[32px]': size === 'xs' },
-      { 'px-3 py-1 text-sm min-h-[34px]': size === 'sm' },
-      { 'px-4 py-1 text-base min-h-[40px]': size === 'md' },
-      { 'px-6 py-2 text-lg min-h-[48px]': size === 'lg' },
-      { 'px-8 py-3 text-xl min-h-[52px]': size === 'xl' },
+      { 'px-1 py-1 text-xs min-h-[32px]': size === 'xs' },
+      { 'px-2 py-1 text-sm min-h-[34px]': size === 'sm' },
+      { 'px-2 py-1 text-base min-h-[40px]': size === 'md' },
+      { 'px-3 py-2 text-lg min-h-[48px]': size === 'lg' },
+      { 'px-4 py-3 text-xl min-h-[52px]': size === 'xl' },
       { 'w-full': full },
       customClass,
 
       disabled ? 'cursor-not-allowed' : 'cursor-pointer',
     ]"
   >
-    <component
-      v-if="icon"
-      :is="icon"
-      :class="[
-        'relative flex-none fill-current top-[1px]',
-        { 'w-3 h-3 mr-0.5': size === 'sm' },
-        { 'w-4 h-4 mr-1': size === 'md' },
-      ]"
-    />
-    <slot />
+    <component :is="icon" :size="iconSize" :class="['']" />
   </button>
 </template>

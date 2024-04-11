@@ -5,6 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import { useSwiper } from 'swiper/vue'
 import { ref } from 'vue'
+import { Button, IconButton } from '@/Components/Dsfr'
+import { RiArrowRightLine, RiArrowLeftLine } from '@remixicon/vue'
+
 import 'swiper/css'
 // import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -16,13 +19,17 @@ const props = defineProps({
   },
 })
 
-// const swiper = useSwiper()
+const swiper = ref(null)
+
+const onSwiper = (swiperInstance) => {
+  swiper.value = swiperInstance
+}
 </script>
 
 <template>
   <div class="py-20">
     <div class="container">
-      <div class="mb-16">
+      <div class="flex justify-between items-center mb-16">
         <div class="flex space-x-3">
           <img src="/images/icons/megaphone.svg" alt="megaphone" class="" />
           <div>
@@ -32,14 +39,32 @@ const props = defineProps({
             <div class="text-2xl text-[#666666]">
               Trouvez la prochaine fresque du bénévolat près de chez vous
             </div>
-            <!-- <button @click="swiper.slideNext()">Slide to the next slide</button> -->
           </div>
+        </div>
+        <div class="flex flex-wrap justify-end gap-4">
+          <IconButton
+            variant="secondary"
+            @click="swiper.slidePrev()"
+            :icon="RiArrowLeftLine"
+            size="lg"
+          />
+          <IconButton
+            variant="secondary"
+            @click="swiper.slideNext()"
+            :icon="RiArrowRightLine"
+            size="lg"
+          />
+          <Link :href="route('fresques.index')">
+            <Button variant="secondary" size="lg">Toutes les fresques</Button>
+          </Link>
         </div>
       </div>
       <div class="">
         <Swiper
+          @swiper="onSwiper"
           :modules="[Pagination]"
           :slides-per-view="3"
+          :loop="true"
           :space-between="24"
           :pagination="{ clickable: true }"
         >
