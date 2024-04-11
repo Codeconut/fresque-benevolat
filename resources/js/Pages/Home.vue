@@ -20,8 +20,15 @@ const props = defineProps({
 
 <template>
   <AppLayout title="Accueil">
-    <PassezActionAvecFresquesBenevolat />
-    <PresentationFresqueQuestions />
+    <div class="relative">
+      <img
+        class="absolute top-[530px] left-0"
+        src="/images/illustrations/dashed-line-2.svg"
+        alt=""
+      />
+      <PassezActionAvecFresquesBenevolat class="relative z-10" />
+      <PresentationFresqueQuestions class="relative z-10" />
+    </div>
 
     <div v-if="fresques" class="container py-20">
       <div class="grid grid-cols-1 gap-8">

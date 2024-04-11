@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue'
 import { Tabs, AccordionsGroup, Accordion, Button } from '@/Components/Dsfr'
 import { Link, router } from '@inertiajs/vue3'
 </script>

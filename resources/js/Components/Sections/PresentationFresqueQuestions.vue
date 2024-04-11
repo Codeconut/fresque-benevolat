@@ -18,9 +18,11 @@ const Pane = defineComponent(
 
     return () => (
       <div
-        class="group p-8 lg:hover:scale-105 transition-transform duration-300 ease-in-out"
         onClick={handleClick}
-        class={isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer'}
+        class={[
+          'group p-8 lg:hover:scale-105 transition-transform duration-300 ease-in-out',
+          isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer',
+        ]}
       >
         <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-24">
           <h3 class="text-3xl font-bold">{props.title}</h3>
@@ -47,28 +49,44 @@ const Pane = defineComponent(
           class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-dsfr-yellow-active border-b-[0px] border-b-transparent"
         ></div>
         <div class="p-8 lg:p-16 bg-dsfr-yellow-active">
-          <div class="max-w-[600px] space-y-4">
-            <Pane name="atelier" title="Un atelier ludique et participatif">
-              Une expérience collective de 2h30 dans laquelle vous allez avoir une vision globale du
-              bénévolat et comment l’appréhender, tout ça grâce à des jeux et exercices interfactifs
-              !
-            </Pane>
-            <Pane name="autour" title="(Presque) partout autour de chez vous">
-              Grâce à notre communauté d’animateurs, nous menons des fresques presque partout en
-              France, de Lille à Marseille, de Brest à Strasbourg
-            </Pane>
-            <Pane name="comprendre" title="Comprendre le bénévolat et passer à l’action">
-              Vous repartirez avec des leviers et premiers pas concrets pour sauter le pas et vous
-              engager en tant que bénévole, dans une association et pour une cause qui vous tiennent
-              à coeur
-            </Pane>
-          </div>
-          <div class="mt-10">
-            <Link :href="route('fresques.index')">
-              <Button variant="custom" size="lg" custom-class="border-[#161616] hover:bg-white"
-                >Vous avez des questions</Button
-              >
-            </Link>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="">
+              <div class="space-y-4">
+                <Pane name="atelier" title="Un atelier ludique et participatif">
+                  Une expérience collective de 2h30 dans laquelle vous allez avoir une vision
+                  globale du bénévolat et comment l’appréhender, tout ça grâce à des jeux et
+                  exercices interfactifs !
+                </Pane>
+                <Pane name="autour" title="(Presque) partout autour de chez vous">
+                  Grâce à notre communauté d’animateurs, nous menons des fresques presque partout en
+                  France, de Lille à Marseille, de Brest à Strasbourg
+                </Pane>
+                <Pane name="comprendre" title="Comprendre le bénévolat et passer à l’action">
+                  Vous repartirez avec des leviers et premiers pas concrets pour sauter le pas et
+                  vous engager en tant que bénévole, dans une association et pour une cause qui vous
+                  tiennent à coeur
+                </Pane>
+              </div>
+              <div class="mt-10">
+                <Link :href="route('fresques.index')">
+                  <Button variant="custom" size="lg" custom-class="border-[#161616] hover:bg-white"
+                    >Vous avez des questions</Button
+                  >
+                </Link>
+              </div>
+            </div>
+            <div class="hidden lg:block relative">
+              <img
+                class="lg:absolute top-[0px] right-0 h-[375px] w-auto"
+                src="/images/illustrations/atelier-ludique-1.png"
+                alt=""
+              />
+              <img
+                class="lg:absolute lg:top-[380px] lg:right-0 xl:top-[270px] xl:right-[150px] h-[362px] w-auto"
+                src="/images/illustrations/atelier-ludique-2.png"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
