@@ -26,6 +26,7 @@
         "dayjs": "^1.11.10",
         "markdown-it": "^14.1.0",
         "query-string": "^9.0.0",
+        "swiper": "^11.1.1",
         "uuid": "^9.0.1"
     }
 }

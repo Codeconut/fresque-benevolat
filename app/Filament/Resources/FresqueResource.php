@@ -262,6 +262,13 @@ class FresqueResource extends Resource
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
+                    Tables\Actions\ReplicateAction::make()
+                        ->beforeReplicaSaved(function (Fresque $replica): void {
+                            $replica->is_online = false;
+                        })
+                        ->successRedirectUrl(fn (Fresque $replica): string => route('filament.admin.resources.fresques.edit', [
+                            'record' => $replica,
+                        ])),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueResource::getUrl('activities', ['record' => $record]))
                 ])
             ])

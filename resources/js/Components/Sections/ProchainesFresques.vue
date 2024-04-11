@@ -1,6 +1,13 @@
 <script setup>
 import FresqueCard from '@/Components/FresqueCard.vue'
 import { Link } from '@inertiajs/vue3'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import { useSwiper } from 'swiper/vue'
+import { ref } from 'vue'
+import 'swiper/css'
+// import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const props = defineProps({
   fresques: {
@@ -8,6 +15,8 @@ const props = defineProps({
     default: () => [],
   },
 })
+
+// const swiper = useSwiper()
 </script>
 
 <template>
@@ -23,17 +32,23 @@ const props = defineProps({
             <div class="text-2xl text-[#666666]">
               Trouvez la prochaine fresque du bénévolat près de chez vous
             </div>
+            <!-- <button @click="swiper.slideNext()">Slide to the next slide</button> -->
           </div>
         </div>
       </div>
-      <div class="flex gap-8">
-        <Link
-          :href="route('fresques.show', { fresque: fresque.slug })"
-          v-for="fresque in fresques"
-          :key="fresque.id"
+      <div class="">
+        <Swiper
+          :modules="[Pagination]"
+          :slides-per-view="3"
+          :space-between="24"
+          :pagination="{ clickable: true }"
         >
-          <FresqueCard class="" :fresque="fresque" orientation="vertical" />
-        </Link>
+          <SwiperSlide v-for="fresque in fresques" :key="fresque.id">
+            <Link :href="route('fresques.show', { fresque: fresque.slug })">
+              <FresqueCard class="" :fresque="fresque" orientation="vertical" />
+            </Link>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   </div>
