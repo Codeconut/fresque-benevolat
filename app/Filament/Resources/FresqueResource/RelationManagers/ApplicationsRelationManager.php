@@ -57,7 +57,10 @@ class ApplicationsRelationManager extends RelationManager
                     ->label('Mobile'),
                 Tables\Columns\SelectColumn::make('state')
                     ->label('Statut')
-                    ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false)
+                    ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->date('d M Y à H:i')
+                    ->label('Créé le'),
             ])
             ->filters([
                 //

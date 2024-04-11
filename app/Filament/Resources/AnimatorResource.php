@@ -55,6 +55,7 @@ class AnimatorResource extends Resource
                     ->native(false),
                 Forms\Components\Select::make('availability')->label('Disponibilités')
                     ->options(config('taxonomies.animators.availability'))
+                    ->multiple()
                     ->native(false),
                 Forms\Components\Select::make('level')->label('Niveau d’animation')
                     ->options(config('taxonomies.animators.level'))

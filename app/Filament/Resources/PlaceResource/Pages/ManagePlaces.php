@@ -10,6 +10,9 @@ class ManagePlaces extends ManageRecords
 {
     protected static string $resource = PlaceResource::class;
 
+    protected static ?string $title = 'Lieux';
+
+
     protected function getHeaderActions(): array
     {
         return [

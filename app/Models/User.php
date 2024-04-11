@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use Awcodes\FilamentGravatar\Gravatar;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -86,6 +87,13 @@ class User extends Authenticatable implements FilamentUser
     {
         return Attribute::make(
             get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+        );
+    }
+
+    protected function photo(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => Gravatar::get($this->email),
         );
     }
 }

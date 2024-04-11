@@ -22,7 +22,7 @@ class FresqueApplicationResource extends Resource
 
     protected static ?string $navigationLabel = 'Participations';
 
-    protected static ?string $navigationGroup = 'Contenus';
+    // protected static ?string $navigationGroup = 'Contenus';
 
     public static function form(Form $form): Form
     {
@@ -60,7 +60,10 @@ class FresqueApplicationResource extends Resource
                     ->label('Fresque')
                     ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
-                    ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false)
+                    ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->date('d M Y à H:i')
+                    ->label('Créé le'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -78,7 +81,7 @@ class FresqueApplicationResource extends Resource
                 //     Tables\Actions\ForceDeleteBulkAction::make(),
                 //     Tables\Actions\RestoreBulkAction::make(),
                 // ]),
-            ]);
+            ])->defaultSort('created_at', 'desc');
     }
 
     public static function getPages(): array

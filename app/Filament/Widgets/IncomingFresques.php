@@ -23,6 +23,7 @@ class IncomingFresques extends BaseWidget
             ->query(
                 Fresque::query()
                     ->incoming()
+                    ->orderBy('date', 'asc')
             )
             ->columns([
                 Tables\Columns\ImageColumn::make('cover')

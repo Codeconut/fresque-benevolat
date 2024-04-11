@@ -28,6 +28,10 @@ class Animator extends Model
         'notes'
     ];
 
+    protected $casts = [
+        'availability' => 'array',
+    ];
+
     protected $appends = [
         'full_name',
         'public_name'

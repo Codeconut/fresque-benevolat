@@ -10,6 +10,9 @@ class ManageAnimators extends ManageRecords
 {
     protected static string $resource = AnimatorResource::class;
 
+    protected static ?string $title = 'Animateurs';
+
+
     protected function getHeaderActions(): array
     {
         return [

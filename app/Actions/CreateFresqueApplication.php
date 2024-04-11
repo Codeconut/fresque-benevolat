@@ -26,7 +26,7 @@ class CreateFresqueApplication
             ],
             'first_name' => 'required',
             'last_name' => 'required',
-            'has_accepted_emails' => 'required|boolean',
+            'has_accepted_emails' => 'required|boolean|in:1',
         ])->validate();
 
         return FresqueApplication::create([

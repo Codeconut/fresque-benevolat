@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Filament\Pages\Register;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/fresques-benevolat', [FresqueController::class, 'index'])->name('fresques.index');
@@ -16,6 +17,11 @@ Route::post('/fresques-benevolat/{fresque:slug}/apply', [FresqueController::clas
 
 Route::get('/fresques-applications/{fresqueApplication:token}/confirmation', [FresqueApplicationController::class, 'confirmation'])->name('fresques.applications.confirmation');
 Route::get('/fresques-applications/{fresqueApplication:token}/presence', [FresqueApplicationController::class, 'presence'])->name('fresques.applications.presence');
+
+
+Route::get('register', Register::class)
+    ->name('filament.app.register')
+    ->middleware('signed');
 
 // Route::middleware([
 //     'auth:sanctum',
