@@ -41,31 +41,40 @@ const onSwiper = (swiperInstance) => {
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap justify-end gap-4">
+        <div class="flex flex-wrap justify-end gap-2">
           <IconButton
-            variant="secondary"
+            variant="custom"
             @click="swiper.slidePrev()"
             :icon="RiArrowLeftLine"
             size="lg"
+            custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
           />
           <IconButton
-            variant="secondary"
+            variant="custom"
             @click="swiper.slideNext()"
             :icon="RiArrowRightLine"
             size="lg"
+            custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
           />
           <Link :href="route('fresques.index')">
-            <Button variant="secondary" size="lg">Toutes les fresques</Button>
+            <Button
+              variant="custom"
+              size="lg"
+              custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
+              >Toutes les fresques</Button
+            >
           </Link>
         </div>
       </div>
-      <div class="">
+    </div>
+
+    <div class="overflow-x-hidden">
+      <div class="container">
         <Swiper
           @swiper="onSwiper"
-          :modules="[Pagination]"
+          :modules="[Pagination, A11y]"
           :slides-per-view="3"
-          :loop="true"
-          :space-between="24"
+          :space-between="1"
           :pagination="{ clickable: true }"
         >
           <SwiperSlide v-for="fresque in fresques" :key="fresque.id">
@@ -78,3 +87,19 @@ const onSwiper = (swiperInstance) => {
     </div>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.swiper {
+  @apply overflow-visible;
+  :deep(.swiper-pagination) {
+    @apply text-left relative mt-8;
+    .swiper-pagination-bullet {
+      @apply w-[10px] h-[10px];
+      background-color: #e1cab0;
+      &-active {
+        background-color: #a38f78;
+      }
+    }
+  }
+}
+</style>

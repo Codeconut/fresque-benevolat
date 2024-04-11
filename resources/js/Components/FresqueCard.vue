@@ -29,15 +29,17 @@ defineProps({
       { 'flex-col max-w-[384px] w-full': orientation === 'vertical' },
     ]"
   >
-    <div class="">
+    <div
+      :class="[
+        '',
+        { 'w-[264px] h-[274px]': orientation === 'horizontal' },
+        { 'w-[384px] h-[216px]': orientation === 'vertical' },
+      ]"
+    >
       <img
         :src="fresque.cover ? `/storage/${fresque.cover}` : '/images/default-placeholder.png'"
         alt="fresque"
-        :class="[
-          'object-cover',
-          { 'w-[264px] h-[244px] ': orientation === 'horizontal' },
-          { 'w-[384px] h-[216px] ': orientation === 'vertical' },
-        ]"
+        :class="['object-cover w-full h-full']"
       />
     </div>
     <div
