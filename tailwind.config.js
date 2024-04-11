@@ -37,6 +37,9 @@ export default {
             hover: '#1212ff',
             active: '#2323ff',
           },
+          lavande: {
+            DEFAULT: '#99B3F9',
+          },
           beige: {
             DEFAULT: '#f9f6f2',
             hover: '#eadecd',

@@ -10,7 +10,7 @@ const logout = () => {
 
 <template>
   <div class="bg-white">
-    <div class="container">
+    <div class="relative z-20 container">
       <div class="flex justify-between items-center h-[96px]">
         <div class="shrink-0 flex items-center">
           <Link :href="route('home')">

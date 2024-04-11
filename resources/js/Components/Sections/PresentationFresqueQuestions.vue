@@ -42,8 +42,13 @@ const Pane = defineComponent(
 </script>
 
 <template>
-  <div class="py-20">
-    <div class="container">
+  <div class="relative py-20">
+    <img
+      class="absolute z-0 top-[200px] right-0"
+      src="/images/illustrations/dashed-line-3.svg"
+      alt=""
+    />
+    <div class="container relative z-10">
       <div class="overflow-hidden">
         <div
           class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-dsfr-yellow-active border-b-[0px] border-b-transparent"
