@@ -19,7 +19,7 @@ const handleClose = () => {
 </script>
 
 <template>
-  <div class="fixed top-0 left-0 h-screen w-screen bg-dsfr-beige z-50 overflow-s">
+  <div class="fixed top-0 left-0 h-screen w-screen bg-dsfr-beige z-50">
     <div class="flex flex-col lg:justify-center lg:items-center h-full">
       <Head v-if="headTitle" :title="headTitle" />
       <div class="lg:absolute lg:top-4 lg:right-8 flex justify-end">

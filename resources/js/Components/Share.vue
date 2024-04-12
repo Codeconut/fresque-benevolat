@@ -76,7 +76,12 @@ const runWorkaround = (index) => {
     >
       <RiShareFill size="24" />
     </div>
-    <OverlayLayout v-if="showOverlay" class="" @close="showOverlay = false">
+    <OverlayLayout
+      v-if="showOverlay"
+      class=""
+      @close="showOverlay = false"
+      v-scroll-lock="showOverlay"
+    >
       <div class="container">
         <div class="text-center mb-10">
           <div class="text-lg lg:text-xl">Fresque du Bénévolat</div>
