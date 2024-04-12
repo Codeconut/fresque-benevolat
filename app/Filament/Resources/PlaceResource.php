@@ -86,14 +86,11 @@ class PlaceResource extends Resource
                     ->image()
                     ->multiple()
                     ->reorderable()
-                    ->maxSize(2048)
+                    ->optimize('webp')
+                    ->image()
                     ->imageEditor()
-                    ->imageEditorViewportWidth('600')
-                    ->imageEditorViewportHeight('600')
-                    ->imageResizeTargetWidth('600')
-                    ->imageResizeTargetHeight('600')
                     ->imageEditorAspectRatios([
-                        '1:1',
+                        '4:3',
                     ]),
             ]);
     }

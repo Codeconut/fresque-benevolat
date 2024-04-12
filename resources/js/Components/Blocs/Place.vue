@@ -1,21 +1,53 @@
 <script setup>
+import MarkdownIt from 'markdown-it'
+import { Button } from '@/Components/Dsfr'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+
 defineProps({
   place: {
     type: Object,
     required: true,
   },
 })
+const markdown = new MarkdownIt()
 </script>
 
 <template>
-  <div class="bg-white p-10">
-    <div>{{ place.name }}</div>
-    <div>{{ place.full_address }}</div>
-    <div>CARTE ?</div>
-    <div class="">
-      <div v-for="(photo, i) in place.photos" :key="i" class="w-full">
-        <img :src="`/storage/${photo}`" alt="" class="h-[300px] object-cover" />
+  <div class="bg-white p-12">
+    <div class="flex justify-between items-center mb-8">
+      <div>
+        <div class="text-[22px] font-bold">{{ place.name }}</div>
+        <div class="text-lg">{{ place.full_address }}</div>
       </div>
+      <Button variant="secondary"> Comment s'y rendre ?</Button>
+    </div>
+
+    <Swiper :modules="[Pagination, A11y]" :pagination="{ clickable: true }">
+      <SwiperSlide v-for="(photo, i) in place.photos" :key="i">
+        <img :src="`/storage/${photo}`" alt="" class="object-cover" />
+      </SwiperSlide>
+    </Swiper>
+
+    <div v-if="place.summary" class="mt-8">
+      <div class="markdown" v-html="markdown.render(place.summary)" />
     </div>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.swiper {
+  :deep(.swiper-pagination) {
+    @apply text-left relative mt-4;
+    .swiper-pagination-bullet {
+      @apply w-[10px] h-[10px];
+      background-color: #e1cab0;
+      &-active {
+        background-color: #a38f78;
+      }
+    }
+  }
+}
+</style>

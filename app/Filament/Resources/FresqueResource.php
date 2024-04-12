@@ -178,8 +178,6 @@ class FresqueResource extends Resource
                             ->schema([
                                 Forms\Components\Section::make('Paramètres')
                                     ->schema([
-                                        // Forms\Components\Toggle::make('is_online')->label('En ligne'),
-                                        // Forms\Components\Toggle::make('is_registration_open')->label('Registration'),
                                         Forms\Components\TextInput::make('places')
                                             ->required()
                                             ->default(15)
@@ -206,15 +204,11 @@ class FresqueResource extends Resource
                                         Forms\Components\FileUpload::make('cover')
                                             ->label('Image de couverture')
                                             ->directory('fresques')
+                                            ->optimize('webp')
                                             ->image()
-                                            ->maxSize(1024)
                                             ->imageEditor()
-                                            ->imageEditorViewportWidth('1920')
-                                            ->imageEditorViewportHeight('1080')
-                                            ->imageResizeTargetWidth('1920')
-                                            ->imageResizeTargetHeight('1080')
                                             ->imageEditorAspectRatios([
-                                                '16:9',
+                                                '4:3',
                                             ]),
                                     ])
                             ])->columnSpan(1),

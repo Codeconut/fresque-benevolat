@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="fresque.content" class="bg-white p-10">
+  <div v-if="fresque.content" class="bg-white p-12">
     {{ fresque.content }}
   </div>
 </template>
