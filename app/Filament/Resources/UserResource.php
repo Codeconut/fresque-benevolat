@@ -43,7 +43,8 @@ class UserResource extends Resource
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('name')
+                    ->description(fn (User $user) => $user->email)
                     ->label('Compte')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('roles.name')
@@ -51,6 +52,8 @@ class UserResource extends Resource
                     ->badge()
                     ->separator(','),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime('d M Y à H:i')
+                    ->description(fn (User $user) => 'Connexion ' . $user->last_online_at?->diffForHumans())
                     ->label('Créé le'),
             ])
             ->filters([

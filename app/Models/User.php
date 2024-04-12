@@ -68,6 +68,7 @@ class User extends Authenticatable implements FilamentUser
     protected function casts(): array
     {
         return [
+            'last_online_at' => 'datetime',
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
@@ -81,6 +82,13 @@ class User extends Authenticatable implements FilamentUser
     public function getFilamentAvatarUrl(): ?string
     {
         return $this->profile_photo_url;
+    }
+
+    protected function email(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => strtolower($value),
+        );
     }
 
     protected function fullName(): Attribute

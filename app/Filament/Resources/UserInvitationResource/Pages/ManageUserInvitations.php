@@ -31,8 +31,8 @@ class ManageUserInvitations extends ManageRecords
                     if ($user) {
                         Notification::make()
                             ->danger()
-                            ->title('User already exist')
-                            ->body('This email has already been used for a user on the platform')
+                            ->title('L\'utilisateur existe déjà')
+                            ->body('Cet email a déjà été utilisé pour un utilisateur sur la plateforme')
                             ->persistent()
                             ->send();
 
@@ -45,8 +45,8 @@ class ManageUserInvitations extends ManageRecords
                 ->successNotification(
                     Notification::make()
                         ->success()
-                        ->title('Invitation Sent')
-                        ->body('An email invitation has been successfully sent to the user'),
+                        ->title('Invitation envoyée')
+                        ->body('Une invitation par e-mail a été envoyée avec succès à l\'utilisateur'),
                 ),
         ];
     }

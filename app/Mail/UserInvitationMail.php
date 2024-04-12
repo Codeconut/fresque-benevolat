@@ -29,7 +29,7 @@ class UserInvitationMail extends Mailable
     {
 
         return new Envelope(
-            subject: 'Invitation to Join ' . config('app.name') . ' Portal',
+            subject: 'Invitation pour rejoindre le Fresque du Bénévolat',
         );
     }
 

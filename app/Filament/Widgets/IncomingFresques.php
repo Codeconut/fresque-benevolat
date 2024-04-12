@@ -20,6 +20,7 @@ class IncomingFresques extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
+            ->heading('Fresques à venir')
             ->query(
                 Fresque::query()
                     ->incoming()

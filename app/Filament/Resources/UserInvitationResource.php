@@ -32,7 +32,7 @@ class UserInvitationResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('email')
                     ->email()
-                    ->unique(UserInvitation::class, ignoreRecord: true)
+                    ->rules('iunique:user_invitations,email')
                     ->required()
                     ->autofocus(),
                 Forms\Components\Select::make('role')
@@ -49,8 +49,10 @@ class UserInvitationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('email')
+                    ->label('Email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Créé le')
                     ->dateTime('d M Y à H:i')
                     ->sortable(),
             ])
@@ -59,18 +61,18 @@ class UserInvitationResource extends Resource
             ])
             ->actions([
                 Tables\Actions\Action::make('resend')
-                    ->label('Resend')
+                    ->label('Renvoyer')
                     ->icon('heroicon-o-inbox-stack')
                     ->requiresConfirmation()
                     ->modalIcon('heroicon-o-inbox-stack')
-                    ->modalHeading('Resend Invitation')
-                    ->modalSubmitActionLabel('Resend Now')
+                    ->modalHeading('Renvoyer l\'invitation')
+                    ->modalSubmitActionLabel('Renvoyer')
                     ->action(function (UserInvitation $record) {
                         Mail::to($record->email)->send(new UserInvitationMail($record));
                         Notification::make()
                             ->success()
-                            ->title('Invitation sent')
-                            ->body('Invitation has been successfully sent to the recipient.')
+                            ->title('Invitation envoyée')
+                            ->body('L\'invitation a été envoyée avec succès au destinataire.')
                             ->send();
                     }),
                 Tables\Actions\DeleteAction::make(),

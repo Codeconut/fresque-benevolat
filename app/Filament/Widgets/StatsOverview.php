@@ -17,8 +17,8 @@ class StatsOverview extends BaseWidget
     {
         return [
             Stat::make('Fresques', Fresque::count()),
-            Stat::make('Animators', Animator::count()),
-            Stat::make('Applications', FresqueApplication::count()),
+            Stat::make('Animateurs', Animator::count()),
+            Stat::make('Participations', FresqueApplication::count()),
         ];
     }
 }

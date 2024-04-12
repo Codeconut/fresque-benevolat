@@ -1,16 +1,16 @@
 <x-mail::message>
-Hello,
-    
-{{ __('You have been invited to join') }}{{ config('app.name') }}
+Bonjour,
 
-{{ __('To accept the invitation, click on the button below and create an account.') }}
+Vous avez été invité pour rejoindre la Fresque du Bénévolat
+
+Pour accepter l'invitation, cliquez sur le bouton ci-dessous et créez un compte.
 
 <x-mail::button :url='$acceptUrl'>
-{{ __('Create Account') }}
+Créer son compte
 </x-mail::button>
 
-{{ __('If you did not expect to receive an invitation to this team, you may disregard this email.') }}
+Si vous ne vous attendiez pas à recevoir une invitation à cette équipe, vous pouvez ignorer cet e-mail.
 
-Thanks, <br>
+Merci, <br>
 {{ config('app.name') }}
 </x-mail::message>

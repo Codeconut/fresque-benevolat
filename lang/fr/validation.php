@@ -62,6 +62,7 @@ return [
         "string"  => "Le texte de :attribute doit contenir :size caractères.",
     ],
     "unique"           => "La valeur du champ :attribute est déjà utilisée.",
+    "iunique"           => "La valeur du champ :attribute est déjà utilisée.",
     "url"              => "Le format de l'URL de :attribute n'est pas valide.",
 
     /*
