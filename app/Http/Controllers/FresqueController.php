@@ -28,12 +28,12 @@ class FresqueController extends Controller
             ->defaultSort('-date')
             ->paginate();
 
-        $cities = Place::selectRaw('city, COUNT(*) as count')
-            ->whereHas('fresques', function ($query) {
-                $query->incoming()->online()->public();
-            })
-            ->groupBy('city')
-            ->get();
+        $cities = Fresque::select('places.city', DB::raw('COUNT(*) as count'))
+            ->join('places', 'places.id', '=', 'fresques.place_id')
+            ->incoming()->online()->public()
+            ->groupBy('places.city')
+            ->get()->toArray();
+
 
         return Inertia::render('Fresques/Search', [
             'fresques' => $fresques,
