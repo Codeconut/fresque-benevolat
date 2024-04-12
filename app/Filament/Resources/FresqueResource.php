@@ -123,11 +123,12 @@ class FresqueResource extends Resource
                                                 Forms\Components\TextInput::make('city')->label('Ville')
                                                     ->maxLength(255),
                                             ]),
-                                        Forms\Components\MarkdownEditor::make('summary')->label('Résumé')->columnSpanFull(),
+
                                     ])->columns(3),
-                                Forms\Components\Section::make('Page builder')
-                                    ->description('Create your page by adding blocks.')
+                                Forms\Components\Section::make('Contenus')
+                                    ->description('Créez votre page en ajoutant des blocs.')
                                     ->schema([
+                                        Forms\Components\MarkdownEditor::make('summary')->label('Infos pratiques'),
                                         FormBuilder::make('content')->hiddenLabel()->blocks([
                                             FormBuilder\Block::make('heading')
                                                 ->schema([
