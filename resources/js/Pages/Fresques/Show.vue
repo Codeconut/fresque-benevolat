@@ -21,7 +21,7 @@ const markdown = new MarkdownIt()
 </script>
 
 <template>
-  <AppLayout title="Titre de la fresque">
+  <AppLayout :title="fresque.date">
     <div class="container">
       <div class="py-20">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">

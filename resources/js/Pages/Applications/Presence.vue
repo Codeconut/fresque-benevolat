@@ -17,7 +17,7 @@ const props = defineProps({
 
 <template>
   <OverlayLayout
-    title="Confirmation de votre participation"
+    head-title="Confirmation de votre participation"
     :redirect-url="route('fresques.show', { fresque })"
   >
     <div class="container">

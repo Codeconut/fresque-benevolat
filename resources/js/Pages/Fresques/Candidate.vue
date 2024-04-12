@@ -45,7 +45,7 @@ const onSubmit = () => {
 
 <template>
   <OverlayLayout
-    title="Je candidate à la Fresque du Bénévolat"
+    head-title="Je candidate à la Fresque du Bénévolat"
     :redirect-url="route('fresques.show', { fresque })"
   >
     <div class="container">

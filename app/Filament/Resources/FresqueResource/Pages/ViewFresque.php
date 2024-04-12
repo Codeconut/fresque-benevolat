@@ -11,6 +11,11 @@ class ViewFresque extends ViewRecord
 {
     protected static string $resource = FresqueResource::class;
 
+    public function getSubheading(): ?string
+    {
+        return route('fresques.show', $this->record);
+    }
+
     protected function getHeaderActions(): array
     {
         return [

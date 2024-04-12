@@ -1,6 +1,7 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3'
-import { RiArrowLeftLine } from '@remixicon/vue'
+import { RiArrowLeftLine, RiShareFill } from '@remixicon/vue'
+import Share from '@/Components/Share.vue'
 
 defineProps({
   fresque: {
@@ -24,8 +25,15 @@ defineProps({
           <RiArrowLeftLine size="24" class="fill-current" />
           <span>Retour aux fresques</span>
         </Link>
-        <div class="mt-2 mb-8">
+        <div class="flex justify-between items-center mt-2 mb-8">
           <h1 class="text-5xl font-bold">{{ fresque.place.city }}</h1>
+          <Share
+            :url="route('fresques.show', fresque)"
+            :title="fresque.place.city"
+            description="Ma description"
+            quote="My quote"
+            hashtags="test,tetoto"
+          />
         </div>
 
         <img
