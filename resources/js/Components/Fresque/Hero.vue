@@ -32,7 +32,7 @@ defineProps({
             :title="fresque.place.city"
             description="Ma description"
             quote="My quote"
-            hashtags="test,tetoto"
+            hashtags="fresquebenevolat,jeveuxaider"
           />
         </div>
 

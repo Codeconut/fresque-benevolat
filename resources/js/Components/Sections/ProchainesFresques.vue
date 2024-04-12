@@ -31,7 +31,7 @@ const onSwiper = (swiperInstance) => {
     <div class="container">
       <div class="flex justify-between items-center mb-16">
         <div class="flex space-x-3">
-          <img src="/images/icons/megaphone.svg" alt="megaphone" class="" />
+          <img src="/images/icons/megaphone.svg" alt="megaphone" class="hidden lg:block" />
           <div>
             <h2 class="relative text-4xl lg:text-5xl leading-[56px] font-bold mb-4">
               Les prochaines fresques
@@ -41,7 +41,7 @@ const onSwiper = (swiperInstance) => {
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap justify-end gap-2">
+        <div class="hidden lg:flex flex-wrap justify-end gap-2">
           <IconButton
             variant="custom"
             @click="swiper.slidePrev()"
@@ -73,8 +73,20 @@ const onSwiper = (swiperInstance) => {
         <Swiper
           @swiper="onSwiper"
           :modules="[Pagination, A11y]"
-          :slides-per-view="3"
-          :space-between="1"
+          :breakpoints="{
+            '320': {
+              slidesPerView: 1,
+              spaceBetween: 24,
+            },
+            '768': {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            '1024': {
+              slidesPerView: 3,
+              spaceBetween: 24,
+            },
+          }"
           :pagination="{ clickable: true }"
         >
           <SwiperSlide v-for="fresque in fresques" :key="fresque.id">
@@ -91,6 +103,9 @@ const onSwiper = (swiperInstance) => {
 <style lang="postcss" scoped>
 .swiper {
   @apply overflow-visible;
+  :deep(.swiper-slide) {
+    @apply max-w-[384px] w-full;
+  }
   :deep(.swiper-pagination) {
     @apply text-left relative mt-8;
     .swiper-pagination-bullet {

@@ -14,7 +14,7 @@ const logout = () => {
       <div class="flex justify-between items-center h-[96px]">
         <div class="shrink-0 flex items-center">
           <Link :href="route('home')">
-            <ApplicationMark class="block h-9 w-auto" />
+            <ApplicationMark class="block w-auto" />
           </Link>
         </div>
         <div>

@@ -45,6 +45,6 @@ defineProps({
         { 'w-4 h-4 mr-1': size === 'md' },
       ]"
     />
-    <slot />
+    <span class="truncate"><slot /></span>
   </p>
 </template>

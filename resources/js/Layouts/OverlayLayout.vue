@@ -27,9 +27,9 @@ const handleClose = () => {
           <RiCloseLine class="h-4 top-[1px] relative" /> Fermer
         </div>
       </div>
-      <main class="mt-8 lg:mt-0">
+      <div class="mt-8 pb-8 lg:mt-0 overflow-y-auto" v-scroll-lock="true">
         <slot />
-      </main>
+      </div>
     </div>
   </div>
 </template>

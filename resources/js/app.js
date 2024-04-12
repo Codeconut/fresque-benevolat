@@ -7,7 +7,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy'
 import dayjsPlugin from './Plugins/dayjs'
 import VueSocialSharing from 'vue-social-sharing'
-import VScrollLock from 'v-scroll-lock'
+import ScrollLock from './Plugins/scrollLock'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
@@ -21,7 +21,7 @@ createInertiaApp({
       .use(ZiggyVue)
       .use(dayjsPlugin)
       .use(VueSocialSharing)
-      .use(VScrollLock)
+      .use(ScrollLock)
       .mount(el)
   },
   progress: {

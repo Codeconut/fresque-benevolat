@@ -33,8 +33,20 @@ const onCitiesChange = (event) => {
 
 <template>
   <AppLayout title="Fresques Benevolat">
+    <div class="relative">
+      <img
+        class="absolute top-[-100px] right-0"
+        src="/images/illustrations/dashed-line-1.svg"
+        alt=""
+      />
+      <img
+        class="absolute top-[530px] left-0"
+        src="/images/illustrations/dashed-line-4.svg"
+        alt=""
+      />
+    </div>
     <div class="container">
-      <div class="py-[64px]">
+      <div class="relative py-[64px]">
         <div class="max-w-3xl pb-6">
           <h1 class="font-bold text-5xl lg:text-[56px] lg:leading-[64px]">
             (re)Découvrez le bénévolat en participant à la Fresque

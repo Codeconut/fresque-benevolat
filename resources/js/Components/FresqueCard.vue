@@ -24,15 +24,15 @@ defineProps({
 <template>
   <div
     :class="[
-      'group border flex bg-white',
-      { 'flex-row': orientation === 'horizontal' },
+      'group border flex bg-white overflow-hidden',
+      { 'flex-col sm:flex-row': orientation === 'horizontal' },
       { 'flex-col max-w-[384px] w-full': orientation === 'vertical' },
     ]"
   >
     <div
       :class="[
         '',
-        { 'w-[264px] h-[274px]': orientation === 'horizontal' },
+        { 'w-[395px] h-[216px] sm:w-[264px] sm:h-[274px]': orientation === 'horizontal' },
         { 'w-[384px] h-[216px]': orientation === 'vertical' },
       ]"
     >
@@ -49,7 +49,7 @@ defineProps({
         { 'p-8 ': orientation === 'vertical' },
       ]"
     >
-      <div class="mb-6 flex space-x-4">
+      <div class="mb-6 flex gap-4">
         <DsfrTag variant="unclickable" :icon="RiCalendarEventLine">{{
           $dayjs(fresque.date).format('DD MMMM YYYY')
         }}</DsfrTag>

@@ -1,4 +1,6 @@
 <script setup>
+import ContentBuilder from '@/Components/ContentBuilder.vue'
+
 defineProps({
   fresque: {
     type: Object,
@@ -9,6 +11,6 @@ defineProps({
 
 <template>
   <div v-if="fresque.content" class="bg-white p-12">
-    {{ fresque.content }}
+    <ContentBuilder :content="fresque.content" />
   </div>
 </template>

@@ -56,7 +56,7 @@ const onSubmit = () => {
           {{ fresque.schedules }}
         </div>
       </div>
-      <div class="max-w-full w-[792px] mx-auto">
+      <div class="flex flex-col max-w-full w-[792px] mx-auto">
         <form @submit.prevent="onSubmit" class="p-8 lg:p-12 bg-white shadow-lg">
           <div class="mb-6 lg:mb-12"><span class="text-[#C8191F]">*</span> Champs obligatoires</div>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-12">

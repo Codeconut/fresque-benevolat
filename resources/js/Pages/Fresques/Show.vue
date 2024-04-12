@@ -22,16 +22,28 @@ const markdown = new MarkdownIt()
 
 <template>
   <AppLayout :title="fresque.date">
+    <div class="relative">
+      <img
+        class="absolute top-[-100px] right-0"
+        src="/images/illustrations/dashed-line-1.svg"
+        alt=""
+      />
+      <img
+        class="absolute top-[530px] left-0"
+        src="/images/illustrations/dashed-line-4.svg"
+        alt=""
+      />
+    </div>
     <div class="container">
-      <div class="py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div class="col-span-2 space-y-12">
+      <div class="relative py-12 lg:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
+          <div class="col-span-2 space-y-12 order-2 lg:order-1">
             <FresqueHero :fresque="fresque" />
             <FresqueDescription :fresque="fresque" />
             <FresqueInfosPratiques :fresque="fresque" />
             <Place :place="fresque.place" />
           </div>
-          <div>
+          <div class="col-span-1 order-1 lg:order-2 mb-12 lg:mb-0">
             <FresqueInscription :fresque="fresque" />
           </div>
         </div>

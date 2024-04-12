@@ -18,7 +18,7 @@ const placesOccupied = computed(() => props.fresque.places - props.fresque.place
 </script>
 
 <template>
-  <div class="bg-white p-10 sticky top-10 mt-10">
+  <div class="bg-white p-10 lg:sticky lg:top-10 lg:mt-10">
     <div class="grid gap-6">
       <div class="flex space-x-4">
         <RiCalendarEventLine size="20" class="text-[#518FFF] mt-[6px]" />

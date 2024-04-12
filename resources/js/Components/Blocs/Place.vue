@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { Head, Link, router } from '@inertiajs/vue3'
 
 defineProps({
   place: {
@@ -17,12 +18,14 @@ const markdown = new MarkdownIt()
 
 <template>
   <div class="bg-white p-12">
-    <div class="flex justify-between items-center mb-8">
+    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 gap-8">
       <div>
         <div class="text-[22px] font-bold">{{ place.name }}</div>
         <div class="text-lg">{{ place.full_address }}</div>
       </div>
-      <Button variant="secondary"> Comment s'y rendre ?</Button>
+      <a :href="`https://www.google.com/maps?q=${place.full_address}`" target="_blank">
+        <Button variant="secondary"> Comment s'y rendre ?</Button>
+      </a>
     </div>
 
     <Swiper :modules="[Pagination, A11y]" :pagination="{ clickable: true }">
