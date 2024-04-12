@@ -21,6 +21,10 @@ defineProps({
           alt="fresque"
           class="w-full h-[430px] object-cover"
         />
+
+        <div class="" v-if="fresque.animators.length">
+          Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
+        </div>
       </div>
     </div>
   </div>

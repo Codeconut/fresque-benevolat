@@ -12,8 +12,12 @@ const markdown = new MarkdownIt()
 </script>
 
 <template>
-  <div v-if="fresque.summary" class="bg-white p-10">
-    <h2 class="text-2xl font-bold">Infos pratiques</h2>
+  <div v-if="fresque.summary" class="bg-white px-10 py-12">
+    <div class="flex items-center space-x-4 mb-6">
+      <img src="/images/icons/question.svg" alt="" class="" />
+      <h2 class="text-2xl font-bold">Infos pratiques</h2>
+    </div>
+
     <div v-if="fresque.summary" class="">
       <div class="markdown" v-html="markdown.render(fresque.summary)" />
     </div>

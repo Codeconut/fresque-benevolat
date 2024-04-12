@@ -2,10 +2,11 @@
 import MarkdownIt from 'markdown-it'
 import DsfrTag from '@/Components/Dsfr/Tag.vue'
 import DsfrButton from '@/Components/Dsfr/Button.vue'
-import { RiTimeLine, RiCalendarEventLine } from '@remixicon/vue'
+import { RiCalendarEventLine, RiMapPin2Fill, RiUserHeartLine } from '@remixicon/vue'
 import { Head, Link, router } from '@inertiajs/vue3'
+import { defineComponent, ref, computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   fresque: {
     type: Object,
     required: true,
@@ -13,31 +14,39 @@ defineProps({
 })
 
 const markdown = new MarkdownIt()
+const placesOccupied = computed(() => props.fresque.places - props.fresque.places_left)
 </script>
 
 <template>
   <div class="bg-white p-10 sticky top-12 mt-12">
-    <div class="mb-4 flex space-x-4">
-      <DsfrTag :icon="RiCalendarEventLine">{{
-        $dayjs(fresque.date).format('DD MMMM YYYY')
-      }}</DsfrTag>
-      <DsfrTag :icon="RiTimeLine">{{ fresque.schedules }}</DsfrTag>
+    <div class="grid gap-6">
+      <div class="flex space-x-4">
+        <RiCalendarEventLine size="20" class="text-[#518FFF] mt-[6px]" />
+        <div>
+          <div class="text-lg font-bold">{{ $dayjs(fresque.date).format('DD MMMM YYYY') }}</div>
+          <div class="text-lg text-[#666666]">de {{ fresque.schedules }}</div>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <RiMapPin2Fill size="20" class="text-[#518FFF] mt-[6px]" />
+        <div>
+          <div class="text-lg font-bold">{{ fresque.place.name }}</div>
+          <div class="text-lg text-[#666666]">{{ fresque.place.full_address }}</div>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <RiUserHeartLine size="20" class="text-[#518FFF] mt-[6px]" />
+        <div>
+          <div class="text-lg font-bold">{{ fresque.places_left }} places disponibles</div>
+          <div class="text-lg text-[#666666]">{{ placesOccupied }} personnes déjà inscrites</div>
+        </div>
+      </div>
+      <div>
+        <Link v-if="fresque.can_candidate" :href="route('fresques.candidate', { fresque })">
+          <DsfrButton full size="lg"> Je m'inscris</DsfrButton>
+        </Link>
+        <DsfrButton v-else full disabled size="lg"> Inscriptions fermées</DsfrButton>
+      </div>
     </div>
-    <h2 class="text-xl font-bold mb-4">{{ fresque.place.city }}</h2>
-    <div class="">{{ fresque.place.full_address }}</div>
-    <div class="" v-if="fresque.animators.length">
-      Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
-    </div>
-
-    <template v-if="fresque.can_candidate">
-      <div class="">{{ fresque.places_left }} places restantes</div>
-
-      <Link :href="route('fresques.candidate', { fresque })">
-        <DsfrButton> Je m'inscris</DsfrButton>
-      </Link>
-    </template>
-    <template v-else>
-      <div class="">Les inscriptions sont closes</div>
-    </template>
   </div>
 </template>
