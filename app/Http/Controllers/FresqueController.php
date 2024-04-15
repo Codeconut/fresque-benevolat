@@ -34,7 +34,6 @@ class FresqueController extends Controller
             ->groupBy('places.city')
             ->get()->toArray();
 
-
         return Inertia::render('Fresques/Search', [
             'fresques' => $fresques,
             'cities' => $cities,

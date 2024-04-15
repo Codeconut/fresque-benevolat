@@ -27,17 +27,7 @@ class AnimatorResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('photo')->directory('animators')
-                    ->image()
-                    ->maxSize(2048)
-                    ->imageEditor()
-                    ->imageEditorViewportWidth('600')
-                    ->imageEditorViewportHeight('600')
-                    ->imageResizeTargetWidth('200')
-                    ->imageResizeTargetHeight('200')
-                    ->imageEditorAspectRatios([
-                        '1:1',
-                    ]),
+
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
                 Forms\Components\TextInput::make('first_name')->label('Prénom')
@@ -60,8 +50,21 @@ class AnimatorResource extends Resource
                 Forms\Components\Select::make('level')->label('Niveau d’animation')
                     ->options(config('taxonomies.animators.level'))
                     ->native(false),
-                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
-            ]);
+                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull(),
+                Forms\Components\FileUpload::make('photo')
+                    ->columnSpanFull()
+                    ->directory('animators')
+                    ->image()
+                    ->maxSize(2048)
+                    ->imageEditor()
+                    ->imageEditorViewportWidth('600')
+                    ->imageEditorViewportHeight('600')
+                    ->imageResizeTargetWidth('200')
+                    ->imageResizeTargetHeight('200')
+                    ->imageEditorAspectRatios([
+                        '1:1',
+                    ]),
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table

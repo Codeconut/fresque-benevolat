@@ -37,7 +37,11 @@ defineProps({
       ]"
     >
       <img
-        :src="fresque.cover ? `/storage/${fresque.cover}` : '/images/default-placeholder.png'"
+        :src="
+          fresque.default_picture
+            ? `/storage/${fresque.default_picture}`
+            : '/images/default-placeholder.png'
+        "
         alt="fresque"
         :class="['object-cover w-full h-full']"
       />

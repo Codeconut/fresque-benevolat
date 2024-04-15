@@ -7,7 +7,6 @@ use App\Filament\Resources\FresqueResource\RelationManagers;
 use App\Models\Animator;
 use App\Models\Place;
 use App\Models\Fresque;
-use App\Services\AdresseDataGouvFr;
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -55,53 +54,7 @@ class FresqueResource extends Resource
                                             ->relationship(name: 'place', titleAttribute: 'name')
                                             ->searchable(['name', 'full_address'])
                                             ->getOptionLabelFromRecordUsing(fn (Place $place) => "{$place->name} - {$place->full_address}")
-                                            ->createOptionForm([
-                                                Forms\Components\TextInput::make('name')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                                Forms\Components\Select::make('geocoding')
-                                                    ->suffixIcon('heroicon-o-map-pin')
-                                                    ->label('Rechercher un lieu')
-                                                    ->searchable()
-                                                    ->searchPrompt('Rechercher une adresse avec api-adresse.data.gouv.fr')
-                                                    ->reactive()
-                                                    ->dehydrated(false)
-                                                    ->getSearchResultsUsing(function ($query) {
-                                                        $features = AdresseDataGouvFr::search(['q' => $query, 'limit' => 6]);
-                                                        return $features
-                                                            ->mapWithKeys(fn ($feature) => [
-                                                                $feature['properties']['label'] => $feature['properties']['label']
-                                                            ])
-                                                            ->toArray();
-                                                    })
-                                                    ->afterStateUpdated(function ($state, $set) {
-                                                        $feature = AdresseDataGouvFr::search(['q' => $state, 'limit' => 1])->first();
-                                                        $set('full_address', $feature['properties']['label']);
-                                                        $set('street', $feature['properties']['name']);
-                                                        $set('zip', $feature['properties']['postcode']);
-                                                        $set('city', $feature['properties']['city']);
-                                                        $set('longitude', $feature['geometry']['coordinates'][0]);
-                                                        $set('latitude', $feature['geometry']['coordinates'][1]);
-                                                    }),
-                                                Forms\Components\TextInput::make('full_address')->label('Adresse complète')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('zip')->label('Code postal')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('city')->label('Ville')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('street')->label('Rue')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('latitude')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('longitude')
-                                                    ->required()
-                                                    ->maxLength(255),
-                                            ]),
+                                            ->createOptionForm(fn (Form $form) => PlaceResource::form($form)),
                                         Forms\Components\Select::make('animators')
                                             ->columnSpanFull()
                                             ->label('Animateurs')
@@ -128,49 +81,56 @@ class FresqueResource extends Resource
                                 Forms\Components\Section::make('Contenus')
                                     ->description('Créez votre page en ajoutant des blocs.')
                                     ->schema([
-                                        Forms\Components\MarkdownEditor::make('summary')->label('Infos pratiques'),
-                                        FormBuilder::make('content')->hiddenLabel()->blocks([
-                                            FormBuilder\Block::make('heading')
-                                                ->schema([
-                                                    TextInput::make('content')
-                                                        ->label('Heading')
-                                                        ->required(),
-                                                    Select::make('level')
-                                                        ->options([
-                                                            'h1' => 'Heading 1',
-                                                            'h2' => 'Heading 2',
-                                                            'h3' => 'Heading 3',
-                                                            'h4' => 'Heading 4',
-                                                            'h5' => 'Heading 5',
-                                                            'h6' => 'Heading 6',
-                                                        ])
-                                                        ->required(),
-                                                ])
-                                                ->columns(2),
-                                            FormBuilder\Block::make('paragraph')
-                                                ->schema([
-                                                    Forms\Components\MarkdownEditor::make('content')
-                                                        ->label('Paragraph')
-                                                        ->required(),
-                                                ]),
-                                            FormBuilder\Block::make('image')
-                                                ->schema([
-                                                    FileUpload::make('url')
-                                                        ->label('Image')
-                                                        ->directory('fresques')
-                                                        ->image()
-                                                        ->maxSize(1024)
-                                                        ->imageEditor()
-                                                        ->imageEditorAspectRatios([
-                                                            '16:9',
-                                                            '4:3',
-                                                        ])
-                                                        ->required(),
-                                                    TextInput::make('alt')
-                                                        ->label('Alt text')
-                                                        ->required(),
-                                                ]),
-                                        ])
+                                        Forms\Components\MarkdownEditor::make('summary')
+                                            ->label('Infos pratiques')
+                                            ->default(file_get_contents(resource_path(('markdown/infos-pratiques.md'))))
+                                            ->required(),
+                                        FormBuilder::make('content')
+                                            ->hiddenLabel()
+                                            ->blocks([
+                                                FormBuilder\Block::make('heading')
+                                                    ->schema([
+                                                        TextInput::make('content')
+                                                            ->label('Heading')
+                                                            ->required(),
+                                                        Select::make('level')
+                                                            ->options([
+                                                                'h1' => 'Heading 1',
+                                                                'h2' => 'Heading 2',
+                                                                'h3' => 'Heading 3',
+                                                                'h4' => 'Heading 4',
+                                                                'h5' => 'Heading 5',
+                                                                'h6' => 'Heading 6',
+                                                            ])
+                                                            ->required(),
+                                                    ])
+                                                    ->columns(2),
+                                                FormBuilder\Block::make('paragraph')
+                                                    ->schema([
+                                                        Forms\Components\MarkdownEditor::make('content')
+                                                            ->label('Paragraph')
+                                                            ->required(),
+                                                    ]),
+                                                FormBuilder\Block::make('image')
+                                                    ->schema([
+                                                        FileUpload::make('url')
+                                                            ->label('Image')
+                                                            ->directory('fresques')
+                                                            ->image()
+                                                            ->maxSize(1024)
+                                                            ->imageEditor()
+                                                            ->imageEditorAspectRatios([
+                                                                '16:9',
+                                                                '4:3',
+                                                            ])
+                                                            ->required(),
+                                                        TextInput::make('alt')
+                                                            ->label('Alt text')
+                                                            ->required(),
+                                                    ]),
+                                            ])
+                                            ->collapsed()
+                                            ->default(include resource_path('default-content.php'))
                                     ])
 
                             ])->columnSpan(2),

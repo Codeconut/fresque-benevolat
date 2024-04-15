@@ -49,6 +49,7 @@ class Fresque extends Model
     ];
 
     protected $appends = [
+        'default_picture',
         'schedules',
         'can_candidate',
     ];
@@ -110,6 +111,21 @@ class Fresque extends Model
     {
         return Attribute::make(
             get: fn (): string  => Carbon::parse($this->start_at)->format('H\hi') . ' à ' . Carbon::parse($this->end_at)->format('H\hi'),
+        );
+    }
+
+    protected function defaultPicture(): Attribute
+    {
+        $picture = null;
+
+        if ($this->cover) {
+            $picture = $this->cover;
+        } else if ($this->place) {
+            $picture = $this->place?->photos[0];
+        }
+
+        return Attribute::make(
+            get: fn (): ?string  => $picture,
         );
     }
 

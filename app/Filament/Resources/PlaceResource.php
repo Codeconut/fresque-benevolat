@@ -81,6 +81,7 @@ class PlaceResource extends Resource
                 Forms\Components\MarkdownEditor::make('summary')->label('Résumé')
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('photos')
+                    ->required()
                     ->columnSpanFull()
                     ->directory('places')
                     ->image()
@@ -92,7 +93,7 @@ class PlaceResource extends Resource
                     ->imageEditorAspectRatios([
                         '4:3',
                     ]),
-            ]);
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
