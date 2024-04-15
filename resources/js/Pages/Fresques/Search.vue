@@ -4,7 +4,7 @@ import FresqueCard from '@/Components/FresqueCard.vue'
 import { Link, router } from '@inertiajs/vue3'
 import { ref } from 'vue'
 import queryString from 'query-string'
-import { Select, Label } from '@/Components/Dsfr'
+import { Select, Label, Pagination } from '@/Components/Dsfr'
 import Faq from '@/Components/Sections/Faq.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import BlocJVAPretAPasserAction from '@/Components/Blocs/JVAPretAPasserAction.vue'
@@ -26,6 +26,12 @@ const selectedCity = ref(queryString.parse(location.search)?.['filter[place.city
 const onCitiesChange = (event) => {
   router.visit(route('fresques.index'), {
     data: { 'filter[place.city]': event },
+    only: ['fresques'],
+  })
+}
+
+const changePage = (page) => {
+  router.visit(route('fresques.index', { page }), {
     only: ['fresques'],
   })
 }
@@ -83,6 +89,14 @@ const onCitiesChange = (event) => {
                     <FresqueCard class="" :fresque="fresque" />
                   </Link>
                 </div>
+                <Pagination
+                  v-if="fresques.last_page > 1"
+                  class="mt-8"
+                  :current-page="fresques.current_page"
+                  :total-rows="fresques.total"
+                  :per-page="fresques.per_page"
+                  @page-change="changePage"
+                />
               </div>
             </div>
             <div class="space-y-8 mt-24 lg:mt-0">
