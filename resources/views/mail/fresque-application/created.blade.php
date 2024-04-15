@@ -1,22 +1,37 @@
 <x-mail::message>
-# Bonjour {{ $notifiable->first_name }}
+## Bonjour {{ $notifiable->first_name }}
 
 Un grand merci pour ton inscription à la Fresque du Bénévolat 🙌 J'ai hâte d'animer ce nouveau format inédit avec
 toi.
 
-## La Fresque
+<p style="text-align: center;">
+<span class="fresque-title">{{ $fresque->place->name }}
+<br />le {{ \Carbon\Carbon::parse($fresque->date)->format('d F Y') }} à {{ $fresque->schedules }}</span>
+<br />{{ $fresque->place->full_address }}
+</p>
 
-Si ce n'est pas déjà fait, propose à tes proches ou tes ami(e)s de se joindre à nous :
-{{ $url }}
+<img src="{{ asset('storage/'.$fresque->cover) }}" style="margin-bottom: 24px;">
 
-Nous avons hâte de vous y voir !
+<div style="background-color: #DEE5FD; color: #161616; padding: 24px; margin-bottom: 24px;">
+<h3 style="font-size: 22px; font-weight: 700;">ℹ️ Infos pratiques</h3>
 
-## ❓ La foire aux questions :
+{{ $fresque->summary }}
+</div>
 
-* **Pourquoi participer à cet atelier ?** Rencontrer d'autres bénévoles, t'informer sur le sujet, t'outiller pour te
-lancer et surtout en apprendre plus sur ton rapport au bénévolat. (et rire ! Je vais donner mon max)
-* **À quelle heure je dois arriver sur les lieux ?** Arrive 15min avant le début pour avoir le temps de poser tes
-affaires et faire connaissance avec les autres participant(e)s.
-* **Combien de temps dure l’atelier ?** L'atelier dure 2h30.
-* **Qu'est ce que je dois apporter avec moi ?** Ton énergie et ta bonne humeur, c'est tout ! (et un.e ami.e !! ;) )
+
+Je suis très enthousiaste à l'idée de passer ce moment ensemble, j'espère que toi aussi ! 🤗
+
+---
+
+### Proposez à vos ami(e)s de participer !
+
+Plus on est de fous, plus on rit 😊 N’hésitez pas à partager la fresque à vos ami(e)s pour qu’ils puissent aussi s’inscrire
+
+<x-mail::button :url="$url">Je partage le lien de la fresque</x-mail::button>
+
+---
+
+Très belle fin de semaine et à bientôt !<br />
+Coralie, créatrice de la Fresque du bénévolat 🌞
+
 </x-mail::message>
