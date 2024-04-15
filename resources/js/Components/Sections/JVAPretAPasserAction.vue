@@ -6,11 +6,14 @@ import Button from '@/Components/Dsfr/Button.vue'
 <template>
   <div class="py-20">
     <div class="container">
-      <div class="overflow-hidden">
-        <div
-          class="overflow-hidden w-0 h-0 border-t-[40px] border-t-transparent border-l-[1284px] border-l-dsfr-blue border-b-[0px] border-b-transparent"
-        ></div>
-        <div class="bg-dsfr-blue text-white">
+      <div class="relative">
+        <!-- <div
+          class="bg-dsfr-blue rounded-t-3xl w-full h-[80px] skew-y-[1deg] absolute top-[-35px] left-0"
+        ></div> -->
+        <!-- <div
+          class="overflow-hidden w-[30px] h-[30px] border-t-[60px] rounded-tl-3xl rounded-tr-3xl border-t-transparent border-l-[1284px] border-l-dsfr-blue border-b-[0px] border-b-transparent"
+        ></div> -->
+        <div class="bg-dsfr-blue text-white jva-clip-path rounded-3xl">
           <div class="max-w-[780px] mx-auto">
             <div class="py-20 px-8 text-center">
               <img

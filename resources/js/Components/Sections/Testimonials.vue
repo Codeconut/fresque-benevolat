@@ -102,11 +102,8 @@ const onSwiper = (swiperInstance) => {
           </div>
         </div>
         <div class="overflow-hidden">
-          <div
-            class="w-0 h-0 border-t-[40px] border-t-transparent border-l-[1284px] border-l-dsfr-lavande border-b-[0px] border-b-transparent"
-          ></div>
-          <div class="bg-dsfr-lavande p-4">
-            <div class="">
+          <div class="bg-dsfr-lavande p-4 testimonials-clip-path rounded-3xl">
+            <div class="py-6">
               <div class="flex flex-col lg:flex-row">
                 <img
                   src="/images/testimonials/testimonial-1.png"
@@ -123,9 +120,6 @@ const onSwiper = (swiperInstance) => {
               <img src="/images/testimonials/testimonial-3.png" alt="" class="col-span-2" />
             </div>
           </div>
-          <div
-            class="w-0 h-0 border-b-[30px] border-b-transparent border-l-[1284px] border-l-dsfr-lavande border-t-[0px] border-t-transparent"
-          ></div>
         </div>
       </div>
     </div>

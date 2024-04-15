@@ -2,11 +2,8 @@
   <div class="py-20">
     <div class="container">
       <div class="overflow-hidden">
-        <div
-          class="overflow-hidden w-0 h-0 border-t-[30px] border-t-transparent border-r-[1284px] border-r-[#6DD897] border-b-[0px] border-b-transparent"
-        ></div>
-        <div class="bg-[#6DD897] text-[#142018]">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 p-8 lg:p-12">
+        <div class="bg-[#77EDA5] text-[#142018] chiffres-clip-path rounded-3xl">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 p-8 lg:p-24">
             <div class="flex items-center lg:items-start gap-8 lg:flex-col">
               <div>
                 <img src="/images/icons/etoiles.svg" alt="" class="" />
@@ -41,9 +38,6 @@
             </div>
           </div>
         </div>
-        <div
-          class="overflow-hidden w-0 h-0 border-b-[20px] border-b-transparent border-r-[1284px] border-r-[#6DD897] border-t-[0px] border-t-transparent"
-        ></div>
       </div>
     </div>
   </div>

@@ -65,7 +65,9 @@ defineProps({
         </div>
         <div class="flex items-center">
           <RiUserHeartFill size="16" class="mr-2" />
-          <span class="line-clamp-1">{{ fresque.places_left }} places disponibles</span>
+          <span class="line-clamp-1">{{
+            $filters.pluralize(fresque.places_left, 'place disponible', 'places disponibles')
+          }}</span>
         </div>
       </div>
       <RiArrowRightLine

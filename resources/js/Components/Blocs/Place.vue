@@ -19,12 +19,12 @@ const markdown = new MarkdownIt()
 <template>
   <div class="bg-white p-12">
     <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 gap-8">
-      <div>
+      <div class="flex-1">
         <div class="text-[22px] font-bold">{{ place.name }}</div>
         <div class="text-lg">{{ place.full_address }}</div>
       </div>
       <a :href="`https://www.google.com/maps?q=${place.full_address}`" target="_blank">
-        <Button variant="secondary"> Comment s'y rendre ?</Button>
+        <Button variant="secondary"> Comment s'y rendre ?</Button>
       </a>
     </div>
 

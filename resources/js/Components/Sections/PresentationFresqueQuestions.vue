@@ -50,11 +50,8 @@ const Pane = defineComponent(
     />
     <div class="container relative z-10">
       <div class="overflow-hidden">
-        <div
-          class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-dsfr-yellow-active border-b-[0px] border-b-transparent"
-        ></div>
-        <div class="p-8 lg:p-16 bg-dsfr-yellow-active">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="p-8 lg:p-16 bg-dsfr-yellow-active fresques-clip-path rounded-3xl">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:pt-12 lg:pb-6">
             <div class="">
               <div class="space-y-4">
                 <Pane name="atelier" title="Un atelier ludique et participatif">

@@ -37,8 +37,18 @@ const placesOccupied = computed(() => props.fresque.places - props.fresque.place
       <div class="flex space-x-4">
         <RiUserHeartLine size="20" class="text-[#518FFF] mt-[6px]" />
         <div>
-          <div class="text-lg font-bold">{{ fresque.places_left }} places disponibles</div>
-          <div class="text-lg text-[#666666]">{{ placesOccupied }} personnes déjà inscrites</div>
+          <div class="text-lg font-bold">
+            {{ $filters.pluralize(fresque.places_left, 'place disponible', 'places disponibles') }}
+          </div>
+          <div class="text-lg text-[#666666]">
+            {{
+              $filters.pluralize(
+                placesOccupied,
+                'personne déjà inscrite',
+                'personnes déjà inscrites'
+              )
+            }}
+          </div>
         </div>
       </div>
       <div>

@@ -16,7 +16,16 @@ createInertiaApp({
   resolve: (name) =>
     resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
-    return createApp({ render: () => h(App, props) })
+    const app = createApp({ render: () => h(App, props) })
+
+    app.config.globalProperties.$filters = {
+      pluralize(amount, singular, plural = `${singular}s`) {
+        let string = amount === 1 ? singular : plural
+        return `${amount} ${string}`
+      },
+    }
+
+    return app
       .use(plugin)
       .use(ZiggyVue)
       .use(dayjsPlugin)
