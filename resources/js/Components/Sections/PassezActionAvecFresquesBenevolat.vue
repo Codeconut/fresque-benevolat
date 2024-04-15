@@ -10,28 +10,13 @@ import Button from '@/Components/Dsfr/Button.vue'
       src="/images/illustrations/dashed-line-1.svg"
       alt=""
     />
+    <img
+      class="absolute top-[370px] right-[50px] sm:top-[300px] sm:right-[50px] lg:top-[50px] lg:right-[50px]"
+      src="/images/icons/heart.svg"
+      alt=""
+    />
     <!--  <img class="absolute bottom-0 left-0" src="/images/dashed-line-blue-gray.svg" alt="" /> -->
     <div class="container relative">
-      <img
-        class="absolute top-[370px] right-[50px] h-20 sm:top-[300px] sm:right-[50px] sm:h-24 lg:top-[100px] lg:right-[450px] lg:h-32"
-        src="/images/icons/compas.svg"
-        alt=""
-      />
-      <img
-        class="hidden lg:block absolute lg:top-[0px] lg:right-[-50px] xl:top-[50px] xl:right-0 h-[275px] w-auto"
-        src="/images/illustrations/hero-yellow.png"
-        alt=""
-      />
-      <img
-        class="hidden xl:block absolute lg:top-[200px] lg:right-[300px] xl:top-[200px] xl:right-[300px] h-[275px] w-auto"
-        src="/images/illustrations/hero-blue.png"
-        alt=""
-      />
-      <img
-        class="hidden lg:block absolute lg:bottom-[100px] lg:right-0 xl:bottom-[50px] xl:right-0 h-[275px] w-auto"
-        src="/images/illustrations/hero-green.png"
-        alt=""
-      />
       <div class="relative z-10 py-[60px] lg:py-[120px]">
         <div class="max-w-[629px]">
           <h1 class="font-bold text-5xl lg:text-[80px] lg:leading-[88px]">
@@ -48,6 +33,11 @@ import Button from '@/Components/Dsfr/Button.vue'
           </Link>
         </div>
       </div>
+      <img
+        class="w-[578px] h-auto lg:relative lg:mx-auto xl:absolute xl:top-[30px] xl:right-0"
+        src="/images/illustrations/playcards.png"
+        alt=""
+      />
     </div>
   </div>
 </template>

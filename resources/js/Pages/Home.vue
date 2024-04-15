@@ -5,6 +5,7 @@ import PresentationFresqueQuestions from '@/Components/Sections/PresentationFres
 import ProfessionnelsAideOrganiserFresque from '@/Components/Sections/ProfessionnelsAideOrganiserFresque.vue'
 import Faq from '@/Components/Sections/Faq.vue'
 import Chiffres from '@/Components/Sections/Chiffres.vue'
+import DevenezAnimateur from '@/Components/Sections/DevenezAnimateur.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import Testimonials from '@/Components/Sections/Testimonials.vue'
 import ProchainesFresques from '@/Components/Sections/ProchainesFresques.vue'
@@ -33,6 +34,7 @@ const props = defineProps({
 
     <Testimonials />
     <Chiffres />
+    <DevenezAnimateur />
     <Faq />
     <ProfessionnelsAideOrganiserFresque />
     <JVAPretAPasserAction />

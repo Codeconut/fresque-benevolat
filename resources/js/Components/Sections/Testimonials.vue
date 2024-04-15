@@ -47,6 +47,7 @@ const onSwiper = (swiperInstance) => {
       src="/images/illustrations/dashed-line-4.svg"
       alt=""
     />
+    <img class="absolute top-[50px] right-[50px]" src="/images/icons/mountains.svg" alt="" />
     <div class="relative container">
       <h2 class="relative text-4xl lg:text-5xl leading-[56px] font-bold mb-14">
         Ils ont participé et ont adoré

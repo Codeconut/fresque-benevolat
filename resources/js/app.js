@@ -8,6 +8,7 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy'
 import dayjsPlugin from './Plugins/dayjs'
 import VueSocialSharing from 'vue-social-sharing'
 import ScrollLock from './Plugins/scrollLock'
+import Filters from './Plugins/filters'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
@@ -16,21 +17,13 @@ createInertiaApp({
   resolve: (name) =>
     resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
-    const app = createApp({ render: () => h(App, props) })
-
-    app.config.globalProperties.$filters = {
-      pluralize(amount, singular, plural = `${singular}s`) {
-        let string = amount === 1 ? singular : plural
-        return `${amount} ${string}`
-      },
-    }
-
-    return app
+    return createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(ZiggyVue)
       .use(dayjsPlugin)
       .use(VueSocialSharing)
       .use(ScrollLock)
+      .use(Filters)
       .mount(el)
   },
   progress: {
