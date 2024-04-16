@@ -9,7 +9,9 @@ Plus que {{ $diffInDays }} jours avant de participer à la Fresque du Bénévola
 <br />{{ $fresque->place->full_address }}
 </p>
 
+<a href="{{ route('fresques.show' , $fresque) }}" target="_blank">
 <img src="{{ asset('storage/'.$fresque->cover) }}" style="margin-bottom: 24px;">
+</a>
 
 Afin de finaliser l’organisation, j’ai besoin que tu me dises si tu seras présent ou non
 

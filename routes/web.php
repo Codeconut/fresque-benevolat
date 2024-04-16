@@ -18,8 +18,11 @@ Route::get('/fresques-benevolat/{fresque:slug}', [FresqueController::class, 'sho
 Route::get('/fresques-benevolat/{fresque:slug}/candidate', [FresqueController::class, 'candidate'])->name('fresques.candidate');
 Route::post('/fresques-benevolat/{fresque:slug}/apply', [FresqueController::class, 'apply'])->name('fresques.apply');
 
-Route::get('/fresques-applications/{fresqueApplication:token}/confirmation', [FresqueApplicationController::class, 'confirmation'])->name('fresques.applications.confirmation');
-Route::get('/fresques-applications/{fresqueApplication:token}/presence', [FresqueApplicationController::class, 'presence'])->name('fresques.applications.presence');
+Route::get('/fresques-applications/{fresqueApplication:token}/registered', [FresqueApplicationController::class, 'registered'])->name('fresques.applications.registered');
+Route::get('/fresques-applications/{fresqueApplication:token}/confirmation-presence', [FresqueApplicationController::class, 'confirmationPresence'])->name('fresques.applications.confirmation-presence');
+
+Route::post('/fresques-applications/{fresqueApplication:token}/confirm', [FresqueApplicationController::class, 'confirm'])->name('fresques.applications.confirm');
+Route::post('/fresques-applications/{fresqueApplication:token}/cancel', [FresqueApplicationController::class, 'cancel'])->name('fresques.applications.cancel');
 
 
 Route::get('register', Register::class)

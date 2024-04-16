@@ -40,6 +40,10 @@ class FresqueApplication extends Model
         'state' => 'registered',
     ];
 
+    protected $appends = [
+        'full_name',
+    ];
+
     protected static function booted()
     {
         static::creating(function ($application) {

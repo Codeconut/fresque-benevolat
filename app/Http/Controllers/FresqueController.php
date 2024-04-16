@@ -79,6 +79,6 @@ class FresqueController extends Controller
 
         $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
 
-        return to_route('fresques.applications.confirmation', $application->token);
+        return to_route('fresques.applications.registered', $application->token);
     }
 }
