@@ -7,12 +7,15 @@ import { Button } from '@/Components/Dsfr'
     <div class="container">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
-          Professionnels, on vous aide à organiser des fresques
-          <img
-            src="/images/icons/gimmick.svg"
-            alt=""
-            class="absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-15px]"
-          />
+          <span class="relative">
+            <span>O</span>
+            <img
+              src="/images/icons/gimmick-green.svg"
+              alt=""
+              class="!max-w-[71px] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
+            /> </span
+          >n vous aide <br />
+          à organiser des fresques
         </h2>
       </div>
 

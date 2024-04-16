@@ -6,7 +6,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 p-8 lg:p-24">
             <div class="flex items-center lg:items-start gap-8 lg:flex-col">
               <div>
-                <img src="/images/icons/etoiles.svg" alt="" class="" />
+                <img src="/images/icons/etoile.svg" alt="" class="" />
               </div>
               <div>
                 <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">4,9</div>
@@ -16,7 +16,7 @@
             </div>
             <div class="flex items-center lg:items-start gap-8 lg:flex-col">
               <div>
-                <img src="/images/icons/coeur.svg" alt="" class="" />
+                <img src="/images/icons/coeur-2.svg" alt="" class="" />
               </div>
               <div>
                 <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">1 000</div>
@@ -26,7 +26,7 @@
             </div>
             <div class="flex items-center lg:items-start gap-8 lg:flex-col">
               <div>
-                <img src="/images/icons/mains.svg" alt="" class="" />
+                <img src="/images/icons/boussole.svg" alt="" class="" />
               </div>
               <div>
                 <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">3 000</div>
