@@ -8,7 +8,7 @@ import Chiffres from '@/Components/Sections/Chiffres.vue'
 import DevenezAnimateur from '@/Components/Sections/DevenezAnimateur.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import Testimonials from '@/Components/Sections/Testimonials.vue'
-import ProchainesFresques from '@/Components/Sections/ProchainesFresques.vue'
+import SwiperProchainesFresques from '@/Components/Sections/SwiperProchainesFresques.vue'
 
 const props = defineProps({
   fresques: {
@@ -30,7 +30,7 @@ const props = defineProps({
       <PresentationFresqueQuestions class="relative z-10" />
     </div>
 
-    <ProchainesFresques :fresques="fresques?.data" />
+    <SwiperProchainesFresques :fresques="fresques?.data" />
 
     <Testimonials />
     <Chiffres />

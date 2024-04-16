@@ -53,6 +53,15 @@ const Pane = defineComponent(
         <div class="p-8 lg:p-16 bg-dsfr-yellow-active fresques-clip-path rounded-3xl">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:pt-12 lg:pb-6">
             <div class="">
+              <div class="mb-4 text-[#3A3A3A]">
+                Créé et animé avec le ❤️ par
+                <a
+                  class="underline hover:text-[#161616]"
+                  href="https://jeveuxaider.gouv.fr"
+                  target="_blank"
+                  >JeVeuxAider.gouv.fr</a
+                >
+              </div>
               <div class="space-y-4">
                 <Pane name="atelier" title="Un atelier ludique et participatif">
                   Une expérience collective de 2h30 dans laquelle vous allez avoir une vision

@@ -17,7 +17,7 @@ const markdown = new MarkdownIt()
 </script>
 
 <template>
-  <div class="bg-white p-12">
+  <div class="bg-white shadow-lg p-12">
     <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center mb-8 gap-8">
       <div class="flex-1">
         <div class="text-[22px] font-bold">{{ place.name }}</div>

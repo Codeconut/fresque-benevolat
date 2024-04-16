@@ -3,8 +3,7 @@ defineProps({
   variant: {
     type: String,
     default: 'default',
-    validator: (s) =>
-      ['default', 'clickable', 'selectable', 'deletable', 'unclickable'].includes(s),
+    validator: (s) => ['default', 'clickable', 'selectable', 'deletable', 'custom'].includes(s),
   },
   size: {
     type: String,
@@ -30,7 +29,7 @@ defineProps({
           variant === 'clickable',
       },
       {
-        'text-dsfr-blue bg-[#E3E3FD]': variant === 'unclickable',
+        'text-[#6A6156] bg-[#F3EDE5]': variant === 'custom',
       },
       { 'px-2 py-0.5 text-xs h-6': size == 'sm' },
       { 'px-3 py-1 text-sm h-8': size == 'md' },

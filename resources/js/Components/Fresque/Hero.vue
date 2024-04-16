@@ -13,10 +13,7 @@ defineProps({
 
 <template>
   <div class="overflow-hidden">
-    <div
-      class="w-0 h-0 border-t-[60px] border-t-transparent border-l-[1284px] border-l-dsfr-yellow-active border-b-[0px] border-b-transparent"
-    ></div>
-    <div class="p-8 lg:p-12 lg:pt-6 bg-dsfr-yellow-active">
+    <div class="p-8 lg:p-12 lg:pt-24 bg-dsfr-yellow-active fresque-show-clip-path">
       <div class="">
         <Link
           :href="route('fresques.index')"
@@ -26,7 +23,7 @@ defineProps({
           <span>Retour aux fresques</span>
         </Link>
         <div class="flex justify-between items-center mt-2 mb-8">
-          <h1 class="text-5xl font-bold">{{ fresque.place.city }}</h1>
+          <h1 class="text-5xl font-bold">{{ fresque.place.city }} - {{ fresque.place.name }}</h1>
           <Share
             :url="route('fresques.show', fresque)"
             :title="fresque.place.city"

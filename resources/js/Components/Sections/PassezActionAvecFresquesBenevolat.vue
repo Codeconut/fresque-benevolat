@@ -15,7 +15,6 @@ import Button from '@/Components/Dsfr/Button.vue'
       src="/images/icons/heart.svg"
       alt=""
     />
-    <!--  <img class="absolute bottom-0 left-0" src="/images/dashed-line-blue-gray.svg" alt="" /> -->
     <div class="container relative">
       <div class="relative z-10 py-[60px] lg:py-[120px]">
         <div class="max-w-[629px]">

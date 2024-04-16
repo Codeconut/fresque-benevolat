@@ -53,12 +53,20 @@ const changePage = (page) => {
     </div>
     <div class="container">
       <div class="relative py-[64px]">
-        <div class="max-w-3xl pb-6">
-          <h1 class="font-bold text-5xl lg:text-[56px] lg:leading-[64px]">
-            (re)Découvrez le bénévolat en participant à la Fresque
-          </h1>
-          <p class="text-2xl my-8">Trouvez la prochaine fresque du bénévolat près de chez vous</p>
+        <div class="relative">
+          <div class="max-w-3xl pb-6">
+            <h1 class="font-bold text-5xl lg:text-[56px] lg:leading-[64px]">
+              (re)Découvrez le bénévolat en participant à la Fresque
+            </h1>
+            <p class="text-2xl my-8">Trouvez la prochaine fresque du bénévolat près de chez vous</p>
+            <img
+              class="hidden xl:block xl:absolute xl:bottom-0 xl:right-0"
+              src="/images/illustrations/playcards-2.svg"
+              alt=""
+            />
+          </div>
         </div>
+
         <div class="border-t py-14">
           <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
             <div class="col-span-2">
@@ -107,7 +115,7 @@ const changePage = (page) => {
         </div>
         <div class="border-t py-14">
           <Faq />
-          <!-- <JVAPretAPasserAction /> -->
+          <JVAPretAPasserAction />
         </div>
       </div>
     </div>

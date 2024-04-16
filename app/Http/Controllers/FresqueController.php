@@ -51,6 +51,7 @@ class FresqueController extends Controller
 
         return Inertia::render('Fresques/Show', [
             'fresque' => $fresque,
+            'fresquesAlentours' => Fresque::with(['place'])->where('id', '!=', $fresque->id)->take(3)->get(),
         ]);
     }
 

@@ -9,10 +9,17 @@ import FresqueHero from '@/Components/Fresque/Hero.vue'
 import FresqueDescription from '@/Components/Fresque/Description.vue'
 import FresqueInfosPratiques from '@/Components/Fresque/InfosPratiques.vue'
 import FresqueInscription from '@/Components/Fresque/Inscription.vue'
+import Faq from '@/Components/Sections/Faq.vue'
+import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
+import ProchainesFresquesAlentours from '@/Components/Sections/ProchainesFresquesAlentours.vue'
 
 const props = defineProps({
   fresque: {
     type: Object,
+    required: true,
+  },
+  fresquesAlentours: {
+    type: Array,
     required: true,
   },
 })
@@ -21,7 +28,10 @@ const markdown = new MarkdownIt()
 </script>
 
 <template>
-  <AppLayout :title="fresque.date">
+  <AppLayout
+    :title="`À ${fresque.place.city}, le ${$dayjs(fresque.date).format('DD MMMM YYYY')} de
+          ${fresque.schedules}`"
+  >
     <div class="relative">
       <img
         class="absolute top-[-100px] right-0"
@@ -48,6 +58,12 @@ const markdown = new MarkdownIt()
           </div>
         </div>
       </div>
+    </div>
+    <div class="py-14">
+      <div class="container"><div class="border-t" /></div>
+      <ProchainesFresquesAlentours :fresques="fresquesAlentours" />
+      <Faq />
+      <JVAPretAPasserAction />
     </div>
   </AppLayout>
 </template>

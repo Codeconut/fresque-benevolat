@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <div v-if="fresque.content" class="bg-white p-12">
+  <div v-if="fresque.content" class="bg-white shadow-lg p-12">
     <ContentBuilder :content="fresque.content" />
   </div>
 </template>

@@ -104,7 +104,7 @@ const onSwiper = (swiperInstance) => {
 .swiper {
   @apply overflow-visible;
   :deep(.swiper-slide) {
-    @apply max-w-[384px] w-full;
+    @apply !w-[384px];
   }
   :deep(.swiper-pagination) {
     @apply text-left relative mt-8;
