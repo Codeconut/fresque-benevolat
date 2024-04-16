@@ -29,12 +29,24 @@ const props = defineProps({
         </div>
       </div>
       <div class="max-w-full w-[792px] mx-auto">
-        <div class="p-12 bg-white shadow-lg">
-          <div class="mb-12">ICONE</div>
+        <div class="p-12 bg-white shadow-lg text-center">
           <div class="mb-12">
-            <h2>@TODO Confirmation de votre présence</h2>
+            <img class="h-[75px] w-[67px] mx-auto" src="/images/icons/hearts.svg" alt="" />
           </div>
-          <DsfrButton size="lg" full>Je confirme ma présence</DsfrButton>
+          <div class="mb-12 space-y-8">
+            <h2 class="text-[32px] font-bold">Vous venez toujours ? 🥰</h2>
+            <p class="text-lg">
+              Votre participation est au statut: <strong>{{ application.state }}</strong>
+            </p>
+            <p class="text-lg px-12">
+              Savoir le nombre exact de participants est crucial pour que je puisse organiser
+              l’atelier de la meilleure façon possible.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <DsfrButton size="lg" variant="secondary">J'annule mon inscription 😢</DsfrButton>
+            <DsfrButton size="lg">Je confirme ma présence 👊</DsfrButton>
+          </div>
         </div>
       </div>
     </div>

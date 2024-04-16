@@ -29,7 +29,7 @@ Route::get('register', Register::class)
 Route::middleware([
     Authenticate::class,
 ])->group(function () {
-    Route::get('/notifications/fresque-application-created', [NotificationController::class, 'fresqueApplicationCreated']);
+    Route::get('/notifications/{slug}', [NotificationController::class, 'renderMail']);
 });
 
 

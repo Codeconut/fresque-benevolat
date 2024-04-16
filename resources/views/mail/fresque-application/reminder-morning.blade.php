@@ -1,8 +1,7 @@
 <x-mail::message>
 ## Bonjour {{ $notifiable->first_name }}
 
-Un grand merci pour ton inscription à la Fresque du Bénévolat 🙌 J'ai hâte d'animer ce nouveau format inédit avec
-toi.
+Bonne nouvelle : la Fresque du Bénévolat, c’est aujourd’hui !
 
 <p style="text-align: center; margin-top: 40px;">
 <span class="fresque-title">{{ $fresque->place->name }}
@@ -19,19 +18,11 @@ toi.
 </div>
 
 
-Je suis très enthousiaste à l'idée de passer ce moment ensemble, j'espère que toi aussi ! 🤗
+Tu peux retrouver toutes les informations sur cette fresque ici
 
----
+<x-mail::button :url="$url">Détails de la fresque</x-mail::button>
 
-### Proposez à vos ami(e)s de participer !
-
-Plus on est de fous, plus on rit 😊 N’hésitez pas à partager la fresque à vos ami(e)s pour qu’ils puissent aussi s’inscrire
-
-<x-mail::button :url="$url">Je partage le lien de la fresque</x-mail::button>
-
----
-
-Très belle fin de semaine et à bientôt !<br />
-Coralie, créatrice de la Fresque du bénévolat 🌞
+À tout à l’heure !<br />
+Les futurs animateurs 🌞
 
 </x-mail::message>

@@ -4,13 +4,12 @@ namespace App\Notifications;
 
 use App\Models\Fresque;
 use Carbon\Carbon;
-use Carbon\CarbonInterval;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FresqueApplicationConfirmPresence extends Notification implements ShouldQueue
+class FresqueApplicationReminderMorning extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -21,7 +20,7 @@ class FresqueApplicationConfirmPresence extends Notification implements ShouldQu
      */
     public function __construct(public Fresque $fresque)
     {
-        $this->tag = 'fresque-application-created';
+        $this->tag = 'fresque-application-reminder-morning';
     }
 
     /**
@@ -39,16 +38,14 @@ class FresqueApplicationConfirmPresence extends Notification implements ShouldQu
      */
     public function toMail(object $notifiable): MailMessage
     {
-
-        $diffInDays = floor(abs(Carbon::parse($this->fresque->date)->diffInDays()));
+        $fresqueDate = Carbon::parse($this->fresque->date)->translatedFormat('d F Y');
 
         return (new MailMessage)
-            ->subject('La fresque du bénévolat, c’est dans ' . $diffInDays . ' jours !')
-            ->markdown('mail.fresque-application.confirm-presence', [
-                'url' =>  route('fresques.applications.confirm', ['fresqueApplication' => $notifiable]),
+            ->subject('La Fresque du Bénévolat, c’est aujourd’hui ✌🏻')
+            ->markdown('mail.fresque-application.reminder-morning', [
+                'url' =>  route('fresques.show', ['fresque' => $this->fresque]),
                 'fresque' => $this->fresque,
-                'notifiable' => $notifiable,
-                'diffInDays' => $diffInDays,
+                'notifiable' => $notifiable
             ])
             ->tag($this->tag);
     }
