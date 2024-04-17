@@ -7,6 +7,11 @@ const props = defineProps({
     type: [String, Number],
     default: null,
   },
+  variant: {
+    type: String,
+    default: 'primary',
+    validator: (s) => ['primary', 'white', 'custom'].includes(s),
+  },
   name: {
     type: String,
     required: true,
@@ -54,8 +59,13 @@ const onKeypressSpace = (event) => {
       :type="type"
       :placeholder="placeholder"
       :class="[
-        ' border-t-0 border-l-0 border-r-0 rounded-t w-full h-full border-b-2 border-[#3A3A3A] focus-visible:border-[#3A3A3A]',
-        'bg-[#EEEEEE] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0a76f6]',
+        ' border-t-0 border-l-0 border-r-0 rounded-t w-full h-full border-b-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0a76f6]',
+        {
+          'bg-[#EEEEEE]  border-[#3A3A3A] focus-visible:border-[#3A3A3A]': variant === 'primary',
+        },
+        {
+          'bg-white border-dsfr-blue focus-visible:border-dsfr-blue': variant === 'white',
+        },
         { '!border-[#ce0500]': error },
         { '!border-[#18753c]': success },
         { 'py-3': size === 'lg' },

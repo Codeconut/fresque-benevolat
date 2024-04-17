@@ -3,13 +3,11 @@
 use App\Http\Controllers\FresqueController;
 use App\Http\Controllers\FresqueApplicationController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Filament\Pages\Register;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\NotificationController;
 use Filament\Http\Middleware\Authenticate;
-use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/fresques-benevolat', [FresqueController::class, 'index'])->name('fresques.index');
@@ -17,6 +15,7 @@ Route::get('/fresques-benevolat/{fresque:slug}', [FresqueController::class, 'sho
 
 Route::get('/fresques-benevolat/{fresque:slug}/candidate', [FresqueController::class, 'candidate'])->name('fresques.candidate');
 Route::post('/fresques-benevolat/{fresque:slug}/apply', [FresqueController::class, 'apply'])->name('fresques.apply');
+Route::post('/newsletter/create-contact', [NewsletterController::class, 'createContact'])->name('newsletter.create.contact');
 
 Route::get('/fresques-applications/{fresqueApplication:token}/registered', [FresqueApplicationController::class, 'registered'])->name('fresques.applications.registered');
 Route::get('/fresques-applications/{fresqueApplication:token}/confirmation-presence', [FresqueApplicationController::class, 'confirmationPresence'])->name('fresques.applications.confirmation-presence');
