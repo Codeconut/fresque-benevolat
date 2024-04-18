@@ -28,7 +28,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('fresques_animators', function (Blueprint $table) {
+        Schema::create('fresque_animators', function (Blueprint $table) {
             $table->foreignId('fresque_id')->constrained();
             $table->foreignId('animator_id')->constrained();
         });
@@ -39,7 +39,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fresques_animators');
+        Schema::dropIfExists('fresque_animators');
         Schema::dropIfExists('animators');
     }
 };

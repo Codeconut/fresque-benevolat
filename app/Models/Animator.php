@@ -48,12 +48,12 @@ class Animator extends Model
 
     public function fresques()
     {
-        return $this->belongsToMany(Fresque::class, 'fresques_animators');
+        return $this->belongsToMany(Fresque::class, 'fresque_animators');
     }
 
     public function incomingFresques()
     {
-        return $this->belongsToMany(Fresque::class, 'fresques_animators')->incoming();
+        return $this->belongsToMany(Fresque::class, 'fresque_animators')->incoming();
     }
 
     protected function photo(): Attribute

@@ -16,7 +16,7 @@ class FresqueApplication extends Model
 {
     use Notifiable, HasFactory, SoftDeletes, LogsActivity;
 
-    protected $table = 'fresques_applications';
+    protected $table = 'fresque_applications';
 
     protected $fillable = [
         'fresque_id',

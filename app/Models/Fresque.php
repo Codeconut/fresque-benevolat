@@ -93,7 +93,7 @@ class Fresque extends Model
 
     public function animators()
     {
-        return $this->belongsToMany(Animator::class, 'fresques_animators');
+        return $this->belongsToMany(Animator::class, 'fresque_animators');
     }
 
     public function applications()

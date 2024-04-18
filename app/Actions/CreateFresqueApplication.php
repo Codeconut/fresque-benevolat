@@ -20,7 +20,7 @@ class CreateFresqueApplication
             'email' => [
                 'required',
                 'email',
-                Rule::unique('fresques_applications')->where(function ($query) use ($inputs) {
+                Rule::unique('fresque_applications')->where(function ($query) use ($inputs) {
                     return $query->where('fresque_id', $inputs['fresque_id'])->where('email', $inputs['email']);
                 })
             ],
