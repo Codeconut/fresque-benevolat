@@ -9,6 +9,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 use Filament\Tables\Columns\IconColumn;
 use App\Filament\Resources\FresqueResource\Pages;
 use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
+use Filament\Support\Enums\MaxWidth;
 
 class IncomingFresques extends BaseWidget
 {
@@ -20,9 +21,10 @@ class IncomingFresques extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
-            ->heading('Fresques à venir')
+            ->heading('Les 3 prochaines fresques à venir')
             ->query(
                 Fresque::query()
+                    ->limit(3)
                     ->incoming()
                     ->orderBy('date', 'asc')
             )
@@ -34,7 +36,6 @@ class IncomingFresques extends BaseWidget
                     ->grow(false),
                 Tables\Columns\TextColumn::make('place.name')
                     ->label('Lieu')
-                    ->searchable(['places.name', 'places.full_address'])
                     ->description(fn (Fresque $fresque) => $fresque?->place?->full_address),
                 Tables\Columns\TextColumn::make('date')
                     ->date('d M Y')
@@ -42,19 +43,19 @@ class IncomingFresques extends BaseWidget
                 Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
                     ->suffix(' places ')
                     ->description(fn (Fresque $fresque) => 'sur ' . $fresque->places . ' au total'),
-                ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
-                ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
-                ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
-                    ->onIcon('heroicon-s-lock-closed')
-                    ->offIcon('heroicon-o-lock-open'),
+                // ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
+                // ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
+                // ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
+                //     ->onIcon('heroicon-s-lock-closed')
+                //     ->offIcon('heroicon-o-lock-open'),
                 Tables\Columns\ImageColumn::make('animators.photo')
                     ->label('Animateurs')
-                    ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
                     ->circular()
                     ->stacked(),
             ])
             ->recordUrl(
                 fn (Fresque $record): string => Pages\ViewFresque::getUrl([$record->id]),
-            );
+            )
+            ->paginated(false);
     }
 }

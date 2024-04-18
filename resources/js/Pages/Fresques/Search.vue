@@ -10,7 +10,7 @@ import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue
 import BlocJVAPretAPasserAction from '@/Components/Blocs/JVAPretAPasserAction.vue'
 import EstCeQueCestFaitPourMoi from '@/Components/Blocs/EstCeQueCestFaitPourMoi.vue'
 
-defineProps({
+const props = defineProps({
   fresques: {
     type: Object,
     required: true,
@@ -22,6 +22,11 @@ defineProps({
 })
 
 const selectedCity = ref(queryString.parse(location.search)?.['filter[place.city]'] || null)
+
+const citiesOptions = props.cities.map((option) => {
+  return { value: option.city, label: `${option.city} (${option.count})` }
+})
+citiesOptions.unshift({ value: '', label: 'Toutes les villes' })
 
 const onCitiesChange = (event) => {
   router.visit(route('fresques.index'), {
@@ -78,11 +83,7 @@ const changePage = (page) => {
                     name="city"
                     v-model="selectedCity"
                     placeholder="Sélectionner une ville"
-                    :options="
-                      cities.map((option) => {
-                        return { value: option.city, label: `${option.city} (${option.count})` }
-                      })
-                    "
+                    :options="citiesOptions"
                     @update:modelValue="onCitiesChange"
                   />
                 </div>

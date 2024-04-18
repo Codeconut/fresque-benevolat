@@ -88,6 +88,9 @@ class AnimatorResource extends Resource
                     ->label('# Fresques')
                     ->counts('fresques')
                     ->description(fn (Animator $animator) => 'dont ' . $animator->fresques()->incoming()->count() . ' à venir'),
+                Tables\Columns\TextColumn::make('nextFresque.full_date')
+                    ->label('Prochaine fresque')
+                    ->description(fn (Animator $animator) => $animator->nextFresque?->places_left . ' places restantes'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

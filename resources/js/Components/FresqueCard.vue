@@ -75,7 +75,7 @@ defineProps({
           {{ fresque.place.name }}
         </template>
       </h2>
-      <div class="text-[#666666] text-sm mt-auto">
+      <div class="text-[#666666] text-sm mb-auto">
         <div class="flex items-center mb-3">
           <RiMapPin2Fill size="16" class="mr-2 text-[#6A6156]" />
           <span class="line-clamp-1">{{ fresque.place.full_address }}</span>
@@ -87,10 +87,11 @@ defineProps({
           }}</span>
         </div>
       </div>
-      <!-- <RiArrowRightLine
+      <RiArrowRightLine
+        v-if="orientation === 'horizontal'"
         size="32"
-        class="text-dsfr-blue absolute bottom-6 right-6 group-hover:right-8 transition-all"
-      /> -->
+        class="text-dsfr-blue absolute bottom-0 right-6 group-hover:right-8 transition-all"
+      />
     </div>
   </div>
 </template>

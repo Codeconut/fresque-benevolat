@@ -83,4 +83,11 @@ class Animator extends Model
             get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
         );
     }
+
+    protected function nextFresque(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): ?Fresque  => $this->fresques()->incoming()->first(),
+        );
+    }
 }
