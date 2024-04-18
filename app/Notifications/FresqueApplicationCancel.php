@@ -13,7 +13,7 @@ use Illuminate\Notifications\Slack\SlackMessage;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
 
-class FresqueApplicationCreated extends Notification implements ShouldQueue
+class FresqueApplicationCancel extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -24,7 +24,7 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
      */
     public function __construct(public Fresque $fresque)
     {
-        $this->tag = 'fresque-application-created';
+        $this->tag = 'fresque-application-confirm-presence';
     }
 
     /**
@@ -34,25 +34,25 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
      */
     public function via(object $notifiable): array
     {
-        return ['mail', 'slack'];
+        return ['slack'];
     }
 
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
-    {
-        $fresqueDate = Carbon::parse($this->fresque->date)->translatedFormat('d F Y');
+    // public function toMail(object $notifiable): MailMessage
+    // {
+    //     $fresqueDate = Carbon::parse($this->fresque->date)->translatedFormat('d F Y');
 
-        return (new MailMessage)
-            ->subject('Votre inscription à la fresque du bénévolat du ' . $fresqueDate . ' est validée 🥳')
-            ->markdown('mail.fresque-application.created', [
-                'url' =>  route('fresques.show', ['fresque' => $this->fresque]),
-                'fresque' => $this->fresque,
-                'notifiable' => $notifiable
-            ])
-            ->tag($this->tag);
-    }
+    //     return (new MailMessage)
+    //         ->subject('Votre inscription à la fresque du bénévolat du ' . $fresqueDate . ' est validée 🥳')
+    //         ->markdown('mail.fresque-application.created', [
+    //             'url' =>  route('fresques.show', ['fresque' => $this->fresque]),
+    //             'fresque' => $this->fresque,
+    //             'notifiable' => $notifiable
+    //         ])
+    //         ->tag($this->tag);
+    // }
 
     public function toSlack(object $notifiable): SlackMessage
     {
@@ -60,7 +60,7 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
 
         return (new SlackMessage)
             ->sectionBlock(function (SectionBlock $block) use ($notifiable) {
-                $block->text('*' . $notifiable->full_name . '* vient de s\'inscrire à une fresque du bénévolat ! 🎉')->markdown();
+                $block->text('*' . $notifiable->full_name . '* a annulé sa participation à la fresque du bénévolat ! 😢')->markdown();
             })
             ->contextBlock(function (ContextBlock $block) use ($context) {
                 $block->text($context)->markdown();

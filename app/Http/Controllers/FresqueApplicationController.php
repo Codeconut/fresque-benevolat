@@ -6,6 +6,8 @@ use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
 use App\Models\Fresque;
 use App\Models\FresqueApplication;
+use App\Notifications\FresqueApplicationCancel;
+use App\Notifications\FresqueApplicationConfirmPresence;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -37,6 +39,8 @@ class FresqueApplicationController extends Controller
             'state' => 'confirmed_presence',
         ]);
 
+        $fresqueApplication->notify(new FresqueApplicationConfirmPresence($fresqueApplication->fresque));
+
         return to_route('fresques.applications.confirmation-presence', $fresqueApplication->token);
     }
 
@@ -45,6 +49,8 @@ class FresqueApplicationController extends Controller
         $fresqueApplication->update([
             'state' => 'canceled',
         ]);
+
+        $fresqueApplication->notify(new FresqueApplicationCancel($fresqueApplication->fresque));
 
         return to_route('fresques.applications.confirmation-presence', $fresqueApplication->token);
     }

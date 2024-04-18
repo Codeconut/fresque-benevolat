@@ -6,7 +6,18 @@ import { Link, router } from '@inertiajs/vue3'
 <template>
   <div class="py-20">
     <div class="container">
-      <h2 class="text-4xl lg:text-5xl font-bold text-center">Vous avez des questions ?</h2>
+      <div class="text-center">
+        <h2 class="relative inline text-4xl lg:text-5xl font-bold">
+          Vous avez des questions ?
+          <img
+            v-svg-inline
+            src="/images/icons/gimmick.svg"
+            alt=""
+            class="text-[#FCD17B] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px]"
+          />
+        </h2>
+      </div>
+
       <Tabs
         name="Catégories de faq"
         :tabs="[
