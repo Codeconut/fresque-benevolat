@@ -25,7 +25,15 @@ createInertiaApp({
       .use(VueSocialSharing)
       .use(ScrollLock)
       .use(Filters)
-      .use(VueSvgInlinePlugin)
+      .use(VueSvgInlinePlugin, {
+        attributes: {
+          data: ['src'],
+          remove: ['alt'],
+        },
+        cache: {
+          persistent: false,
+        },
+      })
       .mount(el)
   },
   progress: {

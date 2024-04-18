@@ -1,6 +1,7 @@
 <script setup>
 import { Button } from '@/Components/Dsfr'
 import { Link } from '@inertiajs/vue3'
+// import gimmickUrl from '@/assets/images/icons/gimmick.svg'
 </script>
 
 <template>

@@ -10,6 +10,7 @@ import AccordionsGroup from './AccordionsGroup.vue'
 import Accordion from './Accordion.vue'
 import Link from './Link.vue'
 import Pagination from './Pagination.vue'
+import Tag from './Tag.vue'
 
 export {
   Input,
@@ -24,4 +25,5 @@ export {
   AccordionsGroup,
   Link,
   Pagination,
+  Tag,
 }

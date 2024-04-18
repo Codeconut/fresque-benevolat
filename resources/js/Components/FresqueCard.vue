@@ -1,6 +1,5 @@
-<script setup lang="jsx">
-import { defineComponent } from 'vue'
-import DsfrTag from '@/Components/Dsfr/Tag.vue'
+<script setup>
+import { Tag } from '@/Components/Dsfr'
 import {
   RiTimeLine,
   RiCalendarEventLine,
@@ -54,10 +53,10 @@ defineProps({
       ]"
     >
       <div class="mb-6 flex gap-4">
-        <DsfrTag variant="custom" :icon="RiCalendarEventLine">{{
+        <Tag variant="custom" :icon="RiCalendarEventLine">{{
           $dayjs(fresque.date).format('DD MMMM YYYY')
-        }}</DsfrTag>
-        <DsfrTag variant="custom" :icon="RiTimeLine">{{ fresque.schedules }}</DsfrTag>
+        }}</Tag>
+        <Tag variant="custom" :icon="RiTimeLine">{{ fresque.schedules }}</Tag>
       </div>
       <h2 class="text-2xl font-bold mb-4 line-clamp-2 h-[70px]">
         <template v-if="orientation === 'horizontal'">

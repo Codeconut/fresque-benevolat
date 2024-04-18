@@ -14,3 +14,9 @@ defineProps({
     <ContentBuilder :content="fresque.content" />
   </div>
 </template>
+
+<style scoped>
+:deep(img) {
+  @apply rounded-lg;
+}
+</style>

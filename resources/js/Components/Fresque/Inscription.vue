@@ -1,7 +1,6 @@
 <script setup>
 import MarkdownIt from 'markdown-it'
-import DsfrTag from '@/Components/Dsfr/Tag.vue'
-import DsfrButton from '@/Components/Dsfr/Button.vue'
+import { Button } from '@/Components/Dsfr'
 import { RiCalendarEventLine, RiMapPin2Fill, RiUserHeartLine } from '@remixicon/vue'
 import { Head, Link, router } from '@inertiajs/vue3'
 import { defineComponent, ref, computed } from 'vue'
@@ -53,9 +52,9 @@ const placesOccupied = computed(() => props.fresque.places - props.fresque.place
       </div>
       <div>
         <Link v-if="fresque.can_candidate" :href="route('fresques.candidate', { fresque })">
-          <DsfrButton full size="lg"> Je m'inscris</DsfrButton>
+          <Button full size="lg"> Je m'inscris</Button>
         </Link>
-        <DsfrButton v-else full disabled size="lg"> Inscriptions fermées</DsfrButton>
+        <Button v-else full disabled size="lg"> Inscriptions fermées</Button>
       </div>
     </div>
   </div>

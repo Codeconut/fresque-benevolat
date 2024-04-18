@@ -45,7 +45,8 @@ const onSubmit = () => {
 
 <template>
   <OverlayLayout
-    head-title="Je candidate à la Fresque du Bénévolat"
+    :head-title="`À ${fresque.place.city}, le ${$dayjs(fresque.date).format('DD MMMM YYYY')} de
+          ${fresque.schedules}`"
     :redirect-url="route('fresques.show', { fresque })"
   >
     <div class="container">
