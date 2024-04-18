@@ -9,6 +9,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Place extends Model
 {
@@ -50,5 +51,12 @@ class Place extends Model
     public function fresques()
     {
         return $this->hasMany(Fresque::class);
+    }
+
+    protected function nextFresque(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): ?Fresque  => $this->fresques()->incoming()->first(),
+        );
     }
 }

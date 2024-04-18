@@ -23,16 +23,16 @@ defineProps({
 <template>
   <div
     :class="[
-      'group border flex bg-white hover:shadow-xl transition-all',
+      'group border flex bg-white hover:shadow-xl transition-all p-4',
       { 'flex-col sm:flex-row': orientation === 'horizontal' },
       { 'flex-col w-[384px]': orientation === 'vertical' },
     ]"
   >
     <div
       :class="[
-        '',
-        { 'w-[395px] h-[216px] sm:w-[264px] sm:h-[274px]': orientation === 'horizontal' },
-        { 'w-[384px] h-[216px] px-4 pt-4': orientation === 'vertical' },
+        'max-w-full',
+        { 'w-[395px] h-[216px] sm:w-[264px] sm:h-[196px]': orientation === 'horizontal' },
+        { 'w-[384px] h-[216px] ': orientation === 'vertical' },
       ]"
     >
       <img
@@ -48,7 +48,7 @@ defineProps({
     <div
       :class="[
         'flex-1 relative ',
-        { 'p-10': orientation === 'horizontal' },
+        { 'px-8 py-4 h-full': orientation === 'horizontal' },
         { 'p-8 ': orientation === 'vertical' },
       ]"
     >
@@ -58,7 +58,14 @@ defineProps({
         }}</Tag>
         <Tag variant="custom" :icon="RiTimeLine">{{ fresque.schedules }}</Tag>
       </div>
-      <h2 class="text-2xl font-bold mb-4 line-clamp-2 h-[70px]">
+      <h2
+        :class="[
+          'text-2xl font-bold mb-4',
+          { 'line-clamp-1': orientation === 'horizontal' },
+          { 'line-clamp-2': orientation === 'vertical' },
+        ]"
+        :title="`${fresque.place.city} - ${fresque.place.name}`"
+      >
         <template v-if="orientation === 'horizontal'">
           {{ fresque.place.city }} -
           {{ fresque.place.name }}
@@ -68,7 +75,7 @@ defineProps({
           {{ fresque.place.name }}
         </template>
       </h2>
-      <div class="text-[#666666] text-sm">
+      <div class="text-[#666666] text-sm mt-auto">
         <div class="flex items-center mb-3">
           <RiMapPin2Fill size="16" class="mr-2 text-[#6A6156]" />
           <span class="line-clamp-1">{{ fresque.place.full_address }}</span>

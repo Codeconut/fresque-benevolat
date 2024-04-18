@@ -8,7 +8,6 @@ import Chiffres from '@/Components/Sections/Chiffres.vue'
 import DevenezAnimateur from '@/Components/Sections/DevenezAnimateur.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import Testimonials from '@/Components/Sections/Testimonials.vue'
-import Newsletter from '@/Components/Sections/Newsletter.vue'
 import SwiperProchainesFresques from '@/Components/Sections/SwiperProchainesFresques.vue'
 
 const props = defineProps({
@@ -39,6 +38,5 @@ const props = defineProps({
     <Faq />
     <ProfessionnelsAideOrganiserFresque />
     <JVAPretAPasserAction />
-    <Newsletter />
   </AppLayout>
 </template>

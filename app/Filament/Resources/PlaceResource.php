@@ -115,6 +115,9 @@ class PlaceResource extends Resource
                     ->label('# Fresques')
                     ->counts('fresques')
                     ->description(fn (Place $place) => 'dont ' . $place->fresques()->incoming()->count() . ' à venir'),
+                Tables\Columns\TextColumn::make('nextFresque.full_date')
+                    ->label('Prochaine fresque')
+                    ->description(fn (Place $place) => $place->nextFresque?->places_left . ' places restantes'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

@@ -33,7 +33,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->brandName('Fresque Manager')
+            ->brandName('Admin - La Fresque du Bénévolat')
             ->brandLogo(asset('images/logos/fresque-benevolat-logo.svg'))
             ->brandLogoHeight('55px')
             ->id('admin')
