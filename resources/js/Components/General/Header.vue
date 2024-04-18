@@ -1,7 +1,8 @@
 <script setup>
 import { Head, Link, router } from '@inertiajs/vue3'
 import ApplicationMark from '@/Components/Jetstream/ApplicationMark.vue'
-import Button from '@/Components/Dsfr/Button.vue'
+import { Button, IconButton } from '@/Components/Dsfr'
+import { RiSearchLine } from '@remixicon/vue'
 
 const logout = () => {
   router.post(route('logout'))
@@ -11,9 +12,10 @@ const logout = () => {
 <template>
   <div class="bg-white">
     <div class="relative z-20 container">
-      <div class="flex justify-between items-center h-[96px]">
+      <div class="flex justify-between items-center h-[122px]">
         <div class="shrink-0 flex items-center">
-          <Link :href="route('home')">
+          <Link :href="route('home')" class="flex items-center px-2 relative -left-4">
+            <img src="/images/logos/logo-marianne.svg" class="" />
             <ApplicationMark class="block w-auto" />
           </Link>
         </div>
@@ -38,7 +40,8 @@ const logout = () => {
             </div>
 
             <Link :href="route('fresques.index')">
-              <Button>Trouver une fresque</Button>
+              <Button class="hidden sm:block">Trouver une fresque</Button>
+              <IconButton variant="secondary" class="sm:hidden" :icon="RiSearchLine" />
             </Link>
           </div>
         </div>

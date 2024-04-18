@@ -108,17 +108,33 @@ const onSwiper = (swiperInstance) => {
               <div class="flex flex-col lg:flex-row">
                 <img
                   src="/images/testimonials/testimonial-1.png"
+                  srcset="
+                    /images/testimonials/testimonial-1.png 1x,
+                    /images/testimonials/testimonial-1.png 2x
+                  "
                   alt=""
-                  class="w-full h-auto lg:h-[245px] lg:w-auto"
+                  class="w-full h-auto lg:w-1/2 lg:h-auto"
                 />
                 <img
                   src="/images/testimonials/testimonial-2.png"
+                  srcset="
+                    /images/testimonials/testimonial-2.png 1x,
+                    /images/testimonials/testimonial-2.png 2x
+                  "
                   alt=""
-                  class="w-full h-auto lg:h-[245px] lg:w-auto"
+                  class="w-full h-auto lg:w-1/2 lg:h-auto"
                 />
               </div>
 
-              <img src="/images/testimonials/testimonial-3.png" alt="" class="col-span-2" />
+              <img
+                src="/images/testimonials/testimonial-3.png"
+                srcset="
+                  /images/testimonials/testimonial-3.png 1x,
+                  /images/testimonials/testimonial-3.png 2x
+                "
+                alt=""
+                class="col-span-2 w-full h-auto"
+              />
             </div>
           </div>
         </div>

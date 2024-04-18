@@ -15,9 +15,10 @@ import { Link } from '@inertiajs/vue3'
         <h2 class="relative inline text-4xl lg:text-5xl leading-[56px] font-bold">
           Devenez animateur
           <img
-            src="/images/icons/gimmick-blue-right.svg"
+            v-svg-inline
+            src="/images/icons/gimmick.svg"
             alt=""
-            class="absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px]"
+            class="text-[#6B93F6] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px]"
           />
         </h2>
         <div class="text-2xl text-[#666666] mt-4">

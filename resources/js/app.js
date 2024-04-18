@@ -9,6 +9,7 @@ import dayjsPlugin from './Plugins/dayjs'
 import VueSocialSharing from 'vue-social-sharing'
 import ScrollLock from './Plugins/scrollLock'
 import Filters from './Plugins/filters'
+import VueSvgInlinePlugin from 'vue-svg-inline-plugin'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
@@ -24,6 +25,7 @@ createInertiaApp({
       .use(VueSocialSharing)
       .use(ScrollLock)
       .use(Filters)
+      .use(VueSvgInlinePlugin)
       .mount(el)
   },
   progress: {

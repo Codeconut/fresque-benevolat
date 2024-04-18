@@ -10,9 +10,10 @@ import { Button } from '@/Components/Dsfr'
           <span class="relative">
             <span>O</span>
             <img
-              src="/images/icons/gimmick-green.svg"
+              v-svg-inline
+              src="/images/icons/gimmick.svg"
               alt=""
-              class="!max-w-[71px] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
+              class="text-[#77EDA5] fill-current !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
             /> </span
           >n vous aide <br />
           à organiser des fresques

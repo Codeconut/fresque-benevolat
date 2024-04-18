@@ -1,16 +1,19 @@
 <script setup>
 import { Button, Input, FormElement } from '@/Components/Dsfr'
 import { useForm } from '@inertiajs/vue3'
+import {
+  RiFacebookCircleFill,
+  RiTwitterXFill,
+  RiLinkedinBoxFill,
+  RiInstagramFill,
+  RiYoutubeFill,
+} from '@remixicon/vue'
 
 const form = useForm({
   email: null,
 })
 
 const onSubmit = () => {
-  console.log('submit')
-
-  //   loading.value = true
-
   form.submit('post', route('newsletter.create.contact'), {
     preserveScroll: true,
     onStart: () => {
@@ -26,19 +29,6 @@ const onSubmit = () => {
       form.processing = false
     },
   })
-
-  //   axios
-  //     .post('/sendinblue/contact', { email: this.form.email })
-  //     .then(() => {
-  //       console.log('success')
-  //       // this.success = 'Merci ! Vous êtes désormais inscrit(e) à notre newsletter 😉'
-  //     })
-  //     .catch((error) => {
-  //       console.log('error', error)
-  //     })
-  //     .finally(() => {
-  //       loading.value = false
-  //     })
 }
 </script>
 
@@ -57,7 +47,8 @@ const onSubmit = () => {
             <div class="w-full gap-4 lg:gap-0 flex flex-col lg:flex-row">
               <Input
                 name="email"
-                v-model="form.email"
+                type="email"
+                v-model.trim="form.email"
                 placeholder="Votre adresse électronique (ex. : nom@domaine.fr)"
                 :error="!!form.errors.email"
                 variant="white"
@@ -83,14 +74,46 @@ const onSubmit = () => {
           <h2 class="text-2xl font-bold mb-6">
             Suivez JeVeuxAider.gouv.fr sur les réseaux sociaux
           </h2>
-          <div class="flex space-x-4 -ml-2">
+          <div class="flex space-x-4 items-center -ml-2">
             <a
-              href="socialMedia.url"
+              href="https://www.facebook.com/jeveuxaider.gouv.fr/"
               target="_blank"
               title=""
-              class="p-2 text-jva-blue-500 hover:text-jva-blue-800 active:text-jva-blue-900"
+              class="p-2 text-dsfr-blue hover:text-dsfr-blue-hover active:text-jva-blue-900"
             >
-              LOGO
+              <RiFacebookCircleFill size="24" class="fill-current" />
+            </a>
+            <a
+              href="https://twitter.com/ReserveCivique"
+              target="_blank"
+              title=""
+              class="p-2 text-dsfr-blue hover:text-dsfr-blue-hover active:text-jva-blue-900"
+            >
+              <RiTwitterXFill size="20" class="fill-current" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/jeveuxaider-gouv-fr/?originalSubdomain=fr"
+              target="_blank"
+              title=""
+              class="p-2 text-dsfr-blue hover:text-dsfr-blue-hover active:text-jva-blue-900"
+            >
+              <RiLinkedinBoxFill size="24" class="fill-current" />
+            </a>
+            <a
+              href="https://www.instagram.com/jeveuxaider_gouv/?hl=fr"
+              target="_blank"
+              title=""
+              class="p-2 text-dsfr-blue hover:text-dsfr-blue-hover active:text-jva-blue-900"
+            >
+              <RiInstagramFill size="24" class="fill-current" />
+            </a>
+            <a
+              href="https://www.youtube.com/@jeveuxaider.gouv.fr1"
+              target="_blank"
+              title=""
+              class="p-2 text-dsfr-blue hover:text-dsfr-blue-hover active:text-jva-blue-900"
+            >
+              <RiYoutubeFill size="24" class="fill-current" />
             </a>
           </div>
         </div>

@@ -88,13 +88,21 @@ const Pane = defineComponent(
             </div>
             <div class="hidden lg:block relative">
               <img
-                class="lg:absolute top-[0px] right-0 h-[375px] w-auto"
+                class="lg:absolute top-[0px] right-0 h-[340px] w-auto"
                 src="/images/illustrations/atelier-ludique-1.png"
+                srcset="
+                  /images/illustrations/atelier-ludique-1.png 1x,
+                  /images/illustrations/atelier-ludique-1.png 2x
+                "
                 alt=""
               />
               <img
-                class="lg:absolute lg:top-[380px] lg:right-0 xl:top-[270px] xl:right-[150px] h-[362px] w-auto"
+                class="lg:absolute lg:top-[380px] lg:right-0 xl:top-[290px] xl:right-[150px] h-[340px] w-auto"
                 src="/images/illustrations/atelier-ludique-2.png"
+                srcset="
+                  /images/illustrations/atelier-ludique-2.png 1x,
+                  /images/illustrations/atelier-ludique-2.png 2x
+                "
                 alt=""
               />
             </div>
