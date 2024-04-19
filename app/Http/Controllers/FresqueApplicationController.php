@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
 use App\Models\Fresque;
 use App\Models\FresqueApplication;
+use App\Models\FresqueApplicationFeedback;
 use App\Notifications\FresqueApplicationCancel;
 use App\Notifications\FresqueApplicationConfirmPresence;
 use Illuminate\Http\Request;
@@ -53,5 +53,31 @@ class FresqueApplicationController extends Controller
         $fresqueApplication->notify(new FresqueApplicationCancel($fresqueApplication->fresque));
 
         return to_route('fresques.applications.confirmation-presence', $fresqueApplication->token);
+    }
+
+    public function feedback(FresqueApplication $fresqueApplication)
+    {
+
+        $fresque = $fresqueApplication->fresque->load(['place']);
+
+        return Inertia::render('Applications/Feedback', [
+            'fresque' =>  $fresque,
+            'token' =>  $fresqueApplication->token,
+            'application' => $fresqueApplication,
+            'feedback' => $fresqueApplication->feedback,
+        ]);
+    }
+
+    public function feedbackMerci(FresqueApplication $fresqueApplication)
+    {
+
+        $fresque = $fresqueApplication->fresque->load(['place']);
+
+        return Inertia::render('Applications/FeedbackMerci', [
+            'fresque' =>  $fresque,
+            'token' =>  $fresqueApplication->token,
+            'application' => $fresqueApplication,
+            'feedback' => $fresqueApplication->feedback,
+        ]);
     }
 }

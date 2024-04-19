@@ -14,7 +14,7 @@ const form = useForm({
 })
 
 const onSubmit = () => {
-  form.submit('post', route('newsletter.create.contact'), {
+  form.submit('post', route('newsletter.sync.contact'), {
     preserveScroll: true,
     onStart: () => {
       form.processing = true

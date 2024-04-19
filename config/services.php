@@ -15,7 +15,9 @@ return [
     */
 
     'brevo' => [
+        'sync_enabled' => env('BREVO_SYNC_ENABLED'),
         'api_key' => env('BREVO_API_KEY'),
+        'contacts_list_id' => (int) env('BREVO_CONTACTS_LIST_ID', 631),
     ],
 
     'postmark' => [

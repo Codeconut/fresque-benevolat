@@ -10,6 +10,8 @@ class ManageFresqueApplicationFeedback extends ManageRecords
 {
     protected static string $resource = FresqueApplicationFeedbackResource::class;
 
+    protected static ?string $title = 'Témoignages';
+
     protected function getHeaderActions(): array
     {
         return [

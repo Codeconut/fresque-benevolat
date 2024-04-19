@@ -8,22 +8,34 @@ use Brevo\Client\Configuration;
 
 class Brevo
 {
+    protected $config;
+    protected bool $isBrevoSyncEnabled = false;
+    protected $contactsApiInstance;
 
-    public static function createContact($attributes = [])
+    public function __construct()
     {
+        $this->config = Configuration::getDefaultConfiguration()->setApiKey('api-key', config('services.brevo.api_key'));
+        $this->isBrevoSyncEnabled = config('services.brevo.sync_enabled') === true;
+        $this->contactsApiInstance = new ContactsApi(
+            new Client(),
+            $this->config
+        );
+    }
+
+    public function createOrUpdateContact($attributes = [])
+    {
+        if (!$this->isBrevoSyncEnabled) {
+            return;
+        }
+
         if (empty($attributes)) {
             return;
         }
-        $config = Configuration::getDefaultConfiguration()->setApiKey('api-key', config('services.brevo.api_key'));
 
-        $apiInstance = new ContactsApi(
-            new Client(),
-            $config
-        );
         $createContact = new \Brevo\Client\Model\CreateContact($attributes);
 
         try {
-            $apiInstance->createContact($createContact);
+            $this->contactsApiInstance->createContact($createContact);
         } catch (\Exception $e) {
             abort(422, 'An error occurred while trying to add your email to the newsletter list. ' . $e->getMessage());
         }

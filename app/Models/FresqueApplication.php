@@ -69,6 +69,11 @@ class FresqueApplication extends Model
         return $this->belongsTo(Fresque::class);
     }
 
+    public function feedback()
+    {
+        return $this->hasOne(FresqueApplicationFeedback::class);
+    }
+
     protected function photo(): Attribute
     {
         return Attribute::make(

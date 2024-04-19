@@ -15,13 +15,13 @@ class FresqueApplicationFeedback extends Model
     protected $table = 'fresque_application_feedbacks';
 
     protected $fillable = [
-        // 'fresque_application_id',
+        'fresque_application_id',
         'rating',
         'questions',
     ];
 
-    protected $attributes = [
-        'questions' => 'json',
+    protected $casts = [
+        'questions' => 'array',
     ];
 
     public function getActivitylogOptions(): LogOptions

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Fresque;
 use App\Models\FresqueApplication;
 use App\Models\Place;
+use App\Services\Brevo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -79,6 +80,13 @@ class FresqueController extends Controller
         $application = $createFresqueApplication->apply($inputs);
 
         $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
+
+        $brevo = new Brevo();
+        $brevo->createOrUpdateContact([
+            'email' => $request->input('email'),
+            'updateEnabled' => true,
+            'listIds' => [config('services.brevo.contacts_list_id')]
+        ]);
 
         return to_route('fresques.applications.registered', $application->token);
     }

@@ -32,6 +32,8 @@ class FresqueResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
+    protected static ?int $navigationSort = 1;
+
     // protected static ?string $navigationGroup = 'Contenus';
 
     public static function form(Form $form): Form

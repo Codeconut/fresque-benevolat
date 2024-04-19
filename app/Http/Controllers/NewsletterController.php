@@ -8,16 +8,17 @@ use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
-    public function createContact(Request $request)
+    public function createOrUpdateContact(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
         ]);
 
-        Brevo::createContact([
+        $brevo = new Brevo();
+        $brevo->createOrUpdateContact([
             'email' => $request->input('email'),
             'updateEnabled' => true,
-            'listIds' => [631]
+            'listIds' => [config('services.brevo.contacts_list_id')]
         ]);
     }
 }

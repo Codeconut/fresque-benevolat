@@ -12,14 +12,18 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Mokhosh\FilamentRating\Columns\RatingColumn;
+use Mokhosh\FilamentRating\Components\Rating;
 
 class FresqueApplicationFeedbackResource extends Resource
 {
     protected static ?string $model = FresqueApplicationFeedback::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-o-star';
 
     protected static ?string $navigationLabel = 'Témoignages';
+
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
@@ -28,9 +32,11 @@ class FresqueApplicationFeedbackResource extends Resource
                 // Forms\Components\TextInput::make('fresque_application_id')
                 //     ->required()
                 //     ->numeric(),
-                Forms\Components\TextInput::make('rating')
-                    ->numeric(),
-                Forms\Components\KeyValue::make('questions')->columnSpanFull(),
+                Rating::make('rating')
+                    ->stars(5)
+                    ->disabled()
+                    ->columnSpanFull(),
+                Forms\Components\KeyValue::make('questions')->disabled()->columnSpanFull(),
             ]);
     }
 
@@ -38,8 +44,6 @@ class FresqueApplicationFeedbackResource extends Resource
     {
         return $table
             ->columns([
-
-
                 Tables\Columns\ImageColumn::make('application.photo')
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
@@ -52,10 +56,12 @@ class FresqueApplicationFeedbackResource extends Resource
                     ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->fresque->place->city . ' - ' . $feedback->application?->fresque->place->name),
                 Tables\Columns\TextColumn::make('rating')
                     ->numeric(),
+                RatingColumn::make('rating')
+                    ->label('Note')
+                    ->stars(5),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date('d M Y à H:i')
                     ->label('Créé le'),
-
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
