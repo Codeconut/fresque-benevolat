@@ -1,7 +1,7 @@
 <script setup>
 import OverlayLayout from '@/Layouts/OverlayLayout.vue'
 import { router, useForm, usePage } from '@inertiajs/vue3'
-import { Checkbox, Input, Label, Button, FormElement } from '@/Components/Dsfr'
+import { Checkbox, Input, Select, Button, FormElement } from '@/Components/Dsfr'
 
 const props = defineProps({
   fresque: {
@@ -14,6 +14,8 @@ const form = useForm({
   email: '',
   first_name: '',
   last_name: '',
+  info_benevolat: '',
+  info_fresque: '',
   has_accepted_emails: null,
 })
 
@@ -97,6 +99,62 @@ const onSubmit = () => {
                 v-model="form.mobile"
                 placeholder="06 01 02 03 04"
                 :error="!!form.errors.mobile"
+              />
+            </FormElement>
+            <FormElement
+              name="info_benevolat"
+              label="As tu déjà été bénévole ?"
+              :error="form.errors.info_benevolat"
+              class="col-span-2"
+            >
+              <Select
+                id="info_benevolat"
+                name="info_benevolat"
+                v-model="form.info_benevolat"
+                placeholder="Sélectionner une option"
+                :options="[
+                  {
+                    value: 'yes_many',
+                    label: 'Oui, plusieurs fois',
+                  },
+                  {
+                    value: 'yes_once',
+                    label: 'Oui, une fois',
+                  },
+                  {
+                    value: 'never',
+                    label: 'Non, jamais',
+                  },
+                ]"
+                :error="!!form.errors.info_benevolat"
+              />
+            </FormElement>
+            <FormElement
+              name="info_fresque"
+              label="As-tu déjà participé à un atelier de type Fresque du Climat ?"
+              :error="form.errors.info_fresque"
+              class="col-span-2"
+            >
+              <Select
+                id="info_fresque"
+                name="info_fresque"
+                v-model="form.info_fresque"
+                placeholder="Sélectionner une option"
+                :options="[
+                  {
+                    value: 'yes',
+                    label: 'Oui, j\'ai déjà participé à ce type d\'atelier',
+                  },
+                  {
+                    value: 'no_but_i_know',
+                    label: 'Non, mais je connais',
+                  },
+                  {
+                    value: 'no_and_i_dont_know',
+                    label: 'Non et je ne connaissais pas',
+                  },
+                ]"
+                :error="!!form.errors.info_fresque"
               />
             </FormElement>
           </div>

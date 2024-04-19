@@ -132,7 +132,7 @@ class Fresque extends Model
     protected function fullDate(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => Carbon::parse($this->date)->format('d M Y') . ' - ' . $this->schedules,
+            get: fn (): string  => Carbon::parse($this->date)->translatedFormat('d F Y') . ' - ' . $this->schedules,
         );
     }
 

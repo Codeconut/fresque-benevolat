@@ -26,6 +26,8 @@ class CreateFresqueApplication
             ],
             'first_name' => 'required',
             'last_name' => 'required',
+            'info_benevolat' => 'required',
+            'info_fresque' => 'required',
             'has_accepted_emails' => 'required|boolean|in:1',
         ])->validate();
 
