@@ -17,7 +17,7 @@ class FresqueApplicationFeedbackController extends Controller
     public function updateOrCreate(Request $request, FresqueApplication $fresqueApplication)
     {
 
-        ray($fresqueApplication);
+        ray($request->input('questions'));
 
         FresqueApplicationFeedback::updateOrCreate(
             ['fresque_application_id' => $fresqueApplication->id],

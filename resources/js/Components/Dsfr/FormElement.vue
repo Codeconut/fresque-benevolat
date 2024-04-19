@@ -36,7 +36,7 @@ const hasInfo = computed(() => props.info)
       {{ label }}
     </Label>
     <slot />
-    <div class="mt-2">
+    <div v-if="hasError || hasInfo" class="mt-2">
       <div v-if="hasError" class="flex items-center text-[#ce0500] text-xs">
         <RiCloseCircleFill class="h-4" /> {{ error }}
       </div>

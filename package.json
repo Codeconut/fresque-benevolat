@@ -30,6 +30,7 @@
         "swiper": "^11.1.1",
         "uuid": "^9.0.1",
         "vue-social-sharing": "^4.0.0-alpha4",
+        "vue-star-rating": "^2.1.0",
         "vue-svg-inline-plugin": "^2.2.3"
     }
 }

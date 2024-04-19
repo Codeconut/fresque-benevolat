@@ -1,7 +1,8 @@
 <script setup>
 import OverlayLayout from '@/Layouts/OverlayLayout.vue'
 import { useForm } from '@inertiajs/vue3'
-import { Input, Button, FormElement } from '@/Components/Dsfr'
+import { Input, Button, FormElement, Textarea } from '@/Components/Dsfr'
+import StarRating from 'vue-star-rating'
 
 const props = defineProps({
   token: {
@@ -91,27 +92,94 @@ const onSubmit = () => {
           </div>
 
           <form @submit.prevent="onSubmit" class="">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-12">
-              <FormElement name="first_name" label="Rating" required :error="form.errors.rating">
-                <Input
-                  name="rating"
-                  v-model="form.rating"
-                  placeholder="Rating"
-                  :error="!!form.errors.rating"
+            <div class="grid grid-cols-1 gap-8 mb-12">
+              <FormElement
+                name="first_name"
+                label="Est-ce que cette Fresque t'a plue ?"
+                required
+                :error="form.errors.rating"
+              >
+                <StarRating v-model:rating="form.rating" star-size="35" />
+              </FormElement>
+              <FormElement
+                name="comment_as_tu_trouve_les_animations"
+                label="Comment as-tu trouvé les différentes animations / ateliers ?"
+                required
+                :error="form.errors?.questions?.comment_as_tu_trouve_les_animations"
+              >
+                <StarRating
+                  v-model:rating="form.questions.comment_as_tu_trouve_les_animations"
+                  star-size="35"
+                />
+              </FormElement>
+              <FormElement
+                name="comment_as_tu_trouve_les_animateurs"
+                label="Comment as-tu trouvé les différentes animations / ateliers ?"
+                required
+                :error="form.errors?.questions?.comment_as_tu_trouve_les_animateurs"
+              >
+                <StarRating
+                  v-model:rating="form.questions.comment_as_tu_trouve_les_animateurs"
+                  star-size="35"
+                />
+              </FormElement>
+              <FormElement
+                name="as_tu_trouve_le_lieu_approprié"
+                label="As-tu trouvé le lieu approprié pour faire la Fresque ?"
+                required
+                :error="form.errors?.questions?.as_tu_trouve_le_lieu_approprié"
+              >
+                <StarRating
+                  v-model:rating="form.questions.as_tu_trouve_le_lieu_approprié"
+                  star-size="35"
                 />
               </FormElement>
               <FormElement
                 name="questions.quest_ce_que_tu_as_adore"
                 label="Est-ce que cela t'a donné envie de te lancer dans le bénévolat ?"
-                required
                 :error="form.errors?.questions?.quest_ce_que_tu_as_adore"
-                class="col-span-2"
               >
-                <Input
-                  name="rating"
+                <Textarea
+                  name="quest_ce_que_tu_as_adore"
                   v-model="form.questions.quest_ce_que_tu_as_adore"
                   placeholder="Placeholder"
                   :error="!!form.errors?.questions?.quest_ce_que_tu_as_adore"
+                />
+              </FormElement>
+              <FormElement
+                name="questions.quest_ce_qui_ta_manque"
+                label="Qu'est-ce qui t'a manqué dans cette Fresque ?"
+                :error="form.errors?.questions?.quest_ce_qui_ta_manque"
+              >
+                <Textarea
+                  name="quest_ce_qui_ta_manque"
+                  v-model="form.questions.quest_ce_qui_ta_manque"
+                  placeholder="Placeholder"
+                  :error="!!form.errors?.questions?.quest_ce_qui_ta_manque"
+                />
+              </FormElement>
+              <FormElement
+                name="questions.quaurais_tu_enleve_a_cette_fresque"
+                label="Qu'aurais-tu enlevé dans cette Fresque ?"
+                :error="form.errors?.questions?.quaurais_tu_enleve_a_cette_fresque"
+              >
+                <Textarea
+                  name="quaurais_tu_enleve_a_cette_fresque"
+                  v-model="form.questions.quaurais_tu_enleve_a_cette_fresque"
+                  placeholder="Placeholder"
+                  :error="!!form.errors?.questions?.quaurais_tu_enleve_a_cette_fresque"
+                />
+              </FormElement>
+              <FormElement
+                name="questions.quaurais_tu_fais_differement"
+                label="Qu'aurais-tu fait différemment dans cette Fresque ?"
+                :error="form.errors?.questions?.quaurais_tu_fais_differement"
+              >
+                <Textarea
+                  name="quaurais_tu_fais_differement"
+                  v-model="form.questions.quaurais_tu_fais_differement"
+                  placeholder="Placeholder"
+                  :error="!!form.errors?.questions?.quaurais_tu_fais_differement"
                 />
               </FormElement>
             </div>

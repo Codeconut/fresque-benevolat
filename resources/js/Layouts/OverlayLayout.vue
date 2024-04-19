@@ -5,6 +5,7 @@ import { RiCloseLine } from '@remixicon/vue'
 const props = defineProps({
   headTitle: String,
   redirectUrl: String,
+  fixed: Boolean,
 })
 
 const emit = defineEmits(['close'])
@@ -20,8 +21,25 @@ const handleClose = () => {
 
 <template>
   <Teleport to="body">
-    <div class="fixed top-0 left-0 h-screen w-screen bg-dsfr-beige z-[100]">
-      <div class="flex flex-col lg:justify-center lg:items-center h-full overflow-y-auto">
+    <div
+      :class="[
+        'top-0 left-0 py-12 lg:py-24 bg-dsfr-beige z-[100]',
+        {
+          'fixed inset-0': fixed,
+          'realtive ': !fixed,
+        },
+      ]"
+    >
+      <div
+        :class="[
+          'flex flex-col',
+          {
+            'justify-center items-center h-screen': fixed,
+            ' ': !fixed,
+          },
+        ]"
+        v-scroll-lock="fixed"
+      >
         <Head v-if="headTitle" :title="headTitle" />
         <div class="lg:absolute lg:top-4 lg:right-8 flex justify-end">
           <div
@@ -31,7 +49,7 @@ const handleClose = () => {
             <RiCloseLine class="h-4 top-[1px] relative" /> Fermer
           </div>
         </div>
-        <div class="mt-8 pb-8 lg:mt-0" v-scroll-lock="true">
+        <div class="mt-8 pb-8 lg:mt-0">
           <slot />
         </div>
       </div>

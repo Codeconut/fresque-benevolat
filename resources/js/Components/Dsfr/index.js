@@ -11,6 +11,7 @@ import Accordion from './Accordion.vue'
 import Link from './Link.vue'
 import Pagination from './Pagination.vue'
 import Tag from './Tag.vue'
+import Textarea from './Textarea.vue'
 
 export {
   Input,
@@ -26,4 +27,5 @@ export {
   Link,
   Pagination,
   Tag,
+  Textarea,
 }
