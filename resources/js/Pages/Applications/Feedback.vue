@@ -108,7 +108,6 @@ const onSubmit = () => {
                 :error="form.errors?.questions?.donner_envie_lancer_benevolat"
                 info="Si tu as déjà été bénévole, cette fresque t'a-t-elle donné envie de faire une nouvelle mission ?"
               >
-                {{ form.questions.donner_envie_lancer_benevolat }}
                 <RadiosGroup
                   name="donner_envie_lancer_benevolat"
                   v-model="form.questions.donner_envie_lancer_benevolat"
@@ -117,6 +116,7 @@ const onSubmit = () => {
                     { label: 'Oui un peu', value: 'yes_a_bit' },
                     { label: 'Non pas vraiment', value: 'not_really' },
                   ]"
+                  class="flex gap-3"
                 />
               </FormElement>
               <FormElement
@@ -198,6 +198,22 @@ const onSubmit = () => {
                   v-model="form.questions.quaurais_tu_fais_differement"
                   placeholder="Placeholder"
                   :error="!!form.errors?.questions?.quaurais_tu_fais_differement"
+                />
+              </FormElement>
+              <FormElement
+                name="rating"
+                label="Serais-tu intéressé(e) pour devenir animateur(rice) de la Fresque du Bénévolat ?"
+                required
+                :error="form.errors?.questions?.serais_tu_interesse_pour_devenir_animateur"
+              >
+                <RadiosGroup
+                  name="serais_tu_interesse_pour_devenir_animateur"
+                  v-model="form.questions.serais_tu_interesse_pour_devenir_animateur"
+                  :options="[
+                    { label: 'Oui', value: 'yes' },
+                    { label: 'Non', value: 'no' },
+                  ]"
+                  class="flex gap-3"
                 />
               </FormElement>
             </div>

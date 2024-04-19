@@ -27,10 +27,6 @@ const props = defineProps({
     type: Boolean,
     default: null,
   },
-  customClass: {
-    type: String,
-    default: '',
-  },
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -51,13 +47,9 @@ const handleRadioClick = ($event) => {
       :checked="modelValue === option.value"
       @click="handleRadioClick"
     >
-      {{ option.label }} {{ modelValue === option.value }}
+      {{ option.label }}
     </Radio>
   </div>
 </template>
 
-<style lang="postcss" scoped>
-/* select {
-  --tw-ring-shadow: 0 0 #000 !important;
-} */
-</style>
+<style lang="postcss" scoped></style>

@@ -1,9 +1,5 @@
 <script setup>
 const props = defineProps({
-  // modelValue: {
-  //   type: Boolean,
-  //   default: false,
-  // },
   id: {
     type: String,
     required: true,
@@ -20,25 +16,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // customClass: {
-  //   type: String,
-  //   default: '',
-  // },
-  // required: {
-  //   type: Boolean,
-  //   default: false,
-  // },
-  // error: {
-  //   type: Boolean,
-  //   default: false,
-  // },
 })
-
-// const emit = defineEmits(['update:modelValue'])
-
-// const handleCheckboxChange = ($event) => {
-//   emit('update:modelValue', $event.target.checked)
-// }
 </script>
 
 <template>
@@ -49,9 +27,9 @@ const props = defineProps({
       type="radio"
       class="cursor-pointer border-[#000091] h-6 w-6 rounded-full text-[#000091]"
       :value="value"
-      :ckecked="checked"
+      :checked="checked"
     />
-    <label class="ml-2 cursor-pointer" :for="id"> <slot /> {{ checked }} </label>
+    <label class="ml-2 cursor-pointer" :for="id"> <slot /> </label>
   </div>
 </template>
 
