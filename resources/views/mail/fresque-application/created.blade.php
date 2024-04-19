@@ -4,22 +4,11 @@
 Un grand merci pour ton inscription à la Fresque du Bénévolat 🙌 J'ai hâte d'animer ce nouveau format inédit avec
 toi.
 
-<p style="text-align: center; margin-top: 40px;">
-<span class="fresque-title">{{ $fresque->place->name }}
-<br />le {{ \Carbon\Carbon::parse($fresque->date)->format('d F Y') }} à {{ $fresque->schedules }}</span>
-<br />{{ $fresque->place->full_address }}
-</p>
+<x-mail::fresque-title :fresque="$fresque" />
 
-<a href="{{ $url }}" target="_blank">
-<img src="{{ asset('storage/'.$fresque->cover) }}" style="margin-bottom: 24px;">
-</a>
+<x-mail::fresque-cover :fresque="$fresque" />
 
-<div style="background-color: #DEE5FD; color: #161616; padding: 24px; margin-bottom: 24px;">
-<h3 style="font-size: 22px; font-weight: 700;">ℹ️ Infos pratiques</h3>
-
-{{ $fresque->summary }}
-</div>
-
+<x-mail::fresque-infos-pratiques :fresque="$fresque" />
 
 Je suis très enthousiaste à l'idée de passer ce moment ensemble, j'espère que toi aussi ! 🤗
 
@@ -27,7 +16,8 @@ Je suis très enthousiaste à l'idée de passer ce moment ensemble, j'espère qu
 
 ### Proposez à vos ami(e)s de participer !
 
-Plus on est de fous, plus on rit 😊 N’hésitez pas à partager la fresque à vos ami(e)s pour qu’ils puissent aussi s’inscrire
+Plus on est de fous, plus on rit 😊<br />
+N’hésitez pas à partager la fresque à vos ami(e)s pour qu’ils puissent aussi s’inscrire
 
 <x-mail::button :url="$url">Je partage le lien de la fresque</x-mail::button>
 

@@ -3,15 +3,9 @@
 
 Plus que {{ $diffInDays }} jours avant de participer à la Fresque du Bénévolat.
 
-<p style="text-align: center; margin-top: 40px;">
-<span class="fresque-title">{{ $fresque->place->name }}
-<br />le {{ \Carbon\Carbon::parse($fresque->date)->format('d F Y') }} à {{ $fresque->schedules }}</span>
-<br />{{ $fresque->place->full_address }}
-</p>
+<x-mail::fresque-title :fresque="$fresque" />
 
-<a href="{{ route('fresques.show' , $fresque) }}" target="_blank">
-<img src="{{ asset('storage/'.$fresque->cover) }}" style="margin-bottom: 24px;">
-</a>
+<x-mail::fresque-cover :fresque="$fresque" />
 
 Afin de finaliser l’organisation, j’ai besoin que tu me dises si tu seras présent ou non
 

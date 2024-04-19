@@ -193,6 +193,10 @@ img {
    text-decoration: none;
 }
 
+.footer .footer-socials {
+   margin: 20px 0;
+}
+
 .footer .footer-socials a {
    padding: 10px;
 }
@@ -315,14 +319,4 @@ hr {
     height: 1px;
     margin-top: 24px;
     margin-bottom: 24px;
-}
-
-.fresque-title {
-    color: #161616;
-    font-size: 32px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-top: 0;
-    line-height: 40px;
-    text-align: center;
 }
