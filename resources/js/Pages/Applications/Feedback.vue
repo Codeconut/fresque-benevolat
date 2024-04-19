@@ -1,7 +1,7 @@
 <script setup>
 import OverlayLayout from '@/Layouts/OverlayLayout.vue'
 import { useForm } from '@inertiajs/vue3'
-import { Input, Button, FormElement, Textarea } from '@/Components/Dsfr'
+import { RadiosGroup, Button, FormElement, Textarea } from '@/Components/Dsfr'
 import StarRating from 'vue-star-rating'
 
 const props = defineProps({
@@ -94,12 +94,30 @@ const onSubmit = () => {
           <form @submit.prevent="onSubmit" class="">
             <div class="grid grid-cols-1 gap-8 mb-12">
               <FormElement
-                name="first_name"
+                name="rating"
                 label="Est-ce que cette Fresque t'a plue ?"
                 required
                 :error="form.errors.rating"
               >
-                <StarRating v-model:rating="form.rating" star-size="35" />
+                <StarRating v-model:rating="form.rating" :star-size="35" />
+              </FormElement>
+              <FormElement
+                name="rating"
+                label="Est-ce que cela t'a donné envie de te lancer dans le bénévolat ?"
+                required
+                :error="form.errors?.questions?.donner_envie_lancer_benevolat"
+                info="Si tu as déjà été bénévole, cette fresque t'a-t-elle donné envie de faire une nouvelle mission ?"
+              >
+                {{ form.questions.donner_envie_lancer_benevolat }}
+                <RadiosGroup
+                  name="donner_envie_lancer_benevolat"
+                  v-model="form.questions.donner_envie_lancer_benevolat"
+                  :options="[
+                    { label: 'Oui beaucoup', value: 'yes_very_much' },
+                    { label: 'Oui un peu', value: 'yes_a_bit' },
+                    { label: 'Non pas vraiment', value: 'not_really' },
+                  ]"
+                />
               </FormElement>
               <FormElement
                 name="comment_as_tu_trouve_les_animations"
@@ -109,7 +127,7 @@ const onSubmit = () => {
               >
                 <StarRating
                   v-model:rating="form.questions.comment_as_tu_trouve_les_animations"
-                  star-size="35"
+                  :star-size="35"
                 />
               </FormElement>
               <FormElement
@@ -120,7 +138,7 @@ const onSubmit = () => {
               >
                 <StarRating
                   v-model:rating="form.questions.comment_as_tu_trouve_les_animateurs"
-                  star-size="35"
+                  :star-size="35"
                 />
               </FormElement>
               <FormElement
@@ -131,7 +149,7 @@ const onSubmit = () => {
               >
                 <StarRating
                   v-model:rating="form.questions.as_tu_trouve_le_lieu_approprié"
-                  star-size="35"
+                  :star-size="35"
                 />
               </FormElement>
               <FormElement

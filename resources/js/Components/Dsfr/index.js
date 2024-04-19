@@ -12,6 +12,8 @@ import Link from './Link.vue'
 import Pagination from './Pagination.vue'
 import Tag from './Tag.vue'
 import Textarea from './Textarea.vue'
+import RadiosGroup from './RadiosGroup.vue'
+import Radio from './Radio.vue'
 
 export {
   Input,
@@ -28,4 +30,6 @@ export {
   Pagination,
   Tag,
   Textarea,
+  RadiosGroup,
+  Radio,
 }

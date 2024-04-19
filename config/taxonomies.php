@@ -39,5 +39,16 @@ return [
             'no_but_i_know' => 'Non, mais je connais',
             'no_and_i_dont_know' => 'Non et je ne connaissais pas',
         ]
+    ],
+    'feedbacks' => [
+        'envie_benevolat' => [
+            'yes_very_much' => 'Oui beaucoup',
+            'yes_a_bit' => 'Oui un peu',
+            'not_really' => 'Non pas vraiment',
+        ],
+        'devenir_animateur' => [
+            'yes' => 'Oui',
+            'no' => 'Non',
+        ]
     ]
 ];
