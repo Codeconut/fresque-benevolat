@@ -22,7 +22,7 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
     /**
      * Create a new notification instance.
      */
-    public function __construct(public Fresque $fresque)
+    public function __construct()
     {
         $this->tag = 'fresque-application-created';
     }
@@ -42,13 +42,14 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $fresqueDate = Carbon::parse($this->fresque->date)->translatedFormat('d F Y');
+        $fresque = $notifiable->fresque;
+        $fresqueDate = Carbon::parse($fresque->date)->translatedFormat('d F Y');
 
         return (new MailMessage)
             ->subject('Votre inscription à la fresque du bénévolat du ' . $fresqueDate . ' est validée 🥳')
             ->markdown('mail.fresque-application.created', [
-                'url' =>  route('fresques.show', ['fresque' => $this->fresque]),
-                'fresque' => $this->fresque,
+                'url' =>  route('fresques.show', ['fresque' => $fresque]),
+                'fresque' => $fresque,
                 'notifiable' => $notifiable
             ])
             ->tag($this->tag);

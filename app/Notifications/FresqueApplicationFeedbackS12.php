@@ -10,18 +10,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FresqueApplicationReminderXDays extends Notification implements ShouldQueue
+class FresqueApplicationFeedbackS12 extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public $tag;
+    public string $tag = 'fresque-application-feedback-s-12';
 
     /**
      * Create a new notification instance.
      */
     public function __construct()
     {
-        $this->tag = 'fresque-application-reminder-x-days';
     }
 
     /**
@@ -39,16 +38,15 @@ class FresqueApplicationReminderXDays extends Notification implements ShouldQueu
      */
     public function toMail(object $notifiable): MailMessage
     {
+
         $fresque = $notifiable->fresque;
-        $diffInDays = floor(abs(Carbon::parse($fresque->date)->diffInDays()));
 
         return (new MailMessage)
-            ->subject('La fresque du bénévolat, c’est dans ' . $diffInDays . ' jours !')
-            ->markdown('mail.fresque-application.reminder-x-days', [
-                'url' =>  route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable]),
-                'fresque' => $fresque,
+            ->subject($notifiable->first_name . ', quelles sont les nouvelles depuis ta dernière Fresque du Bénévolat ?')
+            ->markdown('mail.fresque-application.feedback-s-12', [
+                'url' =>  route('fresques.applications.feedback', ['fresqueApplication' => $notifiable]),
+                'fresque' =>  $fresque,
                 'notifiable' => $notifiable,
-                'diffInDays' => $diffInDays,
             ])
             ->tag($this->tag);
     }

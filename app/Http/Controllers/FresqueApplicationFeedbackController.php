@@ -9,6 +9,7 @@ use App\Models\FresqueApplication;
 use App\Models\FresqueApplicationFeedback;
 use App\Notifications\FresqueApplicationCancel;
 use App\Notifications\FresqueApplicationConfirmPresence;
+use App\Notifications\FresqueApplicationFeedbackCreatedOrUpdated;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -27,6 +28,8 @@ class FresqueApplicationFeedbackController extends Controller
                 'questions' => $request->input('questions'),
             ]
         );
+
+        $fresqueApplication->notify(new FresqueApplicationFeedbackCreatedOrUpdated());
 
         return to_route('fresques.applications.feedback-merci', $fresqueApplication->token);
     }

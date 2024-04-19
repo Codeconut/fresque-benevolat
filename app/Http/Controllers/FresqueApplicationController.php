@@ -39,7 +39,7 @@ class FresqueApplicationController extends Controller
             'state' => 'confirmed_presence',
         ]);
 
-        $fresqueApplication->notify(new FresqueApplicationConfirmPresence($fresqueApplication->fresque));
+        $fresqueApplication->notify(new FresqueApplicationConfirmPresence());
 
         return to_route('fresques.applications.confirmation-presence', $fresqueApplication->token);
     }
@@ -50,7 +50,7 @@ class FresqueApplicationController extends Controller
             'state' => 'canceled',
         ]);
 
-        $fresqueApplication->notify(new FresqueApplicationCancel($fresqueApplication->fresque));
+        $fresqueApplication->notify(new FresqueApplicationCancel());
 
         return to_route('fresques.applications.confirmation-presence', $fresqueApplication->token);
     }

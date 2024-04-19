@@ -10,11 +10,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class FresqueApplicationFeedbackFirstAttempt extends Notification implements ShouldQueue
+class FresqueApplicationFeedbackS6 extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public string $tag = 'fresque-application-feedback-first-attempt';
+    public string $tag = 'fresque-application-feedback-s-6';
 
     /**
      * Create a new notification instance.
@@ -42,8 +42,8 @@ class FresqueApplicationFeedbackFirstAttempt extends Notification implements Sho
         $fresque = $notifiable->fresque;
 
         return (new MailMessage)
-            ->subject($notifiable->first_name . ', on a besoin de ton avis sur la Fresque du Bénévolat  💁🏻')
-            ->markdown('mail.fresque-application.feedback-first-attempt', [
+            ->subject($notifiable->first_name . ', quelles sont les nouvelles depuis ta dernière Fresque du Bénévolat ?')
+            ->markdown('mail.fresque-application.feedback-s-6', [
                 'url' =>  route('fresques.applications.feedback', ['fresqueApplication' => $notifiable]),
                 'fresque' =>  $fresque,
                 'notifiable' => $notifiable,

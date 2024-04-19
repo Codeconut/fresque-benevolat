@@ -43,11 +43,6 @@ class FresqueController extends Controller
 
     public function show(Fresque $fresque)
     {
-
-        // $application = FresqueApplication::latest()->first();
-        // $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
-        // $application->notify(new \App\Notifications\FresqueApplicationConfirmPresence($fresque));
-
         $fresque->load(['animators', 'place']);
 
         return Inertia::render('Fresques/Show', [
@@ -79,7 +74,7 @@ class FresqueController extends Controller
 
         $application = $createFresqueApplication->apply($inputs);
 
-        $application->notify(new \App\Notifications\FresqueApplicationCreated($fresque));
+        $application->notify(new \App\Notifications\FresqueApplicationCreated());
 
         $brevo = new Brevo();
         $brevo->createOrUpdateContact([

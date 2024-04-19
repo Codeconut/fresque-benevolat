@@ -13,7 +13,7 @@ use Illuminate\Notifications\Slack\SlackMessage;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
 
-class FresqueApplicationConfirmPresence extends Notification implements ShouldQueue
+class FresqueApplicationFeedbackCreatedOrUpdated extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -24,7 +24,7 @@ class FresqueApplicationConfirmPresence extends Notification implements ShouldQu
      */
     public function __construct()
     {
-        $this->tag = 'fresque-application-confirm-presence';
+        $this->tag = 'fresque-application-feedback-created-or-updated';
     }
 
     /**
@@ -43,7 +43,7 @@ class FresqueApplicationConfirmPresence extends Notification implements ShouldQu
 
         return (new SlackMessage)
             ->sectionBlock(function (SectionBlock $block) use ($notifiable) {
-                $block->text('*' . $notifiable->full_name . '* a confirmé sa présence à la fresque du bénévolat ! 👊')->markdown();
+                $block->text('*' . $notifiable->full_name . '* a mis à jour son feedback ! 🌟')->markdown();
             })
             ->contextBlock(function (ContextBlock $block) use ($context) {
                 $block->text($context)->markdown();

@@ -8,7 +8,10 @@ use App\Models\Fresque;
 use App\Models\FresqueApplication;
 use App\Models\Place;
 use App\Notifications\FresqueApplicationCreated;
-use App\Notifications\FresqueApplicationFeedbackFirstAttempt;
+use App\Notifications\FresqueApplicationFeedbackJ3;
+use App\Notifications\FresqueApplicationFeedbackS12;
+use App\Notifications\FresqueApplicationFeedbackS3;
+use App\Notifications\FresqueApplicationFeedbackS6;
 use App\Notifications\FresqueApplicationReminderMorning;
 use App\Notifications\FresqueApplicationReminderXDays;
 use Illuminate\Http\Request;
@@ -25,8 +28,20 @@ class NotificationController extends Controller
         $fresqueApplication = FresqueApplication::first();
 
         switch ($slug) {
-            case 'fresque-application-feedback-first-attempt':
-                $notification = new FresqueApplicationFeedbackFirstAttempt();
+            case 'fresque-application-feedback-j-3':
+                $notification = new FresqueApplicationFeedbackJ3();
+                $output = $notification->toMail($fresqueApplication)->render();
+                break;
+            case 'fresque-application-feedback-s-3':
+                $notification = new FresqueApplicationFeedbackS3();
+                $output = $notification->toMail($fresqueApplication)->render();
+                break;
+            case 'fresque-application-feedback-s-6':
+                $notification = new FresqueApplicationFeedbackS6();
+                $output = $notification->toMail($fresqueApplication)->render();
+                break;
+            case 'fresque-application-feedback-s-12':
+                $notification = new FresqueApplicationFeedbackS12();
                 $output = $notification->toMail($fresqueApplication)->render();
                 break;
             case 'fresque-application-reminder-morning':

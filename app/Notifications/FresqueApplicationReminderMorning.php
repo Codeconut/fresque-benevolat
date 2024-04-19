@@ -18,7 +18,7 @@ class FresqueApplicationReminderMorning extends Notification implements ShouldQu
     /**
      * Create a new notification instance.
      */
-    public function __construct(public Fresque $fresque)
+    public function __construct()
     {
         $this->tag = 'fresque-application-reminder-morning';
     }
@@ -38,13 +38,14 @@ class FresqueApplicationReminderMorning extends Notification implements ShouldQu
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $fresqueDate = Carbon::parse($this->fresque->date)->translatedFormat('d F Y');
+        $fresque = $notifiable->fresque;
+        $fresqueDate = Carbon::parse($fresque->date)->translatedFormat('d F Y');
 
         return (new MailMessage)
             ->subject('La Fresque du Bénévolat, c’est aujourd’hui ✌🏻')
             ->markdown('mail.fresque-application.reminder-morning', [
-                'url' =>  route('fresques.show', ['fresque' => $this->fresque]),
-                'fresque' => $this->fresque,
+                'url' =>  route('fresques.show', ['fresque' => $fresque]),
+                'fresque' => $fresque,
                 'notifiable' => $notifiable
             ])
             ->tag($this->tag);

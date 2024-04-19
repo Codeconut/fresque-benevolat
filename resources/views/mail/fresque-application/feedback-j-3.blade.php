@@ -1,5 +1,5 @@
 <x-mail::message>
-## Bonjour {{ $notifiable->first_name }}
+## Bonjour {{ $notifiable->first_name }},
 
 J'espère que les courbatures ne sont pas trop importantes et que ce bon bol d'air t’as fait du bien dans ta réflexion sur l'engagement bénévole.
 Un grand merci pour ta participation à cette folle aventure. 
@@ -24,6 +24,6 @@ Et pour t’accompagner dans cette grande aventure qu’est le bénévolat, je t
 
 Merci pour ton aide,
 
-{Nom animateur} 🌞
+Les animateurs 🌞
 
 </x-mail::message>
