@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Sluggable\HasSlug;
@@ -125,7 +126,7 @@ class Fresque extends Model
         }
 
         return Attribute::make(
-            get: fn (): ?string  => $picture,
+            get: fn (): ?string  => $picture ? Storage::url($picture) : null,
         );
     }
 

@@ -10,6 +10,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\Storage;
 
 class Place extends Model
 {
@@ -23,13 +24,16 @@ class Place extends Model
         'street',
         'latitude',
         'longitude',
-        'cover',
         'photos',
-        'summary'
+        'summary',
     ];
 
     protected $casts = [
         'photos' => 'array',
+    ];
+
+    protected $appends = [
+        'photos_urls',
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -57,6 +61,13 @@ class Place extends Model
     {
         return Attribute::make(
             get: fn (): ?Fresque  => $this->fresques()->incoming()->first(),
+        );
+    }
+
+    protected function photosUrls(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): array  => collect($this->photos)->map(fn ($photo) => Storage::url($photo))->toArray(),
         );
     }
 }

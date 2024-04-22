@@ -36,9 +36,7 @@ defineProps({
         <img
           v-if="fresque.default_picture"
           :src="
-            fresque.default_picture
-              ? `/storage/${fresque.default_picture}`
-              : '/images/default-placeholder.png'
+            fresque.default_picture ? fresque.default_picture : '/images/default-placeholder.png'
           "
           alt="fresque"
           class="w-full h-[430px] object-cover rounded-lg"

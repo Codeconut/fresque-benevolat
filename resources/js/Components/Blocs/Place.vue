@@ -29,8 +29,8 @@ const markdown = new MarkdownIt()
     </div>
 
     <Swiper :modules="[Pagination, A11y]" :pagination="{ clickable: true }">
-      <SwiperSlide v-for="(photo, i) in place.photos" :key="i">
-        <img :src="`/storage/${photo}`" alt="" class="object-cover rounded-lg" />
+      <SwiperSlide v-for="(photo, i) in place.photos_urls" :key="i">
+        <img :src="`${photo}`" alt="" class="object-cover rounded-lg" />
       </SwiperSlide>
     </Swiper>
 

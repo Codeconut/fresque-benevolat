@@ -58,12 +58,14 @@ return [
 
         'do-spaces' => [
             'driver' => 's3',
-            'key' => env('DIGITALOCEAN_SPACES_KEY'),
-            'secret' => env('DIGITALOCEAN_SPACES_SECRET'),
-            'region' => env('DIGITALOCEAN_SPACES_REGION'),
-            'bucket' => env('DIGITALOCEAN_SPACES_BUCKET'),
-            'endpoint' => env('DIGITALOCEAN_SPACES_ENDPOINT'),
-            // 'root' => env('DIGITALOCEAN_SPACES_ROOT_FOLDER', 'local'),
+            'key' => env('DO_SPACES_KEY'),
+            'secret' => env('DO_SPACES_SECRET'),
+            'region' => env('DO_SPACES_REGION'),
+            'bucket' => env('DO_SPACES_BUCKET'),
+            'endpoint' => env('DO_SPACES_ENDPOINT'),
+            'root' => env('DO_SPACES_ROOT_FOLDER', 'local'),
+            'url' => env('DO_SPACES_URL'),
+            'use_path_style_endpoint' => false,
             'throw' => false,
         ],
 

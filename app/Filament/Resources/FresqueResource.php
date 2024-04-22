@@ -166,12 +166,12 @@ class FresqueResource extends Resource
                                         Forms\Components\FileUpload::make('cover')
                                             ->label('Image de couverture')
                                             ->directory('fresques')
-                                            ->optimize('webp')
+                                            // ->optimize('webp')
                                             ->image()
                                             ->imageEditor()
-                                            ->imageEditorAspectRatios([
-                                                '4:3',
-                                            ]),
+                                            ->imageResizeMode('cover')
+                                            ->imageEditorViewportWidth('744')
+                                            ->imageEditorViewportHeight('430')
                                     ])
                             ])->columnSpan(1),
                     ])->columns(3)
