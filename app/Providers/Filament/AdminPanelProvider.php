@@ -29,9 +29,9 @@ class AdminPanelProvider extends PanelProvider
     {
         // Carbon::setLocale(config('app.locale'));
 
-        if (App::environment('production')) {
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        }
+        // if (App::environment('production')) {
+        //     \Illuminate\Support\Facades\URL::forceScheme('https');
+        // }
     }
 
     public function panel(Panel $panel): Panel
