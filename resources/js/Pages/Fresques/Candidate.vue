@@ -14,6 +14,7 @@ const form = useForm({
   email: '',
   first_name: '',
   last_name: '',
+  mobile: '',
   info_benevolat: '',
   info_fresque: '',
   has_accepted_emails: null,
