@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Schedule;
 // })->purpose('Display an inspiring quote')->hourly();
 
 
-Schedule::job(new App\Jobs\SendXDaysReminderToFresqueApplications)->dailyAt('13:00')->environments(['production']);
-Schedule::job(new App\Jobs\SendMorningReminderToFresqueApplications)->dailyAt('07:30')->environments(['production']);
+Schedule::job(new App\Jobs\SendXDaysReminder)->dailyAt('13:00')->environments(['production']);
+Schedule::job(new App\Jobs\SendMorningReminder)->dailyAt('07:30')->environments(['production']);
 Schedule::job(new App\Jobs\SendJ3Feedback)->dailyAt('09:00')->environments(['production']);
 Schedule::job(new App\Jobs\SendS3Feedback)->dailyAt('09:30')->environments(['production']);
 Schedule::job(new App\Jobs\SendS6Feedback)->dailyAt('10:00')->environments(['production']);
