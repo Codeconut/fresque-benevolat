@@ -39,7 +39,7 @@ defineProps({
             fresque.default_picture ? fresque.default_picture : '/images/default-placeholder.png'
           "
           alt="fresque"
-          class="w-full h-[430px] object-cover rounded-lg"
+          class="w-full h-[430px] object-cover rounded-lg shadow-lg"
         />
 
         <div class="mt-8" v-if="fresque.animators.length">

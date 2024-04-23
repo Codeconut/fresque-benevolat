@@ -48,7 +48,7 @@ defineProps({
         { 'py-8 px-4': orientation === 'vertical' },
       ]"
     >
-      <div class="mb-6 flex gap-4">
+      <div class="mb-6 flex gap-2">
         <Tag variant="custom" :icon="RiCalendarEventLine">{{
           $dayjs(fresque.date).format('DD MMMM YYYY')
         }}</Tag>

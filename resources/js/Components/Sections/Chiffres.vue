@@ -16,7 +16,12 @@
             </div>
             <div class="flex items-center lg:items-start gap-8 lg:flex-col">
               <div>
-                <img v-svg-inline src="/images/icons/coeur-2.svg" alt="" class="text-[#49BC8D]" />
+                <img
+                  v-svg-inline
+                  src="/images/icons/coeur-2.svg"
+                  alt=""
+                  class="text-[#49BC8D] focus:outline-none"
+                />
               </div>
               <div>
                 <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">1 000</div>
@@ -30,7 +35,7 @@
                   v-svg-inline
                   src="/images/icons/boussole.svg"
                   alt=""
-                  class="text-[#49BC8D] w-[45px]"
+                  class="text-[#49BC8D] w-[45px] focus:outline-none"
                 />
               </div>
               <div>

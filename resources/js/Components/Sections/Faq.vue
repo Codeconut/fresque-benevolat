@@ -13,7 +13,7 @@ import { Link, router } from '@inertiajs/vue3'
             v-svg-inline
             src="/images/icons/gimmick.svg"
             alt=""
-            class="text-[#FCD17B] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px]"
+            class="text-[#FCD17B] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
           />
         </h2>
       </div>
@@ -95,15 +95,21 @@ import { Link, router } from '@inertiajs/vue3'
           </AccordionsGroup>
         </template>
       </Tabs>
-      <div class="text-center mt-8">
+      <div class="relative text-center mt-8">
         <Link :href="route('fresques.index')">
           <Button
             variant="custom"
             size="lg"
-            custom-class="bg-transparent text-dsfr-blue border-blue hover:bg-white"
+            custom-class="bg-transparent text-dsfr-blue border-dsfr-blue hover:bg-white"
             >Trouver une fresque <span class="hidden lg:inline">près de chez moi</span></Button
           >
         </Link>
+        <img
+          v-svg-inline
+          src="/images/icons/arbre.svg"
+          alt=""
+          class="absolute right-[300px] bottom-[-40px] text-white focus:outline-none"
+        />
       </div>
     </div>
   </div>

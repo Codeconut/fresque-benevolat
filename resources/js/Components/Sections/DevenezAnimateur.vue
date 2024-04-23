@@ -19,7 +19,7 @@ import { Link } from '@inertiajs/vue3'
             v-svg-inline
             src="/images/icons/gimmick.svg"
             alt=""
-            class="text-[#6B93F6] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px]"
+            class="text-[#6B93F6] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
           />
         </h2>
         <div class="text-2xl text-[#666666] mt-4">
@@ -51,7 +51,7 @@ import { Link } from '@inertiajs/vue3'
           <Button
             variant="custom"
             size="lg"
-            custom-class="bg-transparent text-dsfr-blue border-blue hover:bg-white"
+            custom-class="bg-transparent text-dsfr-blue border-dsfr-blue hover:bg-white"
             >Devenir animateur</Button
           >
         </a>

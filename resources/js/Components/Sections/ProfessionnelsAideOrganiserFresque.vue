@@ -13,7 +13,7 @@ import { Button } from '@/Components/Dsfr'
               v-svg-inline
               src="/images/icons/gimmick.svg"
               alt=""
-              class="text-[#77EDA5] fill-current !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
+              class="text-[#77EDA5] focus:outline-none fill-current !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
             /> </span
           >n vous aide <br />
           à organiser des fresques
@@ -21,7 +21,7 @@ import { Button } from '@/Components/Dsfr'
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-white shadow-lg p-8 lg:p-16">
+        <div class="bg-white border p-8 lg:p-16">
           <div class="flex flex-col lg:flex-row lg:items-center mb-10">
             <img src="/images/icons/school.svg" alt="" class="h-[80px] w-[80px] flex-none mr-6" />
             <h3 class="text-3xl font-bold">Écoles <br class="hidden lg:block" />et entreprises</h3>
@@ -44,7 +44,7 @@ import { Button } from '@/Components/Dsfr'
             </p>
           </div>
         </div>
-        <div class="bg-white shadow-lg p-8 lg:p-16">
+        <div class="bg-white border p-8 lg:p-16">
           <div class="flex flex-col lg:flex-row lg:items-center mb-10">
             <img
               src="/images/icons/human-cooperation.svg"

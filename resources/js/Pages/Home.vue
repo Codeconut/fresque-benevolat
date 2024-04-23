@@ -35,8 +35,16 @@ const props = defineProps({
     <Testimonials />
     <Chiffres />
     <DevenezAnimateur />
-    <Faq />
-    <ProfessionnelsAideOrganiserFresque />
+
+    <div class="relative">
+      <img
+        class="absolute top-[530px] left-0"
+        src="/images/illustrations/dashed-line-7.svg"
+        alt=""
+      />
+      <Faq class="relative z-10" />
+      <ProfessionnelsAideOrganiserFresque class="relative z-10" />
+    </div>
     <JVAPretAPasserAction />
   </AppLayout>
 </template>

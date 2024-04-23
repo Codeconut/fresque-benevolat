@@ -73,21 +73,21 @@ const changePage = (page) => {
         </div>
 
         <div class="border-t py-14">
+          <div v-if="cities.length" class="mb-12">
+            <div class="w-full max-w-[400px]">
+              <Label for="city" class="font-bold uppercase" size="sm">Recherche par lieu</Label>
+              <Select
+                id="city"
+                name="city"
+                v-model="selectedCity"
+                placeholder="Sélectionner une ville"
+                :options="citiesOptions"
+                @update:modelValue="onCitiesChange"
+              />
+            </div>
+          </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
             <div class="col-span-2">
-              <div v-if="cities.length" class="mb-12">
-                <div class="w-full max-w-[400px]">
-                  <Label for="city" class="font-bold uppercase" size="sm">Recherche par lieu</Label>
-                  <Select
-                    id="city"
-                    name="city"
-                    v-model="selectedCity"
-                    placeholder="Sélectionner une ville"
-                    :options="citiesOptions"
-                    @update:modelValue="onCitiesChange"
-                  />
-                </div>
-              </div>
               <div v-if="fresques">
                 <div class="grid grid-cols-1 gap-8">
                   <Link

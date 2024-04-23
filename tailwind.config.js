@@ -19,7 +19,7 @@ export default {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      xl: '1348px',
+      xl: '1240px',
     },
     container: {
       center: true,

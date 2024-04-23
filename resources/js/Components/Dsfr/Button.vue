@@ -43,7 +43,7 @@ defineProps({
           variant === 'primary',
       },
       {
-        'text-dsfr-blue border-blue bg-white hover:bg-[#F6F6F6] active:bg-[#EDEDED]':
+        'text-dsfr-blue border-dsfr-blue bg-white hover:bg-[#F6F6F6] active:bg-[#EDEDED]':
           variant === 'secondary',
       },
       { 'px-2 py-1 text-xs min-h-[32px]': size === 'xs' },
