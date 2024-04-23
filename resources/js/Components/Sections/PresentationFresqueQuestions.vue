@@ -51,7 +51,7 @@ const Pane = defineComponent(
     <div class="container relative z-10">
       <div class="overflow-hidden">
         <div class="p-8 lg:p-16 bg-dsfr-yellow-active fresques-clip-path rounded-3xl">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:pt-12 lg:pb-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pt-12 lg:pb-6">
             <div class="">
               <div class="mb-4 text-[#3A3A3A]">
                 Créé et animé avec le ❤️ par
@@ -79,9 +79,9 @@ const Pane = defineComponent(
                 </Pane>
               </div>
               <div class="mt-10">
-                <Link :href="route('fresques.index')">
+                <Link :href="`${route('home')}#faq`">
                   <Button variant="custom" size="lg" custom-class="border-[#161616] hover:bg-white"
-                    >Vous avez des questions</Button
+                    >Vous avez des questions ?</Button
                   >
                 </Link>
               </div>

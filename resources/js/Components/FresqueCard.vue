@@ -43,9 +43,9 @@ defineProps({
     </div>
     <div
       :class="[
-        'flex-1 relative ',
+        'flex-1 relative',
         { 'px-8 py-4 h-full': orientation === 'horizontal' },
-        { 'p-8 ': orientation === 'vertical' },
+        { 'py-8 px-4': orientation === 'vertical' },
       ]"
     >
       <div class="mb-6 flex gap-4">

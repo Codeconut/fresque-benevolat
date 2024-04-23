@@ -4,7 +4,7 @@ import { Link, router } from '@inertiajs/vue3'
 </script>
 
 <template>
-  <div class="py-20">
+  <div id="faq" class="py-20">
     <div class="container">
       <div class="text-center">
         <h2 class="relative inline text-4xl lg:text-5xl font-bold">
