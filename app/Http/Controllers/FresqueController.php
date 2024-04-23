@@ -18,8 +18,6 @@ class FresqueController extends Controller
 
     public function index()
     {
-        // $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->public()->orderBy('date', 'ASC')->paginate(6);
-
         $fresques = QueryBuilder::for(Fresque::class)
             ->with(['animators', 'place'])
             ->incoming()
@@ -44,6 +42,9 @@ class FresqueController extends Controller
     public function show(Fresque $fresque)
     {
         $fresque->load(['animators', 'place']);
+
+        // \App\Jobs\SendXDaysReminderToFresqueApplications::dispatch();
+        // \App\Jobs\SendMorningReminderToFresqueApplications::dispatch();
 
         return Inertia::render('Fresques/Show', [
             'fresque' => $fresque,

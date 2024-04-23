@@ -1,7 +1,7 @@
 <x-mail::message>
 ## Bonjour {{ $notifiable->first_name }}
 
-Plus que {{ $diffInDays }} jours avant de participer à la Fresque du Bénévolat.
+Plus que 2 jours avant de participer à la Fresque du Bénévolat.
 
 <x-mail::fresque-title :fresque="$fresque" />
 

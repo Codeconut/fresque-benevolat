@@ -40,15 +40,13 @@ class FresqueApplicationReminderXDays extends Notification implements ShouldQueu
     public function toMail(object $notifiable): MailMessage
     {
         $fresque = $notifiable->fresque;
-        $diffInDays = floor(abs(Carbon::parse($fresque->date)->diffInDays()));
 
         return (new MailMessage)
-            ->subject('La fresque du bénévolat, c’est dans ' . $diffInDays . ' jours !')
+            ->subject('La fresque du bénévolat, c’est dans 2 jours !')
             ->markdown('mail.fresque-application.reminder-x-days', [
                 'url' =>  route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable]),
                 'fresque' => $fresque,
                 'notifiable' => $notifiable,
-                'diffInDays' => $diffInDays,
             ])
             ->tag($this->tag);
     }
