@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Fresque;
+use App\Models\FresqueApplication;
 use App\Notifications\FresqueApplicationReminderXDays;
 use App\Notifications\TaskSchedulingExecuted;
 use Carbon\Carbon;
@@ -32,18 +33,18 @@ class SendXDaysReminderToFresqueApplications implements ShouldQueue
      */
     public function handle(): void
     {
-        $fresques = Fresque::where('date', Carbon::now()->addDays(2)->format('Y-m-d'))->get();
+        $applications = FresqueApplication::where('state', 'registered')->whereHas('fresque', function ($query) {
+            $query->where('date', Carbon::now()->addDays(2)->format('Y-m-d'));
+        })->get();
 
-        foreach ($fresques as $fresque) {
-            foreach ($fresque->applications as $application) {
-                $application->notify(new FresqueApplicationReminderXDays($fresque));
-                $this->count++;
-            }
-        }
+        $applications->each(function ($application) {
+            $application->notify(new FresqueApplicationReminderXDays());
+            $this->count++;
+        });
 
         if ($this->count > 0) {
-            Notification::route('slack', config('notifications.SLACK_BOT_USER_DEFAULT_CHANNEL'))
-                ->notify(new TaskSchedulingExecuted('La fresque du bénévolat, c’est dans 2 jours !', $this->count));
+            Notification::route('slack', config('services.slack.notifications.channel'))
+                ->notify(new TaskSchedulingExecuted('[J-2] La fresque du bénévolat, c’est dans 2 jours !', $this->count));
         }
     }
 }

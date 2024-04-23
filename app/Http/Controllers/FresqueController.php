@@ -43,9 +43,6 @@ class FresqueController extends Controller
     {
         $fresque->load(['animators', 'place']);
 
-        // \App\Jobs\SendXDaysReminderToFresqueApplications::dispatch();
-        // \App\Jobs\SendMorningReminderToFresqueApplications::dispatch();
-
         return Inertia::render('Fresques/Show', [
             'fresque' => $fresque,
             'fresquesAlentours' => Fresque::with(['place'])->where('id', '!=', $fresque->id)->take(3)->get(),

@@ -2,9 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Models\Fresque;
 use App\Models\FresqueApplication;
-use App\Notifications\FresqueApplicationReminderMorning;
+use App\Notifications\FresqueApplicationFeedbackS6;
 use App\Notifications\TaskSchedulingExecuted;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
@@ -14,7 +13,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Notification;
 
-class SendMorningReminderToFresqueApplications implements ShouldQueue
+class SendS6Feedback implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -33,18 +32,18 @@ class SendMorningReminderToFresqueApplications implements ShouldQueue
      */
     public function handle(): void
     {
-        $applications = FresqueApplication::whereIn('state', ['registered', 'confirmed_presence'])->whereHas('fresque', function ($query) {
-            $query->where('date', Carbon::now()->format('Y-m-d'));
+        $applications = FresqueApplication::whereDoesntHave('feedback')->where('state', 'validated')->whereHas('fresque', function ($query) {
+            $query->where('date', Carbon::now()->subWeeks(6)->format('Y-m-d'));
         })->get();
 
         $applications->each(function ($application) {
-            $application->notify(new FresqueApplicationReminderMorning());
+            $application->notify(new FresqueApplicationFeedbackS6());
             $this->count++;
         });
 
         if ($this->count > 0) {
             Notification::route('slack', config('services.slack.notifications.channel'))
-                ->notify(new TaskSchedulingExecuted('[J0] La Fresque du Bénévolat, c’est aujourd’hui ✌🏻', $this->count));
+                ->notify(new TaskSchedulingExecuted('[S+6] XXX, quelles sont les nouvelles depuis ta dernière Fresque du Bénévolat ?', $this->count));
         }
     }
 }

@@ -43,7 +43,7 @@ class TaskSchedulingExecuted extends Notification
                 }
             })
             ->contextBlock(function (ContextBlock $block) {
-                $block->text($this->object)->markdown();
+                $block->text($this->object);
             });
     }
 }
