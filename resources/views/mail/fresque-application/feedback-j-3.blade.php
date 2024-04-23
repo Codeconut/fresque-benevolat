@@ -14,7 +14,7 @@ Je donne mon avis
 
 ---
 
-### Un empêchement ?
+### Découvre le guide
 
 Et pour t’accompagner dans cette grande aventure qu’est le bénévolat, je t’ai concocté avec soin le guide post-fresque qui synthétise tous les outils, informations et conseils partagés durant la session (et pleins d'autres pépites)
 

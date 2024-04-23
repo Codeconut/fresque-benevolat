@@ -63,7 +63,7 @@ const onSubmit = () => {
       <div class="flex flex-col max-w-full w-[792px] mx-auto">
         <form @submit.prevent="onSubmit" class="p-8 lg:p-12 bg-white shadow-lg">
           <div class="mb-6 lg:mb-12"><span class="text-[#C8191F]">*</span> Champs obligatoires</div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 mb-8 lg:mb-12">
             <FormElement name="first_name" label="Prénom" required :error="form.errors.first_name">
               <Input
                 name="first_name"
@@ -106,7 +106,7 @@ const onSubmit = () => {
               name="info_benevolat"
               label="As tu déjà été bénévole ?"
               :error="form.errors.info_benevolat"
-              class="col-span-2"
+              class="lg:col-span-2"
             >
               <Select
                 id="info_benevolat"
@@ -134,7 +134,7 @@ const onSubmit = () => {
               name="info_fresque"
               label="As-tu déjà participé à un atelier de type Fresque du Climat ?"
               :error="form.errors.info_fresque"
-              class="col-span-2"
+              class="lg:col-span-2"
             >
               <Select
                 id="info_fresque"
