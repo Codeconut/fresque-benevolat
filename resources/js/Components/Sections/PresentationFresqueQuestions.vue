@@ -24,7 +24,7 @@ const Pane = defineComponent(
           isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer',
         ]}
       >
-        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-24">
+        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-16">
           <h3 class="text-3xl font-bold">{props.title}</h3>
           <div class="mt-4 lg:mt-0">
             {isSelected.value ? <RiSubtractLine size="32" /> : <RiAddLine size="32" />}

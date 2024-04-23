@@ -27,7 +27,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
               />
               <RiArrowRightLine
                 size="32"
-                class="absolute bottom-4 right-4 group-hover:right-6 transition-all"
+                class="absolute bottom-6 right-6 group-hover:right-7 transition-all"
               />
             </div>
           </div>

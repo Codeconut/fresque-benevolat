@@ -1,7 +1,7 @@
 <script setup>
 import MarkdownIt from 'markdown-it'
 import { Button } from '@/Components/Dsfr'
-import { RiCalendarEventLine, RiMapPin2Fill, RiUserHeartLine } from '@remixicon/vue'
+import { RiCalendarEventFill, RiMapPin2Fill, RiUserHeartFill } from '@remixicon/vue'
 import { Head, Link, router } from '@inertiajs/vue3'
 import { defineComponent, ref, computed } from 'vue'
 
@@ -20,7 +20,7 @@ const placesOccupied = computed(() => props.fresque.places - props.fresque.place
   <div class="bg-white p-10 shadow-lg lg:sticky lg:top-10 lg:mt-10">
     <div class="grid gap-6">
       <div class="flex space-x-4">
-        <RiCalendarEventLine size="20" class="text-[#518FFF] mt-[6px] flex-none" />
+        <RiCalendarEventFill size="20" class="text-[#518FFF] mt-[6px] flex-none" />
         <div>
           <div class="text-lg font-bold">{{ $dayjs(fresque.date).format('DD MMMM YYYY') }}</div>
           <div class="text-lg text-[#666666]">de {{ fresque.schedules }}</div>
@@ -34,7 +34,7 @@ const placesOccupied = computed(() => props.fresque.places - props.fresque.place
         </div>
       </div>
       <div class="flex space-x-4">
-        <RiUserHeartLine size="20" class="text-[#518FFF] mt-[6px] flex-none" />
+        <RiUserHeartFill size="20" class="text-[#518FFF] mt-[6px] flex-none" />
         <div>
           <div class="text-lg font-bold">
             {{ $filters.pluralize(fresque.places_left, 'place disponible', 'places disponibles') }}

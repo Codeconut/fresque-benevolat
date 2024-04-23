@@ -24,7 +24,7 @@ const props = defineProps({
 
     <div class="overflow-x-hidden">
       <div class="container">
-        <div class="flex flex-wrap gap-12 justify-center">
+        <div class="flex flex-wrap gap-12 justify-center pb-8">
           <Link
             :href="route('fresques.show', { fresque: fresque.slug })"
             v-for="fresque in fresques"

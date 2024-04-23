@@ -27,7 +27,12 @@ const props = defineProps({
       <div class="max-w-full w-[792px] mx-auto">
         <div class="p-12 bg-white shadow-lg text-center">
           <div class="mb-12">
-            <img class="h-[75px] w-[67px] mx-auto" src="/images/icons/hearts.svg" alt="" />
+            <img
+              v-svg-inline
+              class="h-[75px] w-[67px] mx-auto text-[#6B93F6] focus:outline-none"
+              src="/images/icons/coeur-2.svg"
+              alt=""
+            />
           </div>
           <div class="mb-12 space-y-8">
             <h2 class="text-[32px] font-bold">Félicitations pour avoir sauté le pas !</h2>
