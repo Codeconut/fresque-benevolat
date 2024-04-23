@@ -38,6 +38,9 @@ class HandleInertiaRequests extends Middleware
             ],
             'isLogged' => fn () => !!$request->user(),
             'isAdmin' => fn () => $request->user()?->hasRole('admin'),
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
         ];
     }
 }

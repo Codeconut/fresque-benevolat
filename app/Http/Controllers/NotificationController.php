@@ -24,7 +24,7 @@ class NotificationController extends Controller
 
     public function renderMail($slug)
     {
-        $fresque = Fresque::first();
+
         $fresqueApplication = FresqueApplication::first();
 
         switch ($slug) {
@@ -45,15 +45,15 @@ class NotificationController extends Controller
                 $output = $notification->toMail($fresqueApplication)->render();
                 break;
             case 'fresque-application-reminder-morning':
-                $notification = new FresqueApplicationReminderMorning($fresque);
+                $notification = new FresqueApplicationReminderMorning();
                 $output = $notification->toMail($fresqueApplication)->render();
                 break;
             case 'fresque-application-reminder-x-days':
-                $notification = new FresqueApplicationReminderXDays($fresque);
+                $notification = new FresqueApplicationReminderXDays();
                 $output = $notification->toMail($fresqueApplication)->render();
                 break;
             case 'fresque-application-created':
-                $notification = new FresqueApplicationCreated($fresque);
+                $notification = new FresqueApplicationCreated();
                 $output = $notification->toMail($fresqueApplication)->render();
                 break;
             default:

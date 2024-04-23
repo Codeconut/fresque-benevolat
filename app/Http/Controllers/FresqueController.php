@@ -60,7 +60,6 @@ class FresqueController extends Controller
 
     public function apply(Request $request, Fresque $fresque, CreateFresqueApplication $createFresqueApplication)
     {
-
         if (!$fresque->can_candidate) {
             return redirect()->back()->with('error', 'Les candidatures pour cette fresque sont fermées');
         }

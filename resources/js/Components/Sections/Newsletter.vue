@@ -8,10 +8,13 @@ import {
   RiInstagramFill,
   RiYoutubeFill,
 } from '@remixicon/vue'
+import { ref } from 'vue'
 
 const form = useForm({
   email: null,
 })
+
+const isSubscribed = ref(false)
 
 const onSubmit = () => {
   form.submit('post', route('newsletter.sync.contact'), {
@@ -24,6 +27,8 @@ const onSubmit = () => {
     },
     onSuccess: () => {
       console.log('onSuccess', form)
+      form.reset()
+      isSubscribed.value = true
     },
     onFinish: () => {
       form.processing = false
@@ -51,6 +56,7 @@ const onSubmit = () => {
                 v-model.trim="form.email"
                 placeholder="Votre adresse électronique (ex. : nom@domaine.fr)"
                 :error="!!form.errors.email"
+                :success="isSubscribed"
                 variant="white"
                 custom-class="lg:rounded-tl"
               />
@@ -60,6 +66,9 @@ const onSubmit = () => {
             </div>
             <div class="text-[#ce0500] text-xs mt-2" v-if="form.errors.email">
               {{ form.errors.email }}
+            </div>
+            <div v-if="isSubscribed" class="text-[#18753c] text-xs mt-2">
+              Vous êtes inscrit à la newsletter :)
             </div>
           </form>
 
@@ -121,42 +130,3 @@ const onSubmit = () => {
     </div>
   </div>
 </template>
-
-<!-- <script>
-import axios from 'axios'
-
-export default defineNuxtComponent({
-  data() {
-    return {
-      loading: false,
-      error: '',
-      success: '',
-      form: {
-        email: '',
-      },
-      socialMedias: [
-        {
-          name: 'Twitter',
-          icon: 'RiTwitterFill',
-          url: 'https://twitter.com/ReserveCivique',
-        },
-        {
-          name: 'Linkedin',
-          icon: 'RiLinkedinBoxFill',
-          url: 'https://fr.linkedin.com/company/jeveuxaider-gouv-fr',
-        },
-        {
-          name: 'Facebook',
-          icon: 'RiFacebookCircleFill',
-          url: 'https://fr-fr.facebook.com/jeveuxaider.gouv.fr/',
-        },
-        {
-          name: 'Instagram',
-          icon: 'RiInstagramFill',
-          url: 'https://www.instagram.com/jeveuxaider_gouv/?hl=fr',
-        },
-      ],
-    }
-  },
-})
-</script> -->
