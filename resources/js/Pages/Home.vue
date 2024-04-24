@@ -19,7 +19,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <AppLayout title="Passez à l’action avec la Fresque du Bénévolat">
+  <AppLayout>
     <div class="relative">
       <img
         class="absolute top-[530px] left-0"

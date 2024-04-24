@@ -21,8 +21,8 @@ const logout = () => {
         </div>
         <div>
           <div class="flex items-center space-x-8">
-            <div class="flex space-x-8">
-              <!-- <template v-if="!$page.props.isLogged">
+            <!-- <div class="flex space-x-8">
+              <template v-if="!$page.props.isLogged">
               <Link :href="route('login')" class="text-sm text-gray-700 underline">Connexion</Link>
               <Link :href="route('register')" class="text-sm text-gray-700 underline"
                 >Inscription</Link
@@ -36,8 +36,8 @@ const logout = () => {
                 >Profile</Link
               >
               <Link href="#" @click="logout" class="text-sm text-gray-700 underline">Logout</Link>
-            </template> -->
-            </div>
+            </template>
+            </div> -->
 
             <Link :href="route('fresques.index')">
               <Button class="hidden sm:block">Trouver une fresque</Button>

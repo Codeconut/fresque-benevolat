@@ -9,7 +9,6 @@ import NavLink from '@/Components/Jetstream/NavLink.vue'
 import ResponsiveNavLink from '@/Components/Jetstream/ResponsiveNavLink.vue'
 import Header from '@/Components/General/Header.vue'
 import Footer from '@/Components/General/Footer.vue'
-import queryString from 'query-string'
 
 defineProps({
   title: {

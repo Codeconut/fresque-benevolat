@@ -28,19 +28,19 @@ import { Link } from '@inertiajs/vue3'
       </div>
       <div class="flex flex-col divide-y">
         <div class="flex flex-col lg:flex-row gap-4 py-8">
-          <div class="text-3xl font-bold w-[376px]">Sensibilisez</div>
+          <div class="text-3xl font-bold lg:w-[376px]">Sensibilisez</div>
           <div class="text-xl flex-1">
             Soyez acteur du bénévolat près de chez vous en parlant du bénévolat et de ses bienfaits
           </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-4 py-8">
-          <div class="text-3xl font-bold w-[376px]">Levez les freins</div>
+          <div class="text-3xl font-bold lg:w-[376px]">Levez les freins</div>
           <div class="text-xl flex-1">
             Donnez le petit coup de pouce à ceux qui hésiteraient à sauter le pas du bénévolat
           </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-4 py-8">
-          <div class="text-3xl font-bold w-[376px]">Inspirez</div>
+          <div class="text-3xl font-bold lg:w-[376px]">Inspirez</div>
           <div class="text-xl flex-1">
             Animez des moments de convivialité pour tout type de public !
           </div>

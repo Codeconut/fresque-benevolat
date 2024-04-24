@@ -149,17 +149,28 @@ const gouvLinks = [
           <div class="text-gray-600 text-xs">
             <div class="divide-x">
               <Link class="pl-0 cursor-pointer hover:underline pr-3 my-1 inline-block" href="#"
-                >Accessibilité : partiellement conforme</Link
+                >Accessibilité : non conforme</Link
               >
-              <Link class="cursor-pointer hover:underline px-3 my-1 inline-block" href="#"
-                >Données personnelles</Link
+              <a
+                class="cursor-pointer hover:underline px-3 my-1 inline-block"
+                href="https://www.jeveuxaider.gouv.fr/politique-de-confidentialite"
+                target="_blank"
               >
-              <Link class="cursor-pointer hover:underline px-3 my-1 inline-block" href="#"
+                Données personnelles
+              </a>
+              <a
+                class="cursor-pointer hover:underline px-3 my-1 inline-block"
+                href="https://www.jeveuxaider.gouv.fr/mentions-legales"
+                target="_blank"
+              >
+                Mentions légales
+              </a>
+              <!-- <Link class="cursor-pointer hover:underline px-3 my-1 inline-block" href="#"
                 >Mentions légales</Link
               >
               <Link class="cursor-pointer hover:underline px-3 my-1 inline-block" href="#"
                 >CGU</Link
-              >
+              > -->
             </div>
 
             <div class="mt-6">
