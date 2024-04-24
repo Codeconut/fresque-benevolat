@@ -13,7 +13,7 @@ import { Link, router } from '@inertiajs/vue3'
             v-svg-inline
             src="/images/icons/gimmick.svg"
             alt=""
-            class="text-[#FCD17B] absolute w-[45px] h-auto top-[-30px] right-[-40px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
+            class="text-[#FCD17B] absolute w-[45px] lg:w-[65px] h-auto top-[-30px] right-[-40px] lg:top-[-25px] lg:right-[-60px] focus:outline-none"
           />
         </h2>
       </div>

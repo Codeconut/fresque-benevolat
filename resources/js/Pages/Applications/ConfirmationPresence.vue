@@ -19,10 +19,6 @@ const props = defineProps({
   },
 })
 
-const canEditPresence = computed(() => {
-  return ['registered', 'confirmed_presence', 'canceled'].includes(props.application.state)
-})
-
 const cancelApplication = () => {
   router.post(route('fresques.applications.cancel', props.token))
 }
@@ -30,6 +26,19 @@ const cancelApplication = () => {
 const confirmApplication = () => {
   router.post(route('fresques.applications.confirm', props.token))
 }
+
+const title = computed(() => {
+  switch (props.application.state) {
+    case 'registered':
+      return `Vous venez toujours ${props.application.first_name} ? 🥰`
+    case 'confirmed_presence':
+      return 'Présence confirmée 👊'
+    case 'canceled':
+      return 'Participation annulée 😢'
+    default:
+      return 'Votre participation'
+  }
+})
 </script>
 
 <template>
@@ -48,22 +57,20 @@ const confirmApplication = () => {
       <div class="max-w-full w-[792px] mx-auto">
         <div class="p-12 bg-white shadow-lg text-center">
           <div class="mb-12">
-            <img class="h-[75px] w-[67px] mx-auto" src="/images/icons/heart.svg" alt="" />
+            <img
+              v-svg-inline
+              class="h-[75px] w-[67px] mx-auto text-[#6B93F6]"
+              src="/images/icons/coeur-2.svg"
+              alt=""
+            />
           </div>
           <div class="mb-12 space-y-8">
             <h2 class="text-[32px] font-bold">
-              <template v-if="application.state === 'registered'">
-                Vous venez toujours {{ application.first_name }} ? 🥰
-              </template>
-              <template v-if="application.state === 'confirmed_presence'">
-                Présence confirmée 👊
-              </template>
-              <template v-if="application.state === 'canceled'">
-                Participation annulée 😢
-              </template>
+              {{ title }}
             </h2>
             <p class="text-lg">
-              Votre participation est au statut: <strong>{{ application.state }}</strong>
+              Votre participation est au statut:
+              <strong>{{ $taxonomies.getLabel(application.state, 'application_states') }}</strong>
             </p>
             <p class="text-lg px-12">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum accusantium
@@ -93,16 +100,6 @@ const confirmApplication = () => {
               >Je confirme ma présence 👊</DsfrButton
             >
           </template>
-          <!-- <div class="mb-12">
-              <img class="h-[75px] w-[67px] mx-auto" src="/images/icons/hearts.svg" alt="" />
-            </div>
-            <div class="mb-12 space-y-8">
-              <h2 class="text-[32px] font-bold">{{ application.full_name }}</h2>
-              <p class="text-lg">
-                Votre participation est au statut: <strong>{{ application.state }}</strong>
-              </p>
-            </div>
-            <DsfrButton size="lg" full>Retour à la homepage</DsfrButton> -->
         </div>
       </div>
     </div>
