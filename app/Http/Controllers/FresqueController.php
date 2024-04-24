@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
+use App\Jobs\TriggerBrevoAction;
 use App\Models\Fresque;
-use App\Models\FresqueApplication;
-use App\Models\Place;
-use App\Services\Brevo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
@@ -77,8 +75,7 @@ class FresqueController extends Controller
 
         $application->notify(new \App\Notifications\FresqueApplicationCreated());
 
-        $brevo = new Brevo();
-        $brevo->createOrUpdateContact([
+        TriggerBrevoAction::dispatch('createOrUpdateContact', [
             'email' => $request->input('email'),
             'updateEnabled' => true,
             'listIds' => [config('services.brevo.contacts_list_id')]

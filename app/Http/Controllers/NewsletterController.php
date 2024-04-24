@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\TriggerBrevoAction;
 use App\Services\Brevo;
 use Brevo\Client\Api\ContactsApi;
 use Illuminate\Http\Request;
@@ -14,8 +15,7 @@ class NewsletterController extends Controller
             'email' => 'required|email',
         ]);
 
-        $brevo = new Brevo();
-        $brevo->createOrUpdateContact([
+        TriggerBrevoAction::dispatch('createOrUpdateContact', [
             'email' => $request->input('email'),
             'updateEnabled' => true,
             'listIds' => [config('services.brevo.contacts_list_id')]

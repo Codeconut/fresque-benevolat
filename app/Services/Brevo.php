@@ -9,13 +9,11 @@ use Brevo\Client\Configuration;
 class Brevo
 {
     protected $config;
-    protected bool $isBrevoSyncEnabled = false;
     protected $contactsApiInstance;
 
     public function __construct()
     {
         $this->config = Configuration::getDefaultConfiguration()->setApiKey('api-key', config('services.brevo.api_key'));
-        $this->isBrevoSyncEnabled = config('services.brevo.sync_enabled') === true;
         $this->contactsApiInstance = new ContactsApi(
             new Client(),
             $this->config
@@ -24,10 +22,6 @@ class Brevo
 
     public function createOrUpdateContact($attributes = [])
     {
-        if (!$this->isBrevoSyncEnabled) {
-            return;
-        }
-
         if (empty($attributes)) {
             return;
         }
