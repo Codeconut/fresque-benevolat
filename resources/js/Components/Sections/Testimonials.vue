@@ -53,58 +53,61 @@ const onSwiper = (swiperInstance) => {
         Ils ont participé et ont adoré
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div
-          class="bg-white flex flex-col justify-between gap-8 border p-8 pb-0 lg:p-16 relative h-full"
-        >
-          <div class="h-full pb-8 lg:pb-0">
-            <Swiper
-              :modules="[Pagination, A11y]"
-              :pagination="{ clickable: true }"
-              @swiper="onSwiper"
-              class="h-full"
-            >
-              <SwiperSlide v-for="(testimonial, i) in testimonials" :key="i">
-                <img src="/images/icons/quote.svg" alt="" class="h-8 w-8 flex-none mb-4" />
-                <p class="mb-8 text-xl font-bold">
-                  {{ testimonial.text }}
-                </p>
-                <div class="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
-                  <img
-                    :src="testimonial.logo"
-                    :alt="testimonial.organisationName"
-                    class="relative z-[3] flex-none h-[48px] w-[48px] lg:w-[60px] lg:h-[60px]"
-                  />
-                  <p class="text-[#666666] text-md lg:text-lg mt-4 lg:mt-0">
-                    <strong>{{ testimonial.firstName }}</strong
-                    >, {{ testimonial.benevoleLabel }}
-                    <strong>{{ testimonial.organisationName }}</strong>
+        <div class="lg:pt-8">
+          <div
+            class="bg-white flex flex-col justify-between gap-8 border p-8 pb-0 lg:p-16 relative h-full"
+          >
+            <div class="h-full pb-8 lg:pb-0">
+              <Swiper
+                :modules="[Pagination, A11y]"
+                :pagination="{ clickable: true }"
+                @swiper="onSwiper"
+                class="h-full"
+              >
+                <SwiperSlide v-for="(testimonial, i) in testimonials" :key="i">
+                  <img src="/images/icons/quote.svg" alt="" class="h-8 w-8 flex-none mb-4" />
+                  <p class="mb-8 text-xl font-bold">
+                    {{ testimonial.text }}
                   </p>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-          <div class="hidden lg:block absolute bottom-14 right-12 z-20">
-            <div class="flex space-x-3 self-end">
-              <IconButton
-                variant="custom"
-                @click="swiper.slidePrev()"
-                :icon="RiArrowLeftLine"
-                size="lg"
-                custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
-              />
-              <IconButton
-                variant="custom"
-                @click="swiper.slideNext()"
-                :icon="RiArrowRightLine"
-                size="lg"
-                custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
-              />
+                  <div class="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
+                    <img
+                      :src="testimonial.logo"
+                      :alt="testimonial.organisationName"
+                      class="relative z-[3] flex-none h-[48px] w-[48px] lg:w-[60px] lg:h-[60px]"
+                    />
+                    <p class="text-[#666666] text-md lg:text-lg mt-4 lg:mt-0">
+                      <strong>{{ testimonial.firstName }}</strong
+                      >, {{ testimonial.benevoleLabel }}
+                      <strong>{{ testimonial.organisationName }}</strong>
+                    </p>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+            <div class="hidden lg:block absolute bottom-14 right-12 z-20">
+              <div class="flex space-x-3 self-end">
+                <IconButton
+                  variant="custom"
+                  @click="swiper.slidePrev()"
+                  :icon="RiArrowLeftLine"
+                  size="lg"
+                  custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
+                />
+                <IconButton
+                  variant="custom"
+                  @click="swiper.slideNext()"
+                  :icon="RiArrowRightLine"
+                  size="lg"
+                  custom-class="border-dsfr-blue text-dsfr-blue hover:bg-white"
+                />
+              </div>
             </div>
           </div>
         </div>
+
         <div class="overflow-hidden">
-          <div class="bg-dsfr-lavande p-4 testimonials-clip-path rounded-3xl">
-            <div class="py-6">
+          <div class="bg-dsfr-lavande p-8 testimonials-clip-path rounded-3xl">
+            <div class="pt-8">
               <div class="flex flex-col lg:flex-row">
                 <img
                   src="/images/testimonials/testimonial-1.png"
