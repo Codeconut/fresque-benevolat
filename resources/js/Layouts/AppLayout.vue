@@ -19,7 +19,7 @@ defineProps({
   description: {
     type: String,
     default:
-      'Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous toutes ses formes ! Créé et animé par JeVeuxAider.gouv.fr.',
+      'Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous toutes ses formes ! Créé et animé avec amour par JeVeuxAider.gouv.fr.',
   },
   imagePath: {
     type: String,
@@ -44,7 +44,7 @@ const baseUrl = `${url.protocol}//${url.hostname}`
       <meta property="og:title" :content="title" />
       <meta property="og:description" :content="description" />
       <meta property="og:url" :content="url" />
-      <meta property="og:image" :content="`${baseUrl}/${imagePath}`" />
+      <meta property="og:image" :content="`${baseUrl}${imagePath}`" />
     </Head>
 
     <Banner />

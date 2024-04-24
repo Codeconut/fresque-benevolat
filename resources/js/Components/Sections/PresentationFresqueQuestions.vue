@@ -24,8 +24,8 @@ const Pane = defineComponent(
           isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer',
         ]}
       >
-        <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:gap-16">
-          <h3 class="text-3xl font-bold">{props.title}</h3>
+        <div class="flex lg:flex-row lg:justify-between lg:items-center lg:gap-16">
+          <h3 class="text-2xl lg:text-3xl font-bold">{props.title}</h3>
           <div class="mt-4 lg:mt-0">
             {isSelected.value ? <RiSubtractLine size="32" /> : <RiAddLine size="32" />}
           </div>
@@ -42,15 +42,15 @@ const Pane = defineComponent(
 </script>
 
 <template>
-  <div class="relative py-20">
+  <div class="relative py-10 lg:py-20">
     <img
       class="absolute z-0 top-[200px] right-0"
       src="/images/illustrations/dashed-line-3.svg"
       alt=""
     />
-    <div class="container relative z-10">
+    <div class="lg:container relative z-10">
       <div class="overflow-hidden">
-        <div class="p-8 lg:p-16 bg-dsfr-yellow-active fresques-clip-path rounded-3xl">
+        <div class="p-8 lg:p-16 bg-dsfr-yellow-active fresques-clip-path">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pt-12 lg:pb-6">
             <div class="">
               <div class="mb-4 text-[#3A3A3A]">

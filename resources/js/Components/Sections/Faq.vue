@@ -7,13 +7,13 @@ import { Link, router } from '@inertiajs/vue3'
   <div id="faq" class="py-20">
     <div class="container">
       <div class="text-center">
-        <h2 class="relative inline text-4xl lg:text-5xl font-bold">
+        <h2 class="relative inline text-3xl lg:text-5xl font-bold">
           Vous avez des questions ?
           <img
             v-svg-inline
             src="/images/icons/gimmick.svg"
             alt=""
-            class="text-[#FCD17B] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
+            class="text-[#FCD17B] absolute w-[45px] h-auto top-[-30px] right-[-40px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
           />
         </h2>
       </div>

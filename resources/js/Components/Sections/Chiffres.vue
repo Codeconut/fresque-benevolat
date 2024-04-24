@@ -1,10 +1,10 @@
 <template>
-  <div class="py-20">
-    <div class="container">
+  <div class="pb-10 lg:py-20">
+    <div class="lg:container">
       <div class="overflow-hidden">
-        <div class="bg-[#77EDA5] text-[#142018] chiffres-clip-path rounded-3xl">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 p-8 lg:p-24">
-            <div class="flex items-center lg:items-start gap-8 lg:flex-col">
+        <div class="bg-[#77EDA5] text-[#142018] chiffres-clip-path">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 px-8 py-12 lg:p-24">
+            <div class="flex flex-col text-center items-center lg:items-start gap-4 lg:gap-8">
               <div>
                 <img v-svg-inline src="/images/icons/etoile.svg" alt="" class="text-[#49BC8D]" />
               </div>
@@ -14,7 +14,7 @@
                 <div class="text-lg lg:text-xl">Satisfaction des participants</div>
               </div>
             </div>
-            <div class="flex items-center lg:items-start gap-8 lg:flex-col">
+            <div class="flex flex-col text-center items-center lg:items-start gap-4 lg:gap-8">
               <div>
                 <img
                   v-svg-inline
@@ -29,7 +29,7 @@
                 <div class="text-lg lg:text-xl">Depuis 2023</div>
               </div>
             </div>
-            <div class="flex items-center lg:items-start gap-8 lg:flex-col">
+            <div class="flex flex-col text-center items-center lg:items-start gap-4 lg:gap-8">
               <div>
                 <img
                   v-svg-inline

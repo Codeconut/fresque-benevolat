@@ -5,7 +5,7 @@ import { Link } from '@inertiajs/vue3'
 </script>
 
 <template>
-  <div class="relative py-20">
+  <div class="relative py-10 lg:py-20">
     <img
       class="absolute z-0 top-[100px] right-0"
       src="/images/illustrations/dashed-line-5.svg"
@@ -13,16 +13,16 @@ import { Link } from '@inertiajs/vue3'
     />
     <div class="relative container">
       <div class="mb-14">
-        <h2 class="relative inline text-4xl lg:text-5xl leading-[56px] font-bold">
+        <h2 class="relative inline text-3xl lg:text-5xl leading-[56px] font-bold">
           Devenez animateur
           <img
             v-svg-inline
             src="/images/icons/gimmick.svg"
             alt=""
-            class="text-[#6B93F6] absolute top-[-35px] right-[-40px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
+            class="text-[#6B93F6] absolute w-[45px] h-auto top-[-20px] right-[-45px] lg:w-[65px] lg:h-[75px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
           />
         </h2>
-        <div class="text-2xl text-[#666666] mt-4">
+        <div class="text-xl lg:text-2xl text-[#666666] mt-4">
           On vous donne tous les outils pour animer vous-même des fresques du bénévolat
         </div>
       </div>

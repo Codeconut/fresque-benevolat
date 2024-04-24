@@ -13,10 +13,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-10 lg:py-20">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="relative text-4xl lg:text-5xl leading-[56px] font-bold mb-4">
+        <h2 class="relative text-3xl lg:text-5xl leading-[56px] font-bold mb-4">
           Les prochaines fresques aux alentours
         </h2>
       </div>

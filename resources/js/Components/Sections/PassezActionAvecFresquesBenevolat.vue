@@ -16,12 +16,12 @@ import Button from '@/Components/Dsfr/Button.vue'
       alt=""
     />
     <div class="container relative">
-      <div class="relative z-10 py-[60px] lg:py-[120px]">
+      <div class="relative z-10 py-[48px] lg:py-[120px]">
         <div class="max-w-[629px]">
-          <h1 class="font-bold text-5xl lg:text-[80px] lg:leading-[88px]">
+          <h1 class="font-bold text-[40px] leading-[48px] lg:text-[80px] lg:leading-[88px]">
             Passez à l’action avec la Fresque du Bénévolat
           </h1>
-          <p class="text-2xl my-8">
+          <p class="text-[22px] lg:text-2xl my-8">
             Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous
             toutes ses formes
           </p>

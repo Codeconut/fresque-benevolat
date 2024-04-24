@@ -57,13 +57,15 @@ const changePage = (page) => {
       />
     </div>
     <div class="container">
-      <div class="relative py-[64px]">
+      <div class="relative py-[48px] lg:py-[64px]">
         <div class="relative">
           <div class="max-w-3xl pb-6">
-            <h1 class="font-bold text-5xl lg:text-[56px] lg:leading-[64px]">
+            <h1 class="font-bold text-[40px] leading-[48px] lg:text-[56px] lg:leading-[64px]">
               (re)Découvrez le bénévolat en participant à la Fresque
             </h1>
-            <p class="text-2xl my-8">Trouvez la prochaine fresque du bénévolat près de chez vous</p>
+            <p class="text-[22px] lg:text-2xl my-8">
+              Trouvez la prochaine fresque du bénévolat près de chez vous
+            </p>
             <img
               class="hidden xl:block xl:absolute xl:bottom-0 xl:right-0"
               src="/images/illustrations/playcards-2.svg"
@@ -110,14 +112,16 @@ const changePage = (page) => {
             </div>
             <div class="space-y-8 mt-24 lg:mt-0">
               <EstCeQueCestFaitPourMoi />
-              <BlocJVAPretAPasserAction />
+              <BlocJVAPretAPasserAction class="hidden lg:block" />
             </div>
           </div>
         </div>
-        <div class="border-t py-14">
-          <Faq />
-          <JVAPretAPasserAction />
-        </div>
+      </div>
+    </div>
+    <div class="lg:container">
+      <div class="lg:border-t lg:py-14">
+        <Faq />
+        <JVAPretAPasserAction />
       </div>
     </div>
   </AppLayout>

@@ -41,19 +41,23 @@ const onSwiper = (swiperInstance) => {
 </script>
 
 <template>
-  <div class="relative py-20">
+  <div class="relative pt-10 lg:py-20">
     <img
       class="absolute z-0 top-[200px] left-0"
       src="/images/illustrations/dashed-line-4.svg"
       alt=""
     />
-    <img class="absolute top-[50px] right-[50px]" src="/images/icons/mountains.svg" alt="" />
-    <div class="relative container">
-      <h2 class="relative text-4xl lg:text-5xl leading-[56px] font-bold mb-14">
+    <img
+      class="absolute top-[90px] right-[40px] lg:top-[50px] lg:right-[50px]"
+      src="/images/icons/mountains.svg"
+      alt=""
+    />
+    <div class="relative lg:container">
+      <h2 class="px-4 lg:px-0 relative text-3xl lg:text-5xl leading-[56px] font-bold mb-14">
         Ils ont participé et ont adoré
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="lg:pt-8">
+        <div class="px-4 lg:px-0 lg:pt-8">
           <div
             class="bg-white flex flex-col justify-between gap-8 border p-8 pb-0 lg:p-16 relative h-full"
           >
@@ -106,7 +110,7 @@ const onSwiper = (swiperInstance) => {
         </div>
 
         <div class="overflow-hidden">
-          <div class="bg-dsfr-lavande p-8 testimonials-clip-path rounded-3xl">
+          <div class="bg-dsfr-lavande p-8 testimonials-clip-path">
             <div class="pt-8">
               <div class="flex flex-col lg:flex-row">
                 <img
