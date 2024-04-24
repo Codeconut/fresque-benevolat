@@ -9,15 +9,43 @@ import NavLink from '@/Components/Jetstream/NavLink.vue'
 import ResponsiveNavLink from '@/Components/Jetstream/ResponsiveNavLink.vue'
 import Header from '@/Components/General/Header.vue'
 import Footer from '@/Components/General/Footer.vue'
+import queryString from 'query-string'
 
 defineProps({
-  title: String,
+  title: {
+    type: String,
+    default: 'Passez à l’action avec la Fresque du Bénévolat',
+  },
+  description: {
+    type: String,
+    default:
+      'Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous toutes ses formes ! Créé et animé par JeVeuxAider.gouv.fr.',
+  },
+  imagePath: {
+    type: String,
+    default: '/images/illustrations/fresque-benevolat-image.jpg',
+  },
 })
+
+const url = new URL(location.href)
+const baseUrl = `${url.protocol}//${url.hostname}`
 </script>
 
 <template>
   <div class="min-h-screen">
-    <Head :title="title" />
+    <Head :title="title">
+      <meta property="type" content="website" />
+      <meta property="title" :content="title" />
+      <meta name="description" :content="description" />
+      <meta property="image" :content="`${baseUrl}${imagePath}`" />
+      <meta property="url" :content="url" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" :content="title" />
+      <meta property="og:description" :content="description" />
+      <meta property="og:url" :content="url" />
+      <meta property="og:image" :content="`${baseUrl}/${imagePath}`" />
+    </Head>
 
     <Banner />
 
