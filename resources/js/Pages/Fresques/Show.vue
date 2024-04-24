@@ -44,25 +44,30 @@ const markdown = new MarkdownIt()
         alt=""
       />
     </div>
-    <div class="container">
-      <div class="relative py-12 lg:py-20">
+    <div class="lg:container">
+      <div class="relative pb-12 lg:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
-          <div class="col-span-2 space-y-12 order-2 lg:order-1">
+          <div class="col-span-2 lg:space-y-12 order-2 lg:order-1">
             <FresqueHero :fresque="fresque" />
-            <FresqueDescription :fresque="fresque" />
-            <FresqueInfosPratiques :fresque="fresque" />
-            <Place :place="fresque.place" />
+            <div class="px-4 lg:px-0 space-y-8 lg:space-y-12">
+              <FresqueInscription class="mt-8 lg:hidden" :fresque="fresque" />
+              <FresqueDescription :fresque="fresque" />
+              <FresqueInfosPratiques :fresque="fresque" />
+              <Place :place="fresque.place" />
+            </div>
           </div>
-          <div class="col-span-1 order-1 lg:order-2 mb-12 lg:mb-0">
+          <div class="hidden lg:block col-span-1 order-1 lg:order-2 mb-12 lg:mb-0">
             <FresqueInscription :fresque="fresque" />
           </div>
         </div>
       </div>
     </div>
-    <div class="py-14">
-      <div class="container"><div class="border-t" /></div>
+    <div class="container py-6 lg:py-14">
+      <div class="lg:border-t" />
       <ProchainesFresquesAlentours :fresques="fresquesAlentours" />
       <Faq />
+    </div>
+    <div class="lg:container pt-6 lg:py-14">
       <JVAPretAPasserAction />
     </div>
   </AppLayout>

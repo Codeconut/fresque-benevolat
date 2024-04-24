@@ -23,13 +23,16 @@ defineProps({
           <span>Retour aux fresques</span>
         </Link>
         <div class="flex justify-between items-center mt-2 mb-8">
-          <h1 class="text-5xl font-bold">{{ fresque.place.city }} - {{ fresque.place.name }}</h1>
+          <h1 class="text-4xl lg:text-5xl font-bold">
+            {{ fresque.place.city }} - {{ fresque.place.name }}
+          </h1>
           <Share
             :url="route('fresques.show', fresque)"
             :title="fresque.place.city"
             description="Ma description"
             quote="My quote"
             hashtags="fresquebenevolat,jeveuxaider"
+            class="hidden lg:block"
           />
         </div>
 
@@ -39,7 +42,7 @@ defineProps({
             fresque.default_picture ? fresque.default_picture : '/images/default-placeholder.png'
           "
           alt="fresque"
-          class="w-full h-[430px] object-cover rounded-lg shadow-lg"
+          class="w-full h-auto lg:h-[430px] object-cover rounded-lg shadow-lg"
         />
 
         <div class="mt-8" v-if="fresque.animators.length">
