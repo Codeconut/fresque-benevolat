@@ -47,7 +47,7 @@ const props = defineProps({
   :deep(.swiper-pagination) {
     @apply text-left relative mt-8;
     .swiper-pagination-bullet {
-      @apply w-[10px] h-[10px];
+      @apply w-[10px] h-[10px] opacity-100;
       background-color: #e1cab0;
       &-active {
         background-color: #a38f78;

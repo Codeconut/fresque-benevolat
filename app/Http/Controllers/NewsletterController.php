@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\TriggerBrevoAction;
-use App\Services\Brevo;
-use Brevo\Client\Api\ContactsApi;
 use Illuminate\Http\Request;
 
 class NewsletterController extends Controller

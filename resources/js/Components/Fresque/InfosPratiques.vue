@@ -20,7 +20,7 @@ const markdown = new MarkdownIt()
         alt=""
         class="text-[#6B93F6] w-[40px] focus:outline-none"
       />
-      <h2 class="text-2xl font-bold">Infos pratiques</h2>
+      <h2 class="text-2xl lg:text-3xl font-bold">Infos pratiques</h2>
     </div>
 
     <div v-if="fresque.summary" class="">

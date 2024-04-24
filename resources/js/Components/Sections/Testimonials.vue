@@ -158,7 +158,7 @@ const onSwiper = (swiperInstance) => {
   :deep(.swiper-pagination) {
     @apply text-left;
     .swiper-pagination-bullet {
-      @apply w-[10px] h-[10px];
+      @apply w-[10px] h-[10px] opacity-100;
       background-color: #bfccfb;
       &-active {
         background-color: #518fff;
