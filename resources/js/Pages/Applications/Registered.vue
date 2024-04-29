@@ -40,7 +40,7 @@ const props = defineProps({
               Félicitations pour avoir sauté le pas !
             </h2>
             <p class="text-lg">Vous recevrez un email de rappel avant votre Fresque.</p>
-            <p class="text-lg px-12">
+            <p class="text-lg lg:px-12">
               Un empêchement ? Pas de panique, vous pouvez vous servir du lien dans le mail que vous
               venez de recevoir pour nous prévenir.
             </p>
