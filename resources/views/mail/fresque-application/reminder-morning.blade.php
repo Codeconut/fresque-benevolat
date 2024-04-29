@@ -21,7 +21,8 @@ Vous pouvez annuler votre participation à tout moment en cliquant <a target="_b
 
 ---
 
-À tout à l’heure !<br />
-Les futurs animateurs 🌞
+<x-mail::signature :fresque="$fresque">
+A très vite,
+</x-mail::signature>
 
 </x-mail::message>

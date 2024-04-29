@@ -18,8 +18,8 @@ Si tu es encore à la recherche de l'opportunité idéale ou si tu as des questi
 
 ---
 
+<x-mail::signature :fresque="$fresque">
 Merci pour ton aide,
-
-Les animateurs 🌞
+</x-mail::signature>
 
 </x-mail::message>

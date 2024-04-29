@@ -22,8 +22,8 @@ Et pour t’accompagner dans cette grande aventure qu’est le bénévolat, je t
 
 ---
 
+<x-mail::signature :fresque="$fresque">
 Merci pour ton aide,
-
-Les animateurs 🌞
+</x-mail::signature>
 
 </x-mail::message>

@@ -17,8 +17,8 @@ Si tu n'as pas encore trouvé la mission de bénévolat qui te convient, n’hé
 
 ---
 
+<x-mail::signature :fresque="$fresque">
 Bonne journée,
-
-Les animateurs 🌞
+</x-mail::signature>
 
 </x-mail::message>

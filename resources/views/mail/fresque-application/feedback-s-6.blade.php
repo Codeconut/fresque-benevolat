@@ -17,8 +17,8 @@ Si tu es encore à la recherche de l'opportunité idéale ou si tu as des questi
 
 ---
 
+<x-mail::signature :fresque="$fresque">
 À bientôt pour de nouvelles aventures ?
-
-Les animateurs 🌞
+</x-mail::signature>
 
 </x-mail::message>

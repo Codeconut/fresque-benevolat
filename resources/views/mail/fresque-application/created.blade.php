@@ -29,7 +29,9 @@ Vous pouvez annuler votre participation à tout moment en cliquant <a target="_b
 
 ---
 
-Très belle fin de semaine et à bientôt !<br />
-Coralie, créatrice de la Fresque du bénévolat 🌞
+<x-mail::signature :fresque="$fresque">
+Très belle fin de semaine et à bientôt !
+</x-mail::signature>
+
 
 </x-mail::message>
