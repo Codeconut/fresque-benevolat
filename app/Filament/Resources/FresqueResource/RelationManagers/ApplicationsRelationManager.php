@@ -16,6 +16,8 @@ class ApplicationsRelationManager extends RelationManager
 {
     protected static string $relationship = 'applications';
 
+    protected static ?string $title = 'Participations';
+
     public function isReadOnly(): bool
     {
         return false;

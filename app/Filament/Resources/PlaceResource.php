@@ -122,7 +122,7 @@ class PlaceResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\EditAction::make()->modalHeading('Lieu'),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => PlaceResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
                 ])

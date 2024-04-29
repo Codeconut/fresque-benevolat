@@ -72,7 +72,7 @@ class FresqueApplicationResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\EditAction::make()->modalHeading('Participation'),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueApplicationResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
                 ])

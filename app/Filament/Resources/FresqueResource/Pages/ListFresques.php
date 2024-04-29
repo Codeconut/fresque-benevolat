@@ -13,6 +13,8 @@ class ListFresques extends ListRecords
 {
     protected static string $resource = FresqueResource::class;
 
+    protected static ?string $breadcrumb = null;
+
     protected function getHeaderActions(): array
     {
         return [

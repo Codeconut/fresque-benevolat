@@ -41,6 +41,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Admin - La Fresque du Bénévolat')
             ->brandLogo(asset('images/logos/fresque-benevolat-logo.svg'))
             ->brandLogoHeight('55px')
+            ->breadcrumbs(false)
             ->id('admin')
             ->path('admin')
             ->login()

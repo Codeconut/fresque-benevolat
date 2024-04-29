@@ -72,7 +72,7 @@ class FresqueApplicationFeedbackResource extends Resource
                 // Tables\Actions\ForceDeleteAction::make(),
                 // Tables\Actions\RestoreAction::make(),
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\EditAction::make()->modalHeading('Témoignage'),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueApplicationFeedbackResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
                 ])
