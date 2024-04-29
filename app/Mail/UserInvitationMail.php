@@ -29,7 +29,7 @@ class UserInvitationMail extends Mailable
     {
 
         return new Envelope(
-            subject: 'Invitation pour rejoindre le Fresque du Bénévolat',
+            subject: 'Invitation pour rejoindre la Fresque du Bénévolat',
         );
     }
 
