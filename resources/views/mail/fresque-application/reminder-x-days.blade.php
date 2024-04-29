@@ -1,5 +1,5 @@
 <x-mail::message>
-## Bonjour {{ $notifiable->first_name }}
+## Bonjour {{ $notifiable->first_name }},
 
 Plus que 2 jours avant de participer à la Fresque du Bénévolat.
 

@@ -154,7 +154,7 @@ const onSubmit = () => {
               </FormElement>
               <FormElement
                 name="questions.quest_ce_que_tu_as_adore"
-                label="Est-ce que cela t'a donné envie de te lancer dans le bénévolat ?"
+                label="Qu'as tu adoré dans cette Fresque ?"
                 :error="form.errors?.questions?.quest_ce_que_tu_as_adore"
               >
                 <Textarea

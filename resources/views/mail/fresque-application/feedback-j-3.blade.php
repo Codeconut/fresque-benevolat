@@ -14,11 +14,20 @@ Je donne mon avis
 
 ---
 
-### Découvre le guide
+## Découvre le guide
 
-Et pour t’accompagner dans cette grande aventure qu’est le bénévolat, je t’ai concocté avec soin le guide post-fresque qui synthétise tous les outils, informations et conseils partagés durant la session (et pleins d'autres pépites)
+Je t’ai soigneusement préparé un guide ultime post-fresque, il contient :
 
-<a target="_blank" href="https://jeveuxaider.notion.site/Fresque-du-B-n-volat-et-apr-s-af11cb0e09724e278f76e32973a2e440?pvs=4">Je découvre le guide</a>
+💡 Les essentiels à retenir<br>
+✅ Tes prochaines étapes<br>
+💬 Le feedback<br>
+✨ Valoriser ta participation<br>
+📊 Les études pour aller plus loin<br>
+📸 Les photos pour les souvenirs<br>
+
+<x-mail::button url="https://jeveuxaider.notion.site/Fresque-du-B-n-volat-et-apr-s-af11cb0e09724e278f76e32973a2e440?pvs=4">
+Je découvre le guide
+</x-mail::button>
 
 ---
 

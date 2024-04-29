@@ -1,5 +1,5 @@
 <x-mail::message>
-## Bonjour {{ $notifiable->first_name }}
+## Bonjour {{ $notifiable->first_name }},
 
 Bonne nouvelle : la Fresque du Bénévolat, c’est aujourd’hui !
 
