@@ -23,52 +23,6 @@ const props = defineProps({
     type: Object,
   },
 })
-
-console.log('props.feedback', props.feedback)
-const form = useForm({
-  rating: props.feedback?.rating || 3,
-  questions: {
-    donner_envie_lancer_benevolat: props.feedback?.questions?.donner_envie_lancer_benevolat || null,
-    comment_as_tu_trouve_les_animations:
-      props.feedback?.questions?.comment_as_tu_trouve_les_animations || null,
-    comment_as_tu_trouve_les_animateurs:
-      props.feedback?.questions?.comment_as_tu_trouve_les_animateurs || null,
-    as_tu_trouve_le_lieu_approprié:
-      props.feedback?.questions?.as_tu_trouve_le_lieu_approprié || null,
-    quest_ce_que_tu_as_adore: props.feedback?.questions?.quest_ce_que_tu_as_adore || null,
-    quest_ce_qui_ta_manque: props.feedback?.questions?.quest_ce_qui_ta_manque || null,
-    quaurais_tu_enleve_a_cette_fresque:
-      props.feedback?.questions?.quaurais_tu_enleve_a_cette_fresque || null,
-    quaurais_tu_fais_differement: props.feedback?.questions?.quaurais_tu_fais_differement || null,
-    serais_tu_interesse_pour_devenir_animateur:
-      props.feedback?.questions?.serais_tu_interesse_pour_devenir_animateur || null,
-  },
-})
-
-const onSubmit = () => {
-  console.log('onSubmit', form)
-  form.submit(
-    'post',
-    route('fresques.applications.feedback.updateOrCreate', {
-      fresqueApplication: props.token,
-    }),
-    {
-      //preserveScroll: false,
-      onStart: () => {
-        form.processing = true
-      },
-      onError: () => {
-        console.log('onError', form.errors)
-      },
-      onSuccess: () => {
-        console.log('onSuccess', form)
-      },
-      onFinish: () => {
-        form.processing = false
-      },
-    }
-  )
-}
 </script>
 
 <template>
@@ -95,9 +49,14 @@ const onSubmit = () => {
               Pour toute question tu peux contacter Coralie par mail<br />
               <strong>coralie.chauvin@beta.gouv.fr</strong>
             </p>
+            <p class="text-lg">
+              Et pour trouver des supers missions de bénévolat, près de chez toi ou à distance,
+              rendez-vous sur JeVeuxAider.gouv.fr. Il y en a pour tous les goûts et toutes les
+              façons d’agir.
+            </p>
           </div>
           <a href="https://jeveuxaider.gouv.fr" target="_blank">
-            <DsfrButton full size="lg">Trouver une mission JeVeuxAider.gouv.fr</DsfrButton>
+            <DsfrButton full size="lg">Trouver une mission de bénévolat</DsfrButton>
           </a>
         </div>
       </div>

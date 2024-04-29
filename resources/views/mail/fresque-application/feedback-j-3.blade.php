@@ -18,7 +18,7 @@ Je donne mon avis
 
 Et pour t’accompagner dans cette grande aventure qu’est le bénévolat, je t’ai concocté avec soin le guide post-fresque qui synthétise tous les outils, informations et conseils partagés durant la session (et pleins d'autres pépites)
 
-<a target="_blank" href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable])}}">Je découvre le guide</a>
+<a target="_blank" href="https://jeveuxaider.notion.site/Fresque-du-B-n-volat-et-apr-s-af11cb0e09724e278f76e32973a2e440?pvs=4">Je découvre le guide</a>
 
 ---
 

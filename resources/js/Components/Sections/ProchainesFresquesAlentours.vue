@@ -17,7 +17,7 @@ const props = defineProps({
     <div class="container">
       <div class="text-center mb-16">
         <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-4">
-          Les prochaines fresques aux alentours
+          Les prochaines fresques
         </h2>
       </div>
     </div>

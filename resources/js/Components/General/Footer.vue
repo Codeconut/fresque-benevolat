@@ -32,67 +32,107 @@ const gouvLinks = [
         <div class="container">
           <div class="grid grid-cols-1 md:grid-cols-6 text-xs gap-8">
             <div>
-              <div class="font-bold mb-8">Le bénévolat en France</div>
+              <div class="font-bold mb-8">Les activités bénévoles</div>
               <div class="grid grid-cols-1 gap-4">
-                <Link class="link" href="#">Bénévolat à la retraite</Link>
-                <Link class="link" href="#">Bénévolat pendant les fêtes</Link>
-                <Link class="link" href="#">Associations harcèlement scolaires</Link>
-                <Link class="link" href="#">Associations personnes seules</Link>
-                <Link class="link" href="#">Associations personnes âgées</Link>
-                <Link class="link" href="#">Associations santé</Link>
-                <Link class="link" href="#">Associations enfance</Link>
-                <Link class="link" href="#">Bénévolat de compétences</Link>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/activites/maraude">Maraude</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/activites/soins-aux-animaux"
+                  >Soins aux animaux</a
+                >
+                <a
+                  class="link"
+                  href="https://www.jeveuxaider.gouv.fr/activites/alphabetisation-apprentissage-du-francais-fle"
+                  >Alphabétisation</a
+                >
+                <a
+                  class="link"
+                  href="https://www.jeveuxaider.gouv.fr/activites/ramassage-de-dechets"
+                  >Ramassage de déchets</a
+                >
+                <a
+                  class="link"
+                  href="https://www.jeveuxaider.gouv.fr/activites/soutien-scolaire-et-formation"
+                  >Soutien scolaire</a
+                >
+                <a
+                  class="link"
+                  href="https://www.jeveuxaider.gouv.fr/activites/aide-aux-demarches-administratives"
+                  >Aides aux démarches administratives</a
+                >
+                <a
+                  class="link"
+                  href="https://www.jeveuxaider.gouv.fr/activites/droit-et-conseil-juridique"
+                  >Droit et conseil juridique</a
+                >
+                <a
+                  class="link"
+                  href="https://www.jeveuxaider.gouv.fr/activites/ecoute-aide-psychologique"
+                  >Ècoute / Aide psychologique</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/activites/evenementiel"
+                  >Événementiel</a
+                >
               </div>
             </div>
             <div class="">
               <div class="font-bold mb-8">Les autres fresques</div>
               <div class="grid grid-cols-1 gap-4">
-                <Link class="link" href="#">La fresque du climat</Link>
-                <Link class="link" href="#">La fresque du numérique</Link>
-                <Link class="link" href="#">Lien de navigation</Link>
-                <Link class="link" href="#">Lien de navigation</Link>
-                <Link class="link" href="#">Lien de navigation</Link>
-                <Link class="link" href="#">Lien de navigation</Link>
-                <Link class="link" href="#">Lien de navigation</Link>
-                <Link class="link" href="#">Lien de navigation</Link>
+                <a class="link" href="#">La fresque du climat</a>
+                <a class="link" href="#">La fresque du numérique</a>
+                <a class="link" href="#">Lien de navigation</a>
+                <a class="link" href="#">Lien de navigation</a>
+                <a class="link" href="#">Lien de navigation</a>
+                <a class="link" href="#">Lien de navigation</a>
+                <a class="link" href="#">Lien de navigation</a>
+                <a class="link" href="#">Lien de navigation</a>
               </div>
             </div>
 
             <div class="md:col-span-4">
               <div class="font-bold mb-8">Le bénévolat par ville</div>
               <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <Link class="link" href="#"> Amiens</Link>
-                <Link class="link" href="#">Angers</Link>
-                <Link class="link" href="#">Besançon</Link>
-                <Link class="link" href="#">Bordeaux</Link>
-                <Link class="link" href="#">Brest</Link>
-                <Link class="link" href="#">Caen</Link>
-                <Link class="link" href="#">Clermont-Ferrand</Link>
-                <Link class="link" href="#">Dijon</Link>
-                <Link class="link" href="#">Grenoble</Link>
-                <Link class="link" href="#">Le Havre</Link>
-                <Link class="link" href="#">Le Mans</Link>
-                <Link class="link" href="#">Lille</Link>
-                <Link class="link" href="#">Limoges</Link>
-                <Link class="link" href="#">Lyon</Link>
-                <Link class="link" href="#">Marseille</Link>
-                <Link class="link" href="#">Metz</Link>
-                <Link class="link" href="#">Montpellier</Link>
-                <Link class="link" href="#">Mulhouse</Link>
-                <Link class="link" href="#">Nancy</Link>
-                <Link class="link" href="#">Nantes</Link>
-                <Link class="link" href="#">Nice</Link>
-                <Link class="link" href="#">Nîmes</Link>
-                <Link class="link" href="#">Orléans</Link>
-                <Link class="link" href="#">Paris</Link>
-                <Link class="link" href="#">Perpignan</Link>
-                <Link class="link" href="#">Reims</Link>
-                <Link class="link" href="#">Rennes</Link>
-                <Link class="link" href="#">Rouen</Link>
-                <Link class="link" href="#">Saint-Étienne</Link>
-                <Link class="link" href="#">Strasbourg</Link>
-                <Link class="link" href="#">Toulon</Link>
-                <Link class="link" href="#">Toulouse</Link>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/amiens">Amiens</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/angers">Angers</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/bordeaux">Bordeaux</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/brest">Brest</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/caen">Caen</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/clermont-ferrand"
+                  >Clermont-Ferrand</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/dijon">Dijon</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/grenoble">Grenoble</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/le-havre">Le Havre</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/le-mans">Le Mans</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/lille">Lille</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/limoges">Limoges</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/lyon">Lyon</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/marseille"
+                  >Marseille</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/metz">Metz</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/montpellier"
+                  >Montpellier</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/mulhouse">Mulhouse</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/nancy">Nancy</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/nantes">Nantes</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/nice">Nice</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/nimes">Nîmes</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/orleans">Orléans</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/paris">Paris</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/perpignan"
+                  >Perpignan</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/reims">Reims</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/rennes">Rennes</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/rouen">Rouen</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/saint-etienne"
+                  >Saint-Étienne</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/strasbourg"
+                  >Strasbourg</a
+                >
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/toulon">Toulon</a>
+                <a class="link" href="https://www.jeveuxaider.gouv.fr/villes/toulouse">Toulouse</a>
               </div>
             </div>
           </div>
@@ -148,8 +188,10 @@ const gouvLinks = [
         <div class="container">
           <div class="text-gray-600 text-xs">
             <div class="divide-x">
-              <Link class="pl-0 cursor-pointer hover:underline pr-3 my-1 inline-block" href="#"
-                >Accessibilité : non conforme</Link
+              <Link
+                class="pl-0 cursor-pointer hover:underline pr-3 my-1 inline-block"
+                href="https://www.jeveuxaider.gouv.fr/accessibilite"
+                >Accessibilité : partiellement conforme</Link
               >
               <a
                 class="cursor-pointer hover:underline px-3 my-1 inline-block"
@@ -165,12 +207,20 @@ const gouvLinks = [
               >
                 Mentions légales
               </a>
-              <!-- <Link class="cursor-pointer hover:underline px-3 my-1 inline-block" href="#"
-                >Mentions légales</Link
+              <a
+                class="cursor-pointer hover:underline px-3 my-1 inline-block"
+                href="https://www.jeveuxaider.gouv.fr/conditions-generales-d-utilisation"
+                target="_blank"
               >
-              <Link class="cursor-pointer hover:underline px-3 my-1 inline-block" href="#"
-                >CGU</Link
-              > -->
+                CGU
+              </a>
+              <a
+                class="cursor-pointer hover:underline px-3 my-1 inline-block"
+                href="https://www.jeveuxaider.gouv.fr/plan-du-site"
+                target="_blank"
+              >
+                Plan du site
+              </a>
             </div>
 
             <div class="mt-6">

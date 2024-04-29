@@ -95,7 +95,7 @@ const onSubmit = () => {
             <div class="grid grid-cols-1 gap-8 mb-12">
               <FormElement
                 name="rating"
-                label="Est-ce que cette Fresque t'a plue ?"
+                label="Est-ce que cette Fresque t'a plu ?"
                 required
                 :error="form.errors.rating"
               >
@@ -160,7 +160,7 @@ const onSubmit = () => {
                 <Textarea
                   name="quest_ce_que_tu_as_adore"
                   v-model="form.questions.quest_ce_que_tu_as_adore"
-                  placeholder="Placeholder"
+                  placeholder=""
                   :error="!!form.errors?.questions?.quest_ce_que_tu_as_adore"
                 />
               </FormElement>
@@ -172,7 +172,7 @@ const onSubmit = () => {
                 <Textarea
                   name="quest_ce_qui_ta_manque"
                   v-model="form.questions.quest_ce_qui_ta_manque"
-                  placeholder="Placeholder"
+                  placeholder=""
                   :error="!!form.errors?.questions?.quest_ce_qui_ta_manque"
                 />
               </FormElement>
@@ -184,7 +184,7 @@ const onSubmit = () => {
                 <Textarea
                   name="quaurais_tu_enleve_a_cette_fresque"
                   v-model="form.questions.quaurais_tu_enleve_a_cette_fresque"
-                  placeholder="Placeholder"
+                  placeholder=""
                   :error="!!form.errors?.questions?.quaurais_tu_enleve_a_cette_fresque"
                 />
               </FormElement>
@@ -196,7 +196,7 @@ const onSubmit = () => {
                 <Textarea
                   name="quaurais_tu_fais_differement"
                   v-model="form.questions.quaurais_tu_fais_differement"
-                  placeholder="Placeholder"
+                  placeholder=""
                   :error="!!form.errors?.questions?.quaurais_tu_fais_differement"
                 />
               </FormElement>
