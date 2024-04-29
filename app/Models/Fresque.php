@@ -104,7 +104,7 @@ class Fresque extends Model
 
     public function recomputePlacesLeft()
     {
-        $placesLeft = $this->places - $this->applications->count();
+        $placesLeft = $this->places - $this->applications->whereIn('state', ['registered', 'confirmed_presence', 'validated'])->count();
         return $placesLeft >= 0 ? $placesLeft : 0;
     }
 

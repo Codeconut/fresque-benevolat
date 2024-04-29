@@ -72,11 +72,36 @@ const title = computed(() => {
               Votre participation est au statut:
               <strong>{{ $taxonomies.getLabel(application.state, 'application_states') }}</strong>
             </p>
-            <p class="text-lg px-12">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum accusantium
-              assumenda quasi repudiandae a nulla deleniti vel. Magni dignissimos repellat non
-              laboriosam totam, ratione, natus officiis architecto ut rem laudantium?
-            </p>
+
+            <template v-if="application.state === 'registered'">
+              <p class="text-lg px-12">
+                Pour préparer au mieux la fresque, on a besoin de savoir si vous serez bien présent.
+                En tout cas, nous, <strong>on compte sur vous</strong> !
+              </p>
+              <p class="text-lg px-12">
+                Si vous ne pouvez plus venir, pas de problème, annulez votre inscription, et libérez
+                la place pour quelqu’un d’autre.
+              </p>
+            </template>
+            <template v-if="application.state === 'confirmed_presence'">
+              <p class="text-lg px-12">
+                Vous faites partie des chanceux qui participeront à cette fresque. En tout cas,
+                nous, on a hâte de vous y retrouver !
+              </p>
+              <p class="text-lg px-12">
+                Si vous ne pouvez plus venir, pas de problème, annulez votre inscription, et libérez
+                la place pour quelqu’un d’autre.
+              </p>
+            </template>
+            <template v-if="application.state === 'canceled'">
+              <p class="text-lg px-12">
+                Vous ne serez donc pas des nôtres .. Mais ce n’est que partie remise !
+              </p>
+              <p class="text-lg px-12">
+                Si vous changez d’avis, et souhaitez malgré tout participer à cette super fresque,
+                dites le nous en confirmant votre présence.
+              </p>
+            </template>
           </div>
 
           <template v-if="application.state === 'registered'">

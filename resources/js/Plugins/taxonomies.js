@@ -1,7 +1,7 @@
 const taxonomies = {
   application_states: [
     { key: 'registered', label: 'Inscrite' },
-    { key: 'confirmed_presence', label: 'Présence confirmé' },
+    { key: 'confirmed_presence', label: 'Présence confirmée' },
     { key: 'validated', label: 'Réalisée' },
     { key: 'canceled', label: 'Annulée' },
     { key: 'missing', label: 'Absent(e)' },
