@@ -19,7 +19,7 @@ import Button from '@/Components/Dsfr/Button.vue'
               />
               <h3 class="text-3xl lg:text-5xl mb-8 font-bold">Déjà prêt à passer à l’action ?</h3>
               <p class="text-xl lg:text-2xl mb-8">
-                <strong>Plus de 17 000 missions de bénévolat</strong> n’attendent que vous sur
+                <strong>Plus de 18 000 missions de bénévolat</strong> n’attendent que vous sur
                 JeVeuxAider.gouv.fr
               </p>
               <a href="https://jeveuxaider.gouv.fr/missions-benevolat" target="_blank">

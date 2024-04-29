@@ -47,7 +47,10 @@ import { Link } from '@inertiajs/vue3'
         </div>
       </div>
       <div class="mt-8">
-        <a href="#" target="_blank">
+        <a
+          href="https://www.jeveuxaider.gouv.fr/missions-benevolat?structure.name=JeVeuxAider.gouv.fr"
+          target="_blank"
+        >
           <Button
             variant="custom"
             size="lg"

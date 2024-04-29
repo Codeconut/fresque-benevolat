@@ -72,7 +72,7 @@ const Pane = defineComponent(
                   Grâce à notre communauté d’animateurs, nous menons des fresques presque partout en
                   France, de Lille à Marseille, de Brest à Strasbourg
                 </Pane>
-                <Pane name="comprendre" title="Comprendre le bénévolat et passer à l’action">
+                <Pane name="comprendre" title="Une cause qui vous tient à coeur">
                   Vous repartirez avec des leviers et premiers pas concrets pour sauter le pas et
                   vous engager en tant que bénévole, dans une association et pour une cause qui vous
                   tiennent à coeur

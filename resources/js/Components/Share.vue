@@ -6,7 +6,7 @@ import {
   RiShareFill,
   RiFacebookCircleFill,
   RiMessengerFill,
-  RiTwitterFill,
+  RiTwitterXFill,
   RiLinkedinFill,
   RiWhatsappFill,
 } from '@remixicon/vue'
@@ -108,7 +108,7 @@ const runWorkaround = (index) => {
               @open="runWorkaround"
               class="hover:text-dsfr-blue"
             >
-              <RiTwitterFill size="60" class="fill-current" />
+              <RiTwitterXFill size="60" class="fill-current" />
             </ShareNetwork>
             <ShareNetwork
               ref="whatsappRef"

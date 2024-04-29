@@ -46,7 +46,7 @@ defineProps({
         />
 
         <div class="mt-8" v-if="fresque.animators.length">
-          Animé par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
+          Animée par {{ fresque.animators.map((item) => item.public_name).join(', ') }}
         </div>
       </div>
     </div>
