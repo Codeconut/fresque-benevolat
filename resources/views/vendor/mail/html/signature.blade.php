@@ -7,7 +7,7 @@
 
 {{ $slot }}
 @if (count($animators) > 0)
-    <br> {{ implode('& ', $animators) }} 🌞
+    <br> {{ implode(' & ', $animators) }} 🌞
 @else
     <br> Les animateurs 🌞
 @endif

@@ -26,7 +26,7 @@ class CreateFresqueApplication
             ],
             'first_name' => 'required',
             'last_name' => 'required',
-            'mobile' => 'optional',
+            'mobile' => '',
             'info_benevolat' => 'required',
             'info_fresque' => 'required',
             'has_accepted_emails' => 'required|boolean|in:1',

@@ -6,7 +6,7 @@ import { Button } from '@/Components/Dsfr'
   <div class="py-10 lg:py-20">
     <div class="container">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="relative text-3xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
+        <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
           <span class="relative">
             <span>O</span>
             <img

@@ -121,8 +121,10 @@ const changePage = (page) => {
     <div class="container">
       <div class="lg:border-t lg:py-14">
         <Faq />
-        <JVAPretAPasserAction />
       </div>
+    </div>
+    <div class="lg:container pt-6 lg:py-14">
+      <JVAPretAPasserAction />
     </div>
   </AppLayout>
 </template>

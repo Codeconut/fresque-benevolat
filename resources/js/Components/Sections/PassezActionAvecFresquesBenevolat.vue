@@ -6,7 +6,7 @@ import Button from '@/Components/Dsfr/Button.vue'
 <template>
   <div class="relative">
     <img
-      class="absolute top-[-100px] right-0"
+      class="absolute top-[-130px] lg:top-[-100px] right-0"
       src="/images/illustrations/dashed-line-1.svg"
       alt=""
     />
