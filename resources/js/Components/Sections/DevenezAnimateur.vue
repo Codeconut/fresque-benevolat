@@ -13,7 +13,7 @@ import { Link } from '@inertiajs/vue3'
     />
     <div class="relative container">
       <div class="mb-14">
-        <h2 class="relative inline text-3xl lg:text-5xl leading-[56px] font-bold">
+        <h2 class="relative inline text-3xl lg:text-5xl lg:leading-[56px] font-bold">
           Devenez animateur
           <img
             v-svg-inline

@@ -28,7 +28,7 @@ const markdown = new MarkdownIt()
       </a>
     </div>
 
-    <Swiper :modules="[Pagination, A11y]" :pagination="{ clickable: true }">
+    <Swiper :modules="[Pagination, A11y]" :pagination="{ clickable: true }" :spaceBetween="24">
       <SwiperSlide v-for="(photo, i) in place.photos_urls" :key="i">
         <img :src="`${photo}`" alt="" class="object-cover rounded-lg" />
       </SwiperSlide>
@@ -42,6 +42,9 @@ const markdown = new MarkdownIt()
 
 <style lang="postcss" scoped>
 .swiper {
+  :deep(.swiper-wrapper) {
+    @apply rounded-lg;
+  }
   :deep(.swiper-pagination) {
     @apply text-left relative mt-4;
     .swiper-pagination-bullet {

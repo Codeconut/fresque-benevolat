@@ -42,8 +42,10 @@ const props = defineProps({
         src="/images/illustrations/dashed-line-7.svg"
         alt=""
       />
-      <Faq class="relative z-10" />
-      <ProfessionnelsAideOrganiserFresque class="relative z-10" />
+      <div class="container">
+        <Faq class="relative z-10" />
+        <ProfessionnelsAideOrganiserFresque class="relative z-10" />
+      </div>
     </div>
     <JVAPretAPasserAction />
   </AppLayout>

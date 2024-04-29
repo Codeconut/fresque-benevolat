@@ -25,14 +25,14 @@ defineProps({
     :class="[
       'group border flex bg-white hover:shadow-xl transition-all p-4',
       { 'flex-col sm:flex-row': orientation === 'horizontal' },
-      { 'flex-col w-[384px]': orientation === 'vertical' },
+      { 'flex-col w-full max-w-[384px]': orientation === 'vertical' },
     ]"
   >
     <div
       :class="[
         'max-w-full',
         { 'w-[395px] h-[216px] sm:w-[264px] sm:h-[196px]': orientation === 'horizontal' },
-        { 'w-[384px] h-[216px] ': orientation === 'vertical' },
+        { 'w-full max-w-[384px] h-[216px] ': orientation === 'vertical' },
       ]"
     >
       <img
@@ -48,7 +48,7 @@ defineProps({
         { 'py-8 px-4': orientation === 'vertical' },
       ]"
     >
-      <div class="mb-6 flex gap-2">
+      <div class="mb-6 flex gap-2 flex-wrap">
         <Tag variant="custom" :icon="RiCalendarEventLine">{{
           $dayjs(fresque.date).format('DD MMMM YYYY')
         }}</Tag>

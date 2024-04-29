@@ -60,7 +60,7 @@ const gouvLinks = [
 
             <div class="md:col-span-4">
               <div class="font-bold mb-8">Le bénévolat par ville</div>
-              <div class="grid grid-cols-4 gap-4">
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <Link class="link" href="#"> Amiens</Link>
                 <Link class="link" href="#">Angers</Link>
                 <Link class="link" href="#">Besançon</Link>

@@ -53,7 +53,7 @@ const onSwiper = (swiperInstance) => {
       alt=""
     />
     <div class="relative lg:container">
-      <h2 class="px-4 lg:px-0 relative text-3xl lg:text-5xl leading-[56px] font-bold mb-14">
+      <h2 class="px-4 lg:px-0 relative text-3xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
         Ils ont participé et ont adoré
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">

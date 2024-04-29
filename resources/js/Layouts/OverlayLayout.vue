@@ -27,7 +27,7 @@ const handleClose = () => {
           'top-0 left-0 py-12 lg:py-24 bg-dsfr-beige z-[100] min-h-screen',
           {
             'fixed inset-0': fixed,
-            'realtive ': !fixed,
+            'relative  ': !fixed,
           },
         ]"
       >
@@ -45,7 +45,7 @@ const handleClose = () => {
           :class="[
             'flex flex-col',
             {
-              'justify-center items-center h-screen': fixed,
+              'justify-center items-center h-full': fixed,
               ' ': !fixed,
             },
           ]"
@@ -60,7 +60,7 @@ const handleClose = () => {
               <RiCloseLine class="h-4 top-[1px] relative" /> Fermer
             </div>
           </div>
-          <div class="mt-8 pb-8 lg:mt-0">
+          <div :class="[{ 'mt-8 pb-8 lg:mt-0': !fixed }]">
             <slot />
           </div>
         </div>

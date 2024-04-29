@@ -13,10 +13,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="py-10 lg:py-20">
+  <div v-if="fresques.length" class="py-10 lg:py-20">
     <div class="container">
       <div class="text-center mb-16">
-        <h2 class="relative text-3xl lg:text-5xl leading-[56px] font-bold mb-4">
+        <h2 class="relative text-3xl lg:text-5xl lg:leading-[56px] font-bold mb-4">
           Les prochaines fresques aux alentours
         </h2>
       </div>
@@ -24,7 +24,7 @@ const props = defineProps({
 
     <div class="overflow-x-hidden">
       <div class="container">
-        <div class="flex flex-wrap gap-12 justify-center pb-8">
+        <div class="flex flex-wrap gap-6 justify-center pb-8">
           <Link
             :href="route('fresques.show', { fresque: fresque.slug })"
             v-for="fresque in fresques"

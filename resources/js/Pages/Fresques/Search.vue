@@ -118,7 +118,7 @@ const changePage = (page) => {
         </div>
       </div>
     </div>
-    <div class="lg:container">
+    <div class="container">
       <div class="lg:border-t lg:py-14">
         <Faq />
         <JVAPretAPasserAction />
