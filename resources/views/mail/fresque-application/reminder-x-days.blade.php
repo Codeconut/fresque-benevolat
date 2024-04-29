@@ -18,7 +18,7 @@ Savoir le nombre exact de participants est crucial pour que je puisse organiser 
 Tu as des questions ? Tu peux retrouver toutes les informations sur la fresque ici, ou répondre à ce mail directement, j'y répondrais avec plaisir.
 
 <x-mail::signature :fresque="$fresque">
-À tout à l’heure !
+À très vite,
 </x-mail::signature>
 
 </x-mail::message>

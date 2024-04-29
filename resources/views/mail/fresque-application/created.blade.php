@@ -25,7 +25,7 @@ N’hésitez pas à partager la fresque à vos ami(e)s pour qu’ils puissent au
 
 ### Un empêchement ?
 
-Vous pouvez annuler votre participation à tout moment en cliquant <a target="_blank" href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable])}}">sur le lien suivant</a>
+Tu peux annuler ta participation à tout moment en cliquant <a target="_blank" href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable])}}">sur le lien suivant</a>
 
 ---
 

@@ -17,12 +17,12 @@ Tu peux retrouver toutes les informations sur cette fresque ici
 
 ### Un empêchement ?
 
-Vous pouvez annuler votre participation à tout moment en cliquant <a target="_blank" href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable])}}">sur le lien suivant</a>
+Tu peux annuler ta participation à tout moment en cliquant <a target="_blank" href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable])}}">sur le lien suivant</a>
 
 ---
 
 <x-mail::signature :fresque="$fresque">
-A très vite,
+À tout à l’heure !
 </x-mail::signature>
 
 </x-mail::message>

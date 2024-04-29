@@ -75,7 +75,7 @@ const onSubmit = () => {
         <div class="text-lg lg:text-xl mb-2">
           Un grand merci pour ta participation à la Fresque du Bénévolat !
         </div>
-        <div class="text-xl lg:text-[28px] leading-10 font-bold">
+        <div class="text-2xl lg:text-[28px] leading-10 font-bold">
           À {{ fresque.place.city }}, le {{ $dayjs(fresque.date).format('DD MMMM YYYY') }} de
           {{ fresque.schedules }}
         </div>

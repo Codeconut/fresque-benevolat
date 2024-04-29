@@ -49,14 +49,15 @@ const title = computed(() => {
     <div class="container">
       <div class="max-w-full w-[792px] mx-auto text-center mb-10">
         <div class="text-lg lg:text-xl mb-2">Votre prochaine Fresque du Bénévolat</div>
-        <div class="text-xl lg:text-[28px] leading-10 font-bold">
-          À {{ fresque.place.city }}, le {{ $dayjs(fresque.date).format('DD MMMM YYYY') }} de
-          {{ fresque.schedules }}
+        <div class="text-2xl lg:text-[28px] leading-10 font-bold">
+          À {{ fresque.place.city }}, le {{ $dayjs(fresque.date).format('DD MMMM YYYY') }} de {{
+            fresque.schedules
+          }}
         </div>
       </div>
       <div class="max-w-full w-[792px] mx-auto">
-        <div class="p-12 bg-white shadow-lg text-center">
-          <div class="mb-12">
+        <div class="p-8 lg:p-12 bg-white shadow-lg text-center">
+          <div class="mb-6 lg:mb-12">
             <img
               v-svg-inline
               class="h-[75px] w-[67px] mx-auto text-[#6B93F6]"
