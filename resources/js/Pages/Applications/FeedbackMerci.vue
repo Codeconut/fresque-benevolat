@@ -47,8 +47,8 @@ const props = defineProps({
             <h2 class="text-[32px] font-bold">Merci pour ton feedback ! 😄</h2>
             <p class="text-lg">Nous avons été ravis d'animer cette fresque avec toi !</p>
             <p class="text-lg">
-              Pour toute question tu peux contacter Coralie par mail<br />
-              <strong>coralie.chauvin@beta.gouv.fr</strong>
+              Pour toute question tu peux contacter le support par mail<br />
+              <strong>support@jeveuxaider.beta.gouv.fr</strong>
             </p>
             <p class="text-lg">
               Et pour trouver des supers missions de bénévolat, près de chez toi ou à distance,

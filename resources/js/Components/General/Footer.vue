@@ -76,14 +76,36 @@ const gouvLinks = [
             <div class="">
               <div class="font-bold mb-8">Les autres fresques</div>
               <div class="grid grid-cols-1 gap-4">
-                <a class="link" href="#">La fresque du climat</a>
-                <a class="link" href="#">La fresque du numérique</a>
-                <a class="link" href="#">Lien de navigation</a>
-                <a class="link" href="#">Lien de navigation</a>
-                <a class="link" href="#">Lien de navigation</a>
-                <a class="link" href="#">Lien de navigation</a>
-                <a class="link" href="#">Lien de navigation</a>
-                <a class="link" href="#">Lien de navigation</a>
+                <a class="link" target="_blank" href="https://www.fresquedesnouveauxrecits.org/"
+                  >La Fresque des Nouveaux Récits</a
+                >
+                <a class="link" target="_blank" href="https://www.2030glorieuses.org/"
+                  >2030 Glorieuses</a
+                >
+                <a class="link" target="_blank" href="https://fresque-du-sexisme.org/"
+                  >La Fresque du sexisme</a
+                >
+                <a class="link" target="_blank" href="https://la-fresque-de-la-rue.webflow.io/"
+                  >La Fresque de la rue</a
+                >
+                <a class="link" target="_blank" href="https://www.ticketforchange.org/1er-acte"
+                  >1er Acte</a
+                >
+                <a class="link" target="_blank" href="https://www.fresquedunumerique.org/"
+                  >La Fresque du Numérique</a
+                >
+                <a class="link" target="_blank" href="https://www.fresquedunumerique.org/"
+                  >La Fresque de la mobilité</a
+                >
+                <a class="link" target="_blank" href="https://fresqueduclimat.org/"
+                  >La Fresque du Climat</a
+                >
+                <a class="link" target="_blank" href="https://universitedufacteurhumain.com/"
+                  >La Fresque du Facteur Humain</a
+                >
+                <a class="link" target="_blank" href="https://fresquedeladiversite.org/"
+                  >La Fresque de la Diversité</a
+                >
               </div>
             </div>
 

@@ -14,7 +14,7 @@ const props = defineProps({
   },
   placeholder: {
     type: String,
-    default: 'Sélectionner une option',
+    default: 'Sélectionne une option',
   },
   options: {
     type: Array,

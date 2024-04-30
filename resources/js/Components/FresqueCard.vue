@@ -44,7 +44,7 @@ defineProps({
     <div
       :class="[
         'flex-1 relative',
-        { 'px-8 py-4 h-full': orientation === 'horizontal' },
+        { 'py-8 px-4 lg:px-8 lg:py-4 h-full': orientation === 'horizontal' },
         { 'py-8 px-4': orientation === 'vertical' },
       ]"
     >
@@ -86,7 +86,7 @@ defineProps({
       <RiArrowRightLine
         v-if="orientation === 'horizontal'"
         size="32"
-        class="text-dsfr-blue absolute bottom-0 right-6 group-hover:right-8 transition-all"
+        class="hidden lg:block text-dsfr-blue absolute bottom-0 right-6 group-hover:right-8 transition-all"
       />
     </div>
   </div>

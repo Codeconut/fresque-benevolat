@@ -14,10 +14,10 @@ Je suis très enthousiaste à l'idée de passer ce moment ensemble, j'espère qu
 
 ---
 
-### Proposez à vos ami(e)s de participer !
+### Propose à tes ami(e)s de participer !
 
 Plus on est de fous, plus on rit 😊<br />
-N’hésitez pas à partager la fresque à vos ami(e)s pour qu’ils puissent aussi s’inscrire
+N’hésite pas à partager la fresque à tes ami(e)s pour qu’ils puissent aussi s’inscrire
 
 <x-mail::button :url="$url">Je partage le lien de la fresque</x-mail::button>
 

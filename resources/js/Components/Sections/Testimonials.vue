@@ -12,24 +12,15 @@ import { Button, IconButton } from '@/Components/Dsfr'
 const testimonials = [
   {
     logo: '/images/logos/protection-civile-logo.png',
-    firstName: 'Véronique',
-    benevoleLabel: 'bénévole auprès des personnes isolées chez la',
-    organisationName: 'Protection Civile',
-    text: 'Mon meilleur souvenir, c’était une petite dame de plus de 90 ans qui était dans sa jeunesse une chanteuse lyrique. Elle m’a raconté ses nombreuses rencontres artistiques. Je l’ai appelée plusieurs fois. N’hésitez pas à vous inscrire comme bénévoles, vous en sortirez grandi.',
+    firstName: 'Maryline',
+    benevoleLabel: 'étudiante',
+    text: 'J’ai adoré le moment où chacun devrait prendre une image et écrire un message, c’était un très fort de lire ce que les autres ont écrits et de voir à quels point on est différents mais tellement proches.',
   },
   {
     logo: '/images/logos/protection-civile-logo.png',
-    firstName: 'Véronique',
-    benevoleLabel: 'bénévole auprès des personnes isolées chez la',
-    organisationName: 'Organisation 1',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.',
-  },
-  {
-    logo: '/images/logos/protection-civile-logo.png',
-    firstName: 'Véronique',
-    benevoleLabel: 'bénévole auprès des personnes isolées chez la',
-    organisationName: 'Organisation 2',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.',
+    firstName: 'Thomas',
+    benevoleLabel: 'participant',
+    text: 'J’ai bien aimé l’énergie qui en ressort, la motivation des animatrices. Comme première Fresque, c’était super riche et motivant !',
   },
 ]
 
@@ -74,15 +65,14 @@ const onSwiper = (swiperInstance) => {
                     {{ testimonial.text }}
                   </p>
                   <div class="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
-                    <img
-                      :src="testimonial.logo"
-                      :alt="testimonial.organisationName"
-                      class="relative z-[3] flex-none h-[48px] w-[48px] lg:w-[60px] lg:h-[60px]"
-                    />
+                    <div
+                      class="h-[40px] w-[40px] bg-[#E8EDFF] border-[#E3E3FD] rounded-full flex justify-center items-center"
+                    >
+                      <span class="relative top-[-1px]">😎</span>
+                    </div>
                     <p class="text-[#666666] text-md lg:text-lg mt-4 lg:mt-0">
                       <strong>{{ testimonial.firstName }}</strong
                       >, {{ testimonial.benevoleLabel }}
-                      <strong>{{ testimonial.organisationName }}</strong>
                     </p>
                   </div>
                 </SwiperSlide>

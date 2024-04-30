@@ -82,7 +82,7 @@ const changePage = (page) => {
                 id="city"
                 name="city"
                 v-model="selectedCity"
-                placeholder="Sélectionner une ville"
+                placeholder="Sélectionne une ville"
                 :options="citiesOptions"
                 @update:modelValue="onCitiesChange"
               />

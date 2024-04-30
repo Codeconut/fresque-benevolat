@@ -114,7 +114,7 @@ const onSubmit = () => {
                 id="info_benevolat"
                 name="info_benevolat"
                 v-model="form.info_benevolat"
-                placeholder="Sélectionner une option"
+                placeholder="Sélectionne une option"
                 :options="[
                   {
                     value: 'yes_many',
@@ -142,7 +142,7 @@ const onSubmit = () => {
                 id="info_fresque"
                 name="info_fresque"
                 v-model="form.info_fresque"
-                placeholder="Sélectionner une option"
+                placeholder="Sélectionne une option"
                 :options="[
                   {
                     value: 'yes',
