@@ -16,7 +16,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
             <div class="px-10 pt-12 pb-16 relative">
               <h3 class="text-3xl mb-8 font-bold">Déjà prêt à passer <br />à l’action ?</h3>
               <p class="text-xl mb-8">
-                Plus de 18 000 missions de bénévolat n’attendent que vous sur JeVeuxAider.gouv.fr
+                Plus de 18 000 missions de bénévolat n’attendent que toi sur JeVeuxAider.gouv.fr
               </p>
               <img
                 src="/images/logos/jeveuxaider-logo-white.png"

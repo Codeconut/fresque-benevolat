@@ -40,7 +40,7 @@ const logout = () => {
             </div> -->
 
             <Link :href="route('fresques.index')">
-              <Button class="hidden sm:block">Trouver une fresque</Button>
+              <Button class="hidden sm:block">Trouve une fresque</Button>
               <IconButton variant="secondary" class="sm:hidden" :icon="RiSearchLine" />
             </Link>
           </div>

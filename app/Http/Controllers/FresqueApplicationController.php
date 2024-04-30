@@ -19,6 +19,7 @@ class FresqueApplicationController extends Controller
 
         return Inertia::render('Applications/Registered', [
             'fresque' =>  $fresque,
+            'application' => $fresqueApplication,
         ]);
     }
 

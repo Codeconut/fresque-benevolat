@@ -14,7 +14,7 @@ import { Link } from '@inertiajs/vue3'
     <div class="relative container">
       <div class="mb-14">
         <h2 class="relative inline text-4xl lg:text-5xl lg:leading-[56px] font-bold">
-          Devenez animateur
+          Deviens animateur
           <img
             v-svg-inline
             src="/images/icons/gimmick.svg"
@@ -23,26 +23,31 @@ import { Link } from '@inertiajs/vue3'
           />
         </h2>
         <div class="text-xl lg:text-2xl text-[#666666] mt-4">
-          On vous donne tous les outils pour animer vous-même des fresques du bénévolat
+          On te donne tous les outils pour animer toi-même des fresques du bénévolat
         </div>
       </div>
       <div class="flex flex-col divide-y">
         <div class="flex flex-col lg:flex-row gap-4 py-8">
-          <div class="text-3xl font-bold lg:w-[376px]">Sensibilisez</div>
+          <div class="text-3xl font-bold lg:w-[376px]">Sensibilise</div>
           <div class="text-xl flex-1">
-            Soyez acteur du bénévolat près de chez vous en parlant du bénévolat et de ses bienfaits
+            Deviens acteur du bénévolat près de chez toi en explorant les bienfaits du bénévolat
+            pour soi, pour les autres, et pour la société dans son ensemble
           </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-4 py-8">
-          <div class="text-3xl font-bold lg:w-[376px]">Levez les freins</div>
+          <div class="text-3xl font-bold lg:w-[376px]">Lève les freins</div>
           <div class="text-xl flex-1">
-            Donnez le petit coup de pouce à ceux qui hésiteraient à sauter le pas du bénévolat
+            Aide les participants à se reconnecter avec leurs engagements, valeurs, attentes,
+            peurs... Et forme-toi à l'animation et aux outils d'intelligence collective, avec style
+            et panache !
           </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-4 py-8">
-          <div class="text-3xl font-bold lg:w-[376px]">Inspirez</div>
+          <div class="text-3xl font-bold lg:w-[376px]">Inspire</div>
           <div class="text-xl flex-1">
-            Animez des moments de convivialité pour tout type de public !
+            Tu es convaincu que les besoins des associations doivent rencontrer la mobilisation
+            citoyenne ? Donne envie aux participants de sauter le pas du bénévolat. On n’est pas là
+            pour enfiler des perles !
           </div>
         </div>
       </div>

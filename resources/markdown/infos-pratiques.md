@@ -1,4 +1,3 @@
 - **Rendez-vous 15 min avant le début de l’atelier** pour poser tes affaires et faire connaissance avec les autres participant(e)s
 - Arrivé(e) sur place, **demande à l’accueil** où se situe la Fresque du Bénévolat, tu seras guidé(e) vers la salle de l’atelier
 - **Apporte ton énergie et ta bonne humeur**, et c’est tout !
-- **Qu'est ce que je dois apporter avec moi ?** Ton énergie et ta bonne humeur, c'est tout ! (et un.e ami.e !! 😉)

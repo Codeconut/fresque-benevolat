@@ -8,6 +8,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  application: {
+    type: Object,
+    required: true,
+  },
 })
 </script>
 
@@ -37,17 +41,17 @@ const props = defineProps({
           </div>
           <div class="mb-12 space-y-8">
             <h2 class="text-[28px] lg:text-[32px] font-bold">
-              Félicitations pour avoir sauté le pas !
+              Félicitations{{ application.first_name }} !
             </h2>
-            <p class="text-lg">Vous recevrez un email de rappel avant votre Fresque.</p>
+            <p class="text-lg">Tu recevras un email de rappel avant ta Fresque.</p>
             <p class="text-lg lg:px-12">
-              Un empêchement ? Pas de panique, vous pouvez vous servir du lien dans le mail que vous
-              venez de recevoir pour nous prévenir.
+              Un empêchement ? Pas de panique, tu peux te servir du lien dans le mail que tu viens
+              de recevoir pour nous prévenir.
             </p>
             <p class="text-lg font-bold">À bientôt !</p>
           </div>
           <Link :href="route('fresques.show', { fresque: props.fresque })">
-            <DsfrButton full size="lg">Retour à la fresque</DsfrButton>
+            <DsfrButton full size="lg">Retour à la page d’accueil</DsfrButton>
           </Link>
         </div>
       </div>

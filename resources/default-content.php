@@ -8,7 +8,7 @@ return [
   [
     "type" => "paragraph",
     "data" => [
-      "content" => "La Fresque du Bénévolat est une expérience collective de 2h30 durant laquelle vous serez guidés par vos animateurs via des jeux et exercices interactifs pour mieux comprendre le bénévolat."
+      "content" => "La Fresque du Bénévolat est une expérience collective de 2h30 durant laquelle tu seras guidé(e) par tes animateurs via des jeux et exercices interactifs pour mieux comprendre le bénévolat."
     ]
   ],
   [
@@ -21,14 +21,14 @@ return [
   [
     "type" => "paragraph",
     "data" => [
-      "content" => "* Rencontrer d'autres bénévoles\n* T'informer sur le bénévolat\n* T'outiller pour passer à l'action et en apprendre plus sur ton rapport au bénévolat\n* Rire !"
+      "content" => "* Rencontrer d'autres bénévoles\n* T'informer sur le bénévolat\n* En apprendre plus sur ton rapport au bénévolat\n* T'outiller pour passer à l'action \n* Rire !"
     ]
   ],
   ["type" => "heading", "data" => ["content" => "Pour qui ?", "level" => "h2"]],
   [
     "type" => "paragraph",
     "data" => [
-      "content" => "La Fresque du Bénévolat est faite pour tout le monde, venez 😉"
+      "content" => "La Fresque du Bénévolat est faite pour tout le monde, viens 😉"
     ]
   ],
 ];

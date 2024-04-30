@@ -13,12 +13,12 @@ import Footer from '@/Components/General/Footer.vue'
 defineProps({
   title: {
     type: String,
-    default: 'Passez à l’action avec la Fresque du Bénévolat',
+    default: 'Passe à l’action avec la Fresque du Bénévolat',
   },
   description: {
     type: String,
     default:
-      'Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous toutes ses formes ! Créé et animé avec amour par JeVeuxAider.gouv.fr.',
+      'Participe à un atelier participatif de 2h30 top chrono et découvre le bénévolat sous toutes ses formes ! Créé et animé avec amour par JeVeuxAider.gouv.fr.',
   },
   imagePath: {
     type: String,

@@ -19,15 +19,15 @@ import Button from '@/Components/Dsfr/Button.vue'
       <div class="relative z-10 py-[48px] lg:py-[120px]">
         <div class="max-w-[629px]">
           <h1 class="font-bold text-[40px] leading-[48px] lg:text-[80px] lg:leading-[88px]">
-            Passez à l’action avec la Fresque du Bénévolat
+            Passe à l’action avec la Fresque du Bénévolat
           </h1>
           <p class="text-[22px] lg:text-2xl my-8">
-            Participez à un atelier participatif de 2h30 top chrono et découvrez le bénévolat sous
-            toutes ses formes
+            En 2h30 d'atelier collectif prépare-toi à mettre ton énergie au service des grandes
+            causes et à découvrir le bénévolat sous toutes ses formes.
           </p>
           <Link :href="route('fresques.index')">
             <Button size="lg"
-              >Trouver une fresque <span class="hidden lg:inline">près de chez moi</span></Button
+              >Trouve une fresque <span class="hidden lg:inline">à deux pas</span></Button
             >
           </Link>
         </div>

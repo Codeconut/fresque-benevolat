@@ -61,10 +61,10 @@ const changePage = (page) => {
         <div class="relative">
           <div class="max-w-3xl pb-6">
             <h1 class="font-bold text-[40px] leading-[48px] lg:text-[56px] lg:leading-[64px]">
-              (re)Découvrez le bénévolat en participant à la Fresque
+              (re)Découvre le bénévolat en participant à la Fresque
             </h1>
             <p class="text-[22px] lg:text-2xl my-8">
-              Trouvez la prochaine fresque du bénévolat près de chez vous
+              Trouve la prochaine fresque du bénévolat près de chez toi
             </p>
             <img
               class="hidden xl:block xl:absolute xl:bottom-0 xl:right-0"

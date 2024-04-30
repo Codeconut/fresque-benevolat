@@ -15,7 +15,7 @@ import { Button } from '@/Components/Dsfr'
               alt=""
               class="text-[#77EDA5] focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
             /> </span
-          >n vous aide <br />
+          >n t'aide <br />
           à organiser des fresques
         </h2>
       </div>
@@ -27,7 +27,7 @@ import { Button } from '@/Components/Dsfr'
             <h3 class="text-3xl font-bold">Écoles <br class="hidden lg:block" />et entreprises</h3>
           </div>
           <p class="mb-10 text-xl">
-            Sensibilisez vos étudiants et employés au bénévolat grâce à la Fresque
+            Sensibilise tes étudiants et employés au bénévolat grâce à la Fresque
           </p>
           <Button size="lg" class="mb-10">Nous contacter</Button>
           <div class="flex items-center space-x-4">
@@ -40,7 +40,7 @@ import { Button } from '@/Components/Dsfr'
             </div>
             <p class="text-[#666666] !-mr-1 xs:!mr-0 xl:text-lg">
               <strong>Timothée</strong> de JeVeuxAider.gouv.fr <br class="hidden lg:block" />
-              vous accompagne
+              t'accompagne
             </p>
           </div>
         </div>
@@ -54,8 +54,7 @@ import { Button } from '@/Components/Dsfr'
             <h3 class="text-3xl font-bold">Associations et organisations publiques</h3>
           </div>
           <p class="mb-10 text-xl">
-            Faites connaître votre cause et mettez en avant l’engagement grâce à la Fresque du
-            Bénévolat
+            Fait connaître ta cause et met en avant l’engagement grâce à la Fresque du Bénévolat
           </p>
           <Button size="lg" class="mb-10">Nous contacter</Button>
           <div class="flex items-center space-x-4">

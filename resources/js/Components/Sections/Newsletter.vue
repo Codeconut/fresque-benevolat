@@ -45,8 +45,8 @@ const onSubmit = () => {
       >
         <div class="col-span-3 pb-12 lg:pb-0 lg:pr-12">
           <h2 id="newsletter-headline" class="text-2xl font-bold mb-4">
-            Restez informé des actualités de l’engagement et des prochaines fresques autour de chez
-            vous
+            Reste informé des actualités de l’engagement et des prochaines fresques autour de chez
+            toi
           </h2>
           <form :aria-labelledby="`newsletter-headline`" class="" @submit.prevent="onSubmit">
             <div class="w-full gap-4 lg:gap-0 flex flex-col lg:flex-row">
@@ -54,7 +54,7 @@ const onSubmit = () => {
                 name="email"
                 type="email"
                 v-model.trim="form.email"
-                placeholder="Votre adresse électronique (ex. : nom@domaine.fr)"
+                placeholder="Ton adresse électronique (ex. : nom@domaine.fr)"
                 :error="!!form.errors.email"
                 :success="isSubscribed"
                 variant="white"
@@ -68,21 +68,19 @@ const onSubmit = () => {
               {{ form.errors.email }}
             </div>
             <div v-if="isSubscribed" class="text-[#18753c] text-xs mt-2">
-              Vous êtes inscrit à la newsletter :)
+              Tu es inscrit à la newsletter :)
             </div>
           </form>
 
           <p class="text-xs text mt-4 text-[#666666]">
-            En renseignant votre adresse électronique, vous acceptez de recevoir nos actualités par
-            courriel. Vous pouvez vous désinscrire à tout moment à l’aide des liens de
-            désinscription ou en nous contactant.
+            En renseignant ton adresse électronique, tu acceptes de recevoir nos actualités par
+            courriel. Tu peux te désinscrire à tout moment à l’aide des liens de désinscription ou
+            en nous contactant.
           </p>
         </div>
 
         <div class="col-span-2 pt-12 lg:pt-0 lg:pl-12">
-          <h2 class="text-2xl font-bold mb-6">
-            Suivez JeVeuxAider.gouv.fr sur les réseaux sociaux
-          </h2>
+          <h2 class="text-2xl font-bold mb-6">Suis JeVeuxAider.gouv.fr sur les réseaux sociaux</h2>
           <div class="flex space-x-4 items-center -ml-2">
             <a
               href="https://www.facebook.com/jeveuxaider.gouv.fr/"

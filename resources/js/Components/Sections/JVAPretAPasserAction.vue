@@ -19,7 +19,7 @@ import Button from '@/Components/Dsfr/Button.vue'
               />
               <h3 class="text-3xl lg:text-5xl mb-8 font-bold">Déjà prêt à passer à l’action ?</h3>
               <p class="text-xl lg:text-2xl mb-8">
-                <strong>Plus de 18 000 missions de bénévolat</strong> n’attendent que vous sur
+                <strong>Plus de 18 000 missions de bénévolat</strong> n’attendent que toi sur
                 JeVeuxAider.gouv.fr
               </p>
               <a href="https://jeveuxaider.gouv.fr/missions-benevolat" target="_blank">
@@ -27,7 +27,7 @@ import Button from '@/Components/Dsfr/Button.vue'
                   variant="custom"
                   size="lg"
                   custom-class="text-white border-white hover:bg-dsfr-blue-hover"
-                  >Trouver une mission <span class="hidden lg:inline">de bénévolat</span></Button
+                  >Trouve une mission <span class="hidden lg:inline">de bénévolat</span></Button
                 >
               </a>
             </div>

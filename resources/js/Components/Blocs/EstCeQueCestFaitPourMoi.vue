@@ -16,19 +16,19 @@ import { RiArrowRightLine } from '@remixicon/vue'
       <div class="text-xl mb-8 space-y-4">
         <div class="flex">
           <img src="/images/icons/check.svg" alt="" class="inline-block mr-4" />
-          <div>Vous hésitez à sauter le pas du bénévolat</div>
+          <div>Tu souhaites aider mais tu ne sais pas par où commencer ?</div>
         </div>
         <div class="flex">
           <img src="/images/icons/check.svg" alt="" class="inline-block mr-4" />
-          <div>Vous voulez apprendre plein de choses en vous amusant</div>
+          <div>Tu es curieux, timide, extraverti, pessimiste ou optimiste</div>
         </div>
         <div class="flex">
           <img src="/images/icons/check.svg" alt="" class="inline-block mr-4" />
-          <div>Ou vous voulez devenir animateur de la fresque</div>
+          <div>Tu as entre 16 et 99 ans</div>
         </div>
       </div>
       <div class="text-xl font-bold mb-8">
-        Inscrivez-vous à la prochaine fresque près de chez vous !
+        Inscris-toi à la prochaine fresque près de chez toi !
       </div>
       <!-- <Link href="#">Plus d’infos <RiArrowRightLine size="18" class="inline" /> </Link> -->
     </div>

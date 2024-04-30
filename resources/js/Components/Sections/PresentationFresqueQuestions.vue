@@ -64,24 +64,25 @@ const Pane = defineComponent(
               </div>
               <div class="space-y-4">
                 <Pane name="atelier" title="Un atelier ludique et participatif">
-                  Une expérience collective de 2h30 dans laquelle vous allez avoir une vision
-                  globale du bénévolat et comment l’appréhender, tout ça grâce à des jeux et
-                  exercices interfactifs !
+                  Plus on est de fous, plus on rit ! La fresque rassemble une dizaine de personne
+                  dans un environnement ludique propice au partage et à la créativité. Garanti 100%
+                  bienveillance et convivialité.
                 </Pane>
-                <Pane name="autour" title="(Presque) partout autour de chez vous">
-                  Grâce à notre communauté d’animateurs, nous menons des fresques presque partout en
-                  France, de Lille à Marseille, de Brest à Strasbourg
+                <Pane name="autour" title="(Presque) partout autour de chez toi">
+                  À l'issue de la fresque tu auras l'occasion de devenir animateur. C'est ce qui
+                  permet à la fresque de se déplacer sur tout le territoire pour déclencher partout
+                  des envies d'agir.
                 </Pane>
-                <Pane name="comprendre" title="Une cause qui vous tient à coeur">
-                  Vous repartirez avec des leviers et premiers pas concrets pour sauter le pas et
-                  vous engager en tant que bénévole, dans une association et pour une cause qui vous
-                  tiennent à coeur
+                <Pane name="comprendre" title="Une cause qui te tient à coeur">
+                  Le bénévolat permet de s'intéresser au monde qui nous entoure, aux autres, pour se
+                  sentir utile et déplacer des montagnes. En sortant de la fresque tu sauras par où
+                  commencer.
                 </Pane>
               </div>
               <div class="mt-10">
                 <Link :href="`${route('home')}#faq`">
                   <Button variant="custom" size="lg" custom-class="border-[#161616] hover:bg-white"
-                    >Vous avez des questions ?</Button
+                    >Tu as des questions ?</Button
                   >
                 </Link>
               </div>

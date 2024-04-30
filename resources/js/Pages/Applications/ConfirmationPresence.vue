@@ -32,9 +32,9 @@ const title = computed(() => {
     case 'registered':
       return `Vous venez toujours ${props.application.first_name} ? 🥰`
     case 'confirmed_presence':
-      return 'Présence confirmée 👊'
+      return 'Présence confirmée 👊'
     case 'canceled':
-      return 'Participation annulée 😢'
+      return 'Participation annulée 😢'
     default:
       return 'Votre participation'
   }
@@ -70,37 +70,37 @@ const title = computed(() => {
               {{ title }}
             </h2>
             <p class="text-lg">
-              Votre participation est au statut:
+              Ta participation est au statut:
               <strong>{{ $taxonomies.getLabel(application.state, 'application_states') }}</strong>
             </p>
 
             <template v-if="application.state === 'registered'">
               <p class="text-lg lg:px-12">
-                Pour préparer au mieux la fresque, on a besoin de savoir si vous serez bien présent.
-                En tout cas, nous, <strong>on compte sur vous</strong> !
+                Pour préparer au mieux la fresque, on a besoin de savoir si tu seras bien présent.
+                En tout cas, nous, <strong>on compte sur toi</strong> !
               </p>
               <p class="text-lg lg:px-12">
-                Si vous ne pouvez plus venir, pas de problème, annulez votre inscription, et libérez
-                la place pour quelqu’un d’autre.
+                Si tu ne peux plus venir, pas de problème, annule ton inscription, et libére la
+                place pour quelqu’un d’autre.
               </p>
             </template>
             <template v-if="application.state === 'confirmed_presence'">
               <p class="text-lg lg:px-12">
-                Vous faites partie des chanceux qui participeront à cette fresque. En tout cas,
-                nous, on a hâte de vous y retrouver !
+                Tu fais partie des chanceux qui participeront à cette fresque. En tout cas, nous, on
+                a hâte de t'y retrouver !
               </p>
               <p class="text-lg lg:px-12">
-                Si vous ne pouvez plus venir, pas de problème, annulez votre inscription, et libérez
-                la place pour quelqu’un d’autre.
+                Si tu ne peux plus venir, pas de problème, annule ton inscription, et libére la
+                place pour quelqu’un d’autre.
               </p>
             </template>
             <template v-if="application.state === 'canceled'">
               <p class="text-lg lg:px-12">
-                Vous ne serez donc pas des nôtres .. Mais ce n’est que partie remise !
+                Tu ne seras donc pas des nôtres .. Mais ce n’est que partie remise !
               </p>
               <p class="text-lg lg:px-12">
-                Si vous changez d’avis, et souhaitez malgré tout participer à cette super fresque,
-                dites le nous en confirmant votre présence.
+                Si tu changes d’avis, et souhaites malgré tout participer à cette super fresque, dis
+                le nous en confirmant ta présence.
               </p>
             </template>
           </div>

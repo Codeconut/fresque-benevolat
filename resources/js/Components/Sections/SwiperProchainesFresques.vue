@@ -37,7 +37,7 @@ const onSwiper = (swiperInstance) => {
               Les prochaines fresques
             </h2>
             <div class="text-xl lg:text-2xl text-[#666666]">
-              Trouvez la prochaine fresque du bénévolat près de chez vous
+              Trouve la prochaine fresque du bénévolat près de chez toi
             </div>
           </div>
         </div>

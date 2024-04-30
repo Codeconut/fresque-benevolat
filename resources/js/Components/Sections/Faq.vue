@@ -8,7 +8,7 @@ import { Link, router } from '@inertiajs/vue3'
     <div class="">
       <div class="text-center">
         <h2 class="relative inline text-4xl lg:text-5xl font-bold">
-          Vous avez des questions ?
+          Tu as des questions ?
           <img
             v-svg-inline
             src="/images/icons/gimmick.svg"
@@ -101,7 +101,7 @@ import { Link, router } from '@inertiajs/vue3'
             variant="custom"
             size="lg"
             custom-class="bg-transparent text-dsfr-blue border-dsfr-blue hover:bg-white"
-            >Trouver une fresque <span class="hidden lg:inline">près de chez moi</span></Button
+            >Trouve une fresque <span class="hidden lg:inline">à deux pas</span></Button
           >
         </Link>
         <img
