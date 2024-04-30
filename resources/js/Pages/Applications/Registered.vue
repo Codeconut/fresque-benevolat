@@ -22,7 +22,7 @@ const props = defineProps({
   >
     <div class="container">
       <div class="max-w-full w-[792px] mx-auto text-center mb-10">
-        <div class="text-lg lg:text-xl mb-2">Votre prochaine Fresque du Bénévolat</div>
+        <div class="text-lg lg:text-xl mb-2">Ta prochaine Fresque du Bénévolat</div>
         <div class="text-2xl lg:text-[28px] leading-10 font-bold">
           À {{ fresque.place.city }}, le {{ $dayjs(fresque.date).format('DD MMMM YYYY') }} de {{
             fresque.schedules

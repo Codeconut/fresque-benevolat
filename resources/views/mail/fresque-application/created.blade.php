@@ -1,5 +1,7 @@
 <x-mail::message>
-## Bonjour {{ $notifiable->first_name }},
+## Embarquement imminent !
+
+### Bonjour {{ $notifiable->first_name }},
 
 Un grand merci pour ton inscription à la Fresque du Bénévolat 🙌 J'ai hâte d'animer ce nouveau format inédit avec
 toi.

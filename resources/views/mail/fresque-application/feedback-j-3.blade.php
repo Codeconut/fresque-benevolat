@@ -1,12 +1,14 @@
 <x-mail::message>
-## Bonjour {{ $notifiable->first_name }},
+## Apporte ta pierre à l’édifice ⛰️
 
-J'espère que les courbatures ne sont pas trop importantes et que ce bon bol d'air t’as fait du bien dans ta réflexion sur l'engagement bénévole.
-Un grand merci pour ta participation à cette folle aventure. 
+### Bonjour {{ $notifiable->first_name }},
 
-C'était un réel plaisir pour nous d'animer cette Fresque du Bénévolat avec toi. 🤗
+J'espère que ce bon bol d'air t’as fait du bien dans ta réflexion sur l'engagement bénévole.
+Un grand merci pour ta participation à cette folle aventure !
 
-Pour nous permettre de rendre la fresque encore plus incroyable pour les futurs participant(e)s, peux-tu prendre 5 minutes pour nous dire ce que tu as pensé de la fresque ? 
+C'était un réel plaisir pour nous d'animer cette Fresque du Bénévolat avec toi et de sortir des sentiers battus. 🤗
+
+Pour nous permettre de rendre la fresque encore plus efficace pour les futurs participant(e)s, peux-tu prendre 5 minutes pour nous dire ce que tu as pensé de la fresque ? 
 
 <x-mail::button :url="$url">
 Je donne mon avis
@@ -14,9 +16,9 @@ Je donne mon avis
 
 ---
 
-## Découvre le guide
+### Découvre le guide
 
-Je t’ai soigneusement préparé un guide ultime post-fresque, il contient :
+Pour t’accompagner dans ton parcours de bénévole, je t’ai soigneusement préparé un guide ultime post-fresque, il contient :
 
 💡 Les essentiels à retenir<br>
 ✅ Tes prochaines étapes<br>

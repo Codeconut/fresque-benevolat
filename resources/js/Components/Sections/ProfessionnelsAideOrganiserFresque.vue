@@ -67,7 +67,7 @@ import { Button } from '@/Components/Dsfr'
             </div>
             <p class="text-[#666666] !-mr-1 xs:!mr-0 xl:text-lg">
               <strong>Nivine</strong> de JeVeuxAider.gouv.fr <br class="hidden lg:block" />
-              vous accompagne
+              t'accompagne
             </p>
           </div>
         </div>

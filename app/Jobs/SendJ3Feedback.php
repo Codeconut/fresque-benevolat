@@ -34,9 +34,11 @@ class SendJ3Feedback implements ShouldQueue
      */
     public function handle(): void
     {
-        $applications = FresqueApplication::where('state', 'validated')->whereHas('fresque', function ($query) {
-            $query->where('date', Carbon::now()->subDays(3)->format('Y-m-d'));
-        })->get();
+        $applications = FresqueApplication::where('state', 'validated')
+            ->whereHas('fresque', function ($query) {
+                $query->where('date', Carbon::now()->subDays(3)->format('Y-m-d'));
+            })
+            ->get();
 
         $applications->each(function ($application) {
             $application->notify(new FresqueApplicationFeedbackJ3());

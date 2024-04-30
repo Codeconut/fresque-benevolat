@@ -1,7 +1,11 @@
 <x-mail::message>
-## Bonjour {{ $notifiable->first_name }},
+## {{ $notifiable->first_name }}, quelles sont les nouvelles depuis ta Fresque du Bénévolat ?
 
-Déjà 6 semaines depuis notre aventure à "La Fresque du Bénévolat" ! 🌟 Si le temps file, l'envie d'agir, elle, reste. Tu t'es lancé dans le bénévolat depuis ? J’aimerais vraiment savoir !
+### Salut {{ $notifiable->first_name }},
+
+Déjà 6 semaines depuis notre aventure à "La Fresque du Bénévolat" ! 🌟
+Si le temps file, l'envie d'agir, elle est toujours là. Du moins j’espère. 🤣
+De toi à moi tu t'es lancé dans le bénévolat depuis ta fresque ? (promis je ne le répèterai à personne) 
 
 <x-mail::button :url="$url">
 Raconte-moi ici
@@ -9,11 +13,13 @@ Raconte-moi ici
 
 ---
 
-### Missions de bénévolat
+### JeVeuxAider.gouv.fr
 
-Si tu es encore à la recherche de l'opportunité idéale ou si tu as des questions sur comment t'engager, tu peux trouver une mission de bénévolat sur JeVeuxAider.gouv.fr, la plateforme publique du bénévolat ! Plus de 18000 missions sont disponibles, tu y trouveras sûrement ton bonheur ! 
+Si tu n’as pas encore déniché LA mission de bénévolat ? Pas de panique Marie-Monique, JeVeuxAider.gouv.fr est là pour toi, avec avec des propositions d’actions dans de nombreux domaines : solidarité, éducation, environnement, pour une heure ou pour plusieurs jours…
 
-<a target="_blank" href="https://jeveuxaider.gouv.fr">Je trouve une mission de bénévolat</a>
+<x-mail::button url="https://jeveuxaider.gouv.fr">
+Je trouve ma mission
+</x-mail::button>
 
 ---
 

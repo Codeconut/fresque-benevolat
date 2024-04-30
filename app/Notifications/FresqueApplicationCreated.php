@@ -46,7 +46,7 @@ class FresqueApplicationCreated extends Notification implements ShouldQueue
         $fresqueDate = Carbon::parse($fresque->date)->translatedFormat('d F Y');
 
         return (new MailMessage)
-            ->subject('Votre inscription à la fresque du bénévolat du ' . $fresqueDate . ' est validée 🥳')
+            ->subject('Ton inscription à la fresque du bénévolat du ' . $fresqueDate . ' est validée 🥳')
             ->markdown('mail.fresque-application.created', [
                 'url' =>  route('fresques.show', ['fresque' => $fresque]),
                 'fresque' => $fresque,

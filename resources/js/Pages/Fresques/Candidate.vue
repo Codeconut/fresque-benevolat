@@ -54,7 +54,7 @@ const onSubmit = () => {
   >
     <div class="container">
       <div class="max-w-full w-[792px] mx-auto text-center mb-10">
-        <div class="text-lg lg:text-xl mb-2">Votre prochaine Fresque du Bénévolat</div>
+        <div class="text-lg lg:text-xl mb-2">Ta prochaine Fresque du Bénévolat</div>
         <div class="text-2xl lg:text-[28px] leading-10 font-bold">
           À {{ fresque.place.city }}, le {{ $dayjs(fresque.date).format('DD MMMM YYYY') }}
           <br class="md:hidden" />
@@ -95,7 +95,7 @@ const onSubmit = () => {
               name="mobile"
               label="Numéro de téléphone"
               :error="form.errors.mobile"
-              info="Pour vous contacter en cas de besoin :)"
+              info="Pour te contacter en cas de besoin :)"
             >
               <Input
                 name="mobile"
@@ -109,6 +109,7 @@ const onSubmit = () => {
               label="As tu déjà été bénévole ?"
               :error="form.errors.info_benevolat"
               class="lg:col-span-2"
+              required
             >
               <Select
                 id="info_benevolat"
@@ -137,6 +138,7 @@ const onSubmit = () => {
               label="As-tu déjà participé à un atelier de type Fresque du Climat ?"
               :error="form.errors.info_fresque"
               class="lg:col-span-2"
+              required
             >
               <Select
                 id="info_fresque"

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\CreateFresqueApplication;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendS3Feedback;
 use App\Models\Fresque;
 use App\Models\FresqueApplication;
 use App\Models\Place;
@@ -35,6 +36,9 @@ class NotificationController extends Controller
             case 'fresque-application-feedback-s-3':
                 $notification = new FresqueApplicationFeedbackS3();
                 $output = $notification->toMail($fresqueApplication)->render();
+
+                SendS3Feedback::dispatch();
+
                 break;
             case 'fresque-application-feedback-s-6':
                 $notification = new FresqueApplicationFeedbackS6();

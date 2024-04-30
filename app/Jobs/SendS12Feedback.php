@@ -33,9 +33,12 @@ class SendS12Feedback implements ShouldQueue
      */
     public function handle(): void
     {
-        $applications = FresqueApplication::whereDoesntHave('feedback')->where('state', 'validated')->whereHas('fresque', function ($query) {
-            $query->where('date', Carbon::now()->subWeeks(12)->format('Y-m-d'));
-        })->get();
+        $applications = FresqueApplication::where('state', 'validated')
+            ->whereHas('fresque', function ($query) {
+                $query->where('date', Carbon::now()->subWeeks(12)->format('Y-m-d'));
+            })
+            ->whereDoesntHave('feedback')
+            ->get();
 
         $applications->each(function ($application) {
             $application->notify(new FresqueApplicationFeedbackS12());
