@@ -1,9 +1,9 @@
 <x-mail::message>
-## Apporte ta pierre à l’édifice ⛰️
+## Et aussi les photos souvenir 🖼️
 
 ### Bonjour {{ $notifiable->first_name }},
 
-J'espère que ce bon bol d'air t’as fait du bien dans ta réflexion sur l'engagement bénévole.
+J'espère que ce grand bol d'air frais t’as fait du bien dans ta réflexion sur l'engagement bénévole.
 Un grand merci pour ta participation à cette folle aventure !
 
 C'était un réel plaisir pour nous d'animer cette Fresque du Bénévolat avec toi et de sortir des sentiers battus. 🤗

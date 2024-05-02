@@ -27,7 +27,7 @@ import Button from '@/Components/Dsfr/Button.vue'
                   variant="custom"
                   size="lg"
                   custom-class="text-white border-white hover:bg-dsfr-blue-hover"
-                  >Trouve une mission <span class="hidden lg:inline">de bénévolat</span></Button
+                  >Trouver une mission <span class="hidden lg:inline">de bénévolat</span></Button
                 >
               </a>
             </div>

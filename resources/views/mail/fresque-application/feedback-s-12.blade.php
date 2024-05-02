@@ -13,11 +13,9 @@ Je partage mon parcours !
 
 ---
 
-### JeVeuxAider.gouv.fr
-
 Si tu n'as pas encore trouvé la mission de bénévolat qui te convient, n’hésite pas à consulter les missions disponibles près de chez toi sur JeVeuxAider.gouv.fr.
 
-<x-mail::button url="https://jeveuxaider.gouv.fr">
+<x-mail::button url="https://api.api-engagement.beta.gouv.fr/r/campaign/6630fdf5660b888f939dd583">
 Je trouve ma mission
 </x-mail::button>
 

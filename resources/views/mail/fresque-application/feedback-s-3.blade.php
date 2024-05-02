@@ -13,11 +13,9 @@ Je partage mon itinéraire
 
 ---
 
-### JeVeuxAider.gouv.fr
-
 Si tu es encore à la recherche de l'occasion idéale ou si tu as des questions sur comment t'engager, tu peux trouver une annonce de bénévolat sur JeVeuxAider.gouv.fr, la plateforme publique du bénévolat ! Plus de 18000 missions sont disponibles, tu y trouveras sûrement ton bonheur ! 
 
-<x-mail::button url="https://jeveuxaider.gouv.fr">
+<x-mail::button url="https://api.api-engagement.beta.gouv.fr/r/campaign/6630fc36660b888f939dca8f">
 Je trouve une mission de bénévolat
 </x-mail::button>
 

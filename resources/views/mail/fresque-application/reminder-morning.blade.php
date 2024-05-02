@@ -3,13 +3,12 @@
 
 ### Bonjour {{ $notifiable->first_name }},
 
-Bonne nouvelle : la Fresque du Bénévolat, c’est déjà aujourd’hui !
+Bonne nouvelle : la Fresque du Bénévolat, c’est déjà aujourd’hui !<br />
+On se retrouve à {{ \Carbon\Carbon::parse($fresque->start_at)->format('H\hi') }} à l’adresse suivante : {{ $fresque->place->full_address }}.
 
 <x-mail::fresque-title :fresque="$fresque" />
 
 <x-mail::fresque-cover :fresque="$fresque" />
-
-<x-mail::fresque-infos-pratiques :fresque="$fresque" />
 
 Tu peux retrouver toutes les informations sur cette fresque ici
 
@@ -19,7 +18,9 @@ Tu peux retrouver toutes les informations sur cette fresque ici
 
 ### Un empêchement ?
 
-Tu peux annuler ta participation à tout moment en cliquant <a target="_blank" href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable])}}">sur le lien suivant</a>
+Tu peux annuler ta participation à tout moment en cliquant <a target="_blank"
+href="{{ route('fresques.applications.confirmation-presence', ['fresqueApplication' => $notifiable]) }}">sur le
+lien suivant</a>
 
 ---
 

@@ -42,7 +42,7 @@ class FresqueApplicationFeedbackJ3 extends Notification implements ShouldQueue
         $fresque = $notifiable->fresque;
 
         return (new MailMessage)
-            ->subject($notifiable->first_name . ', on a besoin de ton avis sur la Fresque du Bénévolat 💁🏻')
+            ->subject('🧩 Fresque du Bénévolat : Et après ? Ton guide mémo dans ce mail')
             ->markdown('mail.fresque-application.feedback-j-3', [
                 'url' =>  route('fresques.applications.feedback', ['fresqueApplication' => $notifiable]),
                 'fresque' =>  $fresque,

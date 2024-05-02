@@ -10,16 +10,13 @@ toi.
 
 <x-mail::fresque-cover :fresque="$fresque" />
 
-<x-mail::fresque-infos-pratiques :fresque="$fresque" />
-
 Je suis très enthousiaste à l'idée de passer ce moment ensemble, j'espère que toi aussi ! 🤗
 
 ---
 
 ### Propose à tes ami(e)s de participer !
 
-Plus on est de fous, plus on rit 😊<br />
-N’hésite pas à partager la fresque à tes ami(e)s pour qu’ils puissent aussi s’inscrire
+Plus on est de fous, plus on rit : propose à tes proches de rejoindre l’aventure ! 😊
 
 <x-mail::button :url="$url">Je partage le lien de la fresque</x-mail::button>
 
@@ -31,9 +28,12 @@ Tu peux annuler ta participation à tout moment en cliquant <a target="_blank" h
 
 ---
 
+<x-mail::fresque-faq :fresque="$fresque" />
+
+---
+
 <x-mail::signature :fresque="$fresque">
 Très belle fin de semaine et à bientôt !
 </x-mail::signature>
-
 
 </x-mail::message>
