@@ -132,7 +132,7 @@ const onSubmit = () => {
               </FormElement>
               <FormElement
                 name="comment_as_tu_trouve_les_animateurs"
-                label="Comment as-tu trouvé les différentes animations / ateliers ?"
+                label="Comment as-tu trouvé les animateur(rice)s ?"
                 required
                 :error="form.errors?.questions?.comment_as_tu_trouve_les_animateurs"
               >

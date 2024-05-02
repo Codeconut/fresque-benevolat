@@ -41,7 +41,7 @@ const props = defineProps({
           </div>
           <div class="mb-12 space-y-8">
             <h2 class="text-[28px] lg:text-[32px] font-bold">
-              Félicitations{{ application.first_name }} !
+              Félicitations {{ application.first_name }} !
             </h2>
             <p class="text-lg">Tu recevras un email de rappel avant ta Fresque.</p>
             <p class="text-lg lg:px-12">

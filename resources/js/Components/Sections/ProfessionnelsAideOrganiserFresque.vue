@@ -54,7 +54,7 @@ import { Button } from '@/Components/Dsfr'
             <h3 class="text-3xl font-bold">Associations et organisations publiques</h3>
           </div>
           <p class="mb-10 text-xl">
-            Fait connaître ta cause et met en avant l’engagement grâce à la Fresque du Bénévolat
+            Fais connaître ta cause et met en avant l’engagement grâce à la Fresque du Bénévolat
           </p>
           <Button size="lg" class="mb-10">Nous contacter</Button>
           <div class="flex items-center space-x-4">

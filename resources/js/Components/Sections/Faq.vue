@@ -24,7 +24,6 @@ import { Link, router } from '@inertiajs/vue3'
         :tabs="[
           { key: 'participants', content: 'Participants' },
           { key: 'animateurs', content: 'Animateurs' },
-          { key: 'organisations', content: 'Organisations' },
         ]"
         class="mt-14"
       >
@@ -34,33 +33,49 @@ import { Link, router } from '@inertiajs/vue3'
               <template #title> C’est gratuit ? </template>
               <div class="mb-6">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, magnam. Ad
-                  officiis fugiat optio facere debitis corrupti dignissimos assumenda animi! Illum
-                  quas repellendus unde possimus iste natus adipisci suscipit delectus!
+                  La fresque du bénévolat est un atelier 100% gratuit, créé et animé avec le ❤️ par
+                  JeVeuxAider.gouv.fr. Il suffit de t’inscrire à la fresque de ton choix via ce
+                  site, et d’y participer le jour J.
                 </p>
               </div>
             </Accordion>
             <Accordion>
               <template #title>
-                Je me suis inscrit mais je ne peux plus participer, comment je fais ?
+                Je me suis inscrit, mais je ne peux plus participer, comment je fais ?
               </template>
               <div class="mb-6">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, magnam. Ad
-                  officiis fugiat optio facere debitis corrupti dignissimos assumenda animi! Illum
-                  quas repellendus unde possimus iste natus adipisci suscipit delectus!
+                  Lors de ton inscription, tu as reçu un email de validation. Sur cet email, tu as
+                  la possibilité de mettre à jour ton inscription, et d’annuler ta participation.
                 </p>
               </div>
             </Accordion>
             <Accordion>
               <template #title>
-                J’ai déjà participé à une fresque du bénévolat et je souhaite devenir animateur
+                J’ai déjà participé à une fresque du bénévolat et souhaite devenir animateur
               </template>
               <div class="mb-6">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, magnam. Ad
-                  officiis fugiat optio facere debitis corrupti dignissimos assumenda animi! Illum
-                  quas repellendus unde possimus iste natus adipisci suscipit delectus!
+                  Merveilleuse nouvelle ! Pour devenir animateur d’une fresque du bénévolat, il faut
+                  participer à une formation. L’ensemble des formations disponibles sont accessibles
+                  sur
+                  <a
+                    target="_blank"
+                    href="https://www.jeveuxaider.gouv.fr/missions-benevolat?structure.name=JeVeuxAider.gouv.fr&search="
+                    >ce lien</a
+                  >. Si aucune n’est ouverte, retente ta chance dans quelques semaines 🙂
+                </p>
+              </div>
+            </Accordion>
+            <Accordion>
+              <template #title> Pourquoi ça fonctionne ? </template>
+              <div class="mb-6">
+                <p>
+                  Cette fresque du bénévolat est géniale, parce qu’elle est composée de plein de
+                  micro actions, à la portée de toutes et de tous. Elle déjoue les peurs et ancre
+                  les engagements dans le présent. Or on le sait, pour passer à l’action, il vaut
+                  mieux viser un changement de « proche en proche », à petite échelle, petits pas
+                  après petits pas.
                 </p>
               </div>
             </Accordion>
@@ -70,26 +85,17 @@ import { Link, router } from '@inertiajs/vue3'
         <template #tab-animateurs>
           <AccordionsGroup>
             <Accordion>
-              <template #title> Question 1 ? </template>
+              <template #title> Comment devenir animateur ? </template>
               <div class="mb-6">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, magnam. Ad
-                  officiis fugiat optio facere debitis corrupti dignissimos assumenda animi! Illum
-                  quas repellendus unde possimus iste natus adipisci suscipit delectus!
-                </p>
-              </div>
-            </Accordion>
-          </AccordionsGroup>
-        </template>
-        <template #tab-organisations>
-          <AccordionsGroup>
-            <Accordion>
-              <template #title> Question 1 ? </template>
-              <div class="mb-6">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, magnam. Ad
-                  officiis fugiat optio facere debitis corrupti dignissimos assumenda animi! Illum
-                  quas repellendus unde possimus iste natus adipisci suscipit delectus!
+                  La 1ère étape pour devenir animateur d’une fresque du bénévolat, c’est d’en avoir
+                  vécu une. Ensuite, une formation est nécessaire. L’ensemble des formations
+                  disponibles sont accessibles sur
+                  <a
+                    target="_blank"
+                    href="https://www.jeveuxaider.gouv.fr/missions-benevolat?structure.name=JeVeuxAider.gouv.fr&search="
+                    >ce lien</a
+                  >. Si aucune n’est ouverte, retente ta chance dans quelques semaines 🙂
                 </p>
               </div>
             </Accordion>

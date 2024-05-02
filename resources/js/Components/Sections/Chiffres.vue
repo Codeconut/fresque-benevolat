@@ -9,9 +9,9 @@
                 <img v-svg-inline src="/images/icons/etoile.svg" alt="" class="text-[#49BC8D]" />
               </div>
               <div>
-                <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">4,9</div>
-                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">sur 5</div>
-                <div class="text-lg lg:text-xl">Satisfaction des participants</div>
+                <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">140</div>
+                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">participant(e)s</div>
+                <div class="text-lg lg:text-xl">depuis 2023</div>
               </div>
             </div>
             <div class="flex flex-col text-center items-center gap-4 lg:gap-8">
@@ -24,9 +24,9 @@
                 />
               </div>
               <div>
-                <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">1 000</div>
-                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">participants</div>
-                <div class="text-lg lg:text-xl">Depuis 2023</div>
+                <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">12</div>
+                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">fresques animées</div>
+                <div class="text-lg lg:text-xl">dans plusieurs villes</div>
               </div>
             </div>
             <div class="flex flex-col text-center items-center gap-4 lg:gap-8">
@@ -39,11 +39,9 @@
                 />
               </div>
               <div>
-                <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">3 000</div>
-                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">
-                  heures de bénévolat
-                </div>
-                <div class="text-lg lg:text-xl">Générées grâce aux fresques</div>
+                <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">6</div>
+                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">animateur(ice)s</div>
+                <div class="text-lg lg:text-xl">formés à la fresque</div>
               </div>
             </div>
           </div>

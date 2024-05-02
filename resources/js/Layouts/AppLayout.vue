@@ -13,7 +13,7 @@ import Footer from '@/Components/General/Footer.vue'
 defineProps({
   title: {
     type: String,
-    default: 'Passe à l’action avec la Fresque du Bénévolat',
+    default: 'LA fresque qui t’amène du point A au point Bénévolat !',
   },
   description: {
     type: String,
