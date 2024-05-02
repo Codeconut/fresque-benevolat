@@ -36,7 +36,7 @@ class SendS6Feedback implements ShouldQueue
             ->whereHas('fresque', function ($query) {
                 $query->where('date', Carbon::now()->subWeeks(6)->format('Y-m-d'));
             })
-            ->whereDoesntHave('feedback')
+            ->where('post_fresque_engagement', '!=', 'yes')
             ->get();
 
         $applications->each(function ($application) {

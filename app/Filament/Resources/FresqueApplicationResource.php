@@ -65,12 +65,27 @@ class FresqueApplicationResource extends Resource
                     ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
+                Tables\Columns\IconColumn::make('post_fresque_engagement')
+                    ->label('Engagement')
+                    ->icon(fn (string $state): string => match ($state) {
+                        'yes' => 'heroicon-o-check-circle',
+                        'no_but_soon' => 'heroicon-o-clock',
+                        'not_yet' => 'heroicon-o-x-circle',
+                    }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date('d M Y à H:i')
                     ->label('Créé le'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                Tables\Filters\SelectFilter::make('state')
+                    ->label('Statut')
+                    ->options(config('taxonomies.applications.states'))
+                    ->placeholder('Tous les statuts'),
+                Tables\Filters\SelectFilter::make('post_fresque_engagement')
+                    ->label('Engagement post-fresque ?')
+                    ->options(config('taxonomies.applications.post_fresque_engagement'))
+                    ->placeholder('Toutes les options'),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
