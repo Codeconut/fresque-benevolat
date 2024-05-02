@@ -44,7 +44,7 @@ class FresqueApplicationFeedbackS12 extends Notification implements ShouldQueue
         return (new MailMessage)
             ->subject($notifiable->first_name . ', quelles sont les nouvelles depuis ta dernière Fresque du Bénévolat ?')
             ->markdown('mail.fresque-application.feedback-s-12', [
-                'url' =>  route('fresques.applications.feedback', ['fresqueApplication' => $notifiable]),
+                'url' =>  route('fresques.applications.engagement', ['fresqueApplication' => $notifiable]),
                 'fresque' =>  $fresque,
                 'notifiable' => $notifiable,
             ])

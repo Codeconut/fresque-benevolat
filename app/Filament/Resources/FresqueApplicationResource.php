@@ -42,6 +42,8 @@ class FresqueApplicationResource extends Resource
                     ->options(config('taxonomies.applications.info_benevolat')),
                 Forms\Components\Select::make('info_fresque')->label('Déjà participé à une fresque ?')
                     ->options(config('taxonomies.applications.info_fresque')),
+                Forms\Components\Select::make('post_fresque_engagement')->label('As-tu réalisé une mission de bénévolat depuis cette fresque ?')
+                    ->options(config('taxonomies.applications.post_fresque_engagement'))->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
             ])->columns(3);
     }

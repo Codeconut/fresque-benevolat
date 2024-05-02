@@ -38,6 +38,11 @@ return [
             'yes' => 'Oui, j\'ai déjà participé à ce type d\'atelier',
             'no_but_i_know' => 'Non, mais je connais',
             'no_and_i_dont_know' => 'Non et je ne connaissais pas',
+        ],
+        'post_fresque_engagement' => [
+            'yes' => 'Oui',
+            'no_but_soon' => 'Pas encore, mais c\'est en bonne voie',
+            'not_yet' => 'Pas pour le moment',
         ]
     ],
     'feedbacks' => [

@@ -44,7 +44,7 @@ class FresqueApplicationFeedbackS3 extends Notification implements ShouldQueue
         return (new MailMessage)
             ->subject($notifiable->first_name . ', comment se passe ton parcours bénévole ? 💁🏻')
             ->markdown('mail.fresque-application.feedback-s-3', [
-                'url' =>  route('fresques.applications.feedback', ['fresqueApplication' => $notifiable]),
+                'url' =>  route('fresques.applications.engagement', ['fresqueApplication' => $notifiable]),
                 'fresque' =>  $fresque,
                 'notifiable' => $notifiable,
             ])

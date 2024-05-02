@@ -29,7 +29,8 @@ class FresqueApplication extends Model
         'state',
         'notes',
         'info_benevolat',
-        'info_fresque'
+        'info_fresque',
+        'post_fresque_engagement',
     ];
 
     protected $hidden = [

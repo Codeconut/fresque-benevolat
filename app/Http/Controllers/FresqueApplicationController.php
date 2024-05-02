@@ -8,6 +8,7 @@ use App\Models\FresqueApplication;
 use App\Models\FresqueApplicationFeedback;
 use App\Notifications\FresqueApplicationCancel;
 use App\Notifications\FresqueApplicationConfirmPresence;
+use App\Notifications\FresqueApplicationPostFresqueEngagementUpdated;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -58,7 +59,6 @@ class FresqueApplicationController extends Controller
 
     public function feedback(FresqueApplication $fresqueApplication)
     {
-
         $fresque = $fresqueApplication->fresque->load(['place']);
 
         return Inertia::render('Applications/Feedback', [
@@ -71,7 +71,6 @@ class FresqueApplicationController extends Controller
 
     public function feedbackMerci(FresqueApplication $fresqueApplication)
     {
-
         $fresque = $fresqueApplication->fresque->load(['place']);
 
         return Inertia::render('Applications/FeedbackMerci', [
@@ -80,5 +79,45 @@ class FresqueApplicationController extends Controller
             'application' => $fresqueApplication,
             'feedback' => $fresqueApplication->feedback,
         ]);
+    }
+
+    public function engagement(FresqueApplication $fresqueApplication)
+    {
+        $fresque = $fresqueApplication->fresque->load(['place']);
+
+        return Inertia::render('Applications/Engagement', [
+            'fresque' =>  $fresque,
+            'token' =>  $fresqueApplication->token,
+            'application' => $fresqueApplication,
+        ]);
+    }
+
+    public function engagementMerci(FresqueApplication $fresqueApplication)
+    {
+        $fresque = $fresqueApplication->fresque->load(['place']);
+
+        return Inertia::render('Applications/EngagementMerci', [
+            'fresque' =>  $fresque,
+            'token' =>  $fresqueApplication->token,
+            'application' => $fresqueApplication,
+        ]);
+    }
+
+    public function engagementBenevolat(Request $request, FresqueApplication $fresqueApplication)
+    {
+        $request->validate([
+            'post_fresque_engagement' => 'required|in:yes,no_but_soon,not_yet',
+        ], [
+            'post_fresque_engagement.required' => 'Veuillez indiquer si vous souhaitez vous engager bénévolement.',
+            'post_fresque_engagement.in' => 'La valeur indiquée pour l\'engagement bénévole est invalide.',
+        ]);
+
+        $fresqueApplication->update([
+            'post_fresque_engagement' => $request->input('post_fresque_engagement'),
+        ]);
+
+        $fresqueApplication->notify(new FresqueApplicationPostFresqueEngagementUpdated());
+
+        return to_route('fresques.applications.engagement-merci', $fresqueApplication->token);
     }
 }

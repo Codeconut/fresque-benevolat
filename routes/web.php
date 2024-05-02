@@ -33,6 +33,10 @@ Route::post('/fresques-applications/{fresqueApplication:token}/cancel', [Fresque
 Route::get('/fresques-applications/{fresqueApplication:token}/feedback', [FresqueApplicationController::class, 'feedback'])->name('fresques.applications.feedback');
 Route::get('/fresques-applications/{fresqueApplication:token}/feedback-merci', [FresqueApplicationController::class, 'feedbackMerci'])->name('fresques.applications.feedback-merci');
 
+Route::get('/fresques-applications/{fresqueApplication:token}/engagement', [FresqueApplicationController::class, 'engagement'])->name('fresques.applications.engagement');
+Route::get('/fresques-applications/{fresqueApplication:token}/engagement-merci', [FresqueApplicationController::class, 'engagementMerci'])->name('fresques.applications.engagement-merci');
+Route::post('/fresques-applications/{fresqueApplication:token}/engagement-benevolat', [FresqueApplicationController::class, 'engagementBenevolat'])->name('fresques.applications.engagement-benevolat');
+
 Route::post('/fresques-applications/{fresqueApplication:token}/feedback', [FresqueApplicationFeedbackController::class, 'updateOrCreate'])->name('fresques.applications.feedback.updateOrCreate');
 
 Route::middleware([
