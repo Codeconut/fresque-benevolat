@@ -45,13 +45,13 @@ class FresqueApplicationPostFresqueEngagementUpdated extends Notification implem
             ->sectionBlock(function (SectionBlock $block) use ($notifiable) {
                 switch ($notifiable->post_fresque_engagement) {
                     case 'yes':
-                        $block->text('*' . $notifiable->full_name . '* a réalisé une mission d’engagement ! 🔥')->markdown();
+                        $block->text('*' . $notifiable->full_name . '* a réalisé une mission de bénévolat ! 🔥')->markdown();
                         break;
                     case 'no_but_soon':
-                        $block->text('*' . $notifiable->full_name . '* va bientôt réaliser une mission d’engagement ! C’est en bonne voie 👊')->markdown();
+                        $block->text('*' . $notifiable->full_name . '* va bientôt réaliser une mission de bénévolat ! C’est en bonne voie 👊')->markdown();
                         break;
                     case 'not_yet':
-                        $block->text('*' . $notifiable->full_name . '* n’a pas encore réalisé une mission d’engagement ! 😥')->markdown();
+                        $block->text('*' . $notifiable->full_name . '* n’a pas encore réalisé une mission de bénévolat ! 😥')->markdown();
                         break;
                 }
             })
