@@ -29,7 +29,9 @@ import { Button } from '@/Components/Dsfr'
           <p class="mb-10 text-xl">
             Sensibilise tes étudiants et employés au bénévolat grâce à la Fresque
           </p>
-          <Button size="lg" class="mb-10">Nous contacter</Button>
+          <a target="_blank" href="https://tally.so/r/w7d9yZ">
+            <Button size="lg" class="mb-10">Nous contacter</Button>
+          </a>
           <div class="flex items-center space-x-4">
             <div class="flex flex-shrink-0">
               <img
@@ -56,7 +58,9 @@ import { Button } from '@/Components/Dsfr'
           <p class="mb-10 text-xl">
             Fais connaître ta cause et met en avant l’engagement grâce à la Fresque du Bénévolat
           </p>
-          <Button size="lg" class="mb-10">Nous contacter</Button>
+          <a target="_blank" href="https://tally.so/r/wg5QDN">
+            <Button size="lg" class="mb-10">Nous contacter</Button>
+          </a>
           <div class="flex items-center space-x-4">
             <div class="flex flex-shrink-0">
               <img

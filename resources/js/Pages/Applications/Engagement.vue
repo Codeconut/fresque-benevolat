@@ -1,8 +1,7 @@
 <script setup>
 import OverlayLayout from '@/Layouts/OverlayLayout.vue'
 import { useForm } from '@inertiajs/vue3'
-import { RadiosGroup, Button, FormElement, Textarea } from '@/Components/Dsfr'
-import StarRating from 'vue-star-rating'
+import { RadiosGroup, Button, FormElement } from '@/Components/Dsfr'
 
 const props = defineProps({
   token: {
