@@ -108,7 +108,7 @@ import { Link, router } from '@inertiajs/vue3'
             variant="custom"
             size="lg"
             custom-class="bg-transparent text-dsfr-blue border-dsfr-blue hover:bg-white"
-            >Trouve une fresque <span class="hidden lg:inline">à deux pas</span></Button
+            >Trouver une fresque <span class="hidden lg:inline">à deux pas</span></Button
           >
         </Link>
         <img

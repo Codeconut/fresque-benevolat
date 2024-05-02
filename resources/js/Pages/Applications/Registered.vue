@@ -43,7 +43,7 @@ const props = defineProps({
             <h2 class="text-[28px] lg:text-[32px] font-bold">
               Félicitations {{ application.first_name }} !
             </h2>
-            <p class="text-lg">Tu recevras un email de rappel avant ta Fresque.</p>
+            <p class="text-lg">Tu recevras un email de rappel avant la Fresque.</p>
             <p class="text-lg lg:px-12">
               Un empêchement ? Pas de panique, tu peux te servir du lien dans le mail que tu viens
               de recevoir pour nous prévenir.

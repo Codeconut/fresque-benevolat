@@ -27,7 +27,7 @@ import Button from '@/Components/Dsfr/Button.vue'
           </p>
           <Link :href="route('fresques.index')">
             <Button size="lg"
-              >Trouve une fresque <span class="hidden lg:inline">à deux pas</span></Button
+              >Trouver une fresque <span class="hidden lg:inline">à deux pas</span></Button
             >
           </Link>
         </div>

@@ -54,7 +54,7 @@ const Pane = defineComponent(
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pt-12 lg:pb-6">
             <div class="">
               <div class="mb-4 text-[#3A3A3A]">
-                Créé et animé avec le ❤️ par
+                Créée et animée avec le ❤️ par
                 <a
                   class="underline hover:text-[#161616]"
                   href="https://jeveuxaider.gouv.fr"
