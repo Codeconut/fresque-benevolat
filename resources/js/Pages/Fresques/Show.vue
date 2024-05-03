@@ -9,6 +9,7 @@ import FresqueHero from '@/Components/Fresque/Hero.vue'
 import FresqueDescription from '@/Components/Fresque/Description.vue'
 import FresqueInfosPratiques from '@/Components/Fresque/InfosPratiques.vue'
 import FresqueInscription from '@/Components/Fresque/Inscription.vue'
+import FresqueFooterInscription from '@/Components/Fresque/FooterInscription.vue'
 import Faq from '@/Components/Sections/Faq.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import ProchainesFresquesAlentours from '@/Components/Sections/ProchainesFresquesAlentours.vue'
@@ -48,16 +49,17 @@ const markdown = new MarkdownIt()
       <div class="relative pb-12 lg:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-12">
           <div class="col-span-2 lg:space-y-12 order-2 lg:order-1">
-            <FresqueHero :fresque="fresque" />
+            <FresqueHero :fresque="fresque" class="mb-8 lg:mb-0" />
             <div class="px-4 lg:px-0 space-y-8 lg:space-y-12">
-              <FresqueInscription class="mt-8 lg:hidden" :fresque="fresque" />
+              <FresqueInscription :fresque="fresque" class="block lg:hidden" />
               <FresqueDescription :fresque="fresque" />
               <FresqueInfosPratiques :fresque="fresque" />
               <Place :place="fresque.place" />
+              <FresqueFooterInscription :fresque="fresque" />
             </div>
           </div>
           <div class="hidden lg:block col-span-1 order-1 lg:order-2 mb-12 lg:mb-0">
-            <FresqueInscription :fresque="fresque" />
+            <FresqueInscription :fresque="fresque" sticky />
           </div>
         </div>
       </div>

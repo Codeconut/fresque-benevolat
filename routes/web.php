@@ -16,16 +16,15 @@ Route::get('register', Register::class)
     ->middleware('signed');
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/fresques-benevolat', [FresqueController::class, 'index'])->name('fresques.index');
-Route::get('/fresques-benevolat/{fresque:slug}', [FresqueController::class, 'show'])->name('fresques.show');
+Route::get('/liste', [FresqueController::class, 'index'])->name('fresques.index');
+Route::get('/fresques/{fresque:slug}', [FresqueController::class, 'show'])->name('fresques.show');
 
-Route::get('/fresques-benevolat/{fresque:slug}/candidate', [FresqueController::class, 'candidate'])->name('fresques.candidate');
+Route::get('/fresques/{fresque:slug}/candidate', [FresqueController::class, 'candidate'])->name('fresques.candidate');
 Route::post('/fresques-benevolat/{fresque:slug}/apply', [FresqueController::class, 'apply'])->name('fresques.apply');
 Route::post('/newsletter/contact', [NewsletterController::class, 'createOrUpdateContact'])->name('newsletter.sync.contact');
 
 Route::get('/fresques-applications/{fresqueApplication:token}/registered', [FresqueApplicationController::class, 'registered'])->name('fresques.applications.registered');
 Route::get('/fresques-applications/{fresqueApplication:token}/confirmation-presence', [FresqueApplicationController::class, 'confirmationPresence'])->name('fresques.applications.confirmation-presence');
-
 
 Route::post('/fresques-applications/{fresqueApplication:token}/confirm', [FresqueApplicationController::class, 'confirm'])->name('fresques.applications.confirm');
 Route::post('/fresques-applications/{fresqueApplication:token}/cancel', [FresqueApplicationController::class, 'cancel'])->name('fresques.applications.cancel');
