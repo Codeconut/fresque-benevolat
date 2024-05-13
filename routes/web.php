@@ -1,21 +1,21 @@
 <?php
 
-use App\Http\Controllers\FresqueController;
-use App\Http\Controllers\FresqueApplicationController;
-use App\Http\Controllers\PageController;
-use Illuminate\Support\Facades\Route;
 use App\Filament\Pages\Register;
+use App\Http\Controllers\FresqueApplicationController;
+use App\Http\Controllers\FresqueApplicationFeedbackController;
+use App\Http\Controllers\FresqueController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\FresqueApplicationFeedbackController;
+use App\Http\Controllers\PageController;
 use Filament\Http\Middleware\Authenticate;
-
+use Illuminate\Support\Facades\Route;
 
 Route::get('register', Register::class)
     ->name('filament.app.register')
     ->middleware('signed');
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/test', [PageController::class, 'test'])->name('test');
 Route::get('/liste', [FresqueController::class, 'index'])->name('fresques.index');
 Route::get('/fresques/{fresque:slug}', [FresqueController::class, 'show'])->name('fresques.show');
 
@@ -43,7 +43,6 @@ Route::middleware([
 ])->group(function () {
     Route::get('/notifications/{slug}', [NotificationController::class, 'renderMail']);
 });
-
 
 // Route::middleware([
 //     'auth:sanctum',
