@@ -14,8 +14,6 @@ import VueSvgInlinePlugin from 'vue-svg-inline-plugin'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
-alert('Hello from Vite!')
-
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
   resolve: (name) =>
@@ -44,5 +42,3 @@ createInertiaApp({
     color: '#4B5563',
   },
 })
-
-alert('Hello from Vite! after InertiaApp')
