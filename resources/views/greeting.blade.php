@@ -12,10 +12,17 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <!-- Scripts -->
+    @routes
 </head>
 
 <body class="font-sans antialiased">
     Hello World
+
+    Image test with URL::asset
+    <img src="{{URL::asset('/images/illustrations/hero-green.png')}}" alt="Image test">
+    Image test with absolute path
+    <img src="/images/illustrations/hero-green.png" alt="Image test">
 </body>
 
 </html>
