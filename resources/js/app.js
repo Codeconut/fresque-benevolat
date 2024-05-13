@@ -44,3 +44,5 @@ createInertiaApp({
     color: '#4B5563',
   },
 })
+
+alert('Hello from Vite! after InertiaApp')
