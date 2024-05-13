@@ -5,7 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig(({ mode }) => {
   return {
-    base: mode === 'production' ? '/fresque-benevolat/' : '/',
+    base: mode === 'production' ? '/build/fresque-benevolat/' : '/',
     plugins: [
       vueJsx(),
       laravel({
