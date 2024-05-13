@@ -18,6 +18,11 @@
 
 <body class="font-sans antialiased">
     Hello World
+
+    Image test with URL::asset
+    <img src="{{URL::asset('/images/illustrations/hero-green.png')}}" alt="Image test">
+    Image test with absolute path
+    <img src="/images/illustrations/hero-green.png" alt="Image test">
 </body>
 
 </html>
