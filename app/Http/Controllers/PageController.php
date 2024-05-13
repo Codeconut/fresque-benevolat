@@ -26,4 +26,9 @@ class PageController extends Controller
             'fresques' => $fresques,
         ]);
     }
+
+    public function test2()
+    {
+        return view('greeting', ['name' => 'James']);
+    }
 }
