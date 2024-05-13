@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
       vue({
         template: {
           transformAssetUrls: {
-            base: null,
+            base: mode === 'production' ? '/fresque-benevolat/' : null,
             includeAbsolute: false,
           },
         },
