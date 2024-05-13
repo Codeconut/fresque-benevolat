@@ -5,7 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig(({ mode }) => {
   return {
-    base: mode === 'production' ? '/fresque-benevolat/' : '/',
+    base: mode === 'production' ? '/fresque-benevolat/build/' : '/',
     plugins: [
       vueJsx(),
       laravel({
@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
       vue({
         template: {
           transformAssetUrls: {
-            base: null,
+            base: mode === 'production' ? '/fresque-benevolat/' : null,
             includeAbsolute: false,
           },
         },
