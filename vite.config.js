@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => {
       vue({
         template: {
           transformAssetUrls: {
-            base: mode === 'production' ? '/fresque-benevolat/' : null,
+            base:
+              mode === 'production' ? 'https://www.jeveuxaider.gouv.fr/fresque-benevolat/' : null,
             includeAbsolute: false,
           },
         },
