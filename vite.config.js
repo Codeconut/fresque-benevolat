@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
           transformAssetUrls: {
             base:
               mode === 'production' ? 'https://www.jeveuxaider.gouv.fr/fresque-benevolat/' : null,
-            includeAbsolute: false,
+            includeAbsolute: mode === 'production' ? true : false,
           },
         },
       }),
