@@ -35,7 +35,7 @@ const props = defineProps({
             <img
               v-svg-inline
               class="h-[75px] w-[67px] mx-auto text-[#6B93F6] focus:outline-none"
-              :src="`${$page.props.assetUrl}/images//icons/coeur-2.svg`"
+              :src="`${$page.props.assetUrl}/images/icons/coeur-2.svg`"
               alt=""
             />
           </div>

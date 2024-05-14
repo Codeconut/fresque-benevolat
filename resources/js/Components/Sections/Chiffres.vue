@@ -8,7 +8,7 @@
               <div>
                 <img
                   v-svg-inline
-                  :src="`${$page.props.assetUrl}/images//icons/etoile.svg`"
+                  :src="`${$page.props.assetUrl}/images/icons/etoile.svg`"
                   alt=""
                   class="text-[#49BC8D]"
                 />
@@ -23,7 +23,7 @@
               <div>
                 <img
                   v-svg-inline
-                  :src="`${$page.props.assetUrl}/images//icons/coeur-2.svg`"
+                  :src="`${$page.props.assetUrl}/images/icons/coeur-2.svg`"
                   alt=""
                   class="text-[#49BC8D] focus:outline-none"
                 />
@@ -38,7 +38,7 @@
               <div>
                 <img
                   v-svg-inline
-                  :src="`${$page.props.assetUrl}/images//icons/boussole.svg`"
+                  :src="`${$page.props.assetUrl}/images/icons/boussole.svg`"
                   alt=""
                   class="text-[#49BC8D] w-[45px] focus:outline-none"
                 />

@@ -11,7 +11,7 @@ import { Button } from '@/Components/Dsfr'
             <span>O</span>
             <img
               v-svg-inline
-              :src="`${$page.props.assetUrl}/images//icons/gimmick.svg`"
+              :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
               alt=""
               class="text-[#77EDA5] focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
             /> </span
@@ -24,7 +24,7 @@ import { Button } from '@/Components/Dsfr'
         <div class="bg-white border p-8 lg:p-16">
           <div class="flex flex-col lg:flex-row lg:items-center mb-10">
             <img
-              :src="`${$page.props.assetUrl}/images//icons/school.svg`"
+              :src="`${$page.props.assetUrl}/images/icons/school.svg`"
               alt=""
               class="h-[80px] w-[80px] flex-none mr-6"
             />
@@ -39,7 +39,7 @@ import { Button } from '@/Components/Dsfr'
           <div class="flex items-center space-x-4">
             <div class="flex flex-shrink-0">
               <img
-                :src="`${$page.props.assetUrl}/images//team/timothee.jpg`"
+                :src="`${$page.props.assetUrl}/images/team/timothee.jpg`"
                 alt="Timothée"
                 class="relative z-[3] flex-none h-[48px] w-[48px] lg:w-[60px] lg:h-[60px]"
               />
@@ -53,7 +53,7 @@ import { Button } from '@/Components/Dsfr'
         <div class="bg-white border p-8 lg:p-16">
           <div class="flex flex-col lg:flex-row lg:items-center mb-10">
             <img
-              :src="`${$page.props.assetUrl}/images//icons/human-cooperation.svg`"
+              :src="`${$page.props.assetUrl}/images/icons/human-cooperation.svg`"
               alt=""
               class="h-[80px] w-[80px] flex-none mr-6"
             />
@@ -68,7 +68,7 @@ import { Button } from '@/Components/Dsfr'
           <div class="flex items-center space-x-4">
             <div class="flex flex-shrink-0">
               <img
-                :src="`${$page.props.assetUrl}/images//team/nivine.jpg`"
+                :src="`${$page.props.assetUrl}/images/team/nivine.jpg`"
                 alt="Nivine"
                 class="relative z-[3] flex-none h-[48px] w-[48px] lg:w-[60px] lg:h-[60px]"
               />

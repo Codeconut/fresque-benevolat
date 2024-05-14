@@ -12,7 +12,7 @@ import { Link, router } from '@inertiajs/vue3'
           questions ?
           <img
             v-svg-inline
-            :src="`${$page.props.assetUrl}/images//icons/gimmick.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
             alt=""
             class="text-[#FCD17B] absolute w-[45px] lg:w-[65px] h-auto top-[-15px] right-[-42px] lg:top-[-25px] lg:right-[-60px] focus:outline-none"
           />
@@ -113,7 +113,7 @@ import { Link, router } from '@inertiajs/vue3'
         </Link>
         <img
           v-svg-inline
-          :src="`${$page.props.assetUrl}/images//icons/arbre.svg`"
+          :src="`${$page.props.assetUrl}/images/icons/arbre.svg`"
           alt=""
           class="absolute right-[300px] bottom-[-40px] text-white focus:outline-none"
         />

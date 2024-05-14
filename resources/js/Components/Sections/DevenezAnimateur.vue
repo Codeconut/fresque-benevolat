@@ -8,7 +8,7 @@ import { Link } from '@inertiajs/vue3'
   <div class="relative py-10 lg:py-20">
     <img
       class="absolute z-0 top-[100px] right-0"
-      :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-5.svg`"
+      :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-5.svg`"
       alt=""
     />
     <div class="relative container">
@@ -17,7 +17,7 @@ import { Link } from '@inertiajs/vue3'
           Deviens animateur
           <img
             v-svg-inline
-            :src="`${$page.props.assetUrl}/images//icons/gimmick.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
             alt=""
             class="text-[#6B93F6] absolute w-[45px] h-auto top-[-20px] right-[-45px] lg:w-[65px] lg:h-[75px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"
           />

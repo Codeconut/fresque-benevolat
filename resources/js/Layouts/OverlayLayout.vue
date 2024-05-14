@@ -33,12 +33,12 @@ const handleClose = () => {
       >
         <img
           class="hidden lg:block lg:absolute top-[-100px] right-0 z-1"
-          :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-1.svg`"
+          :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-1.svg`"
           alt=""
         />
         <img
           class="absolute top-[600px] left-0 z-1"
-          :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-6.svg`"
+          :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-6.svg`"
           alt=""
         />
         <div

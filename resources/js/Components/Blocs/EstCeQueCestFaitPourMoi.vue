@@ -8,7 +8,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
     <div class="p-10">
       <img
         v-svg-inline
-        :src="`${$page.props.assetUrl}/images//icons/gimmick.svg`"
+        :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
         alt=""
         class="text-[#6B93F6] mb-4 rotate-[-100deg] focus:outline-none"
       />
@@ -16,7 +16,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
       <div class="text-xl mb-8 space-y-4">
         <div class="flex">
           <img
-            :src="`${$page.props.assetUrl}/images//icons/check.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/check.svg`"
             alt=""
             class="inline-block mr-4"
           />
@@ -24,7 +24,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
         </div>
         <div class="flex">
           <img
-            :src="`${$page.props.assetUrl}/images//icons/check.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/check.svg`"
             alt=""
             class="inline-block mr-4"
           />
@@ -32,7 +32,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
         </div>
         <div class="flex">
           <img
-            :src="`${$page.props.assetUrl}/images//icons/check.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/check.svg`"
             alt=""
             class="inline-block mr-4"
           />

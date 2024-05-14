@@ -40,7 +40,7 @@ const props = defineProps({
           <div class="mb-6 lg:mb-12">
             <img
               class="h-[75px] w-[67px] mx-auto"
-              :src="`${$page.props.assetUrl}/images//icons/hearts.svg`"
+              :src="`${$page.props.assetUrl}/images/icons/hearts.svg`"
               alt=""
             />
           </div>

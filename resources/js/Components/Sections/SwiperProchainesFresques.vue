@@ -32,7 +32,7 @@ const onSwiper = (swiperInstance) => {
       <div class="flex justify-between items-center mb-16">
         <div class="flex space-x-3">
           <img
-            :src="`${$page.props.assetUrl}/images//icons/lunette.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/lunette.svg`"
             alt="megaphone"
             class="hidden lg:block"
           />

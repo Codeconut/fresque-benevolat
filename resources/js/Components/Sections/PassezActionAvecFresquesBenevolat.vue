@@ -7,12 +7,12 @@ import Button from '@/Components/Dsfr/Button.vue'
   <div class="relative">
     <img
       class="absolute top-[-130px] lg:top-[-100px] right-0"
-      :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-1.svg`"
+      :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-1.svg`"
       alt=""
     />
     <img
       class="absolute top-[370px] right-[50px] sm:top-[300px] sm:right-[50px] lg:top-[50px] lg:right-[50px]"
-      :src="`${$page.props.assetUrl}/images//icons/heart.svg`"
+      :src="`${$page.props.assetUrl}/images/icons/heart.svg`"
       alt=""
     />
     <div class="container relative">
@@ -34,7 +34,7 @@ import Button from '@/Components/Dsfr/Button.vue'
       </div>
       <img
         class="w-[578px] h-auto lg:relative lg:mx-auto xl:absolute xl:top-[30px] xl:right-0"
-        :src="`${$page.props.assetUrl}/images//illustrations/playcards.png`"
+        :src="`${$page.props.assetUrl}/images/illustrations/playcards.png`"
         alt=""
       />
     </div>

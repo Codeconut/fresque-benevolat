@@ -16,7 +16,7 @@ const markdown = new MarkdownIt()
     <div class="flex items-center space-x-4 mb-6">
       <img
         v-svg-inline
-        :src="`${$page.props.assetUrl}/images//icons/boussole.svg`"
+        :src="`${$page.props.assetUrl}/images/icons/boussole.svg`"
         alt=""
         class="text-[#6B93F6] w-[40px] focus:outline-none"
       />

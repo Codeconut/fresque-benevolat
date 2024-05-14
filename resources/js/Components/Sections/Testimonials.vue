@@ -35,12 +35,12 @@ const onSwiper = (swiperInstance) => {
   <div class="relative pt-10 lg:py-20">
     <img
       class="absolute z-0 top-[200px] left-0"
-      :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-4.svg`"
+      :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-4.svg`"
       alt=""
     />
     <img
       class="absolute top-[90px] right-[40px] lg:top-[50px] lg:right-[50px]"
-      :src="`${$page.props.assetUrl}/images//icons/mountains.svg`"
+      :src="`${$page.props.assetUrl}/images/icons/mountains.svg`"
       alt=""
     />
     <div class="relative lg:container">
@@ -61,7 +61,7 @@ const onSwiper = (swiperInstance) => {
               >
                 <SwiperSlide v-for="(testimonial, i) in testimonials" :key="i">
                   <img
-                    :src="`${$page.props.assetUrl}/images//icons/quote.svg`"
+                    :src="`${$page.props.assetUrl}/images/icons/quote.svg`"
                     alt=""
                     class="h-8 w-8 flex-none mb-4"
                   />
@@ -108,31 +108,31 @@ const onSwiper = (swiperInstance) => {
             <div class="pt-8">
               <div class="flex flex-col lg:flex-row">
                 <img
-                  :src="`${$page.props.assetUrl}/images//testimonials/testimonial-1.png`"
-                  srcset="
-                    /images/testimonials/testimonial-1.png 1x,
-                    /images/testimonials/testimonial-1.png 2x
-                  "
+                  :src="`${$page.props.assetUrl}/images/testimonials/testimonial-1.png`"
+                  :srcset="`
+                    ${$page.props.assetUrl}/images/testimonials/testimonial-1.png 1x,
+                    ${$page.props.assetUrl}/images/testimonials/testimonial-1.png 2x
+                  `"
                   alt=""
                   class="w-full h-auto lg:w-1/2 lg:h-auto"
                 />
                 <img
-                  :src="`${$page.props.assetUrl}/images//testimonials/testimonial-2.png`"
-                  srcset="
-                    /images/testimonials/testimonial-2.png 1x,
-                    /images/testimonials/testimonial-2.png 2x
-                  "
+                  :src="`${$page.props.assetUrl}/images/testimonials/testimonial-2.png`"
+                  :srcset="`
+                    ${$page.props.assetUrl}/images/testimonials/testimonial-2.png 1x,
+                    ${$page.props.assetUrl}/images/testimonials/testimonial-2.png 2x
+                  `"
                   alt=""
                   class="w-full h-auto lg:w-1/2 lg:h-auto"
                 />
               </div>
 
               <img
-                :src="`${$page.props.assetUrl}/images//testimonials/testimonial-3.png`"
-                srcset="
-                  /images/testimonials/testimonial-3.png 1x,
-                  /images/testimonials/testimonial-3.png 2x
-                "
+                :src="`${$page.props.assetUrl}/images/testimonials/testimonial-3.png`"
+                :srcset="`
+                  ${$page.props.assetUrl}/images/testimonials/testimonial-3.png 1x,
+                  ${$page.props.assetUrl}/images/testimonials/testimonial-3.png 2x
+                `"
                 alt=""
                 class="col-span-2 w-full h-auto"
               />

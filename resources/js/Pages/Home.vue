@@ -23,7 +23,7 @@ const props = defineProps({
     <div class="relative">
       <img
         class="absolute top-[530px] left-0"
-        :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-2.svg`"
+        :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-2.svg`"
         alt=""
       />
       <PassezActionAvecFresquesBenevolat class="relative z-10" />
@@ -39,7 +39,7 @@ const props = defineProps({
     <div class="relative">
       <img
         class="absolute top-[530px] left-0"
-        :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-7.svg`"
+        :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-7.svg`"
         alt=""
       />
       <div class="container">

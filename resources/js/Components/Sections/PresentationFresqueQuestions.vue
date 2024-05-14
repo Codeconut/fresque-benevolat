@@ -45,7 +45,7 @@ const Pane = defineComponent(
   <div class="relative py-10 lg:py-20">
     <img
       class="absolute z-0 top-[200px] right-0"
-      :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-3.svg`"
+      :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-3.svg`"
       alt=""
     />
     <div class="lg:container relative z-10">
@@ -90,20 +90,20 @@ const Pane = defineComponent(
             <div class="hidden lg:block relative">
               <img
                 class="lg:absolute top-[0px] right-0 h-[340px] w-auto"
-                :src="`${$page.props.assetUrl}/images//illustrations/atelier-ludique-1.png`"
-                srcset="
-                  /images/illustrations/atelier-ludique-1.png 1x,
-                  /images/illustrations/atelier-ludique-1.png 2x
-                "
+                :src="`${$page.props.assetUrl}/images/illustrations/atelier-ludique-1.png`"
+                :srcset="`
+                  ${$page.props.assetUrl}/images/illustrations/atelier-ludique-1.png 1x,
+                  ${$page.props.assetUrl}/images/illustrations/atelier-ludique-1.png 2x
+                `"
                 alt=""
               />
               <img
                 class="lg:absolute lg:top-[380px] lg:right-0 xl:top-[290px] xl:right-[150px] h-[340px] w-auto"
-                :src="`${$page.props.assetUrl}/images//illustrations/atelier-ludique-2.png`"
-                srcset="
-                  /images/illustrations/atelier-ludique-2.png 1x,
-                  /images/illustrations/atelier-ludique-2.png 2x
-                "
+                :src="`${$page.props.assetUrl}/images/illustrations/atelier-ludique-2.png`"
+                :srcset="`
+                  ${$page.props.assetUrl}/images/illustrations/atelier-ludique-2.png 1x,
+                  ${$page.props.assetUrl}/images/illustrations/atelier-ludique-2.png 2x
+                `"
                 alt=""
               />
             </div>
