@@ -47,12 +47,12 @@ const changePage = (page) => {
     <div class="relative">
       <img
         class="absolute top-[-100px] right-0"
-        src="/images/illustrations/dashed-line-1.svg"
+        :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-1.svg`"
         alt=""
       />
       <img
         class="absolute top-[530px] left-0"
-        src="/images/illustrations/dashed-line-4.svg"
+        :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-4.svg`"
         alt=""
       />
     </div>
@@ -68,7 +68,7 @@ const changePage = (page) => {
             </p>
             <img
               class="hidden xl:block xl:absolute xl:bottom-0 xl:right-0"
-              src="/images/illustrations/playcards-2.svg"
+              :src="`${$page.props.assetUrl}/images//illustrations/playcards-2.svg`"
               alt=""
             />
           </div>

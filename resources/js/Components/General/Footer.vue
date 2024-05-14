@@ -170,14 +170,19 @@ const gouvLinks = [
                 class="flex flex-col flex-wrap gap-4 sm:gap-6 sm:flex-row lg:gap-8 xl:gap-12"
               >
                 <img
-                  src="/images/logos/republique-francaise-logo.svg"
+                  :src="`${$page.props.assetUrl}/images//logos/republique-francaise-logo.svg`"
                   alt="République Française"
                   width="6500"
                   height="5870"
                   class="w-[76px] lg:w-[127px]"
                 />
 
-                <img src="/images/logos/jeveuxaider-logo.svg" alt="" width="251" height="41" />
+                <img
+                  :src="`${$page.props.assetUrl}/images//logos/jeveuxaider-logo.svg`"
+                  alt=""
+                  width="251"
+                  height="41"
+                />
               </Link>
             </div>
 

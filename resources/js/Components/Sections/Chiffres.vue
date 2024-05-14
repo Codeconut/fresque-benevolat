@@ -6,7 +6,12 @@
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 px-8 py-12 lg:p-24">
             <div class="flex flex-col text-center items-center gap-4 lg:gap-8">
               <div>
-                <img v-svg-inline src="/images/icons/etoile.svg" alt="" class="text-[#49BC8D]" />
+                <img
+                  v-svg-inline
+                  :src="`${$page.props.assetUrl}/images//icons/etoile.svg`"
+                  alt=""
+                  class="text-[#49BC8D]"
+                />
               </div>
               <div>
                 <div class="text-5xl lg:text-[80px] font-bold mb-1 lg:mb-4">140</div>
@@ -18,7 +23,7 @@
               <div>
                 <img
                   v-svg-inline
-                  src="/images/icons/coeur-2.svg"
+                  :src="`${$page.props.assetUrl}/images//icons/coeur-2.svg`"
                   alt=""
                   class="text-[#49BC8D] focus:outline-none"
                 />
@@ -33,7 +38,7 @@
               <div>
                 <img
                   v-svg-inline
-                  src="/images/icons/boussole.svg"
+                  :src="`${$page.props.assetUrl}/images//icons/boussole.svg`"
                   alt=""
                   class="text-[#49BC8D] w-[45px] focus:outline-none"
                 />

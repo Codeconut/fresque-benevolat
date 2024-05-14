@@ -36,12 +36,12 @@ const markdown = new MarkdownIt()
     <div class="relative">
       <img
         class="absolute top-[-100px] right-0"
-        src="/images/illustrations/dashed-line-1.svg"
+        :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-1.svg`"
         alt=""
       />
       <img
         class="absolute top-[530px] left-0"
-        src="/images/illustrations/dashed-line-4.svg"
+        :src="`${$page.props.assetUrl}/images//illustrations/dashed-line-4.svg`"
         alt=""
       />
     </div>

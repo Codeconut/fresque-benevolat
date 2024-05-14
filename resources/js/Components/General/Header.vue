@@ -15,7 +15,7 @@ const logout = () => {
       <div class="flex justify-between items-center h-[122px]">
         <div class="shrink-0 flex items-center">
           <Link :href="route('home')" class="flex items-center px-2 relative -left-4">
-            <img src="/images/logos/logo-marianne.svg" class="" />
+            <img :src="`${$page.props.assetUrl}/images/logos/logo-marianne.svg`" class="" />
             <ApplicationMark class="block w-auto" />
           </Link>
         </div>

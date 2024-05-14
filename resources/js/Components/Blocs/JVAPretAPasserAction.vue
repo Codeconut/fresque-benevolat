@@ -19,7 +19,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
                 Plus de 18 000 missions de bénévolat n’attendent que toi sur JeVeuxAider.gouv.fr
               </p>
               <img
-                src="/images/logos/jeveuxaider-logo-white.png"
+                :src="`${$page.props.assetUrl}/images//logos/jeveuxaider-logo-white.png`"
                 alt=""
                 width="222"
                 height="36"

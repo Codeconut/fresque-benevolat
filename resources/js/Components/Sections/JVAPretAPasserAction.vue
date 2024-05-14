@@ -11,7 +11,7 @@ import Button from '@/Components/Dsfr/Button.vue'
           <div class="max-w-[780px] mx-auto">
             <div class="py-10 lg:py-20 px-8 text-center">
               <img
-                src="/images/logos/jeveuxaider-logo-white.png"
+                :src="`${$page.props.assetUrl}/images//logos/jeveuxaider-logo-white.png`"
                 alt=""
                 width="297"
                 height="48"
