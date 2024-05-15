@@ -37,7 +37,7 @@ class LastFresqueApplications extends BaseWidget
                     ->description(fn (FresqueApplication $application) => $application->full_name),
                 Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
-                    ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
+                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city . ' - ' . $application->fresque?->place?->name),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date('d M Y à H:i')
                     ->label('Créé le'),

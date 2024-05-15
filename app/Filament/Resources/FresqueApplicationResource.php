@@ -62,7 +62,7 @@ class FresqueApplicationResource extends Resource
                     ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
-                    ->description(fn (FresqueApplication $application) => $application->fresque->place->city . ' - ' . $application->fresque->place->name),
+                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city . ' - ' . $application->fresque?->place?->name),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
                 Tables\Columns\IconColumn::make('post_fresque_engagement')
