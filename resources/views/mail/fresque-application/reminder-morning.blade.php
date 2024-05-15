@@ -4,7 +4,7 @@
 ### Bonjour {{ $notifiable->first_name }},
 
 Bonne nouvelle : la Fresque du Bénévolat, c’est déjà aujourd’hui !<br />
-On se retrouve à {{ \Carbon\Carbon::parse($fresque->start_at)->format('H\hi') }} à l’adresse suivante : {{ $fresque->place->full_address }}.
+On se retrouve à {{ \Carbon\Carbon::parse($fresque->start_at)->format('H\hi') }} à l’adresse suivante : {{ $fresque->place?->full_address }}.
 
 <x-mail::fresque-title :fresque="$fresque" />
 

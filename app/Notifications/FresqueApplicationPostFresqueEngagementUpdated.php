@@ -39,7 +39,7 @@ class FresqueApplicationPostFresqueEngagementUpdated extends Notification implem
 
     public function toSlack(object $notifiable): SlackMessage
     {
-        $context = $notifiable->fresque->full_date . ' à ' . $notifiable->fresque->place->city . ' - ' . $notifiable->fresque->place->name;
+        $context = $notifiable->fresque->full_date . ' à ' . $notifiable->fresque?->place?->city . ' - ' . $notifiable->fresque?->place?->name;
 
         return (new SlackMessage)
             ->sectionBlock(function (SectionBlock $block) use ($notifiable) {
