@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +36,10 @@ class AppServiceProvider extends ServiceProvider
 
         if (App::environment('production')) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
+
+            Livewire::setUpdateRoute(function ($handle) {
+                return Route::post('/fresque-benevolat/livewire/update', $handle);
+            });
         }
     }
 }
