@@ -27,7 +27,7 @@ defineProps({
 })
 
 const url = new URL(location.href)
-const baseUrl = `${url.protocol}//${url.hostname}`
+const baseUrl = `${url.protocol}//${url.hostname}/fresque-benevolat`
 </script>
 
 <template>
