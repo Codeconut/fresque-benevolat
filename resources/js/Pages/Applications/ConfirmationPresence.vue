@@ -36,7 +36,7 @@ const title = computed(() => {
     case 'canceled':
       return 'Participation annulée 😢'
     default:
-      return 'Votre participation'
+      return props.application.first_name
   }
 })
 </script>
@@ -69,10 +69,6 @@ const title = computed(() => {
             <h2 class="text-[32px] font-bold">
               {{ title }}
             </h2>
-            <p class="text-lg">
-              Ta participation est au statut:
-              <strong>{{ $taxonomies.getLabel(application.state, 'application_states') }}</strong>
-            </p>
 
             <template v-if="application.state === 'registered'">
               <p class="text-lg lg:px-12">
@@ -101,6 +97,16 @@ const title = computed(() => {
               <p class="text-lg lg:px-12">
                 Si tu changes d’avis, et souhaites malgré tout participer à cette super fresque, dis
                 le nous en confirmant ta présence.
+              </p>
+            </template>
+            <template v-if="application.state === 'validated'">
+              <p class="text-lg lg:px-12">
+                Félicitations pour avoir participé à cette fresque, on espère que ça t’a plu !
+              </p>
+            </template>
+            <template v-if="application.state === 'missing'">
+              <p class="text-lg lg:px-12">
+                Tu n’étais malheureusement pas présent à cette fresque :(
               </p>
             </template>
           </div>
