@@ -26,7 +26,7 @@ class NotificationController extends Controller
     public function renderMail($slug)
     {
 
-        $fresqueApplication = FresqueApplication::last();
+        $fresqueApplication = FresqueApplication::first();
 
         switch ($slug) {
             case 'fresque-application-feedback-j-3':
