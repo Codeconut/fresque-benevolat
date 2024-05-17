@@ -32,7 +32,7 @@ import { Button } from '@/Components/Dsfr'
           <p class="mb-10 text-xl">
             Sensibilisez vos étudiants et employés au bénévolat grâce à la Fresque
           </p>
-          <a target="_blank" href="https://tally.so/r/w7d9yZ">
+          <a target="_blank" href="https://tally.so/r/mDVR2j">
             <Button size="lg" class="mb-10">Nous contacter</Button>
           </a>
           <div class="flex items-center space-x-4">
