@@ -6,8 +6,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
 <template>
   <div class="border">
     <div class="p-10">
-      <img
-        v-svg-inline
+      <inline-svg
         :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
         alt=""
         class="text-[#6B93F6] mb-4 rotate-[-100deg] focus:outline-none"

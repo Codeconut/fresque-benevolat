@@ -15,8 +15,7 @@ import { Link } from '@inertiajs/vue3'
       <div class="mb-14">
         <h2 class="relative inline text-4xl lg:text-5xl lg:leading-[56px] font-bold">
           Deviens animateur
-          <img
-            v-svg-inline
+          <inline-svg
             :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
             alt=""
             class="text-[#6B93F6] absolute w-[45px] h-auto top-[-20px] right-[-45px] lg:w-[65px] lg:h-[75px] lg:top-[-18px] lg:right-[-60px] focus:outline-none"

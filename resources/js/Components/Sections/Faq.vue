@@ -10,8 +10,7 @@ import { Link, router } from '@inertiajs/vue3'
         <h2 class="relative inline text-4xl lg:text-5xl font-bold">
           Tu as des <br class="lg:hidden" />
           questions ?
-          <img
-            v-svg-inline
+          <inline-svg
             :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
             alt=""
             class="text-[#FCD17B] absolute w-[45px] lg:w-[65px] h-auto top-[-15px] right-[-42px] lg:top-[-25px] lg:right-[-60px] focus:outline-none"
@@ -111,8 +110,7 @@ import { Link, router } from '@inertiajs/vue3'
             >Trouver une fresque <span class="hidden lg:inline">à deux pas</span></Button
           >
         </Link>
-        <img
-          v-svg-inline
+        <inline-svg
           :src="`${$page.props.assetUrl}/images/icons/arbre.svg`"
           alt=""
           class="absolute right-[300px] bottom-[-40px] text-white focus:outline-none"

@@ -32,8 +32,7 @@ const props = defineProps({
       <div class="max-w-full w-[792px] mx-auto">
         <div class="p-8 lg:p-12 bg-white shadow-lg text-center">
           <div class="mb-6 lg:mb-12">
-            <img
-              v-svg-inline
+            <inline-svg
               class="h-[75px] w-[67px] mx-auto text-[#6B93F6] focus:outline-none"
               :src="`${$page.props.assetUrl}/images/icons/coeur-2.svg`"
               alt=""
