@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { Head, Link, router } from '@inertiajs/vue3'
+import { Head, Link, router, usePage } from '@inertiajs/vue3'
 import ApplicationMark from '@/Components/Jetstream/ApplicationMark.vue'
 import Banner from '@/Components/Jetstream/Banner.vue'
 import Dropdown from '@/Components/Jetstream/Dropdown.vue'
@@ -25,9 +25,6 @@ defineProps({
     default: '/images/illustrations/fresque-benevolat-image.jpg',
   },
 })
-
-const url = new URL(location.href)
-const baseUrl = `${url.protocol}//${url.hostname}/fresque-benevolat`
 </script>
 
 <template>
@@ -36,14 +33,14 @@ const baseUrl = `${url.protocol}//${url.hostname}/fresque-benevolat`
       <meta property="type" content="website" />
       <meta property="title" :content="title" />
       <meta name="description" :content="description" />
-      <meta property="image" :content="`${baseUrl}${imagePath}`" />
-      <meta property="url" :content="url" />
+      <meta property="image" :content="`${$page.props.assetUrl}${imagePath}`" />
+      <meta property="url" :content="$page.props.assetUrl" />
 
       <meta property="og:type" content="website" />
       <meta property="og:title" :content="title" />
       <meta property="og:description" :content="description" />
-      <meta property="og:url" :content="url" />
-      <meta property="og:image" :content="`${baseUrl}${imagePath}`" />
+      <meta property="og:url" :content="$page.props.assetUrl" />
+      <meta property="og:image" :content="`${$page.props.assetUrl}${imagePath}`" />
     </Head>
 
     <Banner />
