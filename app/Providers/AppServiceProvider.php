@@ -41,10 +41,6 @@ class AppServiceProvider extends ServiceProvider
             Livewire::setUpdateRoute(function ($handle) {
                 return Route::post('/fresque-benevolat/livewire/update', $handle);
             });
-
-            if(App::runningInConsole()) {
-                Artisan::call('inertia:start-ssr');
-            }
         }
     }
 }
