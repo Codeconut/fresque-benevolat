@@ -14,8 +14,7 @@ const markdown = new MarkdownIt()
 <template>
   <div v-if="fresque.summary" class="bg-white shadow-lg p-8 lg:p-12">
     <div class="flex items-center space-x-4 mb-6">
-      <img
-        v-svg-inline
+      <inline-svg
         :src="`${$page.props.assetUrl}/images/icons/boussole.svg`"
         alt=""
         class="text-[#6B93F6] w-[40px] focus:outline-none"

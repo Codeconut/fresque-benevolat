@@ -10,7 +10,7 @@
         "awcodes/filament-gravatar": "^2.0",
         "filament/filament": "^3.2",
         "getbrevo/brevo-php": "^2.0",
-        "inertiajs/inertia-laravel": "^1.0",
+        "inertiajs/inertia-laravel": "^1.2",
         "joshembling/image-optimizer": "v1.4",
         "laravel/framework": "^11.0",
         "laravel/horizon": "^5.24",

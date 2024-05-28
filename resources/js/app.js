@@ -1,7 +1,7 @@
 import './bootstrap'
 import '../css/app.css'
 
-import { createApp, h } from 'vue'
+import { createSSRApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from 'ziggy-js'
@@ -10,7 +10,7 @@ import VueSocialSharing from 'vue-social-sharing'
 import ScrollLock from './Plugins/scrollLock'
 import Filters from './Plugins/filters'
 import Taxonomies from './Plugins/taxonomies'
-import VueSvgInlinePlugin from 'vue-svg-inline-plugin'
+import InlineSvg from 'vue-inline-svg'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel'
 
@@ -19,7 +19,7 @@ createInertiaApp({
   resolve: (name) =>
     resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
   setup({ el, App, props, plugin }) {
-    return createApp({ render: () => h(App, props) })
+    const app = createSSRApp({ render: () => h(App, props) })
       .use(plugin)
       .use(ZiggyVue)
       .use(dayjsPlugin)
@@ -27,16 +27,10 @@ createInertiaApp({
       .use(ScrollLock)
       .use(Filters)
       .use(Taxonomies)
-      .use(VueSvgInlinePlugin, {
-        attributes: {
-          data: ['src'],
-          remove: ['alt'],
-        },
-        cache: {
-          persistent: false,
-        },
-      })
-      .mount(el)
+
+    app.component('inline-svg', InlineSvg)
+
+    return app.mount(el)
   },
   progress: {
     color: '#4B5563',

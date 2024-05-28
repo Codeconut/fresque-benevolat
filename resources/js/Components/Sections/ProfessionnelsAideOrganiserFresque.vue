@@ -8,8 +8,7 @@ import { Button } from '@/Components/Dsfr'
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
           <span class="relative">
-            <img
-              v-svg-inline
+            <inline-svg
               :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
               alt=""
               class="text-[#77EDA5] focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
