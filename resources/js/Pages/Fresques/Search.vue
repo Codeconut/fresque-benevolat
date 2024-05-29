@@ -2,13 +2,15 @@
 import AppLayout from '@/Layouts/AppLayout.vue'
 import FresqueCard from '@/Components/FresqueCard.vue'
 import { Link, router } from '@inertiajs/vue3'
-import { ref } from 'vue'
 import queryString from 'query-string'
 import { Select, Label, Pagination } from '@/Components/Dsfr'
 import Faq from '@/Components/Sections/Faq.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import BlocJVAPretAPasserAction from '@/Components/Blocs/JVAPretAPasserAction.vue'
 import EstCeQueCestFaitPourMoi from '@/Components/Blocs/EstCeQueCestFaitPourMoi.vue'
+import { usePage } from '@inertiajs/vue3'
+import { useUrlQuery } from '@/Composables/useUrlQuery'
+import { ref } from 'vue'
 
 const props = defineProps({
   fresques: {
@@ -21,7 +23,8 @@ const props = defineProps({
   },
 })
 
-const selectedCity = ref(queryString.parse(location.search)?.['filter[place.city]'] || null)
+const query = useUrlQuery()
+const selectedCity = ref(query?.['filter[place.city]'] || null)
 
 const citiesOptions = props.cities.map((option) => {
   return { value: option.city, label: `${option.city} (${option.count})` }
