@@ -59,8 +59,13 @@ const props = defineProps({
       ]"
       @input="$emit('update:modelValue', $event.target.value)"
     >
-      <option value="" selected disabled hidden>{{ placeholder }}</option>
-      <option v-for="option in options" :key="option.value" :value="option.value">
+      <option value="" disabled hidden>{{ placeholder }}</option>
+      <option
+        v-for="option in options"
+        :key="option.value"
+        :value="option.value"
+        :selected="option.value === modelValue"
+      >
         {{ option.label }}
       </option>
     </select>
