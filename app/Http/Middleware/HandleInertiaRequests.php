@@ -41,6 +41,7 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'message' => fn () => $request->session()->get('message')
             ],
+            'appUrl' => config('app.url'),
             'assetUrl' => config('app.asset_url')
         ];
     }
