@@ -27,7 +27,7 @@ const onSwiper = (swiperInstance) => {
 </script>
 
 <template>
-  <div class="py-10 lg:py-20">
+  <div v-if="fresques?.length > 0" class="py-10 lg:py-20">
     <div class="container">
       <div class="flex justify-between items-center mb-16">
         <div class="flex space-x-3">

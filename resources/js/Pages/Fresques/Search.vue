@@ -93,7 +93,7 @@ const changePage = (page) => {
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
             <div class="col-span-2">
-              <div v-if="fresques">
+              <div v-if="fresques?.data.length > 0">
                 <div class="grid grid-cols-1 gap-8">
                   <Link
                     :href="route('fresques.show', { fresque: fresque.slug })"
@@ -112,6 +112,7 @@ const changePage = (page) => {
                   @page-change="changePage"
                 />
               </div>
+              <div v-else>Aucune fresque à venir</div>
             </div>
             <div class="space-y-8 mt-24 lg:mt-0">
               <EstCeQueCestFaitPourMoi />

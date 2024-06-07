@@ -5,26 +5,22 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\FresqueResource\Pages;
 use App\Filament\Resources\FresqueResource\RelationManagers;
 use App\Models\Animator;
-use App\Models\Place;
 use App\Models\Fresque;
+use App\Models\Place;
+use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 use Carbon\Carbon;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Builder as FormBuilder;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
 use Filament\Tables\Filters\TernaryFilter;
-use Filament\Tables\Columns\IconColumn;
-use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FresqueResource extends Resource
 {
@@ -132,8 +128,8 @@ class FresqueResource extends Resource
                                                     ]),
                                             ])
                                             ->collapsed()
-                                            ->default(include resource_path('default-content.php'))
-                                    ])
+                                            ->default(include resource_path('default-content.php')),
+                                    ]),
 
                             ])->columnSpan(2),
                         Forms\Components\Grid::make()
@@ -171,14 +167,12 @@ class FresqueResource extends Resource
                                             ->imageEditor()
                                             ->imageResizeMode('cover')
                                             ->imageEditorViewportWidth('744')
-                                            ->imageEditorViewportHeight('430')
-                                    ])
+                                            ->imageEditorViewportHeight('430'),
+                                    ]),
                             ])->columnSpan(1),
-                    ])->columns(3)
+                    ])->columns(3),
             ]);
     }
-
-
 
     public static function table(Table $table): Table
     {
@@ -197,9 +191,12 @@ class FresqueResource extends Resource
                 Tables\Columns\TextColumn::make('date')
                     ->date('d M Y')
                     ->description(fn (Fresque $fresque) => $fresque->schedules),
-                Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
-                    ->suffix(' places ')
-                    ->description(fn (Fresque $fresque) => 'sur ' . $fresque->places . ' au total'),
+                // Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
+                //     ->suffix(' places ')
+                //     ->description(fn (Fresque $fresque) => 'sur '.$fresque->places.' au total'),
+
+                Tables\Columns\ViewColumn::make('applications')->label('Participations')->view('tables.columns.fresque-application-summary'),
+                Tables\Columns\ViewColumn::make('places')->label('Participants')->alignCenter()->view('tables.columns.fresque-places'),
                 ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
                 ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
                 ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
@@ -213,7 +210,7 @@ class FresqueResource extends Resource
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
-                TernaryFilter::make('is_online')
+                TernaryFilter::make('is_online'),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
@@ -226,8 +223,8 @@ class FresqueResource extends Resource
                         ->successRedirectUrl(fn (Fresque $replica): string => route('filament.admin.resources.fresques.edit', [
                             'record' => $replica,
                         ])),
-                    Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueResource::getUrl('activities', ['record' => $record]))
-                ])
+                    Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueResource::getUrl('activities', ['record' => $record])),
+                ]),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([

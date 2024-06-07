@@ -20,12 +20,12 @@ Je donne mon avis
 
 Pour t’accompagner dans ton parcours de bénévole, je t’ai soigneusement préparé un guide ultime post-fresque, il contient :
 
-💡 Les essentiels à retenir<br>
-✅ Tes prochaines étapes<br>
-💬 Le feedback<br>
-✨ Valoriser ta participation<br>
-📊 Les études pour aller plus loin<br>
-📸 Les photos pour les souvenirs<br>
+🐾 Tes prochaines étapes<br>
+💡 Les essentiels à retenir<br>
+✨ Valoriser ta participation<br>
+💬 Le feedback : j'apporte ma pierre à l'édifice<br>
+📊 Les études pour aller plus loin<br>
+📸 Les photos pour les souvenirs<br>
 
 <x-mail::button url="https://jeveuxaider.notion.site/Fresque-du-B-n-volat-et-apr-s-af11cb0e09724e278f76e32973a2e440?pvs=4">
 Je découvre le guide
