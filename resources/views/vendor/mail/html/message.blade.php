@@ -19,7 +19,7 @@ width="200">
 <div class="footer-links">
 
 [Trouver une mission](https://jeveuxaider.gouv.fr/missions-benevolat)
-[Toutes les fresques du bénévolat](#)
+[Toutes les fresques du bénévolat](https://www.jeveuxaider.gouv.fr/fresque-benevolat)
 
 </div>
 
@@ -32,8 +32,7 @@ width="200">
 
 </div>
 
-Cet e-mail a été envoyé suite à votre inscription à une fresque du Bénévolat sur
-fresquedubenevolat.jeveuxaider.gouv.fr
+Cet e-mail a été envoyé suite à votre inscription à une Fresque du Bénévolat
 
 </x-mail::footer>
 </x-slot:footer>

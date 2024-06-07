@@ -38,19 +38,21 @@ class SendNotificationFeedbackJ3 extends Command
             return;
         }
 
-        $applications = $fresque->applications()->where('state', 'validated')
-            ->get();
+        $query = $fresque->applications()->where('state', 'validated');
 
-        $applications->each(function ($application) use (&$count) {
-            $application->notify(new FresqueApplicationFeedbackJ3());
-            $count++;
-        });
+        if ($this->confirm($query->count().' notifications vont être envoyées pour la fresque du '.$fresque->full_date.' à '.$fresque->place->name.'. Voulez-vous continuer ?')) {
+            $applications = $query->get();
+            $applications->each(function ($application) use (&$count) {
+                $application->notify(new FresqueApplicationFeedbackJ3());
+                $count++;
+            });
 
-        if ($count > 0) {
-            Notification::route('slack', config('services.slack.notifications.channel'))
-                ->notify(new TaskSchedulingExecuted('[J+3] XXX, on a besoin de ton avis sur la Fresque du Bénévolat 💁🏻', $count));
+            if ($count > 0) {
+                Notification::route('slack', config('services.slack.notifications.channel'))
+                    ->notify(new TaskSchedulingExecuted('[J+3] XXX, on a besoin de ton avis sur la Fresque du Bénévolat 💁🏻', $count));
+            }
+
+            $this->info($count.' notifications ont été envoyées pour la fresque du '.$fresque->full_date.' à '.$fresque->place->name);
         }
-
-        $this->info($count.' notifications has been sent for '.$fresque->full_date.' at '.$fresque->place->name);
     }
 }
