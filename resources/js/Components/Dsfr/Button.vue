@@ -40,11 +40,11 @@ defineProps({
     :class="[
       {
         'text-white bg-dsfr-blue hover:bg-dsfr-blue-hover active:bg-dsfr-blue-active border-transparent focus-visible:ring-[#0a76f6]':
-          variant === 'primary',
+          variant === 'primary' && !disabled,
       },
       {
         'text-dsfr-blue border-dsfr-blue bg-white hover:bg-[#F6F6F6] active:bg-[#EDEDED]':
-          variant === 'secondary',
+          variant === 'secondary' && !disabled,
       },
       { 'px-2 py-1 text-xs min-h-[32px]': size === 'xs' },
       { 'px-3 py-1 text-sm min-h-[34px]': size === 'sm' },
@@ -55,6 +55,12 @@ defineProps({
       customClass,
 
       disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+      {
+        '!bg-[#E5E5E5] text-[#929292]': disabled && type === 'primary',
+      },
+      {
+        '!border-[#E5E5E5] text-[#929292]': disabled && type === 'secondary',
+      },
     ]"
   >
     <component

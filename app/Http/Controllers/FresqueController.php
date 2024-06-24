@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreateFresqueApplication;
-use App\Http\Controllers\Controller;
 use App\Jobs\TriggerBrevoAction;
 use App\Models\Fresque;
 use Illuminate\Http\Request;
@@ -13,7 +12,6 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class FresqueController extends Controller
 {
-
     public function index()
     {
         $fresques = QueryBuilder::for(Fresque::class)
@@ -33,6 +31,7 @@ class FresqueController extends Controller
 
         return Inertia::render('Fresques/Search', [
             'fresques' => $fresques,
+            'oldFresques' => Fresque::with(['place'])->online()->public()->limit(10)->get(),
             'cities' => $cities,
         ]);
     }
@@ -62,7 +61,7 @@ class FresqueController extends Controller
 
     public function apply(Request $request, Fresque $fresque, CreateFresqueApplication $createFresqueApplication)
     {
-        if (!$fresque->can_candidate) {
+        if (! $fresque->can_candidate) {
             return redirect()->back()->with('error', 'Les candidatures pour cette fresque sont fermées');
         }
 
@@ -78,7 +77,7 @@ class FresqueController extends Controller
         TriggerBrevoAction::dispatch('createOrUpdateContact', [
             'email' => $request->input('email'),
             'updateEnabled' => true,
-            'listIds' => [config('services.brevo.contacts_list_id')]
+            'listIds' => [config('services.brevo.contacts_list_id')],
         ]);
 
         return to_route('fresques.applications.registered', $application->token);

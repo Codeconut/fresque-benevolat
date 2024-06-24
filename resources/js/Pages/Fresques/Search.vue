@@ -11,11 +11,17 @@ import EstCeQueCestFaitPourMoi from '@/Components/Blocs/EstCeQueCestFaitPourMoi.
 import { usePage } from '@inertiajs/vue3'
 import { useUrlQuery } from '@/Composables/useUrlQuery'
 import { ref } from 'vue'
+import NewsletterNeRatePasLesProchainesFresques from '@/Components/Sections/NewsletterNeRatePasLesProchainesFresques.vue'
+import SwiperOverFresques from '@/Components/Sections/SwiperOverFresques.vue'
 
 const props = defineProps({
   fresques: {
     type: Object,
     required: true,
+  },
+  oldFresques: {
+    type: Array,
+    default: () => [],
   },
   cities: {
     type: Array,
@@ -91,39 +97,57 @@ const changePage = (page) => {
               />
             </div>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
-            <div class="col-span-2">
-              <div v-if="fresques?.data.length > 0">
-                <div class="grid grid-cols-1 gap-8">
-                  <Link
-                    :href="route('fresques.show', { fresque: fresque.slug })"
-                    v-for="fresque in fresques.data"
-                    :key="fresque.id"
-                  >
-                    <FresqueCard class="" :fresque="fresque" />
-                  </Link>
+
+          <template v-if="fresques?.data.length > 0">
+            <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
+              <div class="col-span-2">
+                <div>
+                  <div class="grid grid-cols-1 gap-8">
+                    <Link
+                      :href="route('fresques.show', { fresque: fresque.slug })"
+                      v-for="fresque in fresques.data"
+                      :key="fresque.id"
+                    >
+                      <FresqueCard class="" :fresque="fresque" />
+                    </Link>
+                  </div>
+                  <Pagination
+                    v-if="fresques.last_page > 1"
+                    class="mt-8"
+                    :current-page="fresques.current_page"
+                    :total-rows="fresques.total"
+                    :per-page="fresques.per_page"
+                    @page-change="changePage"
+                  />
                 </div>
-                <Pagination
-                  v-if="fresques.last_page > 1"
-                  class="mt-8"
-                  :current-page="fresques.current_page"
-                  :total-rows="fresques.total"
-                  :per-page="fresques.per_page"
-                  @page-change="changePage"
-                />
               </div>
-              <div v-else>Aucune fresque à venir</div>
+              <div class="space-y-8 mt-24 lg:mt-0">
+                <EstCeQueCestFaitPourMoi />
+                <BlocJVAPretAPasserAction class="hidden lg:block" />
+              </div>
             </div>
-            <div class="space-y-8 mt-24 lg:mt-0">
-              <EstCeQueCestFaitPourMoi />
-              <BlocJVAPretAPasserAction class="hidden lg:block" />
+          </template>
+          <template v-else>
+            <div class="flex flex-col items-center space-y-12 py-12">
+              <div class="flex flex-col items-center justify-center gap-4">
+                <img
+                  class="h-[122px] w-[105px]"
+                  :src="`${$page.props.assetUrl}/images/no-result.png`"
+                  alt=""
+                />
+                <div class="text-[#161616] text-xl lg:text-[28px] font-bold">
+                  Il n’y a pas de fresque en ligne pour le moment 😥
+                </div>
+              </div>
+              <NewsletterNeRatePasLesProchainesFresques class="max-w-[794px] w-full" />
             </div>
-          </div>
+          </template>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="lg:border-t lg:py-14">
+        <SwiperOverFresques :fresques="oldFresques" />
         <Faq />
       </div>
     </div>
