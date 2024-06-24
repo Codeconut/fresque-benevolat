@@ -7,8 +7,9 @@ import {
   RiUserHeartFill,
   RiArrowRightLine,
 } from '@remixicon/vue'
+import dayjs from 'dayjs'
 
-defineProps({
+const props = defineProps({
   fresque: {
     type: Object,
     required: true,
@@ -18,6 +19,8 @@ defineProps({
     default: 'horizontal',
   },
 })
+
+const isPassed = dayjs().isAfter(dayjs(props.fresque.date))
 </script>
 
 <template>
@@ -79,7 +82,9 @@ defineProps({
         <div class="flex items-center">
           <RiUserHeartFill size="16" class="mr-2 text-[#6A6156]" />
           <span class="line-clamp-1">{{
-            $filters.pluralize(fresque.places_left, 'place disponible', 'places disponibles')
+            isPassed
+              ? 'Inscriptions fermées'
+              : $filters.pluralize(fresque.places_left, 'place disponible', 'places disponibles')
           }}</span>
         </div>
       </div>
