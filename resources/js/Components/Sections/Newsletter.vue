@@ -54,7 +54,11 @@ const onSubmit = () => {
                 name="email"
                 type="email"
                 v-model.trim="form.email"
-                placeholder="Ton adresse électronique (ex. : nom@domaine.fr)"
+                :placeholder="
+                  isSubscribed
+                    ? 'Tu es inscrit à la newsletter :)'
+                    : 'Ton adresse électronique (ex. : nom@domaine.fr)'
+                "
                 :error="!!form.errors.email"
                 :success="isSubscribed"
                 variant="white"
@@ -67,9 +71,9 @@ const onSubmit = () => {
             <div class="text-[#ce0500] text-xs mt-2" v-if="form.errors.email">
               {{ form.errors.email }}
             </div>
-            <div v-if="isSubscribed" class="text-[#18753c] text-xs mt-2">
+            <!-- <div v-if="isSubscribed" class="text-[#18753c] text-xs mt-2">
               Tu es inscrit à la newsletter :)
-            </div>
+            </div> -->
           </form>
 
           <p class="text-xs text mt-4 text-[#666666]">
