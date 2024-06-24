@@ -128,10 +128,10 @@ const changePage = (page) => {
             </div>
           </template>
           <template v-else>
-            <div class="flex flex-col items-center space-y-12 py-12">
-              <div class="flex flex-col items-center justify-center gap-4">
+            <div class="flex flex-col items-center space-y-8 lg:space-y-12">
+              <div class="flex flex-col items-center justify-center gap-4 mt-8 lg:mt-12">
                 <img
-                  class="h-[122px] w-[105px]"
+                  class="h-[82px] w-[70px] lg:h-[122px] lg:w-[105px]"
                   :src="`${$page.props.assetUrl}/images/no-result.png`"
                   alt=""
                 />

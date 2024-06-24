@@ -32,8 +32,13 @@ const onSubmit = () => {
 
 <template>
   <div class="py-8 lg:py-12">
-    <div class="container">
-      <div class="bg-white border p-12">
+    <div class="">
+      <div class="relative bg-white border p-8 lg:p-12">
+        <inline-svg
+          :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
+          alt=""
+          class="text-[#FCD17B] hidden lg:block focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-120deg] absolute top-[-40px] left-[-40px] lg:top-[-50px] lg:left-[-50px]"
+        />
         <h2 id="newsletter-headline" class="text-2xl font-bold mb-4">
           Ne rate pas les prochaines fresques
         </h2>
