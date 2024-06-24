@@ -37,12 +37,12 @@ const onSubmit = () => {
         <inline-svg
           :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
           alt=""
-          class="text-[#FCD17B] hidden lg:block focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-120deg] absolute top-[-40px] left-[-40px] lg:top-[-50px] lg:left-[-50px]"
+          class="text-[#FCD17B] hidden lg:block focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-120deg] absolute top-[-40px] left-[-40px] lg:top-[-52px] lg:left-[-55px]"
         />
         <h2 id="newsletter-headline" class="text-2xl font-bold mb-4">
           Ne rate pas les prochaines fresques
         </h2>
-        <p class="text-[#666666] mb-4">
+        <p class="text-[#666666] text-lg mb-4">
           Tu recevras un email lorsqu’une nouvelle fresque sera publiée
         </p>
         <form :aria-labelledby="`newsletter-headline`" class="" @submit.prevent="onSubmit">
