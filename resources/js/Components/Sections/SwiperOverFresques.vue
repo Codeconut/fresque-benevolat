@@ -56,7 +56,7 @@ const onSwiper = (swiperInstance) => {
       </div>
     </div>
 
-    <div class="overflow-x-hidden">
+    <div class="">
       <div class="container">
         <Swiper
           @swiper="onSwiper"
