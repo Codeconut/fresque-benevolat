@@ -5,6 +5,7 @@ import { ref } from 'vue'
 
 const form = useForm({
   email: null,
+  type: 'waiting-list',
 })
 
 const isSubscribed = ref(false)

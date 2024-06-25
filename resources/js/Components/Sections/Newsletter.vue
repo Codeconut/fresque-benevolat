@@ -12,6 +12,7 @@ import { ref } from 'vue'
 
 const form = useForm({
   email: null,
+  type: 'contact',
 })
 
 const isSubscribed = ref(false)
