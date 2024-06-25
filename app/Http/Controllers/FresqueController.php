@@ -31,7 +31,7 @@ class FresqueController extends Controller
 
         return Inertia::render('Fresques/Search', [
             'fresques' => $fresques,
-            'oldFresques' => Fresque::with(['place'])->online()->public()->limit(10)->orderBy('date', 'DESC')->get(),
+            'oldFresques' => Fresque::with(['place'])->online()->public()->passed()->limit(10)->orderBy('date', 'DESC')->get(),
             'cities' => $cities,
         ]);
     }
