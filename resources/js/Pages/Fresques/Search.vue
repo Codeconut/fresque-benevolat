@@ -145,6 +145,11 @@ const changePage = (page) => {
         </div>
       </div>
     </div>
+    <div v-if="fresques?.data.length > 0" class="container">
+      <div class="lg:py-14">
+        <NewsletterNeRatePasLesProchainesFresques class="max-w-[794px] w-full mx-auto" />
+      </div>
+    </div>
     <div class="container">
       <div class="lg:border-t lg:py-14">
         <SwiperOverFresques :fresques="oldFresques" />
