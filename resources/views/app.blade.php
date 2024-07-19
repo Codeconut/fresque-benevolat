@@ -16,6 +16,8 @@
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
+    <script defer data-domain="jeveuxaider.gouv.fr" src="https://plausible.io/js/script.js"></script>
+
 </head>
 
 <body class="font-sans antialiased">
