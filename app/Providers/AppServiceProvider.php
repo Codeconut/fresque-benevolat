@@ -4,12 +4,14 @@ namespace App\Providers;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
+use Symfony\Component\Mailer\Bridge\Brevo\Transport\BrevoTransportFactory;
+use Symfony\Component\Mailer\Transport\Dsn;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,12 +37,23 @@ class AppServiceProvider extends ServiceProvider
             return ! $query->whereRaw("lower({$column}) = lower(?)", [$value])->count();
         });
 
+        Mail::extend('brevo', function () {
+            return (new BrevoTransportFactory)->create(
+                new Dsn(
+                    'brevo+api',
+                    'default',
+                    config('services.brevo.api_key')
+                )
+            );
+        });
+
         if (App::environment('production')) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
 
             Livewire::setUpdateRoute(function ($handle) {
                 return Route::post('/fresque-benevolat/livewire/update', $handle);
             });
+
         }
     }
 }
