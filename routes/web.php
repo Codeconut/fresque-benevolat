@@ -15,8 +15,6 @@ Route::get('register', Register::class)
     ->middleware('signed');
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/test', [PageController::class, 'test'])->name('test');
-Route::get('/test2', [PageController::class, 'test2'])->name('test2');
 Route::get('/liste', [FresqueController::class, 'index'])->name('fresques.index');
 Route::get('/fresques/{fresque:slug}', [FresqueController::class, 'show'])->name('fresques.show');
 

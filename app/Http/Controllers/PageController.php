@@ -16,19 +16,4 @@ class PageController extends Controller
             'fresques' => $fresques,
         ]);
     }
-
-    public function test()
-    {
-
-        $fresques = Fresque::with(['animators', 'place'])->incoming()->online()->public()->orderBy('date', 'ASC')->paginate(6);
-
-        return Inertia::render('Test', [
-            'fresques' => $fresques,
-        ]);
-    }
-
-    public function test2()
-    {
-        return view('greeting', ['name' => 'James']);
-    }
 }

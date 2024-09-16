@@ -26,7 +26,7 @@ import { Button } from '@/Components/Dsfr'
               alt=""
               class="h-[80px] w-[80px] flex-none mr-6"
             />
-            <h3 class="text-3xl font-bold">Écoles <br class="hidden lg:block" />et entreprises</h3>
+            <h3 class="text-3xl font-bold">Écoles, université et entreprises</h3>
           </div>
           <p class="mb-10 text-xl">
             Sensibilisez vos étudiants et employés au bénévolat grâce à la Fresque
@@ -55,7 +55,7 @@ import { Button } from '@/Components/Dsfr'
               alt=""
               class="h-[80px] w-[80px] flex-none mr-6"
             />
-            <h3 class="text-3xl font-bold">Associations et organisations publiques</h3>
+            <h3 class="text-3xl font-bold">Associations et acteurs publics</h3>
           </div>
           <p class="mb-10 text-xl">
             Faites connaître votre cause et mettez en valeur l’engagement grâce à la Fresque du
