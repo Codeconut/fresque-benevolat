@@ -32,6 +32,11 @@ class FresqueResource extends Resource
 
     // protected static ?string $navigationGroup = 'Contenus';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole(['admin', 'animator']);
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -178,7 +183,6 @@ class FresqueResource extends Resource
     {
         return $table
             ->columns([
-
                 Tables\Columns\ImageColumn::make('cover')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')

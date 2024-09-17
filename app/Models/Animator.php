@@ -3,16 +3,16 @@
 namespace App\Models;
 
 use Awcodes\FilamentGravatar\Gravatar;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Animator extends Model
 {
-    use HasFactory, SoftDeletes, LogsActivity;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $fillable = [
         'first_name',
@@ -25,7 +25,7 @@ class Animator extends Model
         'city',
         'professional_status',
         'availability',
-        'notes'
+        'notes',
     ];
 
     protected $casts = [
@@ -34,7 +34,7 @@ class Animator extends Model
 
     protected $appends = [
         'full_name',
-        'public_name'
+        'public_name',
     ];
 
     public function getActivitylogOptions(): LogOptions
@@ -44,6 +44,11 @@ class Animator extends Model
             ->logExcept(['updated_at'])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function fresques()
@@ -66,28 +71,28 @@ class Animator extends Model
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+            get: fn (): string => $this->first_name.' '.$this->last_name,
         );
     }
 
     protected function fullAddress(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => $this->zip . ' ' . $this->city,
+            get: fn (): string => $this->zip.' '.$this->city,
         );
     }
 
     protected function publicName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
+            get: fn (): string => $this->first_name.' '.$this->last_name[0].'.',
         );
     }
 
     protected function nextFresque(): Attribute
     {
         return Attribute::make(
-            get: fn (): ?Fresque  => $this->fresques()->incoming()->first(),
+            get: fn (): ?Fresque => $this->fresques()->incoming()->first(),
         );
     }
 }

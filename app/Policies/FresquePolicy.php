@@ -4,16 +4,22 @@ namespace App\Policies;
 
 use App\Models\Fresque;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class FresquePolicy
 {
+    public function before($user, $ability)
+    {
+        if ($user->hasRole('admin')) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -21,7 +27,15 @@ class FresquePolicy
      */
     public function view(User $user, Fresque $fresque): bool
     {
-        return true;
+        if ($user->id === $fresque->user_id) {
+            return true;
+        }
+
+        if ($fresque->animators()->where('id', $user->animator?->id)->exists()) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -29,7 +43,7 @@ class FresquePolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->hasRole(['admin', 'animator']);
     }
 
     /**
@@ -37,7 +51,15 @@ class FresquePolicy
      */
     public function update(User $user, Fresque $fresque): bool
     {
-        return true;
+        return $user->id === $fresque->user_id;
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     */
+    public function replicate(User $user, Fresque $fresque): bool
+    {
+        return $user->id === $fresque->user_id;
     }
 
     /**
@@ -45,7 +67,7 @@ class FresquePolicy
      */
     public function delete(User $user, Fresque $fresque): bool
     {
-        return true;
+        return $user->id === $fresque->user_id;
     }
 
     /**
@@ -53,7 +75,7 @@ class FresquePolicy
      */
     public function restore(User $user, Fresque $fresque): bool
     {
-        return true;
+        return $user->id === $fresque->user_id;
     }
 
     /**
@@ -61,6 +83,6 @@ class FresquePolicy
      */
     public function forceDelete(User $user, Fresque $fresque): bool
     {
-        return true;
+        return false;
     }
 }

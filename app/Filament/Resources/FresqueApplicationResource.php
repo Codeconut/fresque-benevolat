@@ -3,9 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FresqueApplicationResource\Pages;
-use App\Filament\Resources\FresqueApplicationResource\RelationManagers;
 use App\Models\FresqueApplication;
-use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,6 +24,11 @@ class FresqueApplicationResource extends Resource
 
     // protected static ?string $navigationGroup = 'Contenus';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole(['admin', 'animator']);
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -44,7 +47,7 @@ class FresqueApplicationResource extends Resource
                     ->options(config('taxonomies.applications.info_fresque')),
                 Forms\Components\Select::make('post_fresque_engagement')->label('As-tu réalisé une mission de bénévolat depuis cette fresque ?')
                     ->options(config('taxonomies.applications.post_fresque_engagement'))->columnSpanFull(),
-                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
+                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull(),
             ])->columns(3);
     }
 
@@ -62,7 +65,7 @@ class FresqueApplicationResource extends Resource
                     ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
-                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city . ' - ' . $application->fresque?->place?->name),
+                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city.' - '.$application->fresque?->place?->name),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
                 Tables\Columns\IconColumn::make('post_fresque_engagement')
@@ -92,7 +95,7 @@ class FresqueApplicationResource extends Resource
                     Tables\Actions\EditAction::make()->modalHeading('Participation'),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueApplicationResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ]),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
