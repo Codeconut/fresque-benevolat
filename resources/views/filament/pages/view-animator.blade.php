@@ -6,7 +6,14 @@
     ])
 >
     @capture($form)
-        @TODO prochaines fresques
+    <div class="grid grid-cols-3 gap-4">
+        <div class=" bg-white rounded border p-4">
+            <div class="">{{ $record->last_name }}</div>
+        </div>
+        <div class="bg-white rounded border p-4">
+            <div class="">{{ $record->last_name }}</div>
+        </div>
+    </div>
        
     @endcapture
 
