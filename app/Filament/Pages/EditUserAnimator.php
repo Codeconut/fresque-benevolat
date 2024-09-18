@@ -19,7 +19,7 @@ class EditUserAnimator extends Page implements HasForms
 
     protected static ?string $navigationLabel = 'Ma fiche animateur';
 
-    protected static ?string $navigationGroup = 'Paramètres';
+    protected static ?string $navigationGroup = 'Mon compte';
 
     protected static string $view = 'filament.pages.edit-user-animator';
 

@@ -111,7 +111,8 @@ class AnimatorResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make()->modalHeading('Animateur'),
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => AnimatorResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
                 ]),
@@ -129,6 +130,8 @@ class AnimatorResource extends Resource
     {
         return [
             'index' => Pages\ManageAnimators::route('/'),
+            'view' => Pages\ViewAnimator::route('/{record}'),
+            'edit' => Pages\EditAnimator::route('/{record}/edit'),
             'activities' => Pages\ListAnimatorActivities::route('/{record}/activities'),
         ];
     }
