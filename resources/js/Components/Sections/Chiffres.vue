@@ -43,8 +43,8 @@ const fetchGlobalKpis = () => {
                   </template>
                   <template v-else>{{ kpis?.applications_validated_count }}</template>
                 </div>
-                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">participant(e)s</div>
-                <div class="text-lg lg:text-xl">Depuis le lancement</div>
+                <div class="text-2xl lg:text-[28px] font-bold mb-2">participant(e)s</div>
+                <div class="text-lg lg:text-xl">depuis le lancement</div>
               </div>
             </div>
             <div class="flex flex-col text-center items-center gap-4 lg:gap-8">
@@ -62,7 +62,7 @@ const fetchGlobalKpis = () => {
                   </template>
                   <template v-else>{{ kpis?.fresques_passed_count }}</template>
                 </div>
-                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">fresques animées</div>
+                <div class="text-2xl lg:text-[28px] font-bold mb-2">fresques animées</div>
                 <div class="text-lg lg:text-xl">dans plusieurs villes</div>
               </div>
             </div>
@@ -81,7 +81,7 @@ const fetchGlobalKpis = () => {
                   </template>
                   <template v-else>{{ kpis?.animators_count }}</template>
                 </div>
-                <div class="text-2xl lg:text-[28px] font-bold mb-2 lg:mb-8">animateur(ice)s</div>
+                <div class="text-2xl lg:text-[28px] font-bold mb-2">animateur(ice)s</div>
                 <div class="text-lg lg:text-xl">formés à la fresque</div>
               </div>
             </div>
