@@ -152,7 +152,9 @@ class Fresque extends Model
         if ($this->cover) {
             $picture = $this->cover;
         } elseif ($this->place) {
-            $picture = $this->place?->photos[0];
+            if ($this->place?->photos) {
+                $picture = $this->place?->photos[0];
+            }
         }
 
         return Attribute::make(
