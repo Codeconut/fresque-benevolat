@@ -27,11 +27,7 @@ class FresquePolicy
      */
     public function view(User $user, Fresque $fresque): bool
     {
-        if ($user->id === $fresque->user_id) {
-            return true;
-        }
-
-        if ($fresque->animators()->where('id', $user->animator?->id)->exists()) {
+        if (Fresque::managedBy($user)->where('id', $fresque->id)->exists()) {
             return true;
         }
 
@@ -51,7 +47,11 @@ class FresquePolicy
      */
     public function update(User $user, Fresque $fresque): bool
     {
-        return $user->id === $fresque->user_id;
+        if (Fresque::managedBy($user)->where('id', $fresque->id)->exists()) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

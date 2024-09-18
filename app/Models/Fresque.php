@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\FresqueCreated;
+use App\Notifications\FresqueUpdated;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -9,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -63,23 +66,33 @@ class Fresque extends Model
             $fresque->user_id = Auth::id();
         });
 
+        static::created(function ($fresque) {
+            Notification::route('slack', config('services.slack.notifications.channel'))
+                ->notify(new FresqueCreated(Auth::user(), $fresque));
+        });
+
+        static::updated(function ($fresque) {
+            Notification::route('slack', config('services.slack.notifications.channel'))
+                ->notify(new FresqueUpdated(Auth::user(), $fresque));
+        });
+
         static::saving(function ($fresque) {
             $fresque->places_left = $fresque->recomputePlacesLeft();
         });
 
-        static::addGlobalScope('owner', function (Builder $builder) {
-            if (Auth::user()->hasRole('admin')) {
-                return;
-            }
-            if (Auth::user()->hasRole('animator')) {
-                $builder
-                    ->where('user_id', Auth::id())
-                    ->orWhereHas('animators', function (Builder $query) {
-                        $query->where('id', Auth::user()->animator?->id);
-                    });
-            }
+        // static::addGlobalScope('owner', function (Builder $builder) {
+        //     if (Auth::user()->hasRole('admin')) {
+        //         return;
+        //     }
+        //     if (Auth::user()->hasRole('animator')) {
+        //         $builder
+        //             ->where('user_id', Auth::id())
+        //             ->orWhereHas('animators', function (Builder $query) {
+        //                 $query->where('id', Auth::user()->animator?->id);
+        //             });
+        //     }
 
-        });
+        // });
     }
 
     public function getActivitylogOptions(): LogOptions
@@ -184,5 +197,18 @@ class Fresque extends Model
     public function scopePassed($query)
     {
         return $query->where('date', '<', Carbon::now()->format('Y-m-d'));
+    }
+
+    public function scopeManagedBy($query, $user)
+    {
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+
+        return $query
+            ->where('user_id', $user->id)
+            ->orWhereHas('animators', function (Builder $query) use ($user) {
+                $query->where('id', $user->animator?->id);
+            });
     }
 }

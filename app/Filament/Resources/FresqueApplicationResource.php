@@ -117,6 +117,7 @@ class FresqueApplicationResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
+            ->managedBy(auth()->user())
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);

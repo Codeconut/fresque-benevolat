@@ -15,6 +15,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\TernaryFilter;
@@ -47,13 +48,34 @@ class FresqueResource extends Resource
                             ->schema([
                                 Forms\Components\Section::make('Informations')
                                     ->schema([
-                                        Forms\Components\DatePicker::make('date')->default(Carbon::now())->required(),
-                                        Forms\Components\TimePicker::make('start_at')->label('Début')->default('18:00')->seconds(false)->minutesStep(5)->required(),
-                                        Forms\Components\TimePicker::make('end_at')->label('Fin')->default('20:15')->seconds(false)->minutesStep(5)->required(),
+                                        Forms\Components\DatePicker::make('date')
+                                            ->minDate(fn () => ! auth()->user()->hasRole('admin') ? Carbon::now()->startOfDay()->addDays(7) : null)
+                                            ->required(),
+                                        Forms\Components\TimePicker::make('start_at')
+                                            ->label('Début')
+                                            ->default('18:00')
+                                            ->seconds(false)
+                                            ->minutesStep(5)
+                                            ->required()
+                                            ->reactive()
+                                            ->afterStateUpdated(function (Set $set, $state) {
+                                                if ($state) {
+                                                    $endAt = Carbon::createFromFormat('H:i', $state)->addHours(2)->addMinutes(30)->format('H:i');
+                                                    $set('end_at', $endAt);
+                                                }
+                                            }),
+                                        Forms\Components\TimePicker::make('end_at')
+                                            ->label('Fin')
+                                            ->default('20:30')
+                                            ->seconds(false)
+                                            ->minutesStep(5)
+                                            ->required()
+                                            ->disabled(! auth()->user()->hasRole('admin'))->dehydrated(),
                                         Forms\Components\Select::make('place_id')
                                             ->columnSpanFull()
                                             ->required()
                                             ->label('Lieu')
+                                            ->helperText('Sélectionnez un lieu ou créez le votre en cliquand sur +.')
                                             ->relationship(name: 'place', titleAttribute: 'name')
                                             ->searchable(['name', 'full_address'])
                                             ->getOptionLabelFromRecordUsing(fn (Place $place) => "{$place->name} - {$place->full_address}")
@@ -64,6 +86,7 @@ class FresqueResource extends Resource
                                             ->multiple()
                                             ->searchable(['first_name', 'last_name', 'zip', 'city', 'email'])
                                             ->relationship('animators', 'email')
+                                            ->helperText('Sélectionnez les animateurs de la fresque.')
                                             ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name} {$animator->zip} {$animator->city}")
                                             ->createOptionForm([
                                                 Forms\Components\TextInput::make('email')
@@ -90,6 +113,7 @@ class FresqueResource extends Resource
                                             ->required(),
                                         FormBuilder::make('content')
                                             ->hiddenLabel()
+
                                             ->blocks([
                                                 FormBuilder\Block::make('heading')
                                                     ->schema([
@@ -133,7 +157,9 @@ class FresqueResource extends Resource
                                                     ]),
                                             ])
                                             ->collapsed()
-                                            ->default(include resource_path('default-content.php')),
+                                            ->default(include resource_path('default-content.php'))
+                                            ->disabled(! auth()->user()->hasRole('admin'))
+                                            ->dehydrated(),
                                     ]),
 
                             ])->columnSpan(2),
@@ -260,6 +286,7 @@ class FresqueResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
+            ->managedBy(auth()->user())
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);

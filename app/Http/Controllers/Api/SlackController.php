@@ -11,6 +11,6 @@ class SlackController extends Controller
     {
         $payload = json_decode($request->payload);
 
-        // ray($payload);
+        ray('slack interactivity', $payload);
     }
 }

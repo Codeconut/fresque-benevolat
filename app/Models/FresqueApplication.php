@@ -3,13 +3,11 @@
 namespace App\Models;
 
 use Awcodes\FilamentGravatar\Gravatar;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -54,22 +52,6 @@ class FresqueApplication extends Model
 
         static::saved(function ($application) {
             $application->fresque->save();
-        });
-
-        static::addGlobalScope('owner', function (Builder $builder) {
-            if (Auth::user()->hasRole('admin')) {
-                return;
-            }
-            if (Auth::user()->hasRole('animator')) {
-                $builder->whereHas('fresque', function (Builder $query) {
-                    $query
-                        ->where('user_id', Auth::id())
-                        ->orWhereHas('animators', function (Builder $query) {
-                            $query->where('id', Auth::user()->animator?->id);
-                        });
-                });
-            }
-
         });
     }
 
@@ -126,6 +108,18 @@ class FresqueApplication extends Model
         return $query->whereHas(
             'fresque',
             fn ($query) => $query->passed()
+        );
+    }
+
+    public function scopeManagedBy($query, $user)
+    {
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+
+        return $query->whereHas(
+            'fresque',
+            fn ($query) => $query->managedBy($user)
         );
     }
 }
