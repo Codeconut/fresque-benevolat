@@ -5,13 +5,14 @@ namespace App\Notifications;
 use App\Models\Fresque;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ActionsBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
 use Illuminate\Notifications\Slack\SlackMessage;
 
-class FresqueUpdated extends Notification
+class FresqueUpdated extends Notification implements ShouldQueue
 {
     use Queueable;
 

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AnimatorResource\Pages;
+use App\Filament\Resources\AnimatorResource\RelationManagers;
 use App\Models\Animator;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -142,5 +143,12 @@ class AnimatorResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            RelationManagers\FresquesRelationManager::class,
+        ];
     }
 }

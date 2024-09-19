@@ -5,12 +5,14 @@ namespace App\Notifications;
 use App\Models\Fresque;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Slack\BlockKit\Blocks\ActionsBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\ContextBlock;
 use Illuminate\Notifications\Slack\BlockKit\Blocks\SectionBlock;
 use Illuminate\Notifications\Slack\SlackMessage;
 
-class FresqueCreated extends Notification
+class FresqueCreated extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -40,6 +42,11 @@ class FresqueCreated extends Notification
             })
             ->contextBlock(function (ContextBlock $block) {
                 $block->text($this->fresque->full_date.' à '.$this->fresque->place->city.' ('.$this->fresque->place->name.')');
+            })
+            ->actionsBlock(function (ActionsBlock $block) {
+                $block
+                    ->button('Voir la fresque')
+                    ->url(route('filament.admin.resources.fresques.edit', $this->fresque->id));
             });
     }
 }

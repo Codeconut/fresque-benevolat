@@ -8,10 +8,16 @@
     @capture($form)
     <div class="grid grid-cols-3 gap-4">
         <div class=" bg-white rounded border p-4">
-            <div class="">{{ $record->last_name }}</div>
+            <div class="">{{ $record->professional_status }}</div>
+            <div class="">{{ $record->mobile }}</div>
+            <div class="">{{ $record->zip }}</div>
+            <div class="">{{ $record->city }}</div>
         </div>
         <div class="bg-white rounded border p-4">
-            <div class="">{{ $record->last_name }}</div>
+            <div class="">Prochaine fresque</div>
+        </div>
+        <div class="bg-white rounded border p-4">
+            <div class="">Info privée</div>
         </div>
     </div>
        
