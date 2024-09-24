@@ -5,15 +5,22 @@ namespace App\Filament\Resources\FresqueResource\Pages;
 use App\Filament\Resources\FresqueResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
-use App\Filament\Resources\FresqueResource\RelationManagers;
+use Illuminate\Contracts\Support\Htmlable;
 
 class ViewFresque extends ViewRecord
 {
     protected static string $resource = FresqueResource::class;
 
+    protected static string $view = 'filament.pages.view-fresque';
+
     public function getSubheading(): ?string
     {
-        return route('fresques.show', $this->record);
+        return $this->record->place?->name.' - '.$this->record->full_date;
+    }
+
+    public function getTitle(): string|Htmlable
+    {
+        return 'Fresque #'.$this->record->id;
     }
 
     protected function getHeaderActions(): array

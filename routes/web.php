@@ -1,6 +1,6 @@
 <?php
 
-use App\Filament\Pages\Register;
+use App\Filament\Pages\Invitation;
 use App\Http\Controllers\FresqueApplicationController;
 use App\Http\Controllers\FresqueApplicationFeedbackController;
 use App\Http\Controllers\FresqueController;
@@ -10,8 +10,8 @@ use App\Http\Controllers\PageController;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
-Route::get('register', Register::class)
-    ->name('filament.app.register')
+Route::get('/invitation', Invitation::class)
+    ->name('filament.app.invitation')
     ->middleware('signed');
 
 Route::get('/', [PageController::class, 'home'])->name('home');

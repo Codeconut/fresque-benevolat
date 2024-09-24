@@ -2,13 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\UserInvitation;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use App\Models\UserInvitation;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\URL;
 
 class UserInvitationMail extends Mailable
 {
@@ -39,15 +39,18 @@ class UserInvitationMail extends Mailable
     public function content(): Content
     {
 
+        $acceptUrl = URL::signedRoute(
+            'filament.app.invitation',
+            [
+                'token' => $this->invitation->code,
+            ],
+        );
+        ray($acceptUrl);
+
         return new Content(
             markdown: 'mail.auth.user-invitation',
             with: [
-                'acceptUrl' => URL::signedRoute(
-                    'filament.app.register',
-                    [
-                        'token' => $this->invitation->code,
-                    ],
-                ),
+                'acceptUrl' => $acceptUrl,
             ],
         );
     }

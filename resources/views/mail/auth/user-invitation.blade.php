@@ -9,6 +9,8 @@ Pour accepter l'invitation, cliquez sur le bouton ci-dessous et créez un compte
 Créer son compte
 </x-mail::button>
 
+{{ $acceptUrl }}
+
 Si vous ne vous attendiez pas à recevoir une invitation à cette équipe, vous pouvez ignorer cet e-mail.
 
 Merci, <br>

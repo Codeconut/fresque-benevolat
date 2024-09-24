@@ -2,20 +2,19 @@
 
 namespace App\Filament\Pages;
 
-use App\Models\User;
+use App\Models\Animator;
 use App\Models\UserInvitation;
-use Filament\Forms;
-use Livewire\Attributes\Url;
-use Filament\Facades\Filament;
-use Filament\Forms\Components\Select;
-use Illuminate\Auth\Events\Registered;
-use Filament\Notifications\Notification;
-use Filament\Forms\Components\Component;
-use Filament\Pages\Auth\Register as BaseRegister;
-use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use Filament\Facades\Filament;
+use Filament\Forms;
+use Filament\Forms\Components\Component;
+use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
+use Filament\Notifications\Notification;
+use Filament\Pages\Auth\Register as BaseRegister;
+use Illuminate\Auth\Events\Registered;
+use Livewire\Attributes\Url;
 
-class Register extends BaseRegister
+class Invitation extends BaseRegister
 {
     #[Url]
     public $token = '';
@@ -59,6 +58,18 @@ class Register extends BaseRegister
 
         if ($this->invitation->role) {
             $user->assignRole($this->invitation->role);
+            if ($this->invitation->role === 'animator') {
+                $animator = Animator::where('email', $this->invitation->email)->first();
+                if ($animator) {
+                    $animator->user_id = $user->id;
+                    $animator->save();
+                } else {
+                    Animator::create([
+                        'user_id' => $user->id,
+                        'email' => $this->invitation->email,
+                    ]);
+                }
+            }
         }
 
         $this->invitation->delete();

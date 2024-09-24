@@ -89,15 +89,6 @@ class AnimatorResource extends Resource
                     ->label('Animateur')
                     ->description(fn (Animator $animator) => $animator->email)
                     ->searchable(['email', 'first_name', 'last_name']),
-                Tables\Columns\IconColumn::make('user_exists')
-                    ->label('Compte')
-                    ->exists('user')
-                    ->trueIcon('heroicon-o-check-badge')
-                    ->falseIcon('heroicon-o-x-mark'),
-                Tables\Columns\TextColumn::make('full_address')
-                    ->label('Coordonnées')
-                    ->description(fn (Animator $animator) => $animator->mobile)
-                    ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresques_count')
                     ->suffix(' fresque(s)')
                     ->label('# Fresques')
@@ -106,6 +97,11 @@ class AnimatorResource extends Resource
                 Tables\Columns\TextColumn::make('nextFresque.full_date')
                     ->label('Prochaine fresque')
                     ->description(fn (Animator $animator) => $animator->nextFresque?->places_left.' places restantes'),
+                Tables\Columns\IconColumn::make('user_exists')
+                    ->label('Compte')
+                    ->exists('user')
+                    ->trueIcon('heroicon-o-check-badge')
+                    ->falseIcon('heroicon-o-x-mark'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

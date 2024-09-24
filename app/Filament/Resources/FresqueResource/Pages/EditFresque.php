@@ -13,6 +13,16 @@ class EditFresque extends EditRecord
 {
     protected static string $resource = FresqueResource::class;
 
+    public function getSubheading(): ?string
+    {
+        return $this->record->place?->name.' - '.$this->record->full_date;
+    }
+
+    public function getTitle(): string
+    {
+        return 'Fresque #'.$this->record->id;
+    }
+
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
         $record->update($data);

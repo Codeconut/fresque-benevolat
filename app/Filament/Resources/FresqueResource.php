@@ -227,11 +227,11 @@ class FresqueResource extends Resource
 
                 Tables\Columns\ViewColumn::make('applications')->label('Participations')->view('tables.columns.fresque-application-summary'),
                 Tables\Columns\ViewColumn::make('places')->label('Participants')->alignCenter()->view('tables.columns.fresque-places'),
-                ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
-                ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
-                ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
-                    ->onIcon('heroicon-s-lock-closed')
-                    ->offIcon('heroicon-o-lock-open'),
+                // ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
+                // ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
+                // ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
+                //     ->onIcon('heroicon-s-lock-closed')
+                //     ->offIcon('heroicon-o-lock-open'),
                 Tables\Columns\ImageColumn::make('animators.photo')
                     ->label('Animateurs')
                     ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
