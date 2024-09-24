@@ -6,6 +6,7 @@ use Awcodes\FilamentGravatar\Gravatar;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -51,12 +52,12 @@ class Animator extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function fresques()
+    public function fresques(): BelongsToMany
     {
         return $this->belongsToMany(Fresque::class, 'fresque_animators');
     }
 
-    public function incomingFresques()
+    public function incomingFresques(): BelongsToMany
     {
         return $this->belongsToMany(Fresque::class, 'fresque_animators')->incoming();
     }
