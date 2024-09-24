@@ -36,8 +36,12 @@
             </div>
         </x-filament::section>
         <x-filament::section heading="Participants">
-            @include('components.fresque-places', ['record' => $record])
-            @include('components.fresque-application-summary', ['record' => $record])
+            <div class="">
+                @include('components.fresque-places', ['record' => $record])
+            </div>
+            <div class="mt-4">
+                @include('components.fresque-application-summary', ['record' => $record])
+            </div>
         </x-filament::section>
     </div>
 

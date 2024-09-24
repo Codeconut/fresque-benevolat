@@ -8,4 +8,9 @@ use Filament\Resources\Pages\EditRecord;
 class EditAnimator extends EditRecord
 {
     protected static string $resource = AnimatorResource::class;
+
+    public function getRelationManagers(): array
+    {
+        return [];
+    }
 }

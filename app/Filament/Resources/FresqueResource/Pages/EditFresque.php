@@ -32,4 +32,9 @@ class EditFresque extends EditRecord
 
         return $record;
     }
+
+    public function getRelationManagers(): array
+    {
+        return [];
+    }
 }
