@@ -57,7 +57,7 @@ class User extends Authenticatable implements FilamentUser
      * @var array<int, string>
      */
     protected $appends = [
-        'profile_photo_url',
+        // 'profile_photo_url',
         'full_name',
     ];
 
@@ -85,10 +85,10 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasOne(Animator::class);
     }
 
-    public function getFilamentAvatarUrl(): ?string
-    {
-        return $this->profile_photo_url;
-    }
+    // public function getFilamentAvatarUrl(): ?string
+    // {
+    //     return $this->profile_photo_url;
+    // }
 
     protected function email(): Attribute
     {

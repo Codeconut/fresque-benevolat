@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/invitation', Invitation::class)
     ->name('filament.app.invitation')
-    ->middleware('signed');
+    ->middleware(['signed', 'guest.only']);
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/liste', [FresqueController::class, 'index'])->name('fresques.index');

@@ -7,12 +7,12 @@
     <div class="grid grid-cols-3 gap-4">
         <x-filament::section heading="Informations">
             <div class="">
-                <div class="">{{ $record->email }}</div>
-                <div class="">{{ $record->mobile }}</div>
-                <div class="">{{ $record->zip }}</div>
-                <div class="">{{ $record->city }}</div>
-                <div class="">{{ $record->professional_status }}</div>
-                <div class="">{{ $record->availability ? implode(', ', $record->availability) : 'N/A' }}</div>
+                <div class="">Email : {{ $record->email }}</div>
+                <div class="">Mobile : {{ $record->mobile }}</div>
+                <div class="">Zip : {{ $record->zip }}</div>
+                <div class="">Ville : {{ $record->city }}</div>
+                <div class="">Profession : {{ $record->professional_status }}</div>
+                <div class="">Disponibilités : {{ $record->availability ? implode(', ', $record->availability) : 'N/A' }}</div>
             </div>
         </x-filament::section>
         @if($record->nextFresque)
