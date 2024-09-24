@@ -8,6 +8,7 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\Component;
+use Filament\Forms\Components\TextInput;
 use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
 use Filament\Notifications\Notification;
 use Filament\Pages\Auth\Register as BaseRegister;
@@ -27,9 +28,33 @@ class Invitation extends BaseRegister
     {
         $this->invitation = UserInvitation::where('code', $this->token)->firstOrFail();
 
+        $animator = Animator::where('email', $this->invitation->email)->first();
+
         $this->form->fill([
             'email' => $this->invitation->email,
+            'first_name' => $animator ? $animator->first_name : null,
+            'last_name' => $animator ? $animator->last_name : null,
         ]);
+    }
+
+    /**
+     * @return array<int | string, string | Form>
+     */
+    protected function getForms(): array
+    {
+        return [
+            'form' => $this->form(
+                $this->makeForm()
+                    ->schema([
+                        $this->getFirstNameFormComponent(),
+                        $this->getLastNameFormComponent(),
+                        $this->getEmailFormComponent(),
+                        $this->getPasswordFormComponent(),
+                        $this->getPasswordConfirmationFormComponent(),
+                    ])
+                    ->statePath('data'),
+            ),
+        ];
     }
 
     public function register(): ?RegistrationResponse
@@ -53,6 +78,7 @@ class Invitation extends BaseRegister
         }
 
         $data = $this->form->getState();
+        $data['name'] = $data['first_name'].' '.$data['last_name'];
 
         $user = $this->getUserModel()::create($data);
 
@@ -64,9 +90,10 @@ class Invitation extends BaseRegister
                     $animator->user_id = $user->id;
                     $animator->save();
                 } else {
-                    Animator::create([
-                        'user_id' => $user->id,
+                    $user->animator()->create([
                         'email' => $this->invitation->email,
+                        'first_name' => $data['first_name'],
+                        'last_name' => $data['last_name'],
                     ]);
                 }
             }
@@ -96,5 +123,23 @@ class Invitation extends BaseRegister
             ->maxLength(255)
             ->unique($this->getUserModel())
             ->readOnly();
+    }
+
+    protected function getFirstNameFormComponent(): Component
+    {
+        return TextInput::make('first_name')
+            ->label('Prénom')
+            ->required()
+            ->maxLength(255)
+            ->autofocus();
+    }
+
+    protected function getLastNameFormComponent(): Component
+    {
+        return TextInput::make('last_name')
+            ->label('Nom')
+            ->required()
+            ->maxLength(255)
+            ->autofocus();
     }
 }

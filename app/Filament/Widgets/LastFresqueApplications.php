@@ -16,7 +16,7 @@ class LastFresqueApplications extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
-            ->heading('Les 5 dernières participations créées')
+            ->heading('Les dernières participations créées')
             ->query(
                 FresqueApplication::query()
                     ->managedBy(auth()->user())

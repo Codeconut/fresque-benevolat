@@ -86,7 +86,7 @@ class Animator extends Model
     protected function publicName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string => $this->first_name.' '.$this->last_name[0].'.',
+            get: fn (): string => $this->last_name ? $this->first_name.' '.$this->last_name[0].'.' : '',
         );
     }
 
