@@ -41,19 +41,19 @@ class EditUserAnimator extends Page implements HasForms
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('photo')
-                    ->columnSpanFull()
-                    ->directory('animators')
-                    ->image()
-                    ->maxSize(2048)
-                    ->imageEditor()
-                    ->imageEditorViewportWidth('600')
-                    ->imageEditorViewportHeight('600')
-                    ->imageResizeTargetWidth('200')
-                    ->imageResizeTargetHeight('200')
-                    ->imageEditorAspectRatios([
-                        '1:1',
-                    ]),
+                // Forms\Components\FileUpload::make('photo')
+                //     ->columnSpanFull()
+                //     ->directory('animators')
+                //     ->image()
+                //     ->maxSize(2048)
+                //     ->imageEditor()
+                //     ->imageEditorViewportWidth('600')
+                //     ->imageEditorViewportHeight('600')
+                //     ->imageResizeTargetWidth('200')
+                //     ->imageResizeTargetHeight('200')
+                //     ->imageEditorAspectRatios([
+                //         '1:1',
+                //     ]),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
                 Forms\Components\TextInput::make('first_name')->label('Prénom')
