@@ -7,10 +7,7 @@ export default defineConfig({
   plugins: [
     vueJsx(),
     laravel({
-      input: [
-        'resources/js/app.js',
-        //'resources/css/filament/admin/theme.css'
-      ],
+      input: ['resources/js/app.js', 'resources/css/filament/admin/theme.css'],
       ssr: 'resources/js/ssr.js',
       refresh: true,
     }),
