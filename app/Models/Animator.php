@@ -62,6 +62,13 @@ class Animator extends Model
         return $this->belongsToMany(Fresque::class, 'fresque_animators')->incoming();
     }
 
+    protected function email(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => strtolower($value),
+        );
+    }
+
     protected function photo(): Attribute
     {
         return Attribute::make(
