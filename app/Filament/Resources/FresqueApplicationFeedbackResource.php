@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FresqueApplicationFeedbackResource\Pages;
-use App\Filament\Resources\FresqueApplicationFeedbackResource\RelationManagers;
 use App\Models\FresqueApplicationFeedback;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -24,6 +23,11 @@ class FresqueApplicationFeedbackResource extends Resource
     protected static ?string $navigationLabel = 'Témoignages';
 
     protected static ?int $navigationSort = 3;
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole('admin');
+    }
 
     public static function form(Form $form): Form
     {
@@ -53,7 +57,7 @@ class FresqueApplicationFeedbackResource extends Resource
                     ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->full_name),
                 Tables\Columns\TextColumn::make('application.fresque.full_date')
                     ->label('Fresque')
-                    ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->fresque?->place?->city . ' - ' . $feedback->application?->fresque?->place?->name),
+                    ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->fresque?->place?->city.' - '.$feedback->application?->fresque?->place?->name),
                 Tables\Columns\TextColumn::make('rating')
                     ->numeric(),
                 RatingColumn::make('rating')
@@ -75,7 +79,7 @@ class FresqueApplicationFeedbackResource extends Resource
                     Tables\Actions\EditAction::make()->modalHeading('Témoignage'),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueApplicationFeedbackResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

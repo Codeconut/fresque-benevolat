@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -16,7 +17,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class Fresque extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug, LogsActivity;
+    use HasFactory, HasSlug, LogsActivity, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -38,7 +39,7 @@ class Fresque extends Model
         'places' => 10,
         'is_online' => true,
         'is_private' => false,
-        'is_registration_open' => true
+        'is_registration_open' => true,
     ];
 
     protected $casts = [
@@ -64,6 +65,7 @@ class Fresque extends Model
         static::saving(function ($fresque) {
             $fresque->places_left = $fresque->recomputePlacesLeft();
         });
+
     }
 
     public function getActivitylogOptions(): LogOptions
@@ -105,13 +107,14 @@ class Fresque extends Model
     public function recomputePlacesLeft()
     {
         $placesLeft = $this->places - $this->applications->whereIn('state', ['registered', 'confirmed_presence', 'validated'])->count();
+
         return $placesLeft >= 0 ? $placesLeft : 0;
     }
 
     protected function schedules(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => Carbon::parse($this->start_at)->format('H\hi') . ' à ' . Carbon::parse($this->end_at)->format('H\hi'),
+            get: fn (): string => Carbon::parse($this->start_at)->format('H\hi').' à '.Carbon::parse($this->end_at)->format('H\hi'),
         );
     }
 
@@ -121,26 +124,28 @@ class Fresque extends Model
 
         if ($this->cover) {
             $picture = $this->cover;
-        } else if ($this->place) {
-            $picture = $this->place?->photos[0];
+        } elseif ($this->place) {
+            if ($this->place?->photos) {
+                $picture = $this->place?->photos[0];
+            }
         }
 
         return Attribute::make(
-            get: fn (): ?string  => $picture ? Storage::url($picture) : null,
+            get: fn (): ?string => $picture ? Storage::url($picture) : null,
         );
     }
 
     protected function fullDate(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => Carbon::parse($this->date)->translatedFormat('d F Y') . ' - ' . $this->schedules,
+            get: fn (): string => Carbon::parse($this->date)->translatedFormat('d F Y').' - '.$this->schedules,
         );
     }
 
     protected function canCandidate(): Attribute
     {
         return Attribute::make(
-            get: fn (): bool  => $this->is_registration_open && $this->places_left > 0 && Carbon::createFromFormat('Y-m-d', $this->date)->isFuture(),
+            get: fn (): bool => $this->is_registration_open && $this->places_left > 0 && Carbon::createFromFormat('Y-m-d', $this->date)->isFuture(),
         );
     }
 
@@ -167,5 +172,18 @@ class Fresque extends Model
     public function scopePassed($query)
     {
         return $query->where('date', '<', Carbon::now()->format('Y-m-d'));
+    }
+
+    public function scopeManagedBy($query, $user)
+    {
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+
+        return $query
+            ->where('user_id', $user->id)
+            ->orWhereHas('animators', function (Builder $query) use ($user) {
+                $query->where('id', $user->animator?->id);
+            });
     }
 }

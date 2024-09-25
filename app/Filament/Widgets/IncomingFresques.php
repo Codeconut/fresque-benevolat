@@ -16,12 +16,15 @@ class IncomingFresques extends BaseWidget
 
     public function table(Table $table): Table
     {
+        $currentUser = auth()->user();
+
         return $table
-            ->heading('Les 3 prochaines fresques à venir')
+            ->heading('Les prochaines fresques à venir')
             ->query(
                 Fresque::query()
                     ->limit(3)
                     ->incoming()
+                    ->managedBy($currentUser)
                     ->orderBy('date', 'asc')
             )
             ->columns([

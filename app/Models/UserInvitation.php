@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
 
 class UserInvitation extends Model
 {
-
     protected $fillable = [
         'email',
         'code',
-        'role'
+        'role',
     ];
 
     protected function email(): Attribute

@@ -1,13 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\GlobalController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\SlackController;
 use Illuminate\Support\Facades\Route;
 
-// Route::post('/slack/interactivity', [SlackController::class, 'interactivity']);
-
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
-
+Route::post('/slack/interactivity', [SlackController::class, 'interactivity']);
 Route::get('/global/kpis', [GlobalController::class, 'kpis'])->name('global.kpis');

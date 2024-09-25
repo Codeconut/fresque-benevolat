@@ -2,20 +2,20 @@
 
 namespace App\Filament\Pages;
 
-use App\Models\User;
+use App\Models\Animator;
 use App\Models\UserInvitation;
-use Filament\Forms;
-use Livewire\Attributes\Url;
-use Filament\Facades\Filament;
-use Filament\Forms\Components\Select;
-use Illuminate\Auth\Events\Registered;
-use Filament\Notifications\Notification;
-use Filament\Forms\Components\Component;
-use Filament\Pages\Auth\Register as BaseRegister;
-use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use Filament\Facades\Filament;
+use Filament\Forms;
+use Filament\Forms\Components\Component;
+use Filament\Forms\Components\TextInput;
+use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
+use Filament\Notifications\Notification;
+use Filament\Pages\Auth\Register as BaseRegister;
+use Illuminate\Auth\Events\Registered;
+use Livewire\Attributes\Url;
 
-class Register extends BaseRegister
+class Invitation extends BaseRegister
 {
     #[Url]
     public $token = '';
@@ -28,9 +28,33 @@ class Register extends BaseRegister
     {
         $this->invitation = UserInvitation::where('code', $this->token)->firstOrFail();
 
+        $animator = Animator::where('email', $this->invitation->email)->first();
+
         $this->form->fill([
             'email' => $this->invitation->email,
+            'first_name' => $animator ? $animator->first_name : null,
+            'last_name' => $animator ? $animator->last_name : null,
         ]);
+    }
+
+    /**
+     * @return array<int | string, string | Form>
+     */
+    protected function getForms(): array
+    {
+        return [
+            'form' => $this->form(
+                $this->makeForm()
+                    ->schema([
+                        $this->getFirstNameFormComponent(),
+                        $this->getLastNameFormComponent(),
+                        $this->getEmailFormComponent(),
+                        $this->getPasswordFormComponent(),
+                        $this->getPasswordConfirmationFormComponent(),
+                    ])
+                    ->statePath('data'),
+            ),
+        ];
     }
 
     public function register(): ?RegistrationResponse
@@ -54,11 +78,25 @@ class Register extends BaseRegister
         }
 
         $data = $this->form->getState();
+        $data['name'] = $data['first_name'].' '.$data['last_name'];
 
         $user = $this->getUserModel()::create($data);
 
         if ($this->invitation->role) {
             $user->assignRole($this->invitation->role);
+            if ($this->invitation->role === 'animator') {
+                $animator = Animator::where('email', $this->invitation->email)->first();
+                if ($animator) {
+                    $animator->user_id = $user->id;
+                    $animator->save();
+                } else {
+                    $user->animator()->create([
+                        'email' => $this->invitation->email,
+                        'first_name' => $data['first_name'],
+                        'last_name' => $data['last_name'],
+                    ]);
+                }
+            }
         }
 
         $this->invitation->delete();
@@ -85,5 +123,23 @@ class Register extends BaseRegister
             ->maxLength(255)
             ->unique($this->getUserModel())
             ->readOnly();
+    }
+
+    protected function getFirstNameFormComponent(): Component
+    {
+        return TextInput::make('first_name')
+            ->label('Prénom')
+            ->required()
+            ->maxLength(255)
+            ->autofocus();
+    }
+
+    protected function getLastNameFormComponent(): Component
+    {
+        return TextInput::make('last_name')
+            ->label('Nom')
+            ->required()
+            ->maxLength(255)
+            ->autofocus();
     }
 }

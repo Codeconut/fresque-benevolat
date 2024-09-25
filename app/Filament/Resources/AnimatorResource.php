@@ -23,11 +23,21 @@ class AnimatorResource extends Resource
 
     protected static ?string $navigationGroup = 'Paramètres';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole('admin');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-
+                // Field link to the user select autocomplete on class User
+                Forms\Components\Select::make('user_id')
+                    ->label('Utilisateur')
+                    ->relationship('user', 'name')
+                    ->searchable()
+                    ->placeholder('Sélectionner un utilisateur'),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
                 Forms\Components\TextInput::make('first_name')->label('Prénom')
@@ -79,28 +89,30 @@ class AnimatorResource extends Resource
                     ->label('Animateur')
                     ->description(fn (Animator $animator) => $animator->email)
                     ->searchable(['email', 'first_name', 'last_name']),
-                Tables\Columns\TextColumn::make('full_address')
-                    ->label('Coordonnées')
-                    ->description(fn (Animator $animator) => $animator->mobile)
-                    ->searchable(['email', 'first_name', 'last_name']),
                 Tables\Columns\TextColumn::make('fresques_count')
                     ->suffix(' fresque(s)')
                     ->label('# Fresques')
                     ->counts('fresques')
-                    ->description(fn (Animator $animator) => 'dont ' . $animator->fresques()->incoming()->count() . ' à venir'),
+                    ->description(fn (Animator $animator) => 'dont '.$animator->fresques()->incoming()->count().' à venir'),
                 Tables\Columns\TextColumn::make('nextFresque.full_date')
                     ->label('Prochaine fresque')
-                    ->description(fn (Animator $animator) => $animator->nextFresque?->places_left . ' places restantes'),
+                    ->description(fn (Animator $animator) => $animator->nextFresque?->places_left.' places restantes'),
+                Tables\Columns\IconColumn::make('user_exists')
+                    ->label('Compte')
+                    ->exists('user')
+                    ->trueIcon('heroicon-o-check-badge')
+                    ->falseIcon('heroicon-o-x-mark'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make()->modalHeading('Animateur'),
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => AnimatorResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ]),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
@@ -115,6 +127,8 @@ class AnimatorResource extends Resource
     {
         return [
             'index' => Pages\ManageAnimators::route('/'),
+            'view' => Pages\ViewAnimator::route('/{record}'),
+            'edit' => Pages\EditAnimator::route('/{record}/edit'),
             'activities' => Pages\ListAnimatorActivities::route('/{record}/activities'),
         ];
     }
@@ -125,5 +139,12 @@ class AnimatorResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            RelationManagers\FresquesRelationManager::class,
+        ];
     }
 }

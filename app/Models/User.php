@@ -6,24 +6,25 @@ namespace App\Models;
 
 use Awcodes\FilamentGravatar\Gravatar;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
+// use Laravel\Fortify\TwoFactorAuthenticatable;
+// use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use Filament\Panel;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
-    use HasProfilePhoto;
+
+    // use HasProfilePhoto;
     use HasRoles;
     use Notifiable;
-    use TwoFactorAuthenticatable;
+    // use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -35,7 +36,7 @@ class User extends Authenticatable implements FilamentUser
         'email',
         'password',
         'first_name',
-        'last_name'
+        'last_name',
     ];
 
     /**
@@ -56,8 +57,8 @@ class User extends Authenticatable implements FilamentUser
      * @var array<int, string>
      */
     protected $appends = [
-        'profile_photo_url',
-        'full_name'
+        // 'profile_photo_url',
+        'full_name',
     ];
 
     /**
@@ -76,13 +77,18 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasRole('admin');
+        return $this->hasRole(['admin', 'animator']);
     }
 
-    public function getFilamentAvatarUrl(): ?string
+    public function animator(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->profile_photo_url;
+        return $this->hasOne(Animator::class);
     }
+
+    // public function getFilamentAvatarUrl(): ?string
+    // {
+    //     return $this->profile_photo_url;
+    // }
 
     protected function email(): Attribute
     {
@@ -94,7 +100,7 @@ class User extends Authenticatable implements FilamentUser
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+            get: fn (): string => $this->first_name.' '.$this->last_name,
         );
     }
 

@@ -3,15 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UserResource extends Resource
 {
@@ -23,6 +20,11 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'Paramètres';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole('admin');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -31,7 +33,7 @@ class UserResource extends Resource
                     ->maxLength(255)->required(),
                 Forms\Components\TextInput::make('email')
                     ->maxLength(255)->required()->email(),
-                Forms\Components\CheckboxList::make('roles')->relationship('roles', 'name')->columns(2)
+                Forms\Components\CheckboxList::make('roles')->relationship('roles', 'name')->columns(2),
             ]);
     }
 
@@ -53,7 +55,7 @@ class UserResource extends Resource
                     ->separator(','),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d M Y à H:i')
-                    ->description(fn (User $user) => 'Connexion ' . $user->last_online_at?->diffForHumans())
+                    ->description(fn (User $user) => 'Connexion '.$user->last_online_at?->diffForHumans())
                     ->label('Créé le'),
             ])
             ->filters([

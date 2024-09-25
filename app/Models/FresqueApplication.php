@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use Awcodes\FilamentGravatar\Gravatar;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class FresqueApplication extends Model
 {
-    use Notifiable, HasFactory, SoftDeletes, LogsActivity;
+    use HasFactory, LogsActivity, Notifiable, SoftDeletes;
 
     protected $table = 'fresque_applications';
 
@@ -34,7 +33,7 @@ class FresqueApplication extends Model
     ];
 
     protected $hidden = [
-        'token'
+        'token',
     ];
 
     protected $attributes = [
@@ -85,14 +84,14 @@ class FresqueApplication extends Model
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => $this->first_name . ' ' . $this->last_name,
+            get: fn (): string => $this->first_name.' '.$this->last_name,
         );
     }
 
     protected function publicName(): Attribute
     {
         return Attribute::make(
-            get: fn (): string  => $this->first_name . ' ' . $this->last_name[0] . '.',
+            get: fn (): string => $this->first_name.' '.$this->last_name[0].'.',
         );
     }
 
@@ -100,8 +99,7 @@ class FresqueApplication extends Model
     {
         return $query->whereHas(
             'fresque',
-            fn ($query) =>
-            $query->incoming()
+            fn ($query) => $query->incoming()
         );
     }
 
@@ -109,8 +107,19 @@ class FresqueApplication extends Model
     {
         return $query->whereHas(
             'fresque',
-            fn ($query) =>
-            $query->passed()
+            fn ($query) => $query->passed()
+        );
+    }
+
+    public function scopeManagedBy($query, $user)
+    {
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+
+        return $query->whereHas(
+            'fresque',
+            fn ($query) => $query->managedBy($user)
         );
     }
 }

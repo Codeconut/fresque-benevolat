@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PlaceResource\Pages;
-use App\Filament\Resources\PlaceResource\RelationManagers;
 use App\Models\Place;
 use App\Services\AdresseDataGouvFr;
 use Filament\Forms;
@@ -24,6 +23,11 @@ class PlaceResource extends Resource
 
     protected static ?string $navigationGroup = 'Paramètres';
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole('admin');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -34,16 +38,17 @@ class PlaceResource extends Resource
                 Forms\Components\Select::make('geocoding')
                     ->suffixIcon('heroicon-o-map-pin')
                     ->columnSpanFull()
-                    ->label('Rechercher un lieu')
+                    ->label('Sélectionner l’addresse du lieu')
                     ->searchable()
                     ->searchPrompt('Rechercher une adresse avec api-adresse.data.gouv.fr')
                     ->reactive()
                     ->dehydrated(false)
                     ->getSearchResultsUsing(function ($query) {
                         $features = AdresseDataGouvFr::search(['q' => $query, 'limit' => 6]);
+
                         return $features
                             ->mapWithKeys(fn ($feature) => [
-                                $feature['properties']['label'] => $feature['properties']['label']
+                                $feature['properties']['label'] => $feature['properties']['label'],
                             ])
                             ->toArray();
                     })
@@ -59,27 +64,41 @@ class PlaceResource extends Resource
                 Forms\Components\TextInput::make('full_address')
                     ->label('Adresse complète')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated(),
                 Forms\Components\TextInput::make('zip')
                     ->label('Code postal')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated(),
                 Forms\Components\TextInput::make('city')
                     ->label('Ville')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated(),
                 Forms\Components\TextInput::make('street')
                     ->label('N° Rue')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated(),
                 Forms\Components\TextInput::make('latitude')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated(),
                 Forms\Components\TextInput::make('longitude')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('summary')->label('Résumé')
-                    ->columnSpanFull(),
+                    ->maxLength(255)
+                    ->disabled()
+                    ->dehydrated(),
+                Forms\Components\MarkdownEditor::make('summary')
+                    ->label('Résumé')
+                    ->columnSpanFull()
+                    ->hidden(! auth()->user()->hasRole('admin')),
                 Forms\Components\FileUpload::make('photos')
                     ->required()
                     ->columnSpanFull()
@@ -90,7 +109,8 @@ class PlaceResource extends Resource
                     //->optimize('webp')
                     ->imageEditor()
                     ->imageEditorViewportWidth('744')
-                    ->imageEditorViewportHeight('430'),
+                    ->imageEditorViewportHeight('430')
+                    ->hidden(! auth()->user()->hasRole('admin')),
             ])->columns(3);
     }
 
@@ -112,10 +132,10 @@ class PlaceResource extends Resource
                     ->suffix(' fresque(s)')
                     ->label('# Fresques')
                     ->counts('fresques')
-                    ->description(fn (Place $place) => 'dont ' . $place->fresques()->incoming()->count() . ' à venir'),
+                    ->description(fn (Place $place) => 'dont '.$place->fresques()->incoming()->count().' à venir'),
                 Tables\Columns\TextColumn::make('nextFresque.full_date')
                     ->label('Prochaine fresque')
-                    ->description(fn (Place $place) => $place->nextFresque?->places_left . ' places restantes'),
+                    ->description(fn (Place $place) => $place->nextFresque?->places_left.' places restantes'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -125,7 +145,7 @@ class PlaceResource extends Resource
                     Tables\Actions\EditAction::make()->modalHeading('Lieu'),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => PlaceResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ]),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([

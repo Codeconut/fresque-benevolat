@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserInvitationResource\Pages;
-use App\Filament\Resources\UserInvitationResource\RelationManagers;
 use App\Mail\UserInvitationMail;
 use App\Models\UserInvitation;
 use Filament\Forms;
@@ -12,8 +11,6 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Mail;
 
 class UserInvitationResource extends Resource
@@ -25,6 +22,11 @@ class UserInvitationResource extends Resource
     protected static ?string $navigationGroup = 'Paramètres';
 
     protected static ?string $navigationLabel = 'Invitations';
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole('admin');
+    }
 
     public static function form(Form $form): Form
     {
@@ -39,8 +41,8 @@ class UserInvitationResource extends Resource
                     ->required()
                     ->options([
                         'admin' => 'Admin',
-                        //'animator' => 'Animator',
-                    ])
+                        'animator' => 'Animator',
+                    ]),
             ]);
     }
 
@@ -50,6 +52,9 @@ class UserInvitationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('email')
                     ->label('Email')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('role')
+                    ->label('Role')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Créé le')
