@@ -75,7 +75,7 @@ class FresqueResource extends Resource
                                             ->columnSpanFull()
                                             ->required()
                                             ->label('Lieu')
-                                            ->helperText('Sélectionnez un lieu ou créez le votre en cliquand sur +.')
+                                            ->helperText('Sélectionnez un lieu ou créez le votre en cliquant sur +.')
                                             ->relationship(name: 'place', titleAttribute: 'name')
                                             ->searchable(['name', 'full_address'])
                                             ->getOptionLabelFromRecordUsing(fn (Place $place) => "{$place->name} - {$place->full_address}")
