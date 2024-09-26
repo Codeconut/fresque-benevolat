@@ -55,6 +55,10 @@ class FresqueApplicationResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('#')
+                    ->size('lg')
+                    ->color('gray'),
                 Tables\Columns\ImageColumn::make('photo')
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
@@ -62,19 +66,21 @@ class FresqueApplicationResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->label('Participant')
                     ->description(fn (FresqueApplication $application) => $application->full_name)
-                    ->searchable(['email', 'first_name', 'last_name']),
+                    ->searchable(['email', 'first_name', 'last_name'])
+                    ->wrap(),
                 Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
-                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city.' - '.$application->fresque?->place?->name),
+                    ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city.' - '.$application->fresque?->place?->name)
+                    ->wrap(),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
-                Tables\Columns\IconColumn::make('post_fresque_engagement')
-                    ->label('Engagement')
-                    ->icon(fn (string $state): string => match ($state) {
-                        'yes' => 'heroicon-o-check-circle',
-                        'no_but_soon' => 'heroicon-o-clock',
-                        'not_yet' => 'heroicon-o-x-circle',
-                    }),
+                // Tables\Columns\IconColumn::make('post_fresque_engagement')
+                //     ->label('Engagement')
+                //     ->icon(fn (string $state): string => match ($state) {
+                //         'yes' => 'heroicon-o-check-circle',
+                //         'no_but_soon' => 'heroicon-o-clock',
+                //         'not_yet' => 'heroicon-o-x-circle',
+                //     }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date('d M Y à H:i')
                     ->label('Créé le'),

@@ -209,6 +209,10 @@ class FresqueResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label('#')
+                    ->size('lg')
+                    ->color('gray'),
                 Tables\Columns\ImageColumn::make('cover')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->label('')
@@ -217,7 +221,8 @@ class FresqueResource extends Resource
                 Tables\Columns\TextColumn::make('place.name')
                     ->label('Lieu')
                     ->searchable(['places.name', 'places.full_address'])
-                    ->description(fn (Fresque $fresque) => $fresque?->place?->full_address),
+                    ->description(fn (Fresque $fresque) => $fresque?->place?->full_address)
+                    ->wrap(),
                 Tables\Columns\TextColumn::make('date')
                     ->date('d M Y')
                     ->description(fn (Fresque $fresque) => $fresque->schedules),
