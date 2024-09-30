@@ -88,6 +88,8 @@ class Invitation extends BaseRegister
                 $animator = Animator::where('email', $this->invitation->email)->first();
                 if ($animator) {
                     $animator->user_id = $user->id;
+                    $animator->first_name = $data['first_name'];
+                    $animator->last_name = $data['last_name'];
                     $animator->save();
                 } else {
                     $user->animator()->create([

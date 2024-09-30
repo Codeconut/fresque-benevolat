@@ -13,6 +13,7 @@ use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Facades\FilamentColor;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -32,6 +33,15 @@ class AdminPanelProvider extends PanelProvider
         // if (App::environment('production')) {
         //     \Illuminate\Support\Facades\URL::forceScheme('https');
         // }
+
+        FilamentColor::register([
+            'danger' => Color::Red,
+            'gray' => Color::Zinc,
+            'info' => Color::hex('#000091'),
+            'primary' => Color::hex('#000091'),
+            'success' => Color::Green,
+            'warning' => Color::Amber,
+        ]);
     }
 
     public function panel(Panel $panel): Panel
@@ -49,9 +59,9 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->passwordReset()
             // ->profile()
-            ->colors([
-                'primary' => Color::Blue,
-            ])
+            // ->colors([
+            //     'primary' => Color::Blue,
+            // ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
