@@ -45,6 +45,7 @@ class UserInvitationMail extends Mailable
                 'token' => $this->invitation->code,
             ],
         );
+
         ray($acceptUrl);
 
         return new Content(

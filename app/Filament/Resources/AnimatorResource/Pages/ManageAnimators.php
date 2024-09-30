@@ -12,11 +12,10 @@ class ManageAnimators extends ManageRecords
 
     protected static ?string $title = 'Animateurs';
 
-
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('Ajouter un animateur'),
         ];
     }
 }

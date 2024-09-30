@@ -19,7 +19,11 @@ return [
             'amateur' => 'Amateur',
             'confirmed' => 'Confirmé',
             'professional' => 'Professionnel',
-        ]
+        ],
+        'cadre_type' => [
+            'benevole' => 'Cadre bénévole',
+            'pro' => 'Cadre professionnel',
+        ],
     ],
     'applications' => [
         'states' => [
@@ -43,7 +47,7 @@ return [
             'yes' => 'Oui',
             'no_but_soon' => 'Pas encore, mais c\'est en bonne voie',
             'not_yet' => 'Pas pour le moment',
-        ]
+        ],
     ],
     'feedbacks' => [
         'envie_benevolat' => [
@@ -54,6 +58,6 @@ return [
         'devenir_animateur' => [
             'yes' => 'Oui',
             'no' => 'Non',
-        ]
-    ]
+        ],
+    ],
 ];

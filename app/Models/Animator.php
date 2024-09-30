@@ -27,6 +27,9 @@ class Animator extends Model
         'professional_status',
         'availability',
         'notes',
+        'rating',
+        'cadre_type',
+        'cadre_organisation',
     ];
 
     protected $casts = [

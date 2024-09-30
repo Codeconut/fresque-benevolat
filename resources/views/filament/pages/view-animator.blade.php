@@ -34,6 +34,13 @@
             Aucune fresque prévue
         </x-filament::section>
         @endif
+        <x-filament::section heading="Engagement">
+            <div class="">
+                <div class="">Notation : {{ $record->rating }}</div>
+                <div class="">Type : {{ $record->cadre_type }}</div>
+                <div class="">Organisation : {{ $record->cadre_organisation }}</div>
+              </div>
+        </x-filament::section>
     </div>
 
     @endcapture
