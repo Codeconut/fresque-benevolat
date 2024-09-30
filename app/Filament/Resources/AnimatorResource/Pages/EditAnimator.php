@@ -17,7 +17,7 @@ class EditAnimator extends EditRecord
     public function getSubheading(): ?string
     {
         if ($this->record->user) {
-            return 'Dernière connexion : '.$this->record->user->last_online_at->diffForHumans();
+            return 'Dernière connexion : '.$this->record->user->last_online_at?->diffForHumans();
         }
 
         return 'Pas de compte utilisateur associé';

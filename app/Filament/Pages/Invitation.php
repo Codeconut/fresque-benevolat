@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Http\Responses\CustomRegistrationResponse;
 use App\Models\Animator;
 use App\Models\UserInvitation;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
@@ -112,6 +113,11 @@ class Invitation extends BaseRegister
         Filament::auth()->login($user);
 
         session()->regenerate();
+
+        if ($user->hasRole('animator')) {
+            // Redirect to a specific route based on the role
+            return new CustomRegistrationResponse(route('filament.app.animator.profile'));
+        }
 
         return app(RegistrationResponse::class);
     }

@@ -6,9 +6,11 @@ use App\Http\Middleware\LastOnlineAt;
 use Awcodes\FilamentGravatar\GravatarPlugin;
 use Awcodes\FilamentGravatar\GravatarProvider;
 use Carbon\Carbon;
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\MenuItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -42,6 +44,12 @@ class AdminPanelProvider extends PanelProvider
             'success' => Color::Green,
             'warning' => Color::Amber,
         ]);
+
+        // Filament::serving(function () {
+        //     Filament::registerUserMenuItems([
+        //         'account' => MenuItem::make()->label('Mon profil')->url(route('filament.app.animator.profile')),
+        //     ]);
+        // });
     }
 
     public function panel(Panel $panel): Panel
@@ -58,10 +66,9 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
             ->passwordReset()
-            // ->profile()
-            // ->colors([
-            //     'primary' => Color::Blue,
-            // ])
+            ->userMenuItems([
+                'profile' => MenuItem::make()->label('Mon profil')->url(fn (): string => route('filament.app.animator.profile'))->hidden(fn (): bool => ! auth()->user()->hasRole('animator')),
+            ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([

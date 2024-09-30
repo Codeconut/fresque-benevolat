@@ -1,5 +1,6 @@
 <?php
 
+use App\Filament\Pages\AnimatorProfile;
 use App\Filament\Pages\Invitation;
 use App\Http\Controllers\FresqueApplicationController;
 use App\Http\Controllers\FresqueApplicationFeedbackController;
@@ -40,6 +41,10 @@ Route::post('/fresques-applications/{fresqueApplication:token}/feedback', [Fresq
 Route::middleware([
     Authenticate::class,
 ])->group(function () {
+
+    Route::get('/profile/animator', AnimatorProfile::class)
+        ->name('filament.app.animator.profile');
+
     Route::get('/notifications/{slug}', [NotificationController::class, 'renderMail']);
 });
 
