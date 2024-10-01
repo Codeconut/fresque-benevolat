@@ -5,7 +5,6 @@ namespace App\Filament\Pages;
 use App\Models\User;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Filament\Support\Exceptions\Halt;
 
 class AnimatorProfileCharte extends Page
 {
@@ -34,21 +33,19 @@ class AnimatorProfileCharte extends Page
 
     public function save(): void
     {
-        try {
-            $currentUser = User::find(auth()->user()->id);
+        $currentUser = User::find(auth()->user()->id);
+
+        if (! $currentUser->has_agreed_terms_at) {
             $currentUser->has_agreed_terms_at = now();
             $currentUser->save();
 
-        } catch (Halt $exception) {
-
-            return;
+            Notification::make()
+                ->success()
+                ->title('Merci d’avoir accepté la charte !')
+                ->send();
         }
 
         $this->redirect(route('filament.admin.pages.dashboard'));
 
-        Notification::make()
-            ->success()
-            ->title('Merci d’avoir accepté la charte !')
-            ->send();
     }
 }

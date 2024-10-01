@@ -5,7 +5,11 @@
     </x-slot>
 
     <x-slot name="subheading">
+        @if(!auth()->user()->has_agreed_terms_at)
         {{ auth()->user()->animator->first_name }}, merci de la lire attentivement et de l'accepter pour continuer.
+        @else
+        Vous avez accepté la charte de la Fresque du Bénévolat le {{ auth()->user()->has_agreed_terms_at->format('d/m/Y') }}.
+        @endif
     </x-slot>
 
 
@@ -84,7 +88,7 @@
             <h3>Prérequis</h3>
             <ul>
                 <li>- Participation à au moins une Fresque du Bénévolat </li>
-                <li>- Participation à la formation à l’animation de la Fresque du Bénévolat délivrée par [JeVeuxAider.gouv.fr](http://JeVeuxAider.gouv.fr) ou une organisation partenaire certifiée.</li>
+                <li>- Participation à la formation à l’animation de la Fresque du Bénévolat délivrée par JeVeuxAider.gouv.fr ou une organisation partenaire certifiée.</li>
                 <li>- Obtention d’un certificat délivré par JeVeuxAider.gouv.fr</li>
             </ul>
             <p>Toutes personnes ayant suivi la formation à l’animation et obtenu un certificat délivré par JeVeuxAider.gouv.fr peut animer la Fresque du Bénévolat. Ce certificat garantit que l’animateur a acquis les compétences nécessaires pour conduire un atelier de manière efficace et bienveillante.</p>
@@ -176,8 +180,14 @@
         </div>
     </x-filament::section>
 
-    <x-filament::button wire:click="save" size="xl" class="w-full mt-8" >
+    @if(!auth()->user()->has_agreed_terms_at)
+    <x-filament::button wire:click="save" size="xl" class="w-full mt-8">
         J’accepte la charte
     </x-filament::button>
+    @else
+    <x-filament::button wire:click="save" size="xl" class="w-full mt-8" color="gray">
+        Tableau de bord
+    </x-filament::button>
+    @endif
 
 </x-filament-panels::page.simple>

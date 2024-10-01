@@ -6,7 +6,6 @@ use App\Http\Middleware\LastOnlineAt;
 use Awcodes\FilamentGravatar\GravatarPlugin;
 use Awcodes\FilamentGravatar\GravatarProvider;
 use Carbon\Carbon;
-use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -44,17 +43,11 @@ class AdminPanelProvider extends PanelProvider
             'success' => Color::Green,
             'warning' => Color::Amber,
         ]);
-
-        // Filament::serving(function () {
-        //     Filament::registerUserMenuItems([
-        //         'account' => MenuItem::make()->label('Mon profil')->url(route('filament.app.animator.profile')),
-        //     ]);
-        // });
     }
 
     public function panel(Panel $panel): Panel
     {
-        return $panel
+        $panel
             ->default()
             ->darkMode(false)
             ->brandName('Admin - La Fresque du Bénévolat')
@@ -66,9 +59,6 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
             ->passwordReset()
-            ->userMenuItems([
-                'profile' => MenuItem::make()->label('Mon profil')->url(fn (): string => route('filament.app.animator.profile'))->hidden(fn (): bool => ! auth()->user()->hasRole('animator')),
-            ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -98,5 +88,13 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
                 LastOnlineAt::class,
             ]);
+
+        $panel
+            ->userMenuItems([
+                'profileAnimator' => MenuItem::make()->label('Ma fiche animateur')->icon('heroicon-o-identification')->url(fn (): string => route('filament.app.animator.profile'))->hidden(fn (): bool => ! auth()->user()->hasRole('animator')),
+                'profileAnimatorCharte' => MenuItem::make()->label('La charte')->icon('heroicon-o-check-badge')->url(fn (): string => route('filament.app.animator.charte'))->hidden(fn (): bool => ! auth()->user()->hasRole('animator')),
+            ]);
+
+        return $panel;
     }
 }
