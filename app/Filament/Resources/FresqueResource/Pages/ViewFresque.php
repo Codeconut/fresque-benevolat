@@ -6,6 +6,7 @@ use App\Filament\Resources\FresqueResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ViewRecord;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\View;
 
 class ViewFresque extends ViewRecord
 {
@@ -13,9 +14,14 @@ class ViewFresque extends ViewRecord
 
     protected static string $view = 'filament.pages.view-fresque';
 
-    public function getSubheading(): ?string
+    // public function getSubheading(): ?string
+    // {
+    //     return $this->record->place?->name.' - '.$this->record->full_date;
+    // }
+
+    public function getHeader(): ?View
     {
-        return $this->record->place?->name.' - '.$this->record->full_date;
+        return view('filament.components.header-fresque', ['record' => $this->record]);
     }
 
     public function getTitle(): string|Htmlable

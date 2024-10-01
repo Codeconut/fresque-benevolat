@@ -5,7 +5,7 @@
     >
     @capture($form)
 
-    <x-slot name="subheading">
+    <x-slot name="heading">
         subheading
     </x-slot>
 
@@ -18,7 +18,7 @@
                 <x-filament::link
                     href="{{ route('fresques.show', $record) }}"
                     target="_blank">
-                    Voir la page public
+                    Voir la page d’inscription
                 </x-filament::link>
             </div>
         </x-filament::section>
