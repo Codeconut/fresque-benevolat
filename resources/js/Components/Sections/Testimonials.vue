@@ -14,7 +14,7 @@ const testimonials = [
     logo: '/images/logos/protection-civile-logo.png',
     firstName: 'Maryline',
     benevoleLabel: 'étudiante',
-    text: 'J’ai adoré le moment où chacun devrait prendre une image et écrire un message, c’était un très fort de lire ce que les autres ont écrits et de voir à quels point on est différents mais tellement proches.',
+    text: 'J’ai adoré le moment où chacun devrait prendre une image et écrire un message, c’était un très fort moment de lire ce que les autres ont écrits et de voir à quels point on est différents mais tellement proches.',
   },
   {
     logo: '/images/logos/protection-civile-logo.png',

@@ -86,6 +86,7 @@ class AnimatorProfile extends Page implements HasForms
     {
         return [
             Action::make('save')
+                ->size('xl')
                 ->label(__('filament-panels::resources/pages/edit-record.form.actions.save.label'))
                 ->submit('save'),
         ];
@@ -99,6 +100,15 @@ class AnimatorProfile extends Page implements HasForms
             auth()->user()->animator->update($data);
 
         } catch (Halt $exception) {
+            return;
+        }
+
+        $currentUser = auth()->user();
+
+        if ($currentUser->has_agreed_terms_at === null) {
+            ray('redirect to terms');
+            $this->redirect(route('filament.app.animator.charte'));
+
             return;
         }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Filament\Pages\AnimatorProfile;
+use App\Filament\Pages\AnimatorProfileCharte;
 use App\Filament\Pages\Invitation;
 use App\Http\Controllers\FresqueApplicationController;
 use App\Http\Controllers\FresqueApplicationFeedbackController;
@@ -44,6 +45,8 @@ Route::middleware([
 
     Route::get('/profile/animator', AnimatorProfile::class)
         ->name('filament.app.animator.profile');
+    Route::get('/profile/animator/charte', AnimatorProfileCharte::class)
+        ->name('filament.app.animator.charte');
 
     Route::get('/notifications/{slug}', [NotificationController::class, 'renderMail']);
 });

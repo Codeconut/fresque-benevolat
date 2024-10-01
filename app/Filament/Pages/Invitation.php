@@ -6,6 +6,7 @@ use App\Http\Responses\CustomRegistrationResponse;
 use App\Models\Animator;
 use App\Models\UserInvitation;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use Filament\Actions\Action;
 use Filament\Facades\Filament;
 use Filament\Forms;
 use Filament\Forms\Components\Component;
@@ -149,5 +150,13 @@ class Invitation extends BaseRegister
             ->required()
             ->maxLength(255)
             ->autofocus();
+    }
+
+    public function getRegisterFormAction(): Action
+    {
+        return Action::make('register')
+            ->label(__('filament-panels::pages/auth/register.form.actions.register.label'))
+            ->size('xl')
+            ->submit('register');
     }
 }
