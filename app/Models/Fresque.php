@@ -131,7 +131,7 @@ class Fresque extends Model
         }
 
         return Attribute::make(
-            get: fn (): ?string => $picture ? Storage::url($picture) : null,
+            get: fn (): ?string => $picture ? Storage::url($picture) : asset('images/placeholders/default-fresque-placeholder.jpg'),
         );
     }
 

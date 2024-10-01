@@ -52,7 +52,7 @@ const props = defineProps({
             <p class="text-lg">Nous avons été ravis d'animer cette fresque avec toi !</p>
             <p class="text-lg">
               Pour toute question tu peux contacter le support par mail<br />
-              <strong>support@jeveuxaider.beta.gouv.fr</strong>
+              <strong>supportfresque@jeveuxaider.beta.gouv.fr</strong>
             </p>
             <p class="text-lg">
               Et pour trouver des supers missions de bénévolat, près de chez toi ou à distance,

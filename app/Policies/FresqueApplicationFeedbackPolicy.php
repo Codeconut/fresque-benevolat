@@ -43,7 +43,7 @@ class FresqueApplicationFeedbackPolicy
      */
     public function update(User $user, FresqueApplicationFeedback $fresqueApplicationFeedback): bool
     {
-        return $user->can('update', $fresqueApplicationFeedback->application->fresque);
+        return false;
     }
 
     /**
