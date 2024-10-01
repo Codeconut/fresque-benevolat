@@ -22,6 +22,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\HtmlString;
 
 class FresqueResource extends Resource
 {
@@ -75,33 +76,38 @@ class FresqueResource extends Resource
                                             ->columnSpanFull()
                                             ->required()
                                             ->label('Lieu')
-                                            ->helperText('Sélectionnez un lieu ou créez le votre en cliquant sur +.')
+                                            ->hint(new HtmlString('<span class="text-xs cursor-pointer text-primary underline" wire:click="mountFormComponentAction(\'data.place_id\', \'createOption\')">Ajouter un lieu</span>'))
+                                            // ->helperText('Sélectionnez un lieu ou créez le votre en cliquant sur +.')
                                             ->relationship(name: 'place', titleAttribute: 'name')
                                             ->searchable(['name', 'full_address'])
                                             ->getOptionLabelFromRecordUsing(fn (Place $place) => "{$place->name} - {$place->full_address}")
+                                            ->preload()
+                                            ->noSearchResultsMessage('Ce lieu n’existe pas encore. Vous pouvez le créer en cliquant sur +.')
                                             ->createOptionForm(fn (Form $form) => PlaceResource::form($form)),
                                         Forms\Components\Select::make('animators')
                                             ->columnSpanFull()
                                             ->label('Animateurs')
                                             ->multiple()
                                             ->searchable(['first_name', 'last_name', 'zip', 'city', 'email'])
+                                            ->default(fn () => [auth()->user()->animator?->id])
                                             ->relationship('animators', 'email')
-                                            ->helperText('Sélectionnez les animateurs de la fresque.')
-                                            ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name} {$animator->zip} {$animator->city}")
-                                            ->createOptionForm([
-                                                Forms\Components\TextInput::make('email')
-                                                    ->maxLength(255)->required()->email(),
-                                                Forms\Components\TextInput::make('first_name')->label('Prénom')
-                                                    ->maxLength(255)->required(),
-                                                Forms\Components\TextInput::make('last_name')->label('Nom')
-                                                    ->maxLength(255)->required(),
-                                                Forms\Components\TextInput::make('mobile')
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('zip')->label('Code postal')
-                                                    ->maxLength(255),
-                                                Forms\Components\TextInput::make('city')->label('Ville')
-                                                    ->maxLength(255),
-                                            ]),
+                                            // ->helperText('Sélectionnez les animateurs de la fresque.')
+                                            ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name}")
+                                        // ->createOptionForm([
+                                        //     Forms\Components\TextInput::make('email')
+                                        //         ->maxLength(255)->required()->email(),
+                                        //     Forms\Components\TextInput::make('first_name')->label('Prénom')
+                                        //         ->maxLength(255)->required(),
+                                        //     Forms\Components\TextInput::make('last_name')->label('Nom')
+                                        //         ->maxLength(255)->required(),
+                                        //     Forms\Components\TextInput::make('mobile')
+                                        //         ->maxLength(255),
+                                        //     Forms\Components\TextInput::make('zip')->label('Code postal')
+                                        //         ->maxLength(255),
+                                        //     Forms\Components\TextInput::make('city')->label('Ville')
+                                        //         ->maxLength(255),
+                                        // ])
+                                        ,
 
                                     ])->columns(3),
                                 Forms\Components\Section::make('Contenus')
