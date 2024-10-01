@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\FresqueApplication;
+use App\Models\FresqueApplicationFeedback;
 use App\Models\User;
 
-class FresqueApplicationPolicy
+class FresqueApplicationFeedbackPolicy
 {
     public function before($user, $ability)
     {
@@ -25,9 +25,9 @@ class FresqueApplicationPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, FresqueApplication $fresqueApplication): bool
+    public function view(User $user, FresqueApplicationFeedback $fresqueApplicationFeedback): bool
     {
-        return $user->can('view', $fresqueApplication->fresque);
+        return $user->can('view', $fresqueApplicationFeedback->application->fresque);
     }
 
     /**
@@ -41,15 +41,15 @@ class FresqueApplicationPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, FresqueApplication $fresqueApplication): bool
+    public function update(User $user, FresqueApplicationFeedback $fresqueApplicationFeedback): bool
     {
-        return $user->can('update', $fresqueApplication->fresque);
+        return $user->can('update', $fresqueApplicationFeedback->application->fresque);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, FresqueApplication $fresqueApplication): bool
+    public function delete(User $user, FresqueApplicationFeedback $fresqueApplicationFeedback): bool
     {
         return false;
     }
@@ -57,7 +57,7 @@ class FresqueApplicationPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, FresqueApplication $fresqueApplication): bool
+    public function restore(User $user, FresqueApplicationFeedback $fresqueApplicationFeedback): bool
     {
         return false;
     }
@@ -65,7 +65,7 @@ class FresqueApplicationPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, FresqueApplication $fresqueApplication): bool
+    public function forceDelete(User $user, FresqueApplicationFeedback $fresqueApplicationFeedback): bool
     {
         return false;
     }

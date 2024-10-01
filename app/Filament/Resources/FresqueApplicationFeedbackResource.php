@@ -26,7 +26,7 @@ class FresqueApplicationFeedbackResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()->hasRole('admin');
+        return auth()->user()->hasRole(['admin', 'animator']);
     }
 
     public static function form(Form $form): Form
@@ -57,7 +57,8 @@ class FresqueApplicationFeedbackResource extends Resource
                     ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->full_name),
                 Tables\Columns\TextColumn::make('application.fresque.full_date')
                     ->label('Fresque')
-                    ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->fresque?->place?->city.' - '.$feedback->application?->fresque?->place?->name),
+                    ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->fresque?->place?->city.' - '.$feedback->application?->fresque?->place?->name)
+                    ->wrap(),
                 Tables\Columns\TextColumn::make('rating')
                     ->numeric(),
                 RatingColumn::make('rating')
@@ -101,6 +102,7 @@ class FresqueApplicationFeedbackResource extends Resource
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
+            ->managedBy(auth()->user())
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);

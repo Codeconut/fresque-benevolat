@@ -10,7 +10,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class FresqueApplicationFeedback extends Model
 {
-    use HasFactory, SoftDeletes, LogsActivity;
+    use HasFactory, LogsActivity, SoftDeletes;
 
     protected $table = 'fresque_application_feedbacks';
 
@@ -36,5 +36,17 @@ class FresqueApplicationFeedback extends Model
     public function application()
     {
         return $this->belongsTo(FresqueApplication::class, 'fresque_application_id');
+    }
+
+    public function scopeManagedBy($query, $user)
+    {
+        if ($user->hasRole('admin')) {
+            return $query;
+        }
+
+        return $query->whereHas(
+            'application',
+            fn ($query) => $query->managedBy($user)
+        );
     }
 }

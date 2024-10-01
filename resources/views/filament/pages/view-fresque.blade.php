@@ -27,10 +27,12 @@
                 @foreach($record->animators as $animator)
                 <div class="pb-4">
                     <div class="">{{ $animator->full_name }}</div>
+                    @if(auth()->user()->hasRole('admin'))
                     <x-filament::link
                         href="{{ route('filament.admin.resources.animators.view', $animator) }}">
                         Voir sa fiche
                     </x-filament::link>
+                    @endif
                 </div>
                 @endforeach
             </div>
