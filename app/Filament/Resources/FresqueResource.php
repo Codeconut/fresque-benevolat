@@ -77,7 +77,6 @@ class FresqueResource extends Resource
                                             ->required()
                                             ->label('Lieu')
                                             ->hint(new HtmlString('<span class="text-xs cursor-pointer text-primary underline" wire:click="mountFormComponentAction(\'data.place_id\', \'createOption\')">Ajouter un lieu</span>'))
-                                            // ->helperText('Sélectionnez un lieu ou créez le votre en cliquant sur +.')
                                             ->relationship(name: 'place', titleAttribute: 'name')
                                             ->searchable(['name', 'full_address'])
                                             ->getOptionLabelFromRecordUsing(fn (Place $place) => "{$place->name} - {$place->full_address}")
@@ -91,23 +90,7 @@ class FresqueResource extends Resource
                                             ->searchable(['first_name', 'last_name', 'zip', 'city', 'email'])
                                             ->default(fn () => [auth()->user()->animator?->id])
                                             ->relationship('animators', 'email')
-                                            // ->helperText('Sélectionnez les animateurs de la fresque.')
-                                            ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name}")
-                                        // ->createOptionForm([
-                                        //     Forms\Components\TextInput::make('email')
-                                        //         ->maxLength(255)->required()->email(),
-                                        //     Forms\Components\TextInput::make('first_name')->label('Prénom')
-                                        //         ->maxLength(255)->required(),
-                                        //     Forms\Components\TextInput::make('last_name')->label('Nom')
-                                        //         ->maxLength(255)->required(),
-                                        //     Forms\Components\TextInput::make('mobile')
-                                        //         ->maxLength(255),
-                                        //     Forms\Components\TextInput::make('zip')->label('Code postal')
-                                        //         ->maxLength(255),
-                                        //     Forms\Components\TextInput::make('city')->label('Ville')
-                                        //         ->maxLength(255),
-                                        // ])
-                                        ,
+                                            ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name}"),
 
                                     ])->columns(3),
                                 Forms\Components\Section::make('Contenus')
@@ -119,7 +102,6 @@ class FresqueResource extends Resource
                                             ->required(),
                                         FormBuilder::make('content')
                                             ->hiddenLabel()
-
                                             ->blocks([
                                                 FormBuilder\Block::make('heading')
                                                     ->schema([
@@ -164,8 +146,9 @@ class FresqueResource extends Resource
                                             ])
                                             ->collapsed()
                                             ->default(include resource_path('default-content.php'))
-                                            ->disabled(! auth()->user()->hasRole('admin'))
-                                            ->dehydrated(),
+                                            ->extraAttributes(fn () => ! auth()->user()->hasRole('admin') ? ['class' => 'hidden'] : [])
+                                            ->disabled(fn () => ! auth()->user()->hasRole('admin'))
+                                            ->dehydrated(true),
                                     ]),
 
                             ])->columnSpan(2),

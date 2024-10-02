@@ -46,7 +46,7 @@ class UserInvitationMail extends Mailable
             ],
         );
 
-        ray($acceptUrl);
+        // ray($acceptUrl);
 
         return new Content(
             markdown: 'mail.auth.user-invitation',
