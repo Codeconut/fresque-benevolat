@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Actions\FresqueApplicationSendMail;
 use App\Filament\Resources\FresqueApplicationResource\Pages;
+use App\Models\Fresque;
 use App\Models\FresqueApplication;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -99,7 +101,11 @@ class FresqueApplicationResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make()->modalHeading('Participation'),
-                    Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueApplicationResource::getUrl('activities', ['record' => $record])),
+                    FresqueApplicationSendMail::make()->hidden(fn () => ! auth()->user()->hasRole('admin')),
+                    Tables\Actions\Action::make('activities')->label('Historique')
+                        ->icon('heroicon-s-list-bullet')
+                        ->hidden(fn () => ! auth()->user()->hasRole('admin'))
+                        ->url(fn ($record) => FresqueApplicationResource::getUrl('activities', ['record' => $record])),
                     Tables\Actions\DeleteAction::make(),
                 ]),
             ])
