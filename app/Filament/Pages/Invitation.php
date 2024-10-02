@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Http\Responses\CustomRegistrationResponse;
 use App\Models\Animator;
 use App\Models\UserInvitation;
+use App\Notifications\AnimatorHasAcceptedInvitation;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
@@ -100,6 +101,8 @@ class Invitation extends BaseRegister
                         'last_name' => $data['last_name'],
                     ]);
                 }
+
+                $user->animator->notify(new AnimatorHasAcceptedInvitation);
             }
         }
 
@@ -116,7 +119,6 @@ class Invitation extends BaseRegister
         session()->regenerate();
 
         if ($user->hasRole('animator')) {
-            // Redirect to a specific route based on the role
             return new CustomRegistrationResponse(route('filament.app.animator.profile'));
         }
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\FresqueController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PageController;
+use App\Http\Middleware\IsAdmin;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,13 @@ Route::middleware([
         ->name('filament.app.animator.profile');
     Route::get('/profile/animator/charte', AnimatorProfileCharte::class)
         ->name('filament.app.animator.charte');
+
+});
+
+Route::middleware([
+    Authenticate::class,
+    IsAdmin::class,
+])->group(function () {
 
     Route::get('/notifications/{slug}', [NotificationController::class, 'renderMail']);
 });
