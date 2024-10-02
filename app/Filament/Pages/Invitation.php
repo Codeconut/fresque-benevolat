@@ -5,7 +5,7 @@ namespace App\Filament\Pages;
 use App\Http\Responses\CustomRegistrationResponse;
 use App\Models\Animator;
 use App\Models\UserInvitation;
-use App\Notifications\AnimatorHasAcceptedInvitation;
+use App\Notifications\UserAnimatorHasAcceptedInvitation;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
@@ -102,7 +102,7 @@ class Invitation extends BaseRegister
                     ]);
                 }
 
-                $user->animator->notify(new AnimatorHasAcceptedInvitation);
+                $user->notify(new UserAnimatorHasAcceptedInvitation);
             }
         }
 

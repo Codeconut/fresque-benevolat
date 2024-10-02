@@ -2,21 +2,22 @@
 
 namespace App\Notifications;
 
+use App\Models\Fresque;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AnimatorHasAcceptedInvitation extends Notification implements ShouldQueue
+class UserAnimatorFresquePassed1Day extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public string $tag = 'user-animator-has-accepted-invitation';
+    public string $tag = 'user-animator-fresque-passed-1-day';
 
     /**
      * Create a new notification instance.
      */
-    public function __construct() {}
+    public function __construct(public Fresque $fresque) {}
 
     /**
      * Get the notification's delivery channels.
@@ -34,9 +35,10 @@ class AnimatorHasAcceptedInvitation extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Bienvenue dans l’équipe des animateurs de la Fresque du Bénévolat ! ')
-            ->markdown('mail.animator.animator-has-accepted-invitation', [
-                'url' => route('filament.admin.pages.dashboard'),
+            ->subject('Bravo pour ton animation ! La dernière étape pour mettre en valeur ta Fresque du Bénévolat !')
+            ->markdown('mail.animator.user-animator-fresque-passed-1-day', [
+                'url' => route('filament.admin.resources.fresques.view', ['record' => $this->fresque]),
+                'fresque' => $this->fresque,
                 'notifiable' => $notifiable,
             ])
             ->tag($this->tag);

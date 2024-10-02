@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Animator;
+use App\Models\Fresque;
 use App\Models\FresqueApplication;
-use App\Notifications\AnimatorHasAcceptedInvitation;
+use App\Models\User;
 use App\Notifications\FresqueApplicationCreated;
 use App\Notifications\FresqueApplicationFeedbackJ3;
 use App\Notifications\FresqueApplicationFeedbackS12;
@@ -12,19 +12,30 @@ use App\Notifications\FresqueApplicationFeedbackS3;
 use App\Notifications\FresqueApplicationFeedbackS6;
 use App\Notifications\FresqueApplicationReminderMorning;
 use App\Notifications\FresqueApplicationReminderXDays;
+use App\Notifications\UserAnimatorFresquePassed1Day;
+use App\Notifications\UserAnimatorFresqueReminderIn2Days;
+use App\Notifications\UserAnimatorHasAcceptedInvitation;
 
 class NotificationController extends Controller
 {
     public function renderMail($slug)
     {
-
+        $fresque = Fresque::first();
         $fresqueApplication = FresqueApplication::first();
-        $animator = Animator::first();
+        $userAnimator = User::whereHas('animator')->first();
 
         switch ($slug) {
-            case 'animator-has-accepted-invitation':
-                $notification = new AnimatorHasAcceptedInvitation;
-                $output = $notification->toMail($animator)->render();
+            case 'user-animator-fresque-passed-1-day':
+                $notification = new UserAnimatorFresquePassed1Day($fresque);
+                $output = $notification->toMail($userAnimator)->render();
+                break;
+            case 'user-animator-fresque-reminder-in-2-days':
+                $notification = new UserAnimatorFresqueReminderIn2Days($fresque);
+                $output = $notification->toMail($userAnimator)->render();
+                break;
+            case 'user-animator-has-accepted-invitation':
+                $notification = new UserAnimatorHasAcceptedInvitation;
+                $output = $notification->toMail($userAnimator)->render();
                 break;
             case 'fresque-application-feedback-j-3':
                 $notification = new FresqueApplicationFeedbackJ3;
