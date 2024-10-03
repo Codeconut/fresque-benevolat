@@ -48,7 +48,7 @@ const isPassed = dayjs().isAfter(dayjs(props.fresque.date))
       :class="[
         'flex-1 relative',
         { 'py-8 px-4 lg:px-8 lg:py-4 h-full': orientation === 'horizontal' },
-        { 'py-8 px-4': orientation === 'vertical' },
+        { 'py-8 px-3': orientation === 'vertical' },
       ]"
     >
       <div class="mb-6 flex gap-2 flex-wrap">
