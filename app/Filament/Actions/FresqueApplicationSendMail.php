@@ -88,7 +88,7 @@ class FresqueApplicationSendMail extends Action
             'fresque-application-reminder-x-days' => '[J-2] La fresque du bénévolat, c’est dans 2 jours !',
             'fresque-application-reminder-morning' => '[J-0] La Fresque du Bénévolat, c’est aujourd’hui ✌🏻',
             'fresque-application-feedback-j-3' => '[J+3] 🧩 Fresque du Bénévolat : Et après ? Ton guide mémo dans ce mail',
-            'fresque-application-feedback-s-3' => '[S+3], comment se passe ton parcours bénévole ? 💁🏻',
+            'fresque-application-feedback-s-3' => '[S+3] XX, comment se passe ton parcours bénévole ? 💁🏻',
             'fresque-application-feedback-s-6' => '[S+6] XX, quelles sont les nouvelles depuis ta dernière Fresque du Bénévolat ?',
             'fresque-application-feedback-s-12' => '[S+12] XX, quelles sont les nouvelles depuis ta dernière Fresque du Bénévolat ?',
         ];

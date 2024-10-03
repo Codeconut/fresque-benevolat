@@ -222,32 +222,39 @@ const gouvLinks = [
               >
               <a
                 class="cursor-pointer hover:underline px-3 my-1 inline-block"
-                href="https://www.jeveuxaider.gouv.fr/politique-de-confidentialite"
+                href="https://jeveuxaider.notion.site/La-Fresque-du-B-n-volat-Politique-de-confidentialit-11372a322d5080c0a617e50a61cfc7f2?pvs=74"
                 target="_blank"
               >
-                Données personnelles
+                Politique de confidentialité
               </a>
               <a
                 class="cursor-pointer hover:underline px-3 my-1 inline-block"
-                href="https://www.jeveuxaider.gouv.fr/mentions-legales"
+                href="https://jeveuxaider.notion.site/La-Fresque-du-B-n-volat-Mentions-l-gales-11372a322d508091a29bfd242615fd2e"
                 target="_blank"
               >
                 Mentions légales
               </a>
               <a
                 class="cursor-pointer hover:underline px-3 my-1 inline-block"
-                href="https://www.jeveuxaider.gouv.fr/conditions-generales-d-utilisation"
+                href="https://jeveuxaider.notion.site/La-Fresque-du-B-n-volat-Conditions-g-n-rales-d-utilisation-de-la-plateforme-11372a322d5080dfb67ec622d0aa7f2e"
                 target="_blank"
               >
                 CGU
               </a>
               <a
                 class="cursor-pointer hover:underline px-3 my-1 inline-block"
+                href="https://reserve-civique.crisp.help/fr/category/fresque-du-benevolat-97jq8c/"
+                target="_blank"
+              >
+                Centre d'aide
+              </a>
+              <!-- <a
+                class="cursor-pointer hover:underline px-3 my-1 inline-block"
                 href="https://www.jeveuxaider.gouv.fr/plan-du-site"
                 target="_blank"
               >
                 Plan du site
-              </a>
+              </a> -->
             </div>
 
             <div class="mt-6">
