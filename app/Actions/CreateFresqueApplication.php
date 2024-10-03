@@ -3,8 +3,8 @@
 namespace App\Actions;
 
 use App\Models\FresqueApplication;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CreateFresqueApplication
 {
@@ -22,10 +22,10 @@ class CreateFresqueApplication
                 'email',
                 Rule::unique('fresque_applications')->where(function ($query) use ($inputs) {
                     return $query->where('fresque_id', $inputs['fresque_id'])->where('email', $inputs['email']);
-                })
+                }),
             ],
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|regex:/^[\p{L}\'\’\-\s]+$/u',
+            'last_name' => 'required|regex:/^[\p{L}\'\’\-\s]+$/u',
             'mobile' => '',
             'info_benevolat' => 'required',
             'info_fresque' => 'required',

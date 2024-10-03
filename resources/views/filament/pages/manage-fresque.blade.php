@@ -11,7 +11,7 @@
                 <div class="text-sm text-gray-500"> {{ $application->mobile }}</div>
             </div>
             <div>
-                <x-filament::dropdown placement="bottom-start">
+                <x-filament::dropdown placement="bottom-start" x-on:click="toggle">
                     <x-slot name="trigger">
                         <x-filament::button outlined>
                             <div class="flex items-center gap-3">
@@ -24,19 +24,19 @@
                     </x-slot>
 
                     <x-filament::dropdown.list>
-                        <x-filament::dropdown.list.item wire:click="updateState({{ $application }} , 'registered')">
+                        <x-filament::dropdown.list.item wire:click="updateState({{ $application->id }} , 'registered');">
                             Inscrit
                         </x-filament::dropdown.list.item>
-                        <x-filament::dropdown.list.item wire:click="updateState({{ $application }},'confirmed_presence')">
+                        <x-filament::dropdown.list.item wire:click="updateState({{  $application->id }},'confirmed_presence')">
                             Présence confirmé
                         </x-filament::dropdown.list.item>
-                        <x-filament::dropdown.list.item wire:click="updateState({{ $application }},'validated')">
+                        <x-filament::dropdown.list.item wire:click="updateState({{  $application->id }},'validated')">
                             Réalisé
                         </x-filament::dropdown.list.item>
-                        <x-filament::dropdown.list.item wire:click="updateState({{ $application }},'canceled')">
+                        <x-filament::dropdown.list.item wire:click="updateState({{  $application->id }},'canceled')">
                             Annulé
                         </x-filament::dropdown.list.item>
-                        <x-filament::dropdown.list.item wire:click="updateState({{ $application }},'missing')">
+                        <x-filament::dropdown.list.item wire:click="updateState({{  $application->id }},'missing')">
                             Absent
                         </x-filament::dropdown.list.item>
 
