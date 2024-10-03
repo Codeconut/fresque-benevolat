@@ -37,7 +37,7 @@ class UserAnimatorFresqueReminderIn2Days extends Notification implements ShouldQ
         return (new MailMessage)
             ->subject($notifiable->first_name.', J-2 avant ton animation de la Fresque du Bénévolat ! 🙌')
             ->markdown('mail.animator.user-animator-fresque-reminder-in-2-days', [
-                'url' => route('filament.admin.resources.fresques.view', ['record' => $this->fresque]),
+                'url' => route('filament.admin.resources.fresques.manage', ['record' => $this->fresque]),
                 'fresque' => $this->fresque,
                 'notifiable' => $notifiable,
             ])

@@ -247,6 +247,7 @@ class FresqueResource extends Resource
                         ->successRedirectUrl(fn (Fresque $replica): string => route('filament.admin.resources.fresques.edit', [
                             'record' => $replica,
                         ])),
+                    Tables\Actions\Action::make('manage')->label('Liste des participants')->icon('heroicon-o-users')->url(fn ($record) => FresqueResource::getUrl('manage', ['record' => $record])),
                     Tables\Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueResource::getUrl('activities', ['record' => $record])),
                 ]),
             ])
@@ -274,6 +275,7 @@ class FresqueResource extends Resource
             'view' => Pages\ViewFresque::route('/{record}'),
             'edit' => Pages\EditFresque::route('/{record}/edit'),
             'activities' => Pages\ListFresqueActivities::route('/{record}/activities'),
+            'manage' => Pages\ManageParticipantsFresque::route('/{record}/manage'),
         ];
     }
 

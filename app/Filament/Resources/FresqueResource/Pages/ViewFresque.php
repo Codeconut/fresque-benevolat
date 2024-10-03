@@ -34,6 +34,7 @@ class ViewFresque extends ViewRecord
         return [
             Actions\EditAction::make(),
             Actions\ActionGroup::make([
+                Actions\Action::make('manage')->label('Liste des participants')->icon('heroicon-o-users')->url(fn ($record) => FresqueResource::getUrl('manage', ['record' => $record])),
                 Actions\Action::make('activities')->label('Historique')->icon('heroicon-s-list-bullet')->url(fn ($record) => FresqueResource::getUrl('activities', ['record' => $record])),
                 Actions\DeleteAction::make(),
             ])->iconButton(),
