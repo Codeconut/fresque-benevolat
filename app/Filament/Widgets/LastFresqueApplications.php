@@ -28,9 +28,9 @@ class LastFresqueApplications extends BaseWidget
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('full_name')
                     ->label('Participant')
-                    ->description(fn (FresqueApplication $application) => $application->full_name),
+                    ->description(fn (FresqueApplication $application) => $application->email),
                 Tables\Columns\TextColumn::make('fresque.full_date')
                     ->label('Fresque')
                     ->description(fn (FresqueApplication $application) => $application->fresque?->place?->city.' - '.$application->fresque?->place?->name),

@@ -4,7 +4,7 @@
     ])
     >
     @capture($form)
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <x-filament::section heading="Informations">
             <div class="">
                 <div class="">Email : {{ $record->email }}</div>

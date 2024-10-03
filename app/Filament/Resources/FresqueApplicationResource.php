@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Filament\Actions\FresqueApplicationSendMail;
 use App\Filament\Resources\FresqueApplicationResource\Pages;
-use App\Models\Fresque;
 use App\Models\FresqueApplication;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -65,9 +64,9 @@ class FresqueApplicationResource extends Resource
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('full_name')
                     ->label('Participant')
-                    ->description(fn (FresqueApplication $application) => $application->full_name)
+                    ->description(fn (FresqueApplication $application) => $application->email)
                     ->searchable(['email', 'first_name', 'last_name'])
                     ->wrap(),
                 Tables\Columns\TextColumn::make('fresque.full_date')
@@ -76,13 +75,6 @@ class FresqueApplicationResource extends Resource
                     ->wrap(),
                 Tables\Columns\SelectColumn::make('state')->label('Statut')
                     ->options(config('taxonomies.applications.states'))->rules(['required'])->selectablePlaceholder(false),
-                // Tables\Columns\IconColumn::make('post_fresque_engagement')
-                //     ->label('Engagement')
-                //     ->icon(fn (string $state): string => match ($state) {
-                //         'yes' => 'heroicon-o-check-circle',
-                //         'no_but_soon' => 'heroicon-o-clock',
-                //         'not_yet' => 'heroicon-o-x-circle',
-                //     }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->date('d M Y à H:i')
                     ->label('Créé le'),

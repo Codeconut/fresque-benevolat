@@ -52,9 +52,9 @@ class FresqueApplicationFeedbackResource extends Resource
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
-                Tables\Columns\TextColumn::make('application.email')
+                Tables\Columns\TextColumn::make('application.full_name')
                     ->label('Participant')
-                    ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->full_name),
+                    ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->email),
                 Tables\Columns\TextColumn::make('application.fresque.full_date')
                     ->label('Fresque')
                     ->description(fn (FresqueApplicationFeedback $feedback) => $feedback->application?->fresque?->place?->city.' - '.$feedback->application?->fresque?->place?->name)

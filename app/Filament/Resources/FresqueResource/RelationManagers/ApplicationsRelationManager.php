@@ -9,8 +9,6 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ApplicationsRelationManager extends RelationManager
 {
@@ -39,7 +37,7 @@ class ApplicationsRelationManager extends RelationManager
                     ->options(config('taxonomies.applications.info_benevolat')),
                 Forms\Components\Select::make('info_fresque')->label('Déjà participé à une fresque ?')
                     ->options(config('taxonomies.applications.info_fresque')),
-                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull()
+                Forms\Components\MarkdownEditor::make('notes')->columnSpanFull(),
             ])->columns(3);
     }
 
@@ -52,9 +50,9 @@ class ApplicationsRelationManager extends RelationManager
                     ->label('')
                     ->defaultImageUrl(url('/images/default-placeholder.png'))
                     ->circular(),
-                Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('full_name')
                     ->label('Participant')
-                    ->description(fn (FresqueApplication $application) => $application->full_name),
+                    ->description(fn (FresqueApplication $application) => $application->email),
                 Tables\Columns\TextColumn::make('mobile')
                     ->label('Mobile'),
                 Tables\Columns\SelectColumn::make('state')
@@ -74,7 +72,7 @@ class ApplicationsRelationManager extends RelationManager
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\DeleteAction::make(),
-                ])
+                ]),
             ])
             ->bulkActions([
                 // Tables\Actions\BulkActionGroup::make([
