@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\FresqueResource\RelationManagers;
 
+use App\Filament\Actions\FresqueApplicationSendMail;
 use App\Models\FresqueApplication;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -71,6 +72,7 @@ class ApplicationsRelationManager extends RelationManager
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),
+                    FresqueApplicationSendMail::make()->hidden(fn () => ! auth()->user()->hasRole('admin')),
                     Tables\Actions\DeleteAction::make(),
                 ]),
             ])
