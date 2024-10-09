@@ -4,7 +4,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         @foreach($applications as $application)
-        <div class="bg-white p-6 border rounded-xl flex justify-between items-center">
+        <div class="bg-white p-6 border rounded-xl flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
             <div>
                 <div class="text-lg font-medium"> {{ $application->full_name }}</div>
                 <div class="text-sm text-gray-500"> {{ $application->email }}</div>

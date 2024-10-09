@@ -13,7 +13,7 @@ Je te partage les documents utiles pour préparer cette animation.
 
 Si après avoir lu les documents précédents, tu as encore des questions sur l’animation de la fresque, tu peux consulter [le centre d’aide](https://reserve-civique.crisp.help/fr/category/fresque-du-benevolat-97jq8c/). Et si après ça tu as encore des questions, n’hésite pas à m’écrire en retour de ce mail. 
 
-Tu vas devoir mettre à jour le statut des participants à la fresque. Tu peux le faire directement le jour J sur ce lien : <a href="{{ $url }}">{{ $url }}</a>
+Tu vas devoir mettre à jour le statut des participants à la fresque. Tu peux le faire directement le jour J sur [ce lien]({{ $url }}).
 
 Bonne journée, <br>
 Coralie de l’équipe de la Fresque du Bénévolat
