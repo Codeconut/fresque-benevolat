@@ -52,6 +52,14 @@ class FresquesRelationManager extends RelationManager
                     ->label('Animateurs')
                     ->circular()
                     ->stacked(),
+                Tables\Columns\TextColumn::make('is_online')
+                    ->label('En ligne ?')
+                    ->badge()
+                    ->color(fn (bool $state): string => match ($state) {
+                        false => 'gray',
+                        true => 'success',
+                    })
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'En ligne' : 'Hors ligne'),
             ])
             ->recordUrl(
                 fn (Fresque $record): string => ViewFresque::getUrl([$record->id]),

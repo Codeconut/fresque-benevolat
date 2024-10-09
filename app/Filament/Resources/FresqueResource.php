@@ -7,7 +7,6 @@ use App\Filament\Resources\FresqueResource\RelationManagers;
 use App\Models\Animator;
 use App\Models\Fresque;
 use App\Models\Place;
-use Archilex\ToggleIconColumn\Columns\ToggleIconColumn;
 use Carbon\Carbon;
 use Filament\Forms;
 use Filament\Forms\Components\Builder as FormBuilder;
@@ -167,9 +166,10 @@ class FresqueResource extends Resource
                                             ->grouped(),
                                         Forms\Components\ToggleButtons::make('is_online')
                                             ->label('En ligne')
-                                            ->default(true)
+                                            ->default(false)
                                             ->boolean()
-                                            ->grouped(),
+                                            ->grouped()
+                                            ->hidden(fn () => ! auth()->user()->hasRole('admin')),
                                         Forms\Components\ToggleButtons::make('is_registration_open')
                                             ->label('Inscriptions ouvertes')
                                             ->default(true)
@@ -215,22 +215,22 @@ class FresqueResource extends Resource
                 Tables\Columns\TextColumn::make('date')
                     ->date('d M Y')
                     ->description(fn (Fresque $fresque) => $fresque->schedules),
-                // Tables\Columns\TextColumn::make('places_left')->label('Places restantes')
-                //     ->suffix(' places ')
-                //     ->description(fn (Fresque $fresque) => 'sur '.$fresque->places.' au total'),
 
                 Tables\Columns\ViewColumn::make('applications')->label('Participations')->view('tables.columns.fresque-application-summary'),
                 Tables\Columns\ViewColumn::make('places')->label('Participants')->alignCenter()->view('tables.columns.fresque-places'),
-                // ToggleIconColumn::make('is_online')->label('En ligne')->alignCenter(),
-                // ToggleIconColumn::make('is_registration_open')->label('Inscriptions')->alignCenter(),
-                // ToggleIconColumn::make('is_private')->label('Privée')->alignCenter()
-                //     ->onIcon('heroicon-s-lock-closed')
-                //     ->offIcon('heroicon-o-lock-open'),
                 Tables\Columns\ImageColumn::make('animators.photo')
                     ->label('Animateurs')
                     ->searchable(['animators.email', 'animators.first_name', 'animators.last_name'])
                     ->circular()
                     ->stacked(),
+                Tables\Columns\TextColumn::make('is_online')
+                    ->label('En ligne ?')
+                    ->badge()
+                    ->color(fn (bool $state): string => match ($state) {
+                        false => 'gray',
+                        true => 'success',
+                    })
+                    ->formatStateUsing(fn (bool $state): string => $state ? 'En ligne' : 'Hors ligne'),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

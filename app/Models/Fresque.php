@@ -37,7 +37,7 @@ class Fresque extends Model
 
     protected $attributes = [
         'places' => 10,
-        'is_online' => true,
+        'is_online' => false,
         'is_private' => false,
         'is_registration_open' => true,
     ];

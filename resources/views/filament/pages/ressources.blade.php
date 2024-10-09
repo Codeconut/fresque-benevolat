@@ -55,7 +55,7 @@
         <div class="bg-white p-6 border rounded-xl flex justify-between items-center gap-4">
         <div>
         <div class="text-lg font-medium">Vous ne trouvez pas ce que vous cherchez ?</div>
-        <div class="text-sm text-gray-500 mt-2">Ecrivez-nous directement sur l’adresse <strong>support-fresque@jeveuxaider.beta.gouv.fr</strong></div>
+        <div class="text-sm text-gray-500 mt-2">Ecrivez-nous directement sur l’adresse <strong>supportfresque@jeveuxaider.beta.gouv.fr</strong></div>
         </div>
         
     </div>
