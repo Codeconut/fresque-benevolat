@@ -6,6 +6,7 @@ use App\Actions\CreateFresqueApplication;
 use App\Jobs\TriggerBrevoAction;
 use App\Models\Fresque;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -41,7 +42,11 @@ class FresqueController extends Controller
         $fresque->load(['animators', 'place']);
 
         if (! $fresque->is_online) {
-            abort(401);
+            if (! Auth::check()) {
+                abort(401);
+            } elseif (! Auth::user()->hasRole('admin')) {
+                abort(401);
+            }
         }
 
         return Inertia::render('Fresques/Show', [
