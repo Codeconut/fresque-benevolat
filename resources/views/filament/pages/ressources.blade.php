@@ -17,7 +17,7 @@
     ],
     [
         'title' => 'Le kit de communication',
-        'url' => 'https://jeveuxaider.notion.site/Checklist-Mat-riel-98c46805a3674a82865c7c4b476795f7',
+        'url' => 'https://jeveuxaider.notion.site/Kit-de-com-animateurs-8ea1c7ec07f64088b5b1905e552a4281?pvs=4',
     ],
     [
         'title' => 'FAQ',
