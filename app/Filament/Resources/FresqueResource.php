@@ -188,7 +188,7 @@ class FresqueResource extends Resource
                                             ->imageResizeMode('cover')
                                             ->imageEditorViewportWidth('744')
                                             ->imageEditorViewportHeight('430'),
-                                    ]),
+                                    ])->hidden(fn () => ! auth()->user()->hasRole('admin')),
                             ])->columnSpan(1),
                     ])->columns(3),
             ]);
