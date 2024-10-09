@@ -40,6 +40,10 @@ class FresqueController extends Controller
     {
         $fresque->load(['animators', 'place']);
 
+        if (! $fresque->is_online) {
+            abort(401);
+        }
+
         return Inertia::render('Fresques/Show', [
             'fresque' => $fresque,
             'fresquesAlentours' => Fresque::with(['place'])
@@ -72,7 +76,7 @@ class FresqueController extends Controller
 
         $application = $createFresqueApplication->apply($inputs);
 
-        $application->notify(new \App\Notifications\FresqueApplicationCreated());
+        $application->notify(new \App\Notifications\FresqueApplicationCreated);
 
         TriggerBrevoAction::dispatch('createOrUpdateContact', [
             'email' => $request->input('email'),
