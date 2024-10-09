@@ -87,7 +87,7 @@ class FresqueResource extends Resource
                                             ->label('Animateurs')
                                             ->multiple()
                                             ->searchable(['first_name', 'last_name', 'zip', 'city', 'email'])
-                                            ->default(fn () => [auth()->user()->animator?->id])
+                                            ->default(fn () => auth()->user()->animator ? [auth()->user()->animator?->id] : null)
                                             ->relationship('animators', 'email')
                                             ->getOptionLabelFromRecordUsing(fn (Animator $animator) => "{$animator->full_name}"),
 
