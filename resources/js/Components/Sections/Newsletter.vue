@@ -39,7 +39,7 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <div class="bg-[#F3EDE5] py-8 lg:py-12">
+  <div class="relative z-10 py-8 lg:py-12">
     <div class="container">
       <div
         class="grid grid-cols-1 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-[#E1CAB0]"

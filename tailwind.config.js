@@ -41,7 +41,7 @@ export default {
             DEFAULT: '#99B3F9',
           },
           beige: {
-            DEFAULT: '#f9f6f2',
+            DEFAULT: '#FBF6ED',
             hover: '#eadecd',
             active: '#e1ceb1',
           },

@@ -26,17 +26,29 @@ const props = defineProps({
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-2.svg`"
         alt=""
       />
-      <PassezActionAvecFresquesBenevolat class="relative z-10" />
-      <PresentationFresqueQuestions class="relative z-10" />
+      <div class="relative noise bg-dsfr-beige">
+        <PassezActionAvecFresquesBenevolat class="relative z-10" />
+      </div>
+      <div class="relative noise bg-[#FDE2B5]">
+        <PresentationFresqueQuestions class="relative z-10" />
+      </div>
     </div>
 
-    <SwiperProchainesFresques :fresques="fresques?.data" />
+    <div class="relative noise bg-dsfr-beige">
+      <SwiperProchainesFresques :fresques="fresques?.data" />
+    </div>
 
-    <Testimonials />
-    <Chiffres />
-    <DevenezAnimateur />
+    <div class="relative noise bg-dsfr-beige">
+      <Testimonials class="relative z-10" />
+    </div>
+    <div class="relative noise bg-[#9EF9BE]">
+      <Chiffres class="relative z-10" />
+    </div>
+    <div class="relative noise bg-dsfr-beige">
+      <DevenezAnimateur class="relative z-10" />
+    </div>
 
-    <div class="relative">
+    <div class="relative noise bg-dsfr-beige">
       <img
         class="absolute top-[530px] left-0"
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-7.svg`"
@@ -47,6 +59,8 @@ const props = defineProps({
         <ProfessionnelsAideOrganiserFresque class="relative z-10" />
       </div>
     </div>
-    <JVAPretAPasserAction />
+    <div class="relative noise bg-[#F5F5FE]">
+      <JVAPretAPasserAction />
+    </div>
   </AppLayout>
 </template>

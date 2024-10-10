@@ -26,7 +26,7 @@ const fetchGlobalKpis = () => {
   <div class="pb-10 lg:py-20">
     <div class="lg:container">
       <div class="overflow-hidden">
-        <div class="bg-[#77EDA5] text-[#164018] chiffres-clip-path">
+        <div class="text-[#164018]">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 px-8 py-12 lg:p-24">
             <div class="flex flex-col text-center items-center gap-4 lg:gap-8">
               <div>

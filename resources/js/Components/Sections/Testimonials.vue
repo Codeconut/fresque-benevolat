@@ -48,7 +48,7 @@ const onSwiper = (swiperInstance) => {
         Ils ont participé et ont adoré
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="px-4 lg:px-0 lg:pt-8">
+        <div class="px-4 lg:px-0">
           <div
             class="bg-white flex flex-col justify-between gap-8 border p-8 pb-0 lg:p-16 relative h-full"
           >
@@ -104,7 +104,7 @@ const onSwiper = (swiperInstance) => {
         </div>
 
         <div class="overflow-hidden">
-          <div class="bg-dsfr-lavande p-8 testimonials-clip-path">
+          <div class="bg-dsfr-lavande p-8">
             <div class="pt-8">
               <div class="flex flex-col lg:flex-row">
                 <img

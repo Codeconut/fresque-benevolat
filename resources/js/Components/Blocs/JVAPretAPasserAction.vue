@@ -11,7 +11,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
         <!-- <div
           class="overflow-hidden w-0 h-0 border-t-[15px] border-t-transparent border-l-[1000px] border-l-dsfr-blue border-b-[0px] border-b-transparent"
         ></div> -->
-        <div class="bg-dsfr-blue jva-blue-clip-path text-white">
+        <div class="bg-dsfr-blue text-white">
           <div class="max-w-[780px] mx-auto">
             <div class="px-10 pt-12 pb-16 relative">
               <h3 class="text-3xl mb-8 font-bold">Déjà prêt à passer <br />à l’action ?</h3>

@@ -21,7 +21,7 @@ const Pane = defineComponent(
         onClick={handleClick}
         class={[
           'group p-8 lg:hover:scale-105 transition-transform duration-300 ease-in-out',
-          isSelected.value ? 'bg-white' : 'bg-[#FDE2B5] cursor-pointer',
+          isSelected.value ? 'bg-white' : 'bg-white bg-opacity-50 cursor-pointer',
         ]}
       >
         <div class="flex lg:flex-row lg:justify-between lg:items-center lg:gap-16">
@@ -50,7 +50,7 @@ const Pane = defineComponent(
     />
     <div class="lg:container relative z-10">
       <div class="overflow-hidden">
-        <div class="p-8 lg:p-16 bg-dsfr-yellow-active fresques-clip-path">
+        <div class="p-8 lg:p-16">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pt-12 lg:pb-6">
             <div class="">
               <div class="mb-4 text-[#3A3A3A]">

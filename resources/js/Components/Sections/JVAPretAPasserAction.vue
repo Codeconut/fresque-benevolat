@@ -7,7 +7,7 @@ import Button from '@/Components/Dsfr/Button.vue'
   <div class="pt-10 lg:py-20">
     <div class="lg:container">
       <div class="relative">
-        <div class="bg-dsfr-blue text-white jva-clip-path">
+        <div class="">
           <div class="max-w-[780px] mx-auto">
             <div class="py-10 lg:py-20 px-8 text-center">
               <img

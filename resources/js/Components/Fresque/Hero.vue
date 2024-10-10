@@ -13,7 +13,7 @@ defineProps({
 
 <template>
   <div class="overflow-hidden">
-    <div class="p-8 lg:p-12 lg:pt-24 bg-dsfr-yellow-active fresque-show-clip-path">
+    <div class="p-8 lg:p-12 lg:pt-24 bg-dsfr-yellow-active">
       <div class="">
         <Link
           :href="route('fresques.index')"
