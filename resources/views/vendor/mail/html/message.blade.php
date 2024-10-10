@@ -1,7 +1,7 @@
 <x-mail::layout>
 <x-slot:header>
 <x-mail::header :url="config('app.url')">
-<img src="{{ asset('images/logos/fresque-benevolat-logo.svg') }}" alt="Logo de la fresque du bénévolat"
+<img src="{{ asset('images/logos/fresque-benevolat-logo.png') }}" alt="Logo de la fresque du bénévolat"
 width="200">
 </x-mail::header>
 </x-slot:header>
@@ -25,10 +25,10 @@ width="200">
 
 <div class="footer-socials">
 
-[![Instagram]({{ asset('images/mail/instagram.svg') }})](https://www.instagram.com/jeveuxaider_gouv/?hl=fr)
-[![Facebook]({{ asset('images/mail/facebook.svg') }})](https://www.facebook.com/jeveuxaider.gouv.fr/)
-[![Twitter]({{ asset('images/mail/twitter.svg') }})](https://twitter.com/ReserveCivique)
-[![Linkedin]({{ asset('images/mail/linkedin.svg') }})](https://www.linkedin.com/company/jeveuxaider-gouv-fr?originalSubdomain=fr)
+[![Instagram]({{ asset('images/mail/instagram.png') }})](https://www.instagram.com/jeveuxaider_gouv/?hl=fr)
+[![Facebook]({{ asset('images/mail/facebook.png') }})](https://www.facebook.com/jeveuxaider.gouv.fr/)
+[![Twitter]({{ asset('images/mail/twitter.png') }})](https://twitter.com/ReserveCivique)
+[![Linkedin]({{ asset('images/mail/linkedin.png') }})](https://www.linkedin.com/company/jeveuxaider-gouv-fr?originalSubdomain=fr)
 
 </div>
 

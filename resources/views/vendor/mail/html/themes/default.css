@@ -197,6 +197,11 @@ img {
   margin: 20px 0;
 }
 
+.footer .footer-socials img {
+  width: 30px;
+  height: auto;
+}
+
 .footer .footer-socials a {
   padding: 10px;
 }
