@@ -14,8 +14,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="block lg:hidden relative z-10">
-    <div class="p-4 bg-white fixed bottom-0 left-0 right-0 border-t">
+  <div class="block lg:hidden relative z-20">
+    <div class="p-4 bg-white fixed bottom-0 left-0 right-0 border-t w-full">
       <Link v-if="fresque.can_candidate" :href="route('fresques.candidate', { fresque })">
         <Button full size="lg"> Je m'inscris</Button>
       </Link>

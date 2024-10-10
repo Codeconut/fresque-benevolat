@@ -47,7 +47,7 @@ defineProps({
 
     <Header />
 
-    <div class="">
+    <div class="noise bg-dsfr-beige">
       <main>
         <slot />
       </main>

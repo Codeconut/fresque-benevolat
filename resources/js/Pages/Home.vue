@@ -26,19 +26,18 @@ const props = defineProps({
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-2.svg`"
         alt=""
       />
-      <PassezActionAvecFresquesBenevolat class="relative noise bg-dsfr-beige" />
-
-      <PresentationFresqueQuestions class="relative noise bg-[#FDE2B5]" />
+      <PassezActionAvecFresquesBenevolat class="" />
+      <PresentationFresqueQuestions class="noise bg-[#FDE2B5]" />
     </div>
 
-    <SwiperProchainesFresques :fresques="fresques?.data" class="noise bg-dsfr-beige" />
+    <SwiperProchainesFresques :fresques="fresques?.data" class="" />
 
-    <Testimonials class="noise bg-dsfr-beige" />
+    <Testimonials class="" />
     <Chiffres class="noise bg-[#C3FAD5]" />
 
-    <DevenezAnimateur class="noise bg-dsfr-beige" />
+    <DevenezAnimateur class="" />
 
-    <div class="relative noise bg-dsfr-beige">
+    <div class="relative">
       <img
         class="absolute top-[490px] left-0"
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-7.svg`"

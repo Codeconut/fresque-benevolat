@@ -23,7 +23,7 @@ const props = defineProps({
     </div>
 
     <div class="overflow-x-hidden">
-      <div class="container">
+      <div class="">
         <div class="flex flex-wrap gap-6 justify-center pb-8">
           <Link
             :href="route('fresques.show', { fresque: fresque.slug })"

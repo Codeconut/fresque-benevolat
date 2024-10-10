@@ -113,7 +113,7 @@ import { Link, router } from '@inertiajs/vue3'
         <inline-svg
           :src="`${$page.props.assetUrl}/images/icons/arbre.svg`"
           alt=""
-          class="absolute right-[300px] bottom-[-40px] text-white focus:outline-none"
+          class="hidden lg:inline lg:absolute right-[300px] bottom-[-40px] text-white focus:outline-none"
         />
       </div>
     </div>

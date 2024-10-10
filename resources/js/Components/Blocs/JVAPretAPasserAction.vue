@@ -5,37 +5,33 @@ import { RiArrowRightLine } from '@remixicon/vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://jeveuxaider.gouv.fr/missions-benevolat" target="_blank" class="group">
-      <div class="overflow-hidden">
-        <!-- <div
-          class="overflow-hidden w-0 h-0 border-t-[15px] border-t-transparent border-l-[1000px] border-l-dsfr-blue border-b-[0px] border-b-transparent"
-        ></div> -->
-        <div class="bg-dsfr-blue text-white">
-          <div class="max-w-[780px] mx-auto">
-            <div class="px-10 pt-12 pb-16 relative">
-              <h3 class="text-3xl mb-8 font-bold">Déjà prêt à passer <br />à l’action ?</h3>
-              <p class="text-xl mb-8">
-                Plus de 18 000 missions de bénévolat n’attendent que toi sur JeVeuxAider.gouv.fr
-              </p>
-              <img
-                :src="`${$page.props.assetUrl}/images/logos/jeveuxaider-logo-white.png`"
-                alt=""
-                width="222"
-                height="36"
-                class=""
-              />
-              <RiArrowRightLine
-                size="32"
-                class="absolute bottom-6 right-6 group-hover:right-7 transition-all"
-              />
+  <div class="border rounded-3xl bg-[#F5F5FE]">
+    <div class="border-8 border-white rounded-3xl">
+      <a href="https://jeveuxaider.gouv.fr/missions-benevolat" target="_blank" class="group">
+        <div class="overflow-hidden">
+          <div class="">
+            <div class="max-w-[780px] mx-auto">
+              <div class="px-10 pt-12 pb-16 relative">
+                <h3 class="text-[28px] mb-8 font-bold">Déjà prêt à passer <br />à l’action ?</h3>
+                <p class="text-lg mb-8">
+                  Plus de 18 000 missions de bénévolat n’attendent que toi sur JeVeuxAider.gouv.fr
+                </p>
+                <img
+                  :src="`${$page.props.assetUrl}/images/logos/jeveuxaider-logo.svg`"
+                  alt=""
+                  width="222"
+                  height="36"
+                  class=""
+                />
+                <RiArrowRightLine
+                  size="32"
+                  class="absolute bottom-6 right-6 group-hover:right-7 transition-all"
+                />
+              </div>
             </div>
           </div>
         </div>
-        <!-- <div
-          class="overflow-hidden w-0 h-0 border-b-[10px] border-b-transparent border-r-[1000px] border-r-dsfr-blue border-t-[0px] border-t-transparent"
-        ></div> -->
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </template>

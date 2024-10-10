@@ -26,7 +26,7 @@ const handleClose = () => {
       <div class="relative overflow-hidden">
         <div
           :class="[
-            'top-0 left-0 py-6 lg:py-24 bg-dsfr-beige z-[100] min-h-screen',
+            'top-0 left-0 py-6 lg:py-24 bg-dsfr-beige noise z-[100] min-h-screen',
             {
               'fixed inset-0': fixed,
               'relative  ': !fixed,
