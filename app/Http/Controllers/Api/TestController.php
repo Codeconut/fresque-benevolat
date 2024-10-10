@@ -29,4 +29,11 @@ class TestController extends Controller
             'message' => 'Email sent',
         ]);
     }
+
+    public function renderMail()
+    {
+        $mail = new TestMail;
+
+        return $mail->render();
+    }
 }
