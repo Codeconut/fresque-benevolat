@@ -9,6 +9,7 @@ import DevenezAnimateur from '@/Components/Sections/DevenezAnimateur.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import Testimonials from '@/Components/Sections/Testimonials.vue'
 import SwiperProchainesFresques from '@/Components/Sections/SwiperProchainesFresques.vue'
+import Partenaires from '@/Components/Sections/Partenaires.vue'
 
 const props = defineProps({
   fresques: {
@@ -46,6 +47,7 @@ const props = defineProps({
       <div class="container relative z-10">
         <Faq />
         <ProfessionnelsAideOrganiserFresque />
+        <Partenaires />
       </div>
     </div>
     <JVAPretAPasserAction class="noise bg-[#F2F2FD]" />
