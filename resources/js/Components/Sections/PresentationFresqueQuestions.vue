@@ -48,7 +48,7 @@ const Pane = defineComponent(
       :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-3.svg`"
       alt=""
     />
-    <div class="lg:container relative z-10">
+    <div class="container relative z-10">
       <div class="overflow-hidden">
         <div class="py-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pb-6">

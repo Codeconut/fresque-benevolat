@@ -38,21 +38,4 @@ const props = defineProps({
   </div>
 </template>
 
-<style lang="postcss" scoped>
-.swiper {
-  @apply overflow-visible;
-  :deep(.swiper-slide) {
-    @apply max-w-[384px] w-full;
-  }
-  :deep(.swiper-pagination) {
-    @apply text-left relative mt-8;
-    .swiper-pagination-bullet {
-      @apply w-[10px] h-[10px] opacity-100;
-      background-color: #e1cab0;
-      &-active {
-        background-color: #a38f78;
-      }
-    }
-  }
-}
-</style>
+<style lang="postcss" scoped></style>
