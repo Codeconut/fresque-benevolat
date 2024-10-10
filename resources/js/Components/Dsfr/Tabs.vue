@@ -166,11 +166,11 @@ button {
 
 /* @todo: props pour gérer la couleur */
 .shadow-left::before {
-  background: linear-gradient(to right, #f9f6f2, transparent);
+  background: linear-gradient(to right, #fbf6ed, transparent);
   @apply left-0;
 }
 .shadow-right::after {
-  background: linear-gradient(to right, transparent, #f9f6f2);
+  background: linear-gradient(to right, transparent, #fbf6ed);
   @apply right-0;
 }
 </style>

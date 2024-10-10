@@ -32,9 +32,9 @@ const onSwiper = (swiperInstance) => {
       <div class="flex justify-between items-center mb-16">
         <div class="flex space-x-3">
           <img
-            :src="`${$page.props.assetUrl}/images/icons/lunette.svg`"
+            :src="`${$page.props.assetUrl}/images/icons/icon-lunette.svg`"
             alt="megaphone"
-            class="hidden lg:block"
+            class="hidden lg:block lg:-ml-12"
           />
           <div>
             <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-4">
@@ -72,7 +72,7 @@ const onSwiper = (swiperInstance) => {
       </div>
     </div>
 
-    <div class="">
+    <div class="relative">
       <div class="container">
         <Swiper
           @swiper="onSwiper"
@@ -100,6 +100,11 @@ const onSwiper = (swiperInstance) => {
           </SwiperSlide>
         </Swiper>
       </div>
+      <img
+        class="hidden lg:inline lg:absolute lg:bottom-[-64px] m-auto left-0 right-0 lg:z-10"
+        :src="`${$page.props.assetUrl}/images/icons/icon-boussole.svg`"
+        alt=""
+      />
     </div>
   </div>
 </template>

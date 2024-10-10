@@ -20,8 +20,8 @@ const Pane = defineComponent(
       <div
         onClick={handleClick}
         class={[
-          'group p-8 lg:hover:scale-105 transition-transform duration-300 ease-in-out',
-          isSelected.value ? 'bg-white' : 'bg-white bg-opacity-50 cursor-pointer',
+          'group p-8 transition-transform duration-300 ease-in-out',
+          isSelected.value ? 'bg-white' : 'bg-[#FEF1DA] hover:bg-[#FEEED2] cursor-pointer',
         ]}
       >
         <div class="flex lg:flex-row lg:justify-between lg:items-center lg:gap-16">
@@ -42,16 +42,16 @@ const Pane = defineComponent(
 </script>
 
 <template>
-  <div class="relative py-10 lg:py-20">
+  <div class="relative py-10">
     <img
-      class="absolute z-0 top-[200px] right-0"
+      class="absolute z-0 top-[50px] right-0"
       :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-3.svg`"
       alt=""
     />
     <div class="lg:container relative z-10">
       <div class="overflow-hidden">
-        <div class="p-8 lg:p-16">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pt-12 lg:pb-6">
+        <div class="py-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 lg:pb-6">
             <div class="">
               <div class="mb-4 text-[#3A3A3A]">
                 Créée et animée avec le ❤️ par

@@ -22,45 +22,33 @@ const props = defineProps({
   <AppLayout>
     <div class="relative">
       <img
-        class="absolute top-[530px] left-0"
+        class="hidden lg:inline lg:absolute lg:top-[530px] lg:left-0 z-10"
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-2.svg`"
         alt=""
       />
-      <div class="relative noise bg-dsfr-beige">
-        <PassezActionAvecFresquesBenevolat class="relative z-10" />
-      </div>
-      <div class="relative noise bg-[#FDE2B5]">
-        <PresentationFresqueQuestions class="relative z-10" />
-      </div>
+      <PassezActionAvecFresquesBenevolat class="relative noise bg-dsfr-beige" />
+
+      <PresentationFresqueQuestions class="relative noise bg-[#FDE2B5]" />
     </div>
 
-    <div class="relative noise bg-dsfr-beige">
-      <SwiperProchainesFresques :fresques="fresques?.data" />
-    </div>
+    <SwiperProchainesFresques :fresques="fresques?.data" class="noise bg-dsfr-beige" />
 
-    <div class="relative noise bg-dsfr-beige">
-      <Testimonials class="relative z-10" />
-    </div>
-    <div class="relative noise bg-[#9EF9BE]">
-      <Chiffres class="relative z-10" />
-    </div>
-    <div class="relative noise bg-dsfr-beige">
-      <DevenezAnimateur class="relative z-10" />
-    </div>
+    <Testimonials class="noise bg-dsfr-beige" />
+    <Chiffres class="noise bg-[#C3FAD5]" />
+
+    <DevenezAnimateur class="noise bg-dsfr-beige" />
 
     <div class="relative noise bg-dsfr-beige">
       <img
-        class="absolute top-[530px] left-0"
+        class="absolute top-[490px] left-0"
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-7.svg`"
         alt=""
       />
-      <div class="container">
-        <Faq class="relative z-10" />
-        <ProfessionnelsAideOrganiserFresque class="relative z-10" />
+      <div class="container relative z-10">
+        <Faq />
+        <ProfessionnelsAideOrganiserFresque />
       </div>
     </div>
-    <div class="relative noise bg-[#F5F5FE]">
-      <JVAPretAPasserAction />
-    </div>
+    <JVAPretAPasserAction class="noise bg-[#F2F2FD]" />
   </AppLayout>
 </template>

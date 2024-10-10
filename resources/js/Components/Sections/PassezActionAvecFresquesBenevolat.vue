@@ -15,7 +15,7 @@ import Button from '@/Components/Dsfr/Button.vue'
       :src="`${$page.props.assetUrl}/images/icons/heart.svg`"
       alt=""
     />
-    <div class="container relative">
+    <div class="container relative lg:pb-12">
       <div class="relative z-10 py-[48px] lg:py-[120px]">
         <div class="max-w-[685px]">
           <h1 class="font-bold text-[40px] leading-[48px] lg:text-[70px] lg:leading-[78px]">
