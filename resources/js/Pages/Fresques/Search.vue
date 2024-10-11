@@ -156,7 +156,7 @@ const changePage = (page) => {
         <Faq />
       </div>
     </div>
-
-    <JVAPretAPasserAction class="bg-[#F2F2FD] noise" />
+    <div class="section-divider-beige-bleu"></div>
+    <JVAPretAPasserAction class="bg-[#F5F5FE] noise" />
   </AppLayout>
 </template>

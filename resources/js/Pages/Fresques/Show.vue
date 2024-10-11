@@ -59,17 +59,19 @@ const markdown = new MarkdownIt()
                 <FresqueFooterInscription :fresque="fresque" />
               </div>
             </div>
-            <div class="hidden lg:block col-span-1 order-1 lg:order-2 mb-12 lg:mb-0">
+            <div class="hidden lg:block col-span-1 order-1 lg:order-2 mb-12 lg:mb-0 lg:pt-[77px]">
               <FresqueInscription :fresque="fresque" sticky />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="section-divider-jaune-beige"></div>
     <div class="container">
       <ProchainesFresquesAlentours :fresques="fresquesAlentours" />
       <Faq />
     </div>
-    <JVAPretAPasserAction class="bg-[#F2F2FD] noise" />
+    <div class="section-divider-beige-bleu"></div>
+    <JVAPretAPasserAction class="bg-[#F5F5FE] noise" />
   </AppLayout>
 </template>

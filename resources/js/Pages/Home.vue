@@ -28,13 +28,19 @@ const props = defineProps({
         alt=""
       />
       <PassezActionAvecFresquesBenevolat class="" />
+      <div class="section-divider-beige-jaune"></div>
+
       <PresentationFresqueQuestions class="noise bg-[#FDE2B5]" />
+      <div class="section-divider-jaune-beige"></div>
     </div>
 
     <SwiperProchainesFresques :fresques="fresques?.data" class="" />
 
     <Testimonials class="" />
+
+    <div class="section-divider-beige-green"></div>
     <Chiffres class="noise bg-[#C3FAD5]" />
+    <div class="section-divider-green-beige"></div>
 
     <DevenezAnimateur class="" />
 
@@ -50,6 +56,7 @@ const props = defineProps({
         <Partenaires />
       </div>
     </div>
-    <JVAPretAPasserAction class="noise bg-[#F2F2FD]" />
+    <div class="section-divider-beige-bleu"></div>
+    <JVAPretAPasserAction class="noise bg-[#F5F5FE]" />
   </AppLayout>
 </template>

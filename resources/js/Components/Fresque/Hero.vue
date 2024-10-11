@@ -17,7 +17,7 @@ defineProps({
       <div class="">
         <Link
           :href="route('fresques.index')"
-          class="uppercase text-sm font-bold flex items-center space-x-2 hover:text-[#444444]"
+          class="uppercase text-sm font-bold inline-flex items-center space-x-2 hover:text-[#444444]"
         >
           <RiArrowLeftLine size="24" class="fill-current" />
           <span>Retour aux fresques</span>
@@ -36,14 +36,22 @@ defineProps({
           />
         </div>
 
-        <img
+        <div
           v-if="fresque.default_picture"
-          :src="
-            fresque.default_picture ? fresque.default_picture : '/images/default-placeholder.png'
-          "
-          alt="fresque"
-          class="w-full h-auto lg:h-[430px] object-cover rounded-lg shadow-lg"
-        />
+          class="border rounded-xl overflow-hidden bg-white shadow-lg"
+        >
+          <div class="border-8 border-white rounded-lg overflow-hidden">
+            <img
+              :src="
+                fresque.default_picture
+                  ? fresque.default_picture
+                  : '/images/default-placeholder.png'
+              "
+              alt="fresque"
+              class="w-full h-auto lg:h-[430px] object-cover rounded-lg overflow-hidden"
+            />
+          </div>
+        </div>
 
         <div class="mt-8" v-if="fresque.animators.length">
           Animée par {{ fresque.animators.map((item) => item.public_name).join(', ') }}

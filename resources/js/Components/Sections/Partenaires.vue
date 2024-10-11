@@ -1,12 +1,11 @@
 <script setup>
 import { Button } from '@/Components/Dsfr'
 import { Link } from '@inertiajs/vue3'
-// import gimmickUrl from '@/assets/images/icons/gimmick.svg'
 </script>
 
 <template>
   <div class="relative py-10 lg:py-20">
-    <div class="relative container">
+    <div class="">
       <div class="mb-14">
         <h2 class="relative inline text-4xl lg:text-5xl lg:leading-[56px] font-bold">
           Ils sont partenaires de la Fresque
@@ -25,6 +24,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-probonolab.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-probonolab@2x.png 2x
                   `"
+              alt="ProbonoLab"
             />
           </div>
         </div>
@@ -36,6 +36,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-aix.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-aix@2x.png 2x
                   `"
+              alt="Aix en Provence - Ville Capitale"
             />
           </div>
         </div>
@@ -47,6 +48,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-cite-fertile.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-cite-fertile@2x.png 2x
                   `"
+              alt="Cité Fertile"
             />
           </div>
         </div>
@@ -58,6 +60,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-adopte-une-asso.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-adopte-une-asso@2x.png 2x
                   `"
+              alt="Adopte une asso"
             />
           </div>
         </div>
@@ -69,6 +72,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-tous-unis-tous-solidaires.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-tous-unis-tous-solidaires@2x.png 2x
                   `"
+              alt="Tous unis tous solidaires"
             />
           </div>
         </div>
@@ -80,6 +84,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-marseille.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-marseille@2x.png 2x
                   `"
+              alt="Ville de Marseille"
             />
           </div>
         </div>
@@ -91,6 +96,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-competences-developpements.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-competences-developpements@2x.png 2x
                   `"
+              alt="Compétences & Développements"
             />
           </div>
         </div>
@@ -102,6 +108,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-info-jeune.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-info-jeune@2x.png 2x
                   `"
+              alt="Info Jeunes"
             />
           </div>
         </div>
@@ -113,6 +120,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-benenova.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-benenova@2x.png 2x
                   `"
+              alt="Benenova"
             />
           </div>
         </div>
@@ -124,6 +132,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-article-1.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-article-1@2x.png 2x
                   `"
+              alt="Article 1"
             />
           </div>
         </div>
@@ -135,6 +144,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-mouvement-associatif.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-mouvement-associatif@2x.png 2x
                   `"
+              alt="Le Mouvement Associatif"
             />
           </div>
         </div>
@@ -146,6 +156,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-la-ligue-contre-le-cancer.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-la-ligue-contre-le-cancer@2x.png 2x
                   `"
+              alt="La Ligue contre le cancer"
             />
           </div>
         </div>
@@ -157,6 +168,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-emmaus-connect.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-emmaus-connect@2x.png 2x
                   `"
+              alt="Emmaüs Connect"
             />
           </div>
         </div>
@@ -168,6 +180,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-animafac.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-animafac@2x.png 2x
                   `"
+              alt="Animafac"
             />
           </div>
         </div>
@@ -179,6 +192,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-helloasso.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-helloasso@2x.png 2x
                   `"
+              alt="HelloAsso"
             />
           </div>
         </div>
@@ -190,6 +204,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-fabrique-solidarite.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-fabrique-solidarite@2x.png 2x
                   `"
+              alt="La Fabrique de la Solidarité"
             />
           </div>
         </div>
@@ -201,6 +216,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-canaux.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-canaux@2x.png 2x
                   `"
+              alt="Les Canaux"
             />
           </div>
         </div>
@@ -212,6 +228,7 @@ import { Link } from '@inertiajs/vue3'
                     ${$page.props.assetUrl}/images/partenaires/logo-maison-solidarites.png 1x,
                     ${$page.props.assetUrl}/images/partenaires/logo-maison-solidarites@2x.png 2x
                   `"
+              alt="La Maison des Solidarités"
             />
           </div>
         </div>
@@ -230,7 +247,7 @@ import { Link } from '@inertiajs/vue3'
     width: 180px;
     height: 180px;
   }
-  @apply border rounded-3xl bg-[#F5F5FE];
+  @apply border rounded-3xl bg-[#F5F5FE] shadow-lg;
   > div {
     @apply border-8 border-white rounded-3xl  flex items-center justify-center h-full w-full;
   }

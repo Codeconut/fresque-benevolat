@@ -387,3 +387,53 @@ body {
 .noise {
   background-image: url('/images/grain.svg');
 }
+
+.section-divider-beige-jaune {
+  background-image: url('/images/grain.svg'), url('/images/dividers/divider-beige-jaune.png');
+  background-position: 0 0, 50% 0;
+  background-repeat: repeat, repeat-x;
+  background-size: auto, auto 52px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.section-divider-jaune-beige {
+  background-image: url('/images/grain.svg'), url('/images/dividers/divider-jaune-beige.png');
+  background-position: 0 0, 50% 0;
+  background-repeat: repeat, repeat-x;
+  background-size: auto, auto 52px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.section-divider-beige-green {
+  background-image: url('/images/grain.svg'), url('/images/dividers/divider-beige-green.png');
+  background-position: 0 0, 50% 0;
+  background-repeat: repeat, repeat-x;
+  background-size: auto, auto 52px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.section-divider-green-beige {
+  background-image: url('/images/grain.svg'), url('/images/dividers/divider-green-beige.png');
+  background-position: 0 0, 50% 0;
+  background-repeat: repeat, repeat-x;
+  background-size: auto, auto 52px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.section-divider-beige-bleu {
+  background-image: url('/images/grain.svg'), url('/images/dividers/divider-beige-bleu.png');
+  background-position: 0 0, 50% 0;
+  background-repeat: repeat, repeat-x;
+  background-size: auto, auto 52px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  position: relative;
+}
