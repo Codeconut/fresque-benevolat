@@ -385,11 +385,12 @@ body {
 } */
 
 .noise {
-  background-image: url('/images/grain.svg');
+  background-image: url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/grain.svg');
 }
 
 .section-divider-beige-jaune {
-  background-image: url('/images/grain.svg'), url('/images/dividers/divider-beige-jaune.png');
+  background-image: url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/grain.svg'),
+    url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/dividers/divider-beige-jaune.png');
   background-position: 0 0, 50% 0;
   background-repeat: repeat, repeat-x;
   background-size: auto, auto 52px;
@@ -399,7 +400,8 @@ body {
 }
 
 .section-divider-jaune-beige {
-  background-image: url('/images/grain.svg'), url('/images/dividers/divider-jaune-beige.png');
+  background-image: url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/grain.svg'),
+    url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/dividers/divider-jaune-beige.png');
   background-position: 0 0, 50% 0;
   background-repeat: repeat, repeat-x;
   background-size: auto, auto 52px;
@@ -409,7 +411,8 @@ body {
 }
 
 .section-divider-beige-green {
-  background-image: url('/images/grain.svg'), url('/images/dividers/divider-beige-green.png');
+  background-image: url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/grain.svg'),
+    url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/dividers/divider-beige-green.png');
   background-position: 0 0, 50% 0;
   background-repeat: repeat, repeat-x;
   background-size: auto, auto 52px;
@@ -419,7 +422,8 @@ body {
 }
 
 .section-divider-green-beige {
-  background-image: url('/images/grain.svg'), url('/images/dividers/divider-green-beige.png');
+  background-image: url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/grain.svg'),
+    url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/dividers/divider-green-beige.png');
   background-position: 0 0, 50% 0;
   background-repeat: repeat, repeat-x;
   background-size: auto, auto 52px;
@@ -429,7 +433,8 @@ body {
 }
 
 .section-divider-beige-bleu {
-  background-image: url('/images/grain.svg'), url('/images/dividers/divider-beige-bleu.png');
+  background-image: url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/grain.svg'),
+    url('https://www.jeveuxaider.gouv.fr/fresque-benevolat/images/dividers/divider-beige-bleu.png');
   background-position: 0 0, 50% 0;
   background-repeat: repeat, repeat-x;
   background-size: auto, auto 52px;
