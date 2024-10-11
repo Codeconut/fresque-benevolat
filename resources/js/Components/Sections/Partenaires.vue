@@ -15,7 +15,7 @@ import { Link } from '@inertiajs/vue3'
           <a class="text-dsfr-blue underline" href="mailto:fresque@dsfds.com">Écrivez-nous</a>
         </div>
       </div>
-      <div id="partenaires-logos" class="flex flex-wrap gap-4">
+      <div id="partenaires-logos" class="flex flex-wrap gap-8">
         <div class="badge">
           <div>
             <img
@@ -239,17 +239,9 @@ import { Link } from '@inertiajs/vue3'
 
 <style lang="postcss" scoped>
 .badge {
-  @screen xs {
-    width: 120px;
-    height: 120px;
-  }
-  @screen lg {
-    width: 180px;
-    height: 180px;
-  }
-  @apply border rounded-3xl bg-[#F5F5FE] shadow-lg;
+  @apply border rounded-3xl bg-[#F5F5FE] shadow-lg h-[120px] w-[120px] lg:w-[180px] lg:h-[180px];
   > div {
-    @apply border-8 border-white rounded-3xl  flex items-center justify-center h-full w-full;
+    @apply border-8 border-white rounded-3xl flex items-center justify-center h-[120px] w-[120px] lg:w-[180px] lg:h-[180px] p-4;
   }
 }
 

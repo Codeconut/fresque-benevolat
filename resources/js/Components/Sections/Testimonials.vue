@@ -43,12 +43,12 @@ const onSwiper = (swiperInstance) => {
       :src="`${$page.props.assetUrl}/images/icons/mountains.svg`"
       alt=""
     />
-    <div class="relative lg:container">
-      <h2 class="px-4 lg:px-0 relative text-3xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
+    <div class="relative container">
+      <h2 class="relative text-3xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
         Ils ont participé et ont adoré
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="px-4 lg:px-0">
+        <div class="">
           <div
             class="bg-white flex flex-col justify-between gap-8 border p-8 pb-0 lg:p-16 relative h-full"
           >
