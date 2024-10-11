@@ -9,6 +9,7 @@ import DevenezAnimateur from '@/Components/Sections/DevenezAnimateur.vue'
 import JVAPretAPasserAction from '@/Components/Sections/JVAPretAPasserAction.vue'
 import Testimonials from '@/Components/Sections/Testimonials.vue'
 import SwiperProchainesFresques from '@/Components/Sections/SwiperProchainesFresques.vue'
+import Partenaires from '@/Components/Sections/Partenaires.vue'
 
 const props = defineProps({
   fresques: {
@@ -22,31 +23,40 @@ const props = defineProps({
   <AppLayout>
     <div class="relative">
       <img
-        class="absolute top-[530px] left-0"
+        class="hidden lg:inline lg:absolute lg:top-[530px] lg:left-0 z-10"
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-2.svg`"
         alt=""
       />
-      <PassezActionAvecFresquesBenevolat class="relative z-10" />
-      <PresentationFresqueQuestions class="relative z-10" />
+      <PassezActionAvecFresquesBenevolat class="" />
+      <div class="section-divider-beige-jaune"></div>
+
+      <PresentationFresqueQuestions class="noise bg-[#FDE2B5]" />
+      <div class="section-divider-jaune-beige"></div>
     </div>
 
-    <SwiperProchainesFresques :fresques="fresques?.data" />
+    <SwiperProchainesFresques :fresques="fresques?.data" class="" />
 
-    <Testimonials />
-    <Chiffres />
-    <DevenezAnimateur />
+    <Testimonials class="" />
+
+    <div class="section-divider-beige-green"></div>
+    <Chiffres class="noise bg-[#C3FAD5]" />
+    <div class="section-divider-green-beige"></div>
+
+    <DevenezAnimateur class="" />
 
     <div class="relative">
       <img
-        class="absolute top-[530px] left-0"
+        class="absolute top-[490px] left-0"
         :src="`${$page.props.assetUrl}/images/illustrations/dashed-line-7.svg`"
         alt=""
       />
-      <div class="container">
-        <Faq class="relative z-10" />
-        <ProfessionnelsAideOrganiserFresque class="relative z-10" />
+      <div class="container relative z-10">
+        <Faq />
+        <ProfessionnelsAideOrganiserFresque />
+        <Partenaires />
       </div>
     </div>
-    <JVAPretAPasserAction />
+    <div class="section-divider-beige-bleu"></div>
+    <JVAPretAPasserAction class="noise bg-[#F5F5FE]" />
   </AppLayout>
 </template>

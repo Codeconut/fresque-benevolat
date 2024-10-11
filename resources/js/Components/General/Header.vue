@@ -10,7 +10,7 @@ const logout = () => {
 </script>
 
 <template>
-  <div class="relative bg-white shadow-md z-50">
+  <div class="relative bg-white shadow-md z-50 overflow-hidden">
     <div class="relative z-20 container">
       <div class="flex justify-between items-center h-[122px]">
         <div class="shrink-0 flex items-center">

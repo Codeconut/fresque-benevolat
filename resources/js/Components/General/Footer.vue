@@ -26,7 +26,9 @@ const gouvLinks = [
 
 <template>
   <div class="">
-    <Newsletter />
+    <div class="relative noise bg-[#E6EBFE]">
+      <Newsletter />
+    </div>
     <footer role="contentinfo" class="relative z-1 border-t-2 border-[#000091]">
       <div class="bg-gray-50 py-8">
         <div class="container">

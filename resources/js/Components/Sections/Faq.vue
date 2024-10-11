@@ -101,19 +101,19 @@ import { Link, router } from '@inertiajs/vue3'
           </AccordionsGroup>
         </template>
       </Tabs>
-      <div class="relative text-center mt-8">
+      <div class="relative mt-8">
         <Link :href="route('fresques.index')">
           <Button
             variant="custom"
             size="lg"
             custom-class="bg-transparent text-dsfr-blue border-dsfr-blue hover:bg-white"
-            >Trouver une fresque <span class="hidden lg:inline">à deux pas</span></Button
+            >Trouver une fresque <span class="hidden lg:inline">près de chez moi</span></Button
           >
         </Link>
         <inline-svg
           :src="`${$page.props.assetUrl}/images/icons/arbre.svg`"
           alt=""
-          class="absolute right-[300px] bottom-[-40px] text-white focus:outline-none"
+          class="hidden lg:inline lg:absolute right-[300px] bottom-[-40px] text-white focus:outline-none"
         />
       </div>
     </div>
