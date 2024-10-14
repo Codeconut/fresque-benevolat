@@ -12,7 +12,9 @@ import { Link } from '@inertiajs/vue3'
         </h2>
         <div class="text-xl lg:text-2xl text-[#666666] mt-4">
           Rejoignez-les !
-          <a class="text-dsfr-blue underline" href="mailto:fresque@dsfds.com">Écrivez-nous</a>
+          <a class="text-dsfr-blue underline" target="_blank" href="https://tally.so/r/wg5QDN"
+            >Écrivez-nous</a
+          >
         </div>
       </div>
       <div id="partenaires-logos" class="flex flex-wrap gap-8">
