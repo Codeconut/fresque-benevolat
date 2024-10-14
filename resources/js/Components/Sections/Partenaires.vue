@@ -8,7 +8,7 @@ import { Link } from '@inertiajs/vue3'
     <div class="">
       <div class="mb-14">
         <h2 class="relative inline text-4xl lg:text-5xl lg:leading-[56px] font-bold">
-          Ils sont partenaires de la Fresque
+          Ils nous soutiennent
         </h2>
         <div class="text-xl lg:text-2xl text-[#666666] mt-4">
           Rejoignez-les !
@@ -153,12 +153,12 @@ import { Link } from '@inertiajs/vue3'
         <div class="badge">
           <div>
             <img
-              :src="`${$page.props.assetUrl}/images/partenaires/logo-la-ligue-contre-le-cancer.png`"
+              :src="`${$page.props.assetUrl}/images/partenaires/logo-la-ligue-enseignement.png`"
               :srcset="`
-                    ${$page.props.assetUrl}/images/partenaires/logo-la-ligue-contre-le-cancer.png 1x,
-                    ${$page.props.assetUrl}/images/partenaires/logo-la-ligue-contre-le-cancer@2x.png 2x
+                    ${$page.props.assetUrl}/images/partenaires/logo-la-ligue-enseignement.png 1x,
+                    ${$page.props.assetUrl}/images/partenaires/logo-la-ligue-enseignement@2x.png 2x
                   `"
-              alt="La Ligue contre le cancer"
+              alt="La Ligue de l'Enseignement"
             />
           </div>
         </div>
