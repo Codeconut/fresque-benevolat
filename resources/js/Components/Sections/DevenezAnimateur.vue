@@ -24,7 +24,7 @@ import { Link } from '@inertiajs/vue3'
           On te donne tous les outils pour animer toi-même des fresques du bénévolat
         </div>
       </div>
-      <div class="flex flex-col divide-y-[#DDDDDD]">
+      <div class="flex flex-col divide-y">
         <div class="flex flex-col lg:flex-row gap-4 py-8">
           <div class="text-3xl font-bold lg:w-[376px]">Sensibilise</div>
           <div class="text-xl flex-1">
