@@ -6,14 +6,13 @@ import { Link, router } from '@inertiajs/vue3'
 <template>
   <div id="faq" class="py-10 lg:py-20">
     <div class="">
-      <div class="text-center">
+      <div class="">
         <h2 class="relative inline text-4xl lg:text-5xl font-bold">
-          Tu as des <br class="lg:hidden" />
-          questions ?
+          Tu as des questions ?
           <inline-svg
             :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
             alt=""
-            class="text-[#FCD17B] absolute w-[45px] lg:w-[65px] h-auto top-[-15px] right-[-42px] lg:top-[-25px] lg:right-[-60px] focus:outline-none"
+            class="text-[#FCD17B] absolute w-[45px] lg:w-[65px] h-auto top-[25px] right-[-42px] xs:top-[-25px] lg:top-[-25px] lg:right-[-60px] focus:outline-none"
           />
         </h2>
       </div>

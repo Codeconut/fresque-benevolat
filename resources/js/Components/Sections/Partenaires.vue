@@ -239,7 +239,7 @@ import { Link } from '@inertiajs/vue3'
 
 <style lang="postcss" scoped>
 .badge {
-  @apply border rounded-3xl bg-[#F5F5FE] shadow-lg h-[120px] w-[120px] lg:w-[180px] lg:h-[180px];
+  @apply border rounded-3xl bg-[#F9F6F2] shadow-lg h-[120px] w-[120px] lg:w-[180px] lg:h-[180px];
   > div {
     @apply border-8 border-white rounded-3xl flex items-center justify-center h-[120px] w-[120px] lg:w-[180px] lg:h-[180px] p-4;
   }

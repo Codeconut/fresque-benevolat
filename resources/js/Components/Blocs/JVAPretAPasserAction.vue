@@ -5,7 +5,7 @@ import { RiArrowRightLine } from '@remixicon/vue'
 </script>
 
 <template>
-  <div class="border rounded-3xl bg-[#F5F5FE]">
+  <div class="rounded-3xl bg-[#F5F5FE]">
     <div class="border-8 border-white rounded-3xl">
       <a href="https://jeveuxaider.gouv.fr/missions-benevolat" target="_blank" class="group">
         <div class="overflow-hidden">

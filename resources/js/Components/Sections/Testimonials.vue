@@ -104,9 +104,9 @@ const onSwiper = (swiperInstance) => {
         </div>
 
         <div class="overflow-hidden">
-          <div class="bg-dsfr-lavande p-8">
-            <div class="pt-8">
-              <div class="flex flex-col lg:flex-row">
+          <div class="bg-dsfr-lavande border border-[#89A5F0] p-8 rounded-[48px]">
+            <div class="space-y-6">
+              <div class="flex flex-col lg:flex-row gap-6">
                 <img
                   :src="`${$page.props.assetUrl}/images/testimonials/testimonial-1.png`"
                   :srcset="`
@@ -114,7 +114,7 @@ const onSwiper = (swiperInstance) => {
                     ${$page.props.assetUrl}/images/testimonials/testimonial-1.png 2x
                   `"
                   alt=""
-                  class="w-full h-auto lg:w-1/2 lg:h-auto"
+                  class="w-full h-auto lg:w-1/2 lg:h-auto shadow-lg"
                 />
                 <img
                   :src="`${$page.props.assetUrl}/images/testimonials/testimonial-2.png`"
@@ -123,7 +123,7 @@ const onSwiper = (swiperInstance) => {
                     ${$page.props.assetUrl}/images/testimonials/testimonial-2.png 2x
                   `"
                   alt=""
-                  class="w-full h-auto lg:w-1/2 lg:h-auto"
+                  class="w-full h-auto lg:w-1/2 lg:h-auto shadow-lg"
                 />
               </div>
 
@@ -134,7 +134,7 @@ const onSwiper = (swiperInstance) => {
                   ${$page.props.assetUrl}/images/testimonials/testimonial-3.png 2x
                 `"
                 alt=""
-                class="col-span-2 w-full h-auto"
+                class="col-span-2 w-full h-auto shadow-lg"
               />
             </div>
           </div>

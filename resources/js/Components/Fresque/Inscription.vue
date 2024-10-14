@@ -21,7 +21,7 @@ const placesOccupied = computed(() => props.fresque.places - props.fresque.place
 </script>
 
 <template>
-  <div :class="['border rounded-3xl bg-[#F5F5FE]  shadow-lg', { 'sticky top-10 mt-10': sticky }]">
+  <div :class="['rounded-3xl bg-[#F9F6F2]  shadow-lg', { 'sticky top-10 mt-10': sticky }]">
     <div class="p-10 border-8 border-white rounded-3xl">
       <div class="grid gap-6">
         <div class="flex space-x-4">

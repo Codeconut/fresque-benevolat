@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="overflow-hidden">
+  <div class="">
     <div class="">
       <div class="">
         <Link
@@ -36,10 +36,7 @@ defineProps({
           />
         </div>
 
-        <div
-          v-if="fresque.default_picture"
-          class="border rounded-xl overflow-hidden bg-white shadow-lg"
-        >
+        <div v-if="fresque.default_picture" class="rounded-xl overflow-hidden bg-white shadow-lg">
           <div class="border-8 border-white rounded-lg overflow-hidden">
             <img
               :src="

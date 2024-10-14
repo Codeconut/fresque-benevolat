@@ -15,7 +15,7 @@ const props = defineProps({
 <template>
   <div v-if="fresques.length" class="py-10 lg:py-20">
     <div class="container">
-      <div class="text-center mb-16">
+      <div class="mb-16">
         <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-4">
           Les prochaines fresques
         </h2>

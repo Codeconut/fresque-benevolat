@@ -5,16 +5,16 @@ import { Button } from '@/Components/Dsfr'
 <template>
   <div class="py-10 lg:py-20">
     <div class="">
-      <div class="max-w-3xl mx-auto text-center">
+      <div class="">
         <h2 class="relative text-4xl lg:text-5xl lg:leading-[56px] font-bold mb-14">
+          Ça fresque dans les organisations !
           <span class="relative">
             <inline-svg
               :src="`${$page.props.assetUrl}/images/icons/gimmick.svg`"
               alt=""
-              class="text-[#77EDA5] focus:outline-none fill-current w-[45px] lg:w-[65px] !max-w-[71px] rotate-[-100deg] absolute top-[-35px] left-[-40px] lg:top-[-30px] lg:left-[-43px]"
-            /> </span
-          >Ça fresque <br />
-          dans les organisations !
+              class="text-[#77EDA5] absolute w-[45px] lg:w-[65px] h-auto top-[-15px] right-[-42px] lg:top-[-25px] lg:right-[-60px] focus:outline-none"
+            />
+          </span>
         </h2>
       </div>
 
